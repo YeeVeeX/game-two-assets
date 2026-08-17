@@ -336,6 +336,14 @@ class RealArtifactsTest(unittest.TestCase):
                 REPO / "exports" / "calibration-v0", reference,
             )
             self.assertEqual(v1_sheet.read_bytes(), built.encode())
+        v2_sheet = REPO / "reviews" / "calibration-v2" / "feedback-sheet.png"
+        if v2_sheet.is_file():
+            built = make_feedback_sheet.build_sheet(
+                REPO / "exports" / "calibration-v2",
+                REPO / "exports" / "calibration-v1",
+                REPO / "exports" / "calibration-v0", reference,
+            )
+            self.assertEqual(v2_sheet.read_bytes(), built.encode())
 
 
 if __name__ == "__main__":

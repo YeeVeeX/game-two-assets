@@ -482,6 +482,34 @@ class MakeReleaseTest(unittest.TestCase):
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         self.assertEqual([], validate_release(manifest_path, self.root))
 
+    def test_v3_registry_notes_coil_derivation_provenance(self) -> None:
+        spec_dir = self.root / "sources" / "calibration-v3" / "specs"
+        spec = valid_spec_dict() | {"asset_id": "player_1_lane_b_attack_right_a0"}
+        write_spec(spec_dir, spec)
+        (self.root / "sources" / "calibration-v3" / f"{spec['asset_id']}.aseprite").write_bytes(
+            b"native-source"
+        )
+        export_dir = self.root / "exports" / "calibration-v3"
+        export_dir.mkdir(parents=True)
+        canvas = Rgba8Canvas(32, 32)
+        canvas.fill_rect(2, 4, 4, 3, (235, 120, 40, 255))
+        canvas.fill_rect(4, 5, 2, 1, (20, 14, 12, 255))
+        canvas.save(export_dir / f"{spec['asset_id']}.png")
+
+        manifest = self.tool.build_manifest(self.root, "a" * 40, "calibration-v3")
+        provenance = manifest["exports"][0]["provenance"]
+        self.assertEqual("calibration-v3", manifest["release_id"])
+        self.assertIn("(-2,+3)", provenance["note"])
+        self.assertIn("anticipation coil pose", provenance["note"])
+        self.assertIn("draw-only", provenance["note"])
+        self.assertIn("sprint 3", provenance["author"])
+
+        from asset_gate import validate_release
+
+        manifest_path = export_dir / "release.json"
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        self.assertEqual([], validate_release(manifest_path, self.root))
+
     def test_source_commit_requires_clean_pinned_paths(self) -> None:
         self._git("init", "-q")
         self._git("config", "user.email", "test@example.invalid")

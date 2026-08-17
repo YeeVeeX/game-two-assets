@@ -102,6 +102,44 @@ RELEASES: dict[str, dict] = {
             ),
         },
     },
+    "calibration-v3": {
+        "provenance": {
+            "origin": "procedural",
+            "author": "dev agent (pi session, sprint 3)",
+            "created": "2026-08-17",
+            "rights": "private-project",
+            "method": (
+                "authored as reviewable pixel-grid specs derived from the frozen "
+                "calibration-v0 lane-B idle poses and measured against the frozen "
+                "calibration-v1 walk frames and calibration-v2 attack keys "
+                "(sources/calibration-v3/specs), built into native Aseprite sources "
+                "via tools/aseprite_build.lua, exported deterministically via "
+                "tools/export_assets.py and verified pixel-for-pixel against the "
+                "specs"
+            ),
+        },
+        "asset_notes": {
+            "player_1_lane_b_attack_down_a0": (
+                "anticipation coil pose: head block (dome, eyes, and taper rows) "
+                "copied byte-exact from the frozen calibration-v0 idle_down spec "
+                "and rigidly translated (0,+4); haunch bulge widens the lower "
+                "torso to 12 columns and the legs fold to a 3-row crouch at the "
+                "idle columns; the jaw stays closed (the gape is the strike "
+                "marker); the -3px windup displacement is the pinned draw-only "
+                "renderer offset, never pose pixels"
+            ),
+            "player_1_lane_b_attack_right_a0": (
+                "anticipation coil pose: dome and eye rows copied byte-exact from "
+                "the frozen calibration-v0 idle_right spec and rigidly translated "
+                "(-2,+3) - retracted back and down; body compressed to a low slab "
+                "with a rear haunch ridge, the oss tail marker kept, and the legs "
+                "gathered 1px inward and folded to a 3-row crouch; the snout stays "
+                "closed (the gape is the strike marker); the -3px windup "
+                "displacement is the pinned draw-only renderer offset, never pose "
+                "pixels"
+            ),
+        },
+    },
 }
 
 
