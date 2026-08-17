@@ -44,6 +44,38 @@
     "core_rgb": [250, 210, 60],
     "body_rgb": [205, 198, 180]
   },
+  "attack_timing": {
+    "captured_at": "2026-08-18",
+    "game_commit": "3869958c804b87996e03019830d9cdd7aa7397ee",
+    "source_file": "data/balance/combat.json",
+    "source_file_hash_anchored": false,
+    "anchoring_gap": "data/balance/combat.json is NOT listed in runtime-baseline.json source_files, so these values are anchored to the commit hash only, not to a content hash. Owner-review recommendation: add it to the baseline's source_files at the next approved re-pin. Values captured read-only via git show at the game_commit above.",
+    "kit": "striker",
+    "kit_evidence": "src/app/renderer.rb@3869958c L15-20: KIT_BODY[:striker] = (235,120,40) = #eb7828 = runtime-baseline.json role_colors.player_1 = primitive_body.body_rgb; data/balance/combat.json /pack/members includes striker. Body color is per-kit; possession is ring-carried.",
+    "values": {
+      "windup_frames": {
+        "json_pointer": "/kits/striker/attack/windup_frames",
+        "value": 5
+      },
+      "active_frames": {
+        "json_pointer": "/kits/striker/attack/active_frames",
+        "value": 4
+      },
+      "recovery_frames": {
+        "json_pointer": "/kits/striker/attack/recovery_frames",
+        "value": 8
+      },
+      "step_frames": {
+        "json_pointer": "/kits/striker/step_frames",
+        "value": 13
+      }
+    },
+    "state_machine": "src/game/creature.rb@3869958c: L424 begin_action (L435-436 @attack_state=:windup, @state_frames=windup_frames); L451-468 advance_attack_state (decrement, then windup->active->recovery->idle on exhaustion) - each state is drawn for exactly its configured tick count; L185 front1 arc: one precise tile ahead",
+    "draw_offsets": "src/app/renderer.rb@3869958c: L418-421 draw_creature adds lunge_offset to the tween position; L500-509 lunge_offset: windup -3px, active +6px along facing, else [0,0] (recovery draws at rest) - constant per state, no tween; magnitudes pinned in feedback_states.lunge_offset",
+    "walk_tween": "src/game/grid_walker.rb@3869958c: L90-96 tick() eases visual px with smoothstep (3t^2-2t^3) over step_frames ticks; L35 step refused while moving; L80-85 commit_dash commits the logical tile instantly; L102-103 centers the 28px body at +2px in the tile (equals the export canvas inset)",
+    "tick": "src/app/window.rb@3869958c: header L24-27 'update() = exactly ONE sim tick (tick-locked)'; no update_interval override in the file -> pinned Gosu 1.4.6 default 16.666666 ms/tick (installed gem rdoc/gosu.rb L838-846), ~60 ticks/s; FRAME_BUDGET_MS=17 (L34) corroborates. Ticks are the contract numbers; ms figures are derived from the unoverridden default.",
+    "excluded": "hitstop (/feel/hitstop_frames_hit=3) applies only on landed hits (timeline models a whiff); exhaust_frames=35 is outside the drawn window; draw_attack action-tile overlay (renderer.rb L511-537) is unpinned display context identical in both timelines and omitted (anchoring-conservative)"
+  },
   "feedback_states": {
     "captured_at": "2026-08-17",
     "source_lines": "src/app/renderer.rb@219121d3: L23 ALLY_DIM, L24 PACK_HURT, L25 HUMAN_HURT, L446-452 telegraph swell, L455 ally-dim rect, L470-480 body_color flash gating, L500-508 lunge_offset; src/game/creature.rb@219121d3: L9 SIZE, L64-65 hurt?/iframes?, L70 telegraphing?",
