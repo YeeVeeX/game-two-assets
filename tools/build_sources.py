@@ -88,12 +88,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--aseprite", type=Path, default=DEFAULT_ASEPRITE)
     args = parser.parse_args(argv)
     try:
-        written = build_all(args.specs, args.out, args.aseprite)
+        written = build_all(args.specs.resolve(), args.out.resolve(), args.aseprite)
     except (SpecError, BuildError) as exc:
         print(f"build failed: {exc}", file=sys.stderr)
         return 1
     for path in written:
-        print(f"built {path.relative_to(ROOT)}")
+        printable = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
+        print(f"built {printable}")
     return 0
 
 

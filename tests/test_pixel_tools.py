@@ -420,7 +420,7 @@ class MakeReleaseTest(unittest.TestCase):
     def test_manifest_passes_the_asset_gate(self) -> None:
         from asset_gate import validate_release
 
-        manifest = self.tool.build_manifest(self.root, "a" * 40)
+        manifest = self.tool.build_manifest(self.root, "a" * 40, "calibration-v0")
         manifest_path = self.root / "exports" / "calibration-v0" / "release.json"
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         self.assertEqual([], validate_release(manifest_path, self.root))
@@ -431,11 +431,41 @@ class MakeReleaseTest(unittest.TestCase):
     def test_refuses_missing_files(self) -> None:
         (self.root / "exports" / "calibration-v0" / "player_1_lane_a_idle_down.png").unlink()
         with self.assertRaisesRegex(self.tool.ReleaseError, "missing export"):
-            self.tool.build_manifest(self.root, "a" * 40)
+            self.tool.build_manifest(self.root, "a" * 40, "calibration-v0")
 
         (self.root / "sources" / "calibration-v0" / "player_1_lane_a_idle_down.aseprite").unlink()
         with self.assertRaisesRegex(self.tool.ReleaseError, "missing native source"):
-            self.tool.build_manifest(self.root, "a" * 40)
+            self.tool.build_manifest(self.root, "a" * 40, "calibration-v0")
+
+    def test_rejects_unknown_release_id(self) -> None:
+        with self.assertRaisesRegex(self.tool.ReleaseError, "unknown release id"):
+            self.tool.build_manifest(self.root, "a" * 40, "calibration-v9")
+
+    def test_v1_registry_notes_idle_copy_provenance(self) -> None:
+        spec_dir = self.root / "sources" / "calibration-v1" / "specs"
+        spec = valid_spec_dict() | {"asset_id": "player_1_lane_b_walk_down_f3"}
+        write_spec(spec_dir, spec)
+        (self.root / "sources" / "calibration-v1" / f"{spec['asset_id']}.aseprite").write_bytes(
+            b"native-source"
+        )
+        export_dir = self.root / "exports" / "calibration-v1"
+        export_dir.mkdir(parents=True)
+        canvas = Rgba8Canvas(32, 32)
+        canvas.fill_rect(2, 4, 4, 3, (235, 120, 40, 255))
+        canvas.fill_rect(4, 5, 2, 1, (20, 14, 12, 255))
+        canvas.save(export_dir / f"{spec['asset_id']}.png")
+
+        manifest = self.tool.build_manifest(self.root, "a" * 40, "calibration-v1")
+        provenance = manifest["exports"][0]["provenance"]
+        self.assertEqual("calibration-v1", manifest["release_id"])
+        self.assertIn("copied forward verbatim", provenance["note"])
+        self.assertIn("sprint 1", provenance["author"])
+
+        from asset_gate import validate_release
+
+        manifest_path = export_dir / "release.json"
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        self.assertEqual([], validate_release(manifest_path, self.root))
 
     def test_source_commit_requires_clean_pinned_paths(self) -> None:
         self._git("init", "-q")
@@ -456,7 +486,7 @@ class MakeReleaseTest(unittest.TestCase):
         self._git("config", "user.name", "test")
         self._git("add", "sources", "tools", "manifests")
         self._git("commit", "-q", "-m", "sources")
-        status = self.tool.main(["--root", str(self.root)])
+        status = self.tool.main(["--root", str(self.root), "--release", "calibration-v0"])
         self.assertEqual(0, status)
         manifest = json.loads(
             (self.root / "exports" / "calibration-v0" / "release.json").read_text(
@@ -466,10 +496,13 @@ class MakeReleaseTest(unittest.TestCase):
         self.assertEqual(self._git("rev-parse", "HEAD"), manifest["source"]["commit"])
 
     def test_main_reports_refusal(self) -> None:
-        status = self.tool.main(["--root", str(self.root), "--commit", "a" * 40])
+        arguments = [
+            "--root", str(self.root), "--release", "calibration-v0", "--commit", "a" * 40,
+        ]
+        status = self.tool.main(arguments)
         self.assertEqual(0, status)
         (self.root / "exports" / "calibration-v0" / "player_1_lane_a_idle_down.png").unlink()
-        status = self.tool.main(["--root", str(self.root), "--commit", "a" * 40])
+        status = self.tool.main(arguments)
         self.assertEqual(1, status)
 
 

@@ -38,6 +38,40 @@ PROVENANCE = {
 }
 
 
+def _idle_copy_note(facing: str) -> str:
+    return (
+        f"pass frame: the calibration-v0 player_1_lane_b_idle_{facing} spec copied "
+        "forward verbatim as walk frame f3; export bytes match the calibration-v0 "
+        "idle export"
+    )
+
+
+# Per-release provenance registry. Every entry is frozen once its release is
+# banked; new sprints append a new release id instead of editing older ones.
+RELEASES: dict[str, dict] = {
+    "calibration-v0": {"provenance": PROVENANCE, "asset_notes": {}},
+    "calibration-v1": {
+        "provenance": {
+            "origin": "procedural",
+            "author": "dev agent (pi session, sprint 1)",
+            "created": "2026-08-17",
+            "rights": "private-project",
+            "method": (
+                "authored as reviewable pixel-grid specs derived from the frozen "
+                "calibration-v0 lane-B idle poses (sources/calibration-v1/specs), "
+                "built into native Aseprite sources via tools/aseprite_build.lua, "
+                "exported deterministically via tools/export_assets.py and verified "
+                "pixel-for-pixel against the specs"
+            ),
+        },
+        "asset_notes": {
+            "player_1_lane_b_walk_down_f3": _idle_copy_note("down"),
+            "player_1_lane_b_walk_right_f3": _idle_copy_note("right"),
+        },
+    },
+}
+
+
 class ReleaseError(RuntimeError):
     """Refuse to emit a manifest that would lie about provenance."""
 
@@ -70,10 +104,14 @@ def game_commit(root: Path) -> str:
     return baseline["game_commit"]
 
 
-def build_manifest(root: Path, commit: str) -> dict:
-    spec_dir = root / "sources" / RELEASE_ID / "specs"
-    source_dir = root / "sources" / RELEASE_ID
-    export_dir = root / "exports" / RELEASE_ID
+def build_manifest(root: Path, commit: str, release_id: str) -> dict:
+    if release_id not in RELEASES:
+        known = ", ".join(sorted(RELEASES))
+        raise ReleaseError(f"unknown release id {release_id!r}; registry has: {known}")
+    release = RELEASES[release_id]
+    spec_dir = root / "sources" / release_id / "specs"
+    source_dir = root / "sources" / release_id
+    export_dir = root / "exports" / release_id
     specs = load_spec_dir(spec_dir)
 
     source_files = []
@@ -83,11 +121,11 @@ def build_manifest(root: Path, commit: str) -> dict:
         if not ase_path.is_file():
             raise ReleaseError(f"missing native source {ase_path}")
         source_files.append(
-            {"path": f"sources/{RELEASE_ID}/specs/{spec.asset_id}.json",
+            {"path": f"sources/{release_id}/specs/{spec.asset_id}.json",
              "sha256": sha256_file(spec_path)}
         )
         source_files.append(
-            {"path": f"sources/{RELEASE_ID}/{spec.asset_id}.aseprite",
+            {"path": f"sources/{release_id}/{spec.asset_id}.aseprite",
              "sha256": sha256_file(ase_path)}
         )
 
@@ -96,23 +134,27 @@ def build_manifest(root: Path, commit: str) -> dict:
         png_path = export_dir / f"{spec.asset_id}.png"
         if not png_path.is_file():
             raise ReleaseError(f"missing export {png_path}")
+        provenance = dict(release["provenance"])
+        note = release["asset_notes"].get(spec.asset_id)
+        if note:
+            provenance["note"] = note
         exports.append(
             {
                 "asset_id": spec.asset_id,
                 "kind": "creature",
-                "path": f"exports/{RELEASE_ID}/{spec.asset_id}.png",
+                "path": f"exports/{release_id}/{spec.asset_id}.png",
                 "sha256": sha256_file(png_path),
                 "width": 32,
                 "height": 32,
                 "anchor": [16, 30],
                 "palette": list(spec.used_colors),
-                "provenance": dict(PROVENANCE),
+                "provenance": provenance,
             }
         )
 
     return {
         "contract_version": 1,
-        "release_id": RELEASE_ID,
+        "release_id": release_id,
         "source": {"commit": commit, "files": source_files},
         "target": {
             "game_commit": game_commit(root),
@@ -130,16 +172,20 @@ def build_manifest(root: Path, commit: str) -> dict:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument(
+        "--release", required=True, choices=sorted(RELEASES),
+        help="release id from the provenance registry",
+    )
     parser.add_argument("--commit", help="override source commit (tests only)")
     args = parser.parse_args(argv)
     root = args.root.resolve()
     try:
         commit = args.commit or source_commit(root)
-        manifest = build_manifest(root, commit)
+        manifest = build_manifest(root, commit, args.release)
     except ReleaseError as exc:
         print(f"release refused: {exc}", file=sys.stderr)
         return 1
-    out_path = root / "exports" / RELEASE_ID / "release.json"
+    out_path = root / "exports" / args.release / "release.json"
     out_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"wrote {out_path}")
     return 0
