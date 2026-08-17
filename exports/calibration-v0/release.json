@@ -1,0 +1,224 @@
+{
+  "contract_version": 1,
+  "release_id": "calibration-v0",
+  "source": {
+    "commit": "8903eb91ec6b1652d21bd4c882d0e194c7b97371",
+    "files": [
+      {
+        "path": "sources/calibration-v0/specs/player_1_lane_a_idle_down.json",
+        "sha256": "be3a99779daf59833174be1b26789ed36d8873c10a4ad1e24426c644fe4f3ae8"
+      },
+      {
+        "path": "sources/calibration-v0/player_1_lane_a_idle_down.aseprite",
+        "sha256": "9903a23ccda8f8d2b12d4b5439e5a6cccda8e62b445c09367801b1720734ce17"
+      },
+      {
+        "path": "sources/calibration-v0/specs/player_1_lane_a_idle_right.json",
+        "sha256": "f381641975b08f39b7048f9c8115dbc7e5e67cb5396cf6ef3b4d673194f60f06"
+      },
+      {
+        "path": "sources/calibration-v0/player_1_lane_a_idle_right.aseprite",
+        "sha256": "15ba34b5d1d7b11395228dbd01dbcf81f20fcbe9b266c09a12f915663cc8e77c"
+      },
+      {
+        "path": "sources/calibration-v0/specs/player_1_lane_b_idle_down.json",
+        "sha256": "4bd8187e256b21e93ca6f5449c1885cdb57dddf716b9be41faef182108108a9d"
+      },
+      {
+        "path": "sources/calibration-v0/player_1_lane_b_idle_down.aseprite",
+        "sha256": "b428fa6b0803d8d91931780c1bb6c09fd12cc9930a9e1ac6a7531bf743a020ad"
+      },
+      {
+        "path": "sources/calibration-v0/specs/player_1_lane_b_idle_right.json",
+        "sha256": "b082a5f6a13cdc2992879676e4d4f5fb5e979e23600d1ceb52cc3757253d87ac"
+      },
+      {
+        "path": "sources/calibration-v0/player_1_lane_b_idle_right.aseprite",
+        "sha256": "e901e25f988a8897aaa902e5314bad34f25ad8ccc7ebb1d921e422ef5f32e1f8"
+      },
+      {
+        "path": "sources/calibration-v0/specs/player_1_lane_c_idle_down.json",
+        "sha256": "b82f7efe07febaffbc971e0e7bf38b4e569159d29fc43b90c35349508c7a1b5b"
+      },
+      {
+        "path": "sources/calibration-v0/player_1_lane_c_idle_down.aseprite",
+        "sha256": "2219ca206eddacce1f93fba8f7fed4707131977d75db77e00b9524161c1445b8"
+      },
+      {
+        "path": "sources/calibration-v0/specs/player_1_lane_c_idle_right.json",
+        "sha256": "ecca801566d988a856f4c4a48c1c5d5c7d0c5e8c2011332b1765191043d27386"
+      },
+      {
+        "path": "sources/calibration-v0/player_1_lane_c_idle_right.aseprite",
+        "sha256": "56b54006ed60113a0b53f5d13add97de5ba69c75dbbf8e039ffc2e3ee9f4e0e7"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "219121d3ca2cfabfd39c3a1533b8227b52f68617",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_a_idle_down",
+      "kind": "creature",
+      "path": "exports/calibration-v0/player_1_lane_a_idle_down.png",
+      "sha256": "f7081a61fe183904b73e1c17e1e64864d72bd5ce07f96ca92db46087188dc488",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 0)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_a_idle_right",
+      "kind": "creature",
+      "path": "exports/calibration-v0/player_1_lane_a_idle_right.png",
+      "sha256": "c97e36bede9b35c980d19a7aa63210a686e5a85e873a7582d4e0d81dff18a42b",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 0)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_idle_down",
+      "kind": "creature",
+      "path": "exports/calibration-v0/player_1_lane_b_idle_down.png",
+      "sha256": "e21c14618821c2c02f2c086c1115e75dc50cc854bdd9c43febfed19563721cbc",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 0)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_idle_right",
+      "kind": "creature",
+      "path": "exports/calibration-v0/player_1_lane_b_idle_right.png",
+      "sha256": "726f7ac0e695ed540b76bf4e7e61cc64aebf7477ff755f1651987c6f63530b5e",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 0)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_c_idle_down",
+      "kind": "creature",
+      "path": "exports/calibration-v0/player_1_lane_c_idle_down.png",
+      "sha256": "f4c2fcb546dbf18a92af64c9d6a5701b91f732e1377985665d2d459aea02e38b",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 0)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_c_idle_right",
+      "kind": "creature",
+      "path": "exports/calibration-v0/player_1_lane_c_idle_right.png",
+      "sha256": "d7966d9465d56217ecc58db40333ece9c8ab0478220a45fc254f4c8d780e1b1d",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 0)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    }
+  ]
+}
