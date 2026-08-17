@@ -1,0 +1,90 @@
+{
+  "contract_version": 1,
+  "release_id": "calibration-v3",
+  "source": {
+    "commit": "37480402d60413cb151b98ea918c87d125132dc9",
+    "files": [
+      {
+        "path": "sources/calibration-v3/specs/player_1_lane_b_attack_down_a0.json",
+        "sha256": "5c223c5e4d6c58665aa88922aa0e4ec49025d5c9f5c9dd30e16322064be9f5c9"
+      },
+      {
+        "path": "sources/calibration-v3/player_1_lane_b_attack_down_a0.aseprite",
+        "sha256": "e4591808c3775b78f076546bbb044d7add5c95b10ab6cdbc1667f0e8bf9531a1"
+      },
+      {
+        "path": "sources/calibration-v3/specs/player_1_lane_b_attack_right_a0.json",
+        "sha256": "b012c85960e223353f538dfc3ab274f9d2a6dba6bc2eee9e757f17d2e35d73ae"
+      },
+      {
+        "path": "sources/calibration-v3/player_1_lane_b_attack_right_a0.aseprite",
+        "sha256": "da82473edee3104890d8286b3f4a7903f85a64d5b1b928b2b50adaef0bc199f6"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "3869958c804b87996e03019830d9cdd7aa7397ee",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_b_attack_down_a0",
+      "kind": "creature",
+      "path": "exports/calibration-v3/player_1_lane_b_attack_down_a0.png",
+      "sha256": "1f37faf57bd5c1be33b8cf04d4a51e3f7b4b6439170237cd1640e50a5c5257df",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 3)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames and calibration-v2 attack keys (sources/calibration-v3/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "anticipation coil pose: head block (dome, eyes, and taper rows) copied byte-exact from the frozen calibration-v0 idle_down spec and rigidly translated (0,+4); haunch bulge widens the lower torso to 12 columns and the legs fold to a 3-row crouch at the idle columns; the jaw stays closed (the gape is the strike marker); the -3px windup displacement is the pinned draw-only renderer offset, never pose pixels"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_a0",
+      "kind": "creature",
+      "path": "exports/calibration-v3/player_1_lane_b_attack_right_a0.png",
+      "sha256": "0515dea25216b3e74f6de946dab3383b9b549daa448a18b3bccf6d36280b0d9d",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 3)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames and calibration-v2 attack keys (sources/calibration-v3/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "anticipation coil pose: dome and eye rows copied byte-exact from the frozen calibration-v0 idle_right spec and rigidly translated (-2,+3) - retracted back and down; body compressed to a low slab with a rear haunch ridge, the oss tail marker kept, and the legs gathered 1px inward and folded to a 3-row crouch; the snout stays closed (the gape is the strike marker); the -3px windup displacement is the pinned draw-only renderer offset, never pose pixels"
+      }
+    }
+  ]
+}

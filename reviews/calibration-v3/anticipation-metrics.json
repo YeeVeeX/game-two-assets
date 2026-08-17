@@ -1,0 +1,283 @@
+{
+  "anticipation": {
+    "down": {
+      "deltas": [
+        {
+          "popping_pct": 31.1,
+          "recolored_px": 96,
+          "silhouette_changed_px": 88,
+          "union_px": 283,
+          "vs": "idle"
+        },
+        {
+          "popping_pct": 33.92,
+          "recolored_px": 94,
+          "silhouette_changed_px": 97,
+          "union_px": 286,
+          "vs": "f0"
+        },
+        {
+          "popping_pct": 37.04,
+          "recolored_px": 101,
+          "silhouette_changed_px": 110,
+          "union_px": 297,
+          "vs": "f1"
+        },
+        {
+          "popping_pct": 33.92,
+          "recolored_px": 88,
+          "silhouette_changed_px": 97,
+          "union_px": 286,
+          "vs": "f2"
+        },
+        {
+          "popping_pct": 31.1,
+          "recolored_px": 96,
+          "silhouette_changed_px": 88,
+          "union_px": 283,
+          "vs": "f3"
+        },
+        {
+          "popping_pct": 27.18,
+          "recolored_px": 79,
+          "silhouette_changed_px": 78,
+          "union_px": 287,
+          "vs": "k0"
+        }
+      ],
+      "head_region_share_vs_idle_pct": 75.0,
+      "max_delta_pct": 37.04,
+      "pose": {
+        "bbox": [
+          9,
+          8,
+          22,
+          27
+        ],
+        "centroid": [
+          15.48,
+          16.81
+        ],
+        "feet_row": 27,
+        "feet_row_delta_vs_idle": 0,
+        "mass": 227,
+        "mass_drift_vs_idle_pct": -9.56
+      },
+      "strike_distinctness_pct": 27.18,
+      "walk_confusability_floor_pct": 31.1
+    },
+    "right": {
+      "deltas": [
+        {
+          "popping_pct": 36.57,
+          "recolored_px": 84,
+          "silhouette_changed_px": 128,
+          "union_px": 350,
+          "vs": "idle"
+        },
+        {
+          "popping_pct": 42.86,
+          "recolored_px": 84,
+          "silhouette_changed_px": 156,
+          "union_px": 364,
+          "vs": "f0"
+        },
+        {
+          "popping_pct": 40.77,
+          "recolored_px": 100,
+          "silhouette_changed_px": 148,
+          "union_px": 363,
+          "vs": "f1"
+        },
+        {
+          "popping_pct": 36.57,
+          "recolored_px": 84,
+          "silhouette_changed_px": 128,
+          "union_px": 350,
+          "vs": "f2"
+        },
+        {
+          "popping_pct": 36.57,
+          "recolored_px": 84,
+          "silhouette_changed_px": 128,
+          "union_px": 350,
+          "vs": "f3"
+        },
+        {
+          "popping_pct": 31.97,
+          "recolored_px": 69,
+          "silhouette_changed_px": 102,
+          "union_px": 319,
+          "vs": "k0"
+        }
+      ],
+      "head_region_share_vs_idle_pct": 71.88,
+      "max_delta_pct": 42.86,
+      "pose": {
+        "bbox": [
+          7,
+          7,
+          26,
+          27
+        ],
+        "centroid": [
+          16.08,
+          16.63
+        ],
+        "feet_row": 27,
+        "feet_row_delta_vs_idle": 0,
+        "mass": 277,
+        "mass_drift_vs_idle_pct": -6.1
+      },
+      "strike_distinctness_pct": 31.97,
+      "walk_confusability_floor_pct": 36.57
+    }
+  },
+  "flash_accent": {
+    "down": {
+      "accent_rgb": [
+        20,
+        14,
+        12
+      ],
+      "contrast_accent_vs_flash": 3.33,
+      "flash_rgb": [
+        200,
+        30,
+        30
+      ],
+      "frames": {
+        "a0": {
+          "accent_share_of_mass_pct": 6.17,
+          "surviving_accent_px": 14
+        },
+        "f0": {
+          "accent_share_of_mass_pct": 5.65,
+          "surviving_accent_px": 14
+        },
+        "f1": {
+          "accent_share_of_mass_pct": 5.45,
+          "surviving_accent_px": 14
+        },
+        "f2": {
+          "accent_share_of_mass_pct": 5.65,
+          "surviving_accent_px": 14
+        },
+        "f3": {
+          "accent_share_of_mass_pct": 5.58,
+          "surviving_accent_px": 14
+        },
+        "idle": {
+          "accent_share_of_mass_pct": 5.58,
+          "surviving_accent_px": 14
+        },
+        "k0": {
+          "accent_share_of_mass_pct": 11.15,
+          "surviving_accent_px": 30
+        }
+      }
+    },
+    "right": {
+      "accent_rgb": [
+        20,
+        14,
+        12
+      ],
+      "contrast_accent_vs_flash": 3.33,
+      "flash_rgb": [
+        200,
+        30,
+        30
+      ],
+      "frames": {
+        "a0": {
+          "accent_share_of_mass_pct": 3.61,
+          "surviving_accent_px": 10
+        },
+        "f0": {
+          "accent_share_of_mass_pct": 3.39,
+          "surviving_accent_px": 10
+        },
+        "f1": {
+          "accent_share_of_mass_pct": 3.32,
+          "surviving_accent_px": 10
+        },
+        "f2": {
+          "accent_share_of_mass_pct": 3.39,
+          "surviving_accent_px": 10
+        },
+        "f3": {
+          "accent_share_of_mass_pct": 3.39,
+          "surviving_accent_px": 10
+        },
+        "idle": {
+          "accent_share_of_mass_pct": 3.39,
+          "surviving_accent_px": 10
+        },
+        "k0": {
+          "accent_share_of_mass_pct": 6.95,
+          "surviving_accent_px": 18
+        }
+      }
+    }
+  },
+  "generated_by": "tools/anticipation_metrics.py",
+  "reference": {
+    "idle_cross_facing": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  },
+  "rings": {
+    "down": {
+      "a0_to_k0_max_edge_px": 2,
+      "bbox_ring_rects": {
+        "a0": [
+          6,
+          5,
+          25,
+          30
+        ],
+        "idle": [
+          6,
+          1,
+          25,
+          30
+        ],
+        "k0": [
+          5,
+          3,
+          26,
+          30
+        ]
+      },
+      "idle_to_a0_max_edge_px": 4
+    },
+    "right": {
+      "a0_to_k0_max_edge_px": 2,
+      "bbox_ring_rects": {
+        "a0": [
+          4,
+          4,
+          29,
+          30
+        ],
+        "idle": [
+          4,
+          1,
+          31,
+          30
+        ],
+        "k0": [
+          4,
+          4,
+          31,
+          30
+        ]
+      },
+      "idle_to_a0_max_edge_px": 3
+    }
+  }
+}
