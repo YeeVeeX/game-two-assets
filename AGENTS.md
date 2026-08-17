@@ -36,6 +36,8 @@ Assets, contact sheets, review docs, and README target the owner and future cont
 ## Pointers and enforcement
 
 - `docs/asset-contract.md` — export/release law
+- `docs/research/2d-asset-playbooks/` — external 2D/GenAI research corpus (subordinate to the contract; trust notes in its README)
+- `.agents/skills/concept-research/` — concept-stage generation + critique workflow (auto-discovered by pi)
 - `docs/sprint-0.md` — bounded first calibration
 - `manifests/runtime-baseline.json` / `toolchain-baseline.json` — compatibility pins
 - Hooks are untracked: pre-commit runs swarmforge `--changed`; pre-push preserves Git LFS then runs `--full`. Reinstall from the quality-gauntlet recipe.
