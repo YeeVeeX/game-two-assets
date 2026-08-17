@@ -140,6 +140,49 @@ RELEASES: dict[str, dict] = {
             ),
         },
     },
+    "calibration-v5": {
+        "provenance": {
+            "origin": "procedural",
+            "author": "dev agent (pi session, sprint 5)",
+            "created": "2026-08-18",
+            "rights": "private-project",
+            "method": (
+                "authored as reviewable pixel-grid specs derived from the frozen "
+                "calibration-v0 lane-B idle poses and measured against the frozen "
+                "calibration-v1 walk frames, calibration-v2 attack keys, and "
+                "calibration-v3 anticipation coils (sources/calibration-v5/specs), "
+                "built into native Aseprite sources via tools/aseprite_build.lua, "
+                "exported deterministically via tools/export_assets.py and verified "
+                "pixel-for-pixel against the specs"
+            ),
+        },
+        "asset_notes": {
+            "player_1_lane_b_attack_down_r0": (
+                "follow-through settle pose: head block (dome, eyes, and taper "
+                "rows) copied byte-exact from the frozen calibration-v0 idle_down "
+                "spec and rigidly translated (+2,+3) - slumped down and off the "
+                "strike axis (the lateral axis is virgin for down states); low "
+                "13-14-wide slab sagged toward the shaded side with mass pooled "
+                "at the base; legs asymmetric mid-return (left planted at the "
+                "idle columns, right still at the k0 splay column); the jaw stays "
+                "closed (the gape is the strike marker); recovery draws at the "
+                "pinned offset 0 (renderer lunge_offset else-branch), never pose "
+                "pixels"
+            ),
+            "player_1_lane_b_attack_right_r0": (
+                "follow-through overshoot pose: dome and eye rows copied "
+                "byte-exact from the frozen calibration-v0 idle_right spec and "
+                "rigidly translated (+1,+4) - dipped forward and down (the +x "
+                "head axis is virgin: the coil retracts -2, the strike and every "
+                "walk hold the idle head columns); back line slopes toward the "
+                "front, oss tail marker kept and raised 2 rows (weight tipped "
+                "forward); legs carried 1px forward of idle (rear 11-13, front "
+                "19-21, between the idle stance and the k0 reach); the snout "
+                "stays closed (the gape is the strike marker); recovery draws at "
+                "the pinned offset 0, never pose pixels"
+            ),
+        },
+    },
 }
 
 
