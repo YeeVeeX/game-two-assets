@@ -1,0 +1,90 @@
+{
+  "contract_version": 1,
+  "release_id": "calibration-v5",
+  "source": {
+    "commit": "23bd056ab22ec88f5ce997dd231039fc1fc6a3ad",
+    "files": [
+      {
+        "path": "sources/calibration-v5/specs/player_1_lane_b_attack_down_r0.json",
+        "sha256": "657cfd6728505af92147cbdd4c2cdf6d5c7d696258a2a0887f3bf5e6f787c70a"
+      },
+      {
+        "path": "sources/calibration-v5/player_1_lane_b_attack_down_r0.aseprite",
+        "sha256": "7af7541f5d2e187748a333838d98acf755bf834d292bae87ed04254629a90d5b"
+      },
+      {
+        "path": "sources/calibration-v5/specs/player_1_lane_b_attack_right_r0.json",
+        "sha256": "898345267a0134e8e25e4bab577b311e9f39a8e8ff88a1cfd23bd5a3d76ef6a4"
+      },
+      {
+        "path": "sources/calibration-v5/player_1_lane_b_attack_right_r0.aseprite",
+        "sha256": "b4c1362f5d4bd4ea9f966bf79b9bbfaeb2e101eeea8fc492017191af46090ca2"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "c6d8828ab366138e19d3bf2a5b85ca97d6fd387c",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_b_attack_down_r0",
+      "kind": "creature",
+      "path": "exports/calibration-v5/player_1_lane_b_attack_down_r0.png",
+      "sha256": "d95bb6fa70438acc61108b81a8cac22298140b9122705115b077f2f552352de8",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 5)",
+        "created": "2026-08-18",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames, calibration-v2 attack keys, and calibration-v3 anticipation coils (sources/calibration-v5/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "follow-through settle pose: head block (dome, eyes, and taper rows) copied byte-exact from the frozen calibration-v0 idle_down spec and rigidly translated (+2,+3) - slumped down and off the strike axis (the lateral axis is virgin for down states); low 13-14-wide slab sagged toward the shaded side with mass pooled at the base; legs asymmetric mid-return (left planted at the idle columns, right still at the k0 splay column); the jaw stays closed (the gape is the strike marker); recovery draws at the pinned offset 0 (renderer lunge_offset else-branch), never pose pixels"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_r0",
+      "kind": "creature",
+      "path": "exports/calibration-v5/player_1_lane_b_attack_right_r0.png",
+      "sha256": "ef8b694ce9d81ad27e860e520fdcedbab876c068a05ff4be6ebf9bbe2bc0fd1a",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 5)",
+        "created": "2026-08-18",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames, calibration-v2 attack keys, and calibration-v3 anticipation coils (sources/calibration-v5/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "follow-through overshoot pose: dome and eye rows copied byte-exact from the frozen calibration-v0 idle_right spec and rigidly translated (+1,+4) - dipped forward and down (the +x head axis is virgin: the coil retracts -2, the strike and every walk hold the idle head columns); back line slopes toward the front, oss tail marker kept and raised 2 rows (weight tipped forward); legs carried 1px forward of idle (rear 11-13, front 19-21, between the idle stance and the k0 reach); the snout stays closed (the gape is the strike marker); recovery draws at the pinned offset 0, never pose pixels"
+      }
+    }
+  ]
+}
