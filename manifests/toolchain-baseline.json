@@ -1,0 +1,12 @@
+{
+  "contract_version": 1,
+  "captured_at": "2026-08-17",
+  "aseprite": {
+    "version_output": "Aseprite 1.x-dev",
+    "executable_sha256": "33410512c929378074cf47dd1535318394ada50c47b2e69a94df34c94ae56f17",
+    "verified_path": "C:/tools/aseprite/build/bin/aseprite.exe"
+  },
+  "python": {
+    "required": "3.12"
+  }
+}

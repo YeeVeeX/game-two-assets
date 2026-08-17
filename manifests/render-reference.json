@@ -1,0 +1,47 @@
+{
+  "contract_version": 1,
+  "captured_at": "2026-08-17",
+  "purpose": "Exact runtime colors and primitive-body geometry for scripted contact sheets. Copied values, never a runtime fetch.",
+  "captured_from": {
+    "game_commit": "219121d3ca2cfabfd39c3a1533b8227b52f68617",
+    "files": [
+      "data/zones/nest.json",
+      "data/zones/district.json",
+      "src/app/renderer.rb",
+      "src/game/creature.rb"
+    ],
+    "pinned_by": "manifests/runtime-baseline.json"
+  },
+  "zones": {
+    "zone_1": {
+      "floor": [28, 24, 22],
+      "grid": [38, 32, 28],
+      "wall": [172, 120, 96],
+      "motif": [58, 44, 38],
+      "transition": [235, 190, 90]
+    },
+    "zone_2": {
+      "floor": [36, 30, 20],
+      "grid": [46, 38, 26],
+      "wall": [176, 140, 88],
+      "motif": [62, 50, 30],
+      "transition": [235, 190, 90]
+    }
+  },
+  "primitive_body": {
+    "size": 28,
+    "tile_offset": [2, 2],
+    "body_rgb": [235, 120, 40],
+    "notch_rgb": [20, 14, 12],
+    "notch_size": 6
+  },
+  "possession_ring": {
+    "rgb": [255, 255, 255],
+    "expand": 3
+  },
+  "telegraph": {
+    "edge_rgb": [235, 60, 40],
+    "core_rgb": [250, 210, 60],
+    "body_rgb": [205, 198, 180]
+  }
+}

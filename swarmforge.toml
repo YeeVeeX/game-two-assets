@@ -1,0 +1,6 @@
+[gauntlet]
+test_command = [".venv/Scripts/python.exe", "-m", "unittest", "discover", "-s", "tests", "-v"]
+full_command = [".venv/Scripts/python.exe", "bin/full_gate.py"]
+
+[tdd]
+test_patterns = ["test_{stem}.py"]

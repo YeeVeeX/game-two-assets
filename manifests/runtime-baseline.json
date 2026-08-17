@@ -1,0 +1,49 @@
+{
+  "contract_version": 1,
+  "captured_at": "2026-08-17",
+  "game_repository": "game-two",
+  "game_branch": "junior-tibia",
+  "game_commit": "219121d3ca2cfabfd39c3a1533b8227b52f68617",
+  "view": {
+    "width": 960,
+    "height": 540
+  },
+  "grid": {
+    "tile_width": 32,
+    "tile_height": 32,
+    "creature_canvas_width": 32,
+    "creature_canvas_height": 32,
+    "creature_opaque_bounds": [2, 2, 29, 29],
+    "creature_anchor": [16, 30]
+  },
+  "role_colors": {
+    "player_1": "#eb7828",
+    "player_2": "#be5023",
+    "player_3": "#e1aa5a",
+    "human": "#cdc6b4",
+    "possession_ring": "#ffffff",
+    "open_transition": "#ebbe5a"
+  },
+  "source_files": [
+    {
+      "path": "src/app/renderer.rb",
+      "sha256_lf": "75cd049beb0ff1192b088ce16f0710a162a94a98e5d93a5021752d04aa12110a"
+    },
+    {
+      "path": "src/game/creature.rb",
+      "sha256_lf": "3b7bcc188a487adb4024fdc5bf016097796912bff8c2700a97a21ec3e117d6e0"
+    },
+    {
+      "path": "data/display.json",
+      "sha256_lf": "a66bd9423d88a25ee1d3715ae544f5a22b531632b41e85c23865ee192b7d21cb"
+    },
+    {
+      "path": "data/zones/nest.json",
+      "sha256_lf": "a52385402f962f2e1082bb80e989f105feb3dfa78c3c8cb4c4cbce48a88ea3dd"
+    },
+    {
+      "path": "data/zones/district.json",
+      "sha256_lf": "9774cdd04ebaf6e1a429a1aceb26ca8b7ddd13f97f3086ff862d22ee305cd5f4"
+    }
+  ]
+}

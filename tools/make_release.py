@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+"""Emit exports/<release>/release.json with pinned commits and full hash chain.
+
+Reads the frozen pixel specs, native sources, and exports; records SHA-256 for
+every file plus the source/game commits. Refuses to write when the working
+tree state under sources/ or tools/ differs from HEAD, so the recorded source
+commit is always honest.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parent
+sys.path.insert(0, str(TOOLS))
+
+from asset_gate import sha256_file  # noqa: E402
+from pixel_spec import load_spec_dir  # noqa: E402
+
+RELEASE_ID = "calibration-v0"
+EXPORTER = "tools/export_assets.py"
+PROVENANCE = {
+    "origin": "procedural",
+    "author": "dev agent (pi session, sprint 0)",
+    "created": "2026-08-17",
+    "rights": "private-project",
+    "method": (
+        "authored as reviewable pixel-grid specs (sources/calibration-v0/specs), "
+        "built into native Aseprite sources via tools/aseprite_build.lua, exported "
+        "deterministically via tools/export_assets.py and verified pixel-for-pixel "
+        "against the specs"
+    ),
+}
+
+
+class ReleaseError(RuntimeError):
+    """Refuse to emit a manifest that would lie about provenance."""
+
+
+def _git(root: Path, *arguments: str) -> str:
+    try:
+        return subprocess.run(
+            ["git", "-C", str(root), *arguments],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise ReleaseError(f"git failed: {exc}") from exc
+
+
+def source_commit(root: Path) -> str:
+    """HEAD commit, required to have sources/ and tools/ committed clean."""
+    head = _git(root, "rev-parse", "HEAD")
+    dirty = _git(root, "status", "--porcelain", "--", "sources", "tools", "manifests")
+    if dirty:
+        raise ReleaseError(
+            "sources/, tools/, or manifests/ differ from HEAD; commit them first:\n" + dirty
+        )
+    return head
+
+
+def game_commit(root: Path) -> str:
+    baseline = json.loads(
+        (root / "manifests" / "runtime-baseline.json").read_text(encoding="utf-8")
+    )
+    return baseline["game_commit"]
+
+
+def build_manifest(root: Path, commit: str) -> dict:
+    spec_dir = root / "sources" / RELEASE_ID / "specs"
+    source_dir = root / "sources" / RELEASE_ID
+    export_dir = root / "exports" / RELEASE_ID
+    specs = load_spec_dir(spec_dir)
+
+    source_files = []
+    for spec in specs:
+        spec_path = spec_dir / f"{spec.asset_id}.json"
+        ase_path = source_dir / f"{spec.asset_id}.aseprite"
+        if not ase_path.is_file():
+            raise ReleaseError(f"missing native source {ase_path}")
+        source_files.append(
+            {"path": f"sources/{RELEASE_ID}/specs/{spec.asset_id}.json",
+             "sha256": sha256_file(spec_path)}
+        )
+        source_files.append(
+            {"path": f"sources/{RELEASE_ID}/{spec.asset_id}.aseprite",
+             "sha256": sha256_file(ase_path)}
+        )
+
+    exports = []
+    for spec in specs:
+        png_path = export_dir / f"{spec.asset_id}.png"
+        if not png_path.is_file():
+            raise ReleaseError(f"missing export {png_path}")
+        exports.append(
+            {
+                "asset_id": spec.asset_id,
+                "kind": "creature",
+                "path": f"exports/{RELEASE_ID}/{spec.asset_id}.png",
+                "sha256": sha256_file(png_path),
+                "width": 32,
+                "height": 32,
+                "anchor": [16, 30],
+                "palette": list(spec.used_colors),
+                "provenance": dict(PROVENANCE),
+            }
+        )
+
+    return {
+        "contract_version": 1,
+        "release_id": RELEASE_ID,
+        "source": {"commit": commit, "files": source_files},
+        "target": {
+            "game_commit": game_commit(root),
+            "runtime_baseline": "manifests/runtime-baseline.json",
+        },
+        "toolchain": {
+            "baseline": "manifests/toolchain-baseline.json",
+            "exporter_path": EXPORTER,
+            "exporter_sha256": sha256_file(root / EXPORTER),
+        },
+        "exports": exports,
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--commit", help="override source commit (tests only)")
+    args = parser.parse_args(argv)
+    root = args.root.resolve()
+    try:
+        commit = args.commit or source_commit(root)
+        manifest = build_manifest(root, commit)
+    except ReleaseError as exc:
+        print(f"release refused: {exc}", file=sys.stderr)
+        return 1
+    out_path = root / "exports" / RELEASE_ID / "release.json"
+    out_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
+    print(f"wrote {out_path}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
