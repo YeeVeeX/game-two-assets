@@ -378,65 +378,6 @@ def _validate_baseline_shape(baseline: dict[str, Any], errors: list[str]) -> Non
         errors.append("role_colors must contain lowercase #rrggbb values")
 
 
-def _game_head(game_root: Path) -> str:
-    try:
-        return subprocess.run(
-            ["git", "-C", str(game_root), "rev-parse", "HEAD"],
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
-    except (OSError, subprocess.CalledProcessError) as exc:
-        raise AssetGateError(f"cannot read game Git commit: {exc}") from exc
-
-
-def _validate_game_source(
-    entry: Any, index: int, game_root: Path, errors: list[str]
-) -> None:
-    label = f"source_files[{index}]"
-    source = _as_object(entry, label, errors)
-    if not source:
-        return
-    path = game_root / str(source.get("path", ""))
-    if not path.is_file():
-        errors.append(f"{label}.path does not exist in game-two")
-    elif source.get("sha256_lf") != sha256_file(path, normalize_lf=True):
-        errors.append(f"{label}.sha256_lf does not match game-two")
-
-
-def _validate_game_baseline(
-    baseline: dict[str, Any], game_root: Path, errors: list[str]
-) -> None:
-    try:
-        actual_commit = _game_head(game_root)
-    except AssetGateError as exc:
-        errors.append(str(exc))
-    else:
-        if actual_commit != baseline.get("game_commit"):
-            errors.append(
-                f"game HEAD is {actual_commit}; baseline pins {baseline.get('game_commit')}"
-            )
-    source_files = baseline.get("source_files")
-    if not isinstance(source_files, list):
-        errors.append("source_files must be a list")
-        return
-    for index, entry in enumerate(source_files):
-        _validate_game_source(entry, index, game_root, errors)
-
-
-def validate_runtime_baseline(root: Path = ROOT, game_root: Path | None = None) -> list[str]:
-    baseline_path = root / "manifests" / "runtime-baseline.json"
-    try:
-        baseline = _load_json(baseline_path)
-    except AssetGateError as exc:
-        return [f"{baseline_path}: {exc}"]
-    errors: list[str] = []
-    _validate_baseline_shape(baseline, errors)
-    if game_root is not None:
-        _validate_game_baseline(baseline, game_root, errors)
-    return [f"{baseline_path}: {error}" for error in errors]
-
-
 def _aseprite_version(executable: Path) -> str:
     try:
         return subprocess.run(
@@ -520,14 +461,122 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def _game_head(game_root: Path) -> str:
+    try:
+        return subprocess.run(
+            ["git", "-C", str(game_root), "rev-parse", "HEAD"],
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise AssetGateError(f"cannot read game Git commit: {exc}") from exc
+
+
+def _game_head_lf_sha256(game_root: Path, path: str) -> str | None:
+    """LF-normalized SHA-256 of a file's committed content at the game HEAD."""
+    try:
+        blob = subprocess.run(
+            ["git", "-C", str(game_root), "show", f"HEAD:{path}"],
+            check=True,
+            capture_output=True,
+        ).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return hashlib.sha256(blob.replace(b"\r\n", b"\n")).hexdigest()
+
+
+def _validate_game_source(
+    entry: Any, index: int, game_root: Path, errors: list[str], warnings: list[str]
+) -> None:
+    """Committed HEAD content decides compatibility; worktree state only warns.
+
+    Parallel-session law (owner directive 2026-08-18): the sibling game-two
+    checkout is another agent's live workbench, so its uncommitted edits must
+    never fail this gate. Content drift in COMMITTED history remains a hard
+    failure requiring owner review.
+    """
+    label = f"source_files[{index}]"
+    source = _as_object(entry, label, errors)
+    if not source:
+        return
+    rel = str(source.get("path", ""))
+    head_sha = _game_head_lf_sha256(game_root, rel)
+    if head_sha is None:
+        errors.append(f"{label}.path does not exist at game-two HEAD")
+        return
+    if source.get("sha256_lf") != head_sha:
+        errors.append(f"{label}.sha256_lf does not match game-two")
+        return
+    worktree = game_root / rel
+    if not worktree.is_file():
+        warnings.append(
+            f"{label} ({rel}): missing from the game-two worktree "
+            "(HEAD content still matches the pin)"
+        )
+    elif sha256_file(worktree, normalize_lf=True) != head_sha:
+        warnings.append(
+            f"{label} ({rel}): worktree differs from HEAD "
+            "(parallel session mid-edit; committed content still matches the pin)"
+        )
+
+
+def _validate_game_baseline(
+    baseline: dict[str, Any], game_root: Path, errors: list[str], warnings: list[str]
+) -> None:
+    try:
+        actual_commit = _game_head(game_root)
+    except AssetGateError as exc:
+        errors.append(str(exc))
+    else:
+        if actual_commit != baseline.get("game_commit"):
+            warnings.append(
+                f"game HEAD is {actual_commit}; baseline pins "
+                f"{baseline.get('game_commit')} (commit-identity drift; content "
+                "below decides - re-pin at the next sprint checkpoint)"
+            )
+    source_files = baseline.get("source_files")
+    if not isinstance(source_files, list):
+        errors.append("source_files must be a list")
+        return
+    for index, entry in enumerate(source_files):
+        _validate_game_source(entry, index, game_root, errors, warnings)
+
+
+def validate_runtime_baseline_report(
+    root: Path = ROOT, game_root: Path | None = None
+) -> tuple[list[str], list[str]]:
+    """Full report: (blocking errors, non-blocking parallel-session warnings)."""
+    baseline_path = root / "manifests" / "runtime-baseline.json"
+    try:
+        baseline = _load_json(baseline_path)
+    except AssetGateError as exc:
+        return [f"{baseline_path}: {exc}"], []
+    errors: list[str] = []
+    warnings: list[str] = []
+    _validate_baseline_shape(baseline, errors)
+    if game_root is not None:
+        _validate_game_baseline(baseline, game_root, errors, warnings)
+    return (
+        [f"{baseline_path}: {error}" for error in errors],
+        [f"{baseline_path}: {warning}" for warning in warnings],
+    )
+
+
+def validate_runtime_baseline(root: Path = ROOT, game_root: Path | None = None) -> list[str]:
+    return validate_runtime_baseline_report(root, game_root)[0]
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
     root = args.root.resolve()
     manifests = args.manifest or sorted(root.glob("exports/**/release.json"))
-    errors = validate_runtime_baseline(root, args.game_root)
+    errors, warnings = validate_runtime_baseline_report(root, args.game_root)
     errors.extend(validate_toolchain_baseline(root, args.aseprite))
     for manifest in manifests:
         errors.extend(validate_release(manifest.resolve(), root))
+    for warning in warnings:
+        print(f"WARNING: {warning}", file=sys.stderr)
     if not errors:
         return 0
     print(f"Asset gate failed with {len(errors)} violation(s):", file=sys.stderr)

@@ -19,6 +19,7 @@ from asset_gate import (
     sha256_file,
     validate_release,
     validate_runtime_baseline,
+    validate_runtime_baseline_report,
     validate_toolchain_baseline,
 )
 from png_reader import PngError, inspect_png
@@ -319,9 +320,91 @@ class AssetGateTest(unittest.TestCase):
         (baseline_dir / "runtime-baseline.json").write_text(
             json.dumps(baseline), encoding="utf-8"
         )
-        errors = "\n".join(validate_runtime_baseline(self.root, game_root))
-        self.assertIn("game HEAD is", errors)
-        self.assertIn("sha256_lf does not match", errors)
+        errors, warnings = validate_runtime_baseline_report(self.root, game_root)
+        # committed content drift is the hard failure...
+        self.assertIn("sha256_lf does not match", "\n".join(errors))
+        # ...while commit-identity drift only warns (parallel-session law):
+        # content decides; the re-pin lands at the next sprint checkpoint.
+        self.assertIn("game HEAD is", "\n".join(warnings))
+        self.assertNotIn("game HEAD is", "\n".join(errors))
+
+    def test_worktree_edits_warn_but_head_content_decides(self) -> None:
+        """A parallel session's uncommitted edit to a pinned file must never
+        fail the gate while the committed content still matches the pin
+        (owner directive 2026-08-18: both sessions run in parallel)."""
+        import os
+        import subprocess
+
+        game = self.root / "game"
+        (game / "src").mkdir(parents=True)
+        pinned = game / "src" / "pinned.rb"
+        pinned.write_bytes(b"committed content\n")
+        env = {
+            key: value for key, value in os.environ.items()
+            if not key.startswith("GIT_")
+        }
+        env.update(
+            {
+                "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+                "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t",
+            }
+        )
+
+        def git(*arguments: str) -> str:
+            return subprocess.run(
+                ["git", "-C", str(game), *arguments],
+                check=True, capture_output=True, text=True, env=env,
+            ).stdout.strip()
+
+        git("init", "-q")
+        git("add", "src/pinned.rb")
+        git("commit", "-q", "-m", "pin")
+        head = git("rev-parse", "HEAD")
+        pinned_sha = hashlib.sha256(b"committed content\n").hexdigest()
+
+        baseline_dir = self.root / "manifests"
+        baseline_dir.mkdir()
+        repository_root = Path(__file__).resolve().parents[1]
+        baseline = json.loads(
+            (repository_root / "manifests" / "runtime-baseline.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        baseline["game_commit"] = head
+        baseline["source_files"] = [
+            {"path": "src/pinned.rb", "sha256_lf": pinned_sha}
+        ]
+        baseline_path = baseline_dir / "runtime-baseline.json"
+        baseline_path.write_text(json.dumps(baseline), encoding="utf-8")
+
+        # clean worktree: no errors, no warnings
+        errors, warnings = validate_runtime_baseline_report(self.root, game)
+        self.assertEqual(([], []), (errors, warnings))
+
+        # sibling mid-edit: warning only, gate stays green
+        pinned.write_bytes(b"committed content\nuncommitted seam\n")
+        errors, warnings = validate_runtime_baseline_report(self.root, game)
+        self.assertEqual([], errors)
+        self.assertIn("worktree differs from HEAD", "\n".join(warnings))
+
+        # sibling deleted the worktree file: still a warning, HEAD decides
+        pinned.unlink()
+        errors, warnings = validate_runtime_baseline_report(self.root, game)
+        self.assertEqual([], errors)
+        self.assertIn("missing from the game-two worktree", "\n".join(warnings))
+
+        # committed drift IS the hard failure: commit a content change
+        pinned.write_bytes(b"different committed content\n")
+        git("add", "src/pinned.rb")
+        git("commit", "-q", "-m", "drift")
+        errors, warnings = validate_runtime_baseline_report(self.root, game)
+        self.assertIn("sha256_lf does not match game-two", "\n".join(errors))
+
+        # a pinned path absent from HEAD is a hard failure too
+        baseline["source_files"] = [{"path": "src/gone.rb", "sha256_lf": pinned_sha}]
+        baseline_path.write_text(json.dumps(baseline), encoding="utf-8")
+        errors, _ = validate_runtime_baseline_report(self.root, game)
+        self.assertIn("does not exist at game-two HEAD", "\n".join(errors))
 
     def test_main_passes_live_baseline_and_reports_invalid_baseline(self) -> None:
         repository_root = Path(__file__).resolve().parents[1]

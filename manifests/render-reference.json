@@ -49,7 +49,7 @@
     "game_commit": "3869958c804b87996e03019830d9cdd7aa7397ee",
     "source_file": "data/balance/combat.json",
     "source_file_hash_anchored": false,
-    "anchoring_gap": "data/balance/combat.json is NOT listed in runtime-baseline.json source_files, so these values are anchored to the commit hash only, not to a content hash. Owner-review recommendation: add it to the baseline's source_files at the next approved re-pin. Values captured read-only via git show at the game_commit above.",
+    "anchoring_gap": "data/balance/combat.json is NOT listed in runtime-baseline.json source_files, so these values are anchored to the commit hash only, not to a content hash. Owner decision 2026-08-18 (parallelism directive): keep it OUT of the hard-STOP pin set (fast-moving balance file, the sibling session's workbench); every re-pin re-verifies the four pinned values below at the new commit instead. Values captured read-only via git show at the game_commit above.",
     "kit": "striker",
     "kit_evidence": "src/app/renderer.rb@3869958c L15-20: KIT_BODY[:striker] = (235,120,40) = #eb7828 = runtime-baseline.json role_colors.player_1 = primitive_body.body_rgb; data/balance/combat.json /pack/members includes striker. Body color is per-kit; possession is ring-carried.",
     "values": {

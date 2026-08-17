@@ -89,7 +89,7 @@ Run:
 .venv/Scripts/python.exe tools/asset_gate.py --game-root ../game-two --aseprite C:/tools/aseprite/build/bin/aseprite.exe
 ```
 
-The second command is intentionally manual: it detects when the live game checkout or Aseprite binary no longer matches a compatibility pin. Baseline changes require review; never auto-update them.
+The second command is intentionally manual: it detects when the live game checkout or Aseprite binary no longer matches a compatibility pin. Pin comparison reads game-two's **committed HEAD content** (LF-normalized): another agent's uncommitted worktree edits, and commit-identity drift with identical pinned content, are reported as warnings, never failures — both sessions run in parallel by design (owner directive 2026-08-18). Committed content drift in a pinned file is a hard failure requiring owner review. Baseline changes require review; never auto-update them.
 
 ## Visual gate
 
