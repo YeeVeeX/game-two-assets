@@ -1,0 +1,466 @@
+{
+  "attack": {
+    "down": {
+      "confusability_floor_pct": 33.87,
+      "deltas": [
+        {
+          "popping_pct": 33.87,
+          "recolored_px": 95,
+          "silhouette_changed_px": 106,
+          "union_px": 313,
+          "vs": "idle"
+        },
+        {
+          "popping_pct": 35.87,
+          "recolored_px": 99,
+          "silhouette_changed_px": 113,
+          "union_px": 315,
+          "vs": "f0"
+        },
+        {
+          "popping_pct": 39.14,
+          "recolored_px": 117,
+          "silhouette_changed_px": 128,
+          "union_px": 327,
+          "vs": "f1"
+        },
+        {
+          "popping_pct": 35.87,
+          "recolored_px": 96,
+          "silhouette_changed_px": 113,
+          "union_px": 315,
+          "vs": "f2"
+        },
+        {
+          "popping_pct": 33.87,
+          "recolored_px": 95,
+          "silhouette_changed_px": 106,
+          "union_px": 313,
+          "vs": "f3"
+        }
+      ],
+      "head_region_share_vs_idle_pct": 37.74,
+      "max_delta_pct": 39.14,
+      "pose": {
+        "bbox": [
+          8,
+          6,
+          23,
+          27
+        ],
+        "centroid": [
+          15.48,
+          15.73
+        ],
+        "feet_row": 27,
+        "feet_row_delta_vs_idle": 0,
+        "mass": 269,
+        "mass_drift_vs_idle_pct": 7.17
+      }
+    },
+    "right": {
+      "confusability_floor_pct": 30.06,
+      "deltas": [
+        {
+          "popping_pct": 30.06,
+          "recolored_px": 64,
+          "silhouette_changed_px": 98,
+          "union_px": 326,
+          "vs": "idle"
+        },
+        {
+          "popping_pct": 31.1,
+          "recolored_px": 64,
+          "silhouette_changed_px": 102,
+          "union_px": 328,
+          "vs": "f0"
+        },
+        {
+          "popping_pct": 39.08,
+          "recolored_px": 84,
+          "silhouette_changed_px": 136,
+          "union_px": 348,
+          "vs": "f1"
+        },
+        {
+          "popping_pct": 33.13,
+          "recolored_px": 64,
+          "silhouette_changed_px": 110,
+          "union_px": 332,
+          "vs": "f2"
+        },
+        {
+          "popping_pct": 30.06,
+          "recolored_px": 64,
+          "silhouette_changed_px": 98,
+          "union_px": 326,
+          "vs": "f3"
+        }
+      ],
+      "head_region_share_vs_idle_pct": 64.29,
+      "max_delta_pct": 39.08,
+      "pose": {
+        "bbox": [
+          7,
+          7,
+          28,
+          27
+        ],
+        "centroid": [
+          17.43,
+          16.36
+        ],
+        "feet_row": 27,
+        "feet_row_delta_vs_idle": 0,
+        "mass": 259,
+        "mass_drift_vs_idle_pct": -12.2
+      }
+    }
+  },
+  "flash": {
+    "contrast": {
+      "zone_1": {
+        "floor": 3.07,
+        "wall": 1.53
+      },
+      "zone_2": {
+        "floor": 2.88,
+        "wall": 1.84
+      }
+    },
+    "rgb": [
+      200,
+      30,
+      30
+    ],
+    "rgb_distance": {
+      "role_base": 97.1,
+      "telegraph_core": 189.2,
+      "telegraph_edge": 47.2,
+      "transition_gold": 174.4
+    }
+  },
+  "generated_by": "tools/feedback_metrics.py",
+  "reference": {
+    "idle_cross_facing": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  },
+  "rings": {
+    "down": {
+      "bbox_ring_idle_to_attack_max_edge_px": 2,
+      "bbox_ring_walk_breathing_max_edge_px": 1,
+      "frames": [
+        {
+          "bbox_ring": {
+            "area_px": 600,
+            "margin_to_body_ratio": 1.39,
+            "rect": [
+              6,
+              1,
+              25,
+              30
+            ],
+            "visible_margin_px": 349
+          },
+          "frame": "idle",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.61,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 905
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 600,
+            "margin_to_body_ratio": 1.42,
+            "rect": [
+              5,
+              1,
+              24,
+              30
+            ],
+            "visible_margin_px": 352
+          },
+          "frame": "f0",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.66,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 908
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 620,
+            "margin_to_body_ratio": 1.41,
+            "rect": [
+              6,
+              0,
+              25,
+              30
+            ],
+            "visible_margin_px": 363
+          },
+          "frame": "f1",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.5,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 899
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 600,
+            "margin_to_body_ratio": 1.42,
+            "rect": [
+              7,
+              1,
+              26,
+              30
+            ],
+            "visible_margin_px": 352
+          },
+          "frame": "f2",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.66,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 908
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 600,
+            "margin_to_body_ratio": 1.39,
+            "rect": [
+              6,
+              1,
+              25,
+              30
+            ],
+            "visible_margin_px": 349
+          },
+          "frame": "f3",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.61,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 905
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 616,
+            "margin_to_body_ratio": 1.29,
+            "rect": [
+              5,
+              3,
+              26,
+              30
+            ],
+            "visible_margin_px": 347
+          },
+          "frame": "k0",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.3,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 887
+          }
+        }
+      ]
+    },
+    "right": {
+      "bbox_ring_idle_to_attack_max_edge_px": 3,
+      "bbox_ring_walk_breathing_max_edge_px": 1,
+      "frames": [
+        {
+          "bbox_ring": {
+            "area_px": 840,
+            "margin_to_body_ratio": 1.85,
+            "rect": [
+              4,
+              1,
+              31,
+              30
+            ],
+            "visible_margin_px": 545
+          },
+          "frame": "idle",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 2.92,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 861
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 840,
+            "margin_to_body_ratio": 1.85,
+            "rect": [
+              4,
+              1,
+              31,
+              30
+            ],
+            "visible_margin_px": 545
+          },
+          "frame": "f0",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 2.92,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 861
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 868,
+            "margin_to_body_ratio": 1.88,
+            "rect": [
+              4,
+              0,
+              31,
+              30
+            ],
+            "visible_margin_px": 567
+          },
+          "frame": "f1",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 2.84,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 855
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 840,
+            "margin_to_body_ratio": 1.85,
+            "rect": [
+              4,
+              1,
+              31,
+              30
+            ],
+            "visible_margin_px": 545
+          },
+          "frame": "f2",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 2.92,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 861
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 840,
+            "margin_to_body_ratio": 1.85,
+            "rect": [
+              4,
+              1,
+              31,
+              30
+            ],
+            "visible_margin_px": 545
+          },
+          "frame": "f3",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 2.92,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 861
+          }
+        },
+        {
+          "bbox_ring": {
+            "area_px": 756,
+            "margin_to_body_ratio": 1.92,
+            "rect": [
+              4,
+              4,
+              31,
+              30
+            ],
+            "visible_margin_px": 497
+          },
+          "frame": "k0",
+          "size_ring": {
+            "area_px": 1156,
+            "margin_to_body_ratio": 3.46,
+            "rect": [
+              -1,
+              -1,
+              32,
+              32
+            ],
+            "visible_margin_px": 897
+          }
+        }
+      ]
+    }
+  }
+}

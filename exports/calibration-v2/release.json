@@ -1,0 +1,90 @@
+{
+  "contract_version": 1,
+  "release_id": "calibration-v2",
+  "source": {
+    "commit": "77ed33e7f848a08bf43377de8d1ad097fe62b1c9",
+    "files": [
+      {
+        "path": "sources/calibration-v2/specs/player_1_lane_b_attack_down_k0.json",
+        "sha256": "c852f62935684baa93548a4924de0f2a86d0e9e767b6bb366f98a2852cedfa27"
+      },
+      {
+        "path": "sources/calibration-v2/player_1_lane_b_attack_down_k0.aseprite",
+        "sha256": "f100acc92f7e007c8b521bcec25e0c51d07194cd068f7542ac0f386b2f1c0b3f"
+      },
+      {
+        "path": "sources/calibration-v2/specs/player_1_lane_b_attack_right_k0.json",
+        "sha256": "a539ac1ae2a78aa626beb52f172c6971679db5acd50c2c9069a96c440d25c6b5"
+      },
+      {
+        "path": "sources/calibration-v2/player_1_lane_b_attack_right_k0.aseprite",
+        "sha256": "c37c2c4ccd133bb909b16094f2dc7c394580066752b46f661526a4e5713ac8ad"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "219121d3ca2cfabfd39c3a1533b8227b52f68617",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_b_attack_down_k0",
+      "kind": "creature",
+      "path": "exports/calibration-v2/player_1_lane_b_attack_down_k0.png",
+      "sha256": "5c18547410359dbf1b12afc04c302bbc84822dda70afe292d9191c5b5ccb974e",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 2)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames (sources/calibration-v2/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "attack-key tell pose: dome and eye rows copied byte-exact from the frozen calibration-v0 idle_down spec and rigidly lowered 2px; open-jaw accent recolor and braced 2px-wider stance carry the state; the lunge displacement is the pinned draw-only renderer offset, never pose pixels"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_k0",
+      "kind": "creature",
+      "path": "exports/calibration-v2/player_1_lane_b_attack_right_k0.png",
+      "sha256": "ca1325d2f04d3240812b7551ec826a3352358034b34277a0d28b4d7f312c3f31",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 2)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames (sources/calibration-v2/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "attack-key tell pose: dome and eye rows copied byte-exact from the frozen calibration-v0 idle_right spec and rigidly lowered 3px; open-jaw accent recolor at the snout, crouched body, and forward foreleg carry the state; the lunge displacement is the pinned draw-only renderer offset, never pose pixels"
+      }
+    }
+  ]
+}
