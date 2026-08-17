@@ -412,10 +412,25 @@ class MakeReleaseTest(unittest.TestCase):
         )
 
     def _git(self, *arguments: str) -> str:
+        from make_release import _git_env
+
         return subprocess.run(
             ["git", "-C", str(self.root), *arguments],
-            check=True, capture_output=True, text=True,
+            check=True, capture_output=True, text=True, env=_git_env(),
         ).stdout.strip()
+
+    def test_git_env_scrubs_hook_index_overrides(self) -> None:
+        import os
+
+        from make_release import _git_env
+
+        os.environ["GIT_INDEX_FILE"] = "/tmp/poisoned-index"
+        try:
+            env = _git_env()
+        finally:
+            del os.environ["GIT_INDEX_FILE"]
+        self.assertNotIn("GIT_INDEX_FILE", env)
+        self.assertNotIn("GIT_DIR", env)
 
     def test_manifest_passes_the_asset_gate(self) -> None:
         from asset_gate import validate_release

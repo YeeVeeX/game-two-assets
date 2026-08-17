@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -76,11 +77,24 @@ class ReleaseError(RuntimeError):
     """Refuse to emit a manifest that would lie about provenance."""
 
 
+def _git_env() -> dict[str, str]:
+    """Child git env without hook-injected index/dir overrides.
+
+    Pathspec commits export an absolute GIT_INDEX_FILE (and hooks may export
+    GIT_DIR/GIT_WORK_TREE); any nested git run against another repository must
+    scrub them or it operates on the parent's temporary index.
+    """
+    env = dict(os.environ)
+    for key in ("GIT_INDEX_FILE", "GIT_DIR", "GIT_WORK_TREE"):
+        env.pop(key, None)
+    return env
+
+
 def _git(root: Path, *arguments: str) -> str:
     try:
         return subprocess.run(
             ["git", "-C", str(root), *arguments],
-            check=True, capture_output=True, text=True,
+            check=True, capture_output=True, text=True, env=_git_env(),
         ).stdout.strip()
     except (OSError, subprocess.CalledProcessError) as exc:
         raise ReleaseError(f"git failed: {exc}") from exc
