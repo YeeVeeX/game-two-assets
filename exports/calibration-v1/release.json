@@ -1,0 +1,294 @@
+{
+  "contract_version": 1,
+  "release_id": "calibration-v1",
+  "source": {
+    "commit": "aef5f5f397862f1c77802b2585834183ff8911bd",
+    "files": [
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_down_f0.json",
+        "sha256": "56721e9d3b8a65d53e168ddbfc7a36661388caddb1b7f9d5ef8160a95ff18b2e"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_down_f0.aseprite",
+        "sha256": "891f64a81f4dfa0dafd792e9342aa24e84a4149c073ceec8966f20dc36c656dd"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_down_f1.json",
+        "sha256": "21f68131a2455076ff2a6a9f0acfab830544cc3c547da13d7331607eb130ae5f"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_down_f1.aseprite",
+        "sha256": "8b70c6bcaff3f0c3c1d38325f43809a25a2cf92d6c098ade3204227f191a95c5"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_down_f2.json",
+        "sha256": "f8b2f0447ea7692d5beff64d77e6c76cce49cf30d32d60a3bd7bbf700eb2058f"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_down_f2.aseprite",
+        "sha256": "9aed3f50a128da7d3f99a39a4c72c1a6d1e35cc5156c13f1980676f42bde1b1a"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_down_f3.json",
+        "sha256": "fc1e1d880398eefa6b2edf6ab911c0ad089c25489892419323c121971e0e1e4a"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_down_f3.aseprite",
+        "sha256": "b428fa6b0803d8d91931780c1bb6c09fd12cc9930a9e1ac6a7531bf743a020ad"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_right_f0.json",
+        "sha256": "7dea1114c6984ad0e07470ba6fe028162d5cfc36953aa927dffffc141773e9d8"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_right_f0.aseprite",
+        "sha256": "1137cc4b4e181208bd9610c6ebab8964422ae43346b8d035d6959757cb8c5d85"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_right_f1.json",
+        "sha256": "67f45c886f0355656e358fb60a3112f2e7ad96305ccf9626306bd88b180ad685"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_right_f1.aseprite",
+        "sha256": "9a98a43e9c36860500aa2f49d6fc26ecde99a8bcf29f5f61769cba4ea453331d"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_right_f2.json",
+        "sha256": "79cee7f8ca19e1a1ebd0e705903bfd91cb0daff23953c8cb0a052f80208e7b45"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_right_f2.aseprite",
+        "sha256": "8c99a660e0145c5fe11b892aed492e5b5c0a3807cd0ee83198cd8ea30b07c6bd"
+      },
+      {
+        "path": "sources/calibration-v1/specs/player_1_lane_b_walk_right_f3.json",
+        "sha256": "3060d7796bd84b3c54cb7d924ea43e3edf0e8b177e57847cd40a2f675150cbcc"
+      },
+      {
+        "path": "sources/calibration-v1/player_1_lane_b_walk_right_f3.aseprite",
+        "sha256": "e901e25f988a8897aaa902e5314bad34f25ad8ccc7ebb1d921e422ef5f32e1f8"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "219121d3ca2cfabfd39c3a1533b8227b52f68617",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_b_walk_down_f0",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_down_f0.png",
+      "sha256": "d094577bc4900bbd764f62e76481db01445572d3a7c6aea4b525c02cf9c02745",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_down_f1",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_down_f1.png",
+      "sha256": "c0eecdfbb4e292e4679765d3a1e79d2b0ace5142c129947f2d88c8e74cf4cc7d",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_down_f2",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_down_f2.png",
+      "sha256": "3b91f9c489371f56bba0330b83b8aa940dceb35054aee3a6596f74b024eb814a",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_down_f3",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_down_f3.png",
+      "sha256": "e21c14618821c2c02f2c086c1115e75dc50cc854bdd9c43febfed19563721cbc",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "pass frame: the calibration-v0 player_1_lane_b_idle_down spec copied forward verbatim as walk frame f3; export bytes match the calibration-v0 idle export"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_right_f0",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_right_f0.png",
+      "sha256": "fae149ac22d0d75e7794f893f254474a2a5dc1ee053c7c7359805e2d6401060c",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_right_f1",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_right_f1.png",
+      "sha256": "d9f394741b8ebe9409bb69f4775d150c9e44630ba3ddec50b6797747cd3a6e8c",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_right_f2",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_right_f2.png",
+      "sha256": "3db67db03d9eb0a37075f4e4be11b25ac4f7005894c4fdba798818d546cb2a26",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_walk_right_f3",
+      "kind": "creature",
+      "path": "exports/calibration-v1/player_1_lane_b_walk_right_f3.png",
+      "sha256": "726f7ac0e695ed540b76bf4e7e61cc64aebf7477ff755f1651987c6f63530b5e",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 1)",
+        "created": "2026-08-17",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses (sources/calibration-v1/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "pass frame: the calibration-v0 player_1_lane_b_idle_right spec copied forward verbatim as walk frame f3; export bytes match the calibration-v0 idle export"
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "facings": {
+    "down": {
+      "frames": [
+        {
+          "bbox": [
+            8,
+            4,
+            21,
+            27
+          ],
+          "centroid": [
+            14.53,
+            14.09
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f0",
+          "mass": 248,
+          "mass_drift_vs_idle_pct": -1.2
+        },
+        {
+          "bbox": [
+            9,
+            3,
+            22,
+            27
+          ],
+          "centroid": [
+            15.48,
+            13.56
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f1",
+          "mass": 257,
+          "mass_drift_vs_idle_pct": 2.39
+        },
+        {
+          "bbox": [
+            10,
+            4,
+            23,
+            27
+          ],
+          "centroid": [
+            16.42,
+            14.09
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f2",
+          "mass": 248,
+          "mass_drift_vs_idle_pct": -1.2
+        },
+        {
+          "bbox": [
+            9,
+            4,
+            22,
+            27
+          ],
+          "centroid": [
+            15.48,
+            14.24
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f3",
+          "mass": 251,
+          "mass_drift_vs_idle_pct": 0.0
+        }
+      ],
+      "idle": {
+        "bbox": [
+          9,
+          4,
+          22,
+          27
+        ],
+        "centroid": [
+          15.48,
+          14.24
+        ],
+        "feet_row": 27,
+        "mass": 251
+      },
+      "pairs": [
+        {
+          "pair": "f0->f1",
+          "popping_pct": 19.64,
+          "recolored_px": 86,
+          "silhouette_changed_px": 55,
+          "union_px": 280
+        },
+        {
+          "pair": "f1->f2",
+          "popping_pct": 19.0,
+          "recolored_px": 89,
+          "silhouette_changed_px": 53,
+          "union_px": 279
+        },
+        {
+          "pair": "f2->f3",
+          "popping_pct": 15.87,
+          "recolored_px": 62,
+          "silhouette_changed_px": 43,
+          "union_px": 271
+        },
+        {
+          "pair": "f3->f0",
+          "popping_pct": 15.87,
+          "recolored_px": 62,
+          "silhouette_changed_px": 43,
+          "union_px": 271
+        }
+      ],
+      "summary": {
+        "max_abs_feet_row_delta": 0,
+        "max_abs_mass_drift_pct": 2.39,
+        "max_popping_pct": 19.64
+      }
+    },
+    "right": {
+      "frames": [
+        {
+          "bbox": [
+            7,
+            4,
+            28,
+            27
+          ],
+          "centroid": [
+            17.36,
+            14.61
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f0",
+          "mass": 295,
+          "mass_drift_vs_idle_pct": 0.0
+        },
+        {
+          "bbox": [
+            7,
+            3,
+            28,
+            27
+          ],
+          "centroid": [
+            17.31,
+            13.88
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f1",
+          "mass": 301,
+          "mass_drift_vs_idle_pct": 2.03
+        },
+        {
+          "bbox": [
+            7,
+            4,
+            28,
+            27
+          ],
+          "centroid": [
+            17.36,
+            14.61
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f2",
+          "mass": 295,
+          "mass_drift_vs_idle_pct": 0.0
+        },
+        {
+          "bbox": [
+            7,
+            4,
+            28,
+            27
+          ],
+          "centroid": [
+            17.36,
+            14.61
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "frame": "f3",
+          "mass": 295,
+          "mass_drift_vs_idle_pct": 0.0
+        }
+      ],
+      "idle": {
+        "bbox": [
+          7,
+          4,
+          28,
+          27
+        ],
+        "centroid": [
+          17.36,
+          14.61
+        ],
+        "feet_row": 27,
+        "mass": 295
+      },
+      "pairs": [
+        {
+          "pair": "f0->f1",
+          "popping_pct": 22.09,
+          "recolored_px": 66,
+          "silhouette_changed_px": 74,
+          "union_px": 335
+        },
+        {
+          "pair": "f1->f2",
+          "popping_pct": 22.09,
+          "recolored_px": 66,
+          "silhouette_changed_px": 74,
+          "union_px": 335
+        },
+        {
+          "pair": "f2->f3",
+          "popping_pct": 10.29,
+          "recolored_px": 0,
+          "silhouette_changed_px": 32,
+          "union_px": 311
+        },
+        {
+          "pair": "f3->f0",
+          "popping_pct": 10.29,
+          "recolored_px": 0,
+          "silhouette_changed_px": 32,
+          "union_px": 311
+        }
+      ],
+      "summary": {
+        "max_abs_feet_row_delta": 0,
+        "max_abs_mass_drift_pct": 2.03,
+        "max_popping_pct": 22.09
+      }
+    }
+  },
+  "generated_by": "tools/motion_metrics.py",
+  "reference": {
+    "idle_cross_facing": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  }
+}
