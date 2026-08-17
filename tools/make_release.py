@@ -70,6 +70,38 @@ RELEASES: dict[str, dict] = {
             "player_1_lane_b_walk_right_f3": _idle_copy_note("right"),
         },
     },
+    "calibration-v2": {
+        "provenance": {
+            "origin": "procedural",
+            "author": "dev agent (pi session, sprint 2)",
+            "created": "2026-08-17",
+            "rights": "private-project",
+            "method": (
+                "authored as reviewable pixel-grid specs derived from the frozen "
+                "calibration-v0 lane-B idle poses and measured against the frozen "
+                "calibration-v1 walk frames (sources/calibration-v2/specs), built "
+                "into native Aseprite sources via tools/aseprite_build.lua, exported "
+                "deterministically via tools/export_assets.py and verified "
+                "pixel-for-pixel against the specs"
+            ),
+        },
+        "asset_notes": {
+            "player_1_lane_b_attack_down_k0": (
+                "attack-key tell pose: dome and eye rows copied byte-exact from the "
+                "frozen calibration-v0 idle_down spec and rigidly lowered 2px; "
+                "open-jaw accent recolor and braced 2px-wider stance carry the "
+                "state; the lunge displacement is the pinned draw-only renderer "
+                "offset, never pose pixels"
+            ),
+            "player_1_lane_b_attack_right_k0": (
+                "attack-key tell pose: dome and eye rows copied byte-exact from the "
+                "frozen calibration-v0 idle_right spec and rigidly lowered 3px; "
+                "open-jaw accent recolor at the snout, crouched body, and forward "
+                "foreleg carry the state; the lunge displacement is the pinned "
+                "draw-only renderer offset, never pose pixels"
+            ),
+        },
+    },
 }
 
 
