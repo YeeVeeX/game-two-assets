@@ -1,0 +1,391 @@
+{
+  "apng": {
+    "down": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "000ac5fdf49db7d1606fb5d2f25ce722c2e664a90324fe2e9ab3f1d7a865d9c8"
+    },
+    "right": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "6b96285f9a0d9df275ec539b97e98491a88c9aa5508842f29504edf2cc4f3358"
+    }
+  },
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "idle_post_ticks": 2,
+    "idle_pre_ticks": 2,
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "displacement_profile": [
+    {
+      "axis_px": 0,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "idle_pre",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 0
+    },
+    {
+      "axis_px": 0,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "idle_pre",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 1
+    },
+    {
+      "axis_px": 1,
+      "delta_px": 1,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f0",
+      "pose_b": "f0",
+      "tick": 2
+    },
+    {
+      "axis_px": 2,
+      "delta_px": 1,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f0",
+      "pose_b": "f0",
+      "tick": 3
+    },
+    {
+      "axis_px": 4,
+      "delta_px": 2,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f0",
+      "pose_b": "f0",
+      "tick": 4
+    },
+    {
+      "axis_px": 7,
+      "delta_px": 3,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f0",
+      "pose_b": "f0",
+      "tick": 5
+    },
+    {
+      "axis_px": 11,
+      "delta_px": 4,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f1",
+      "pose_b": "f1",
+      "tick": 6
+    },
+    {
+      "axis_px": 14,
+      "delta_px": 3,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f1",
+      "pose_b": "f1",
+      "tick": 7
+    },
+    {
+      "axis_px": 18,
+      "delta_px": 4,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f1",
+      "pose_b": "f1",
+      "tick": 8
+    },
+    {
+      "axis_px": 21,
+      "delta_px": 3,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f2",
+      "pose_b": "f2",
+      "tick": 9
+    },
+    {
+      "axis_px": 25,
+      "delta_px": 4,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f2",
+      "pose_b": "f2",
+      "tick": 10
+    },
+    {
+      "axis_px": 28,
+      "delta_px": 3,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f2",
+      "pose_b": "f2",
+      "tick": 11
+    },
+    {
+      "axis_px": 30,
+      "delta_px": 2,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f3",
+      "pose_b": "f3",
+      "tick": 12
+    },
+    {
+      "axis_px": 31,
+      "delta_px": 1,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f3",
+      "pose_b": "f3",
+      "tick": 13
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 1,
+      "offset_px": 0,
+      "phase": "walk",
+      "pose_a": "f3",
+      "pose_b": "f3",
+      "tick": 14
+    },
+    {
+      "axis_px": 29,
+      "delta_px": -3,
+      "offset_px": -3,
+      "phase": "windup",
+      "pose_a": "idle",
+      "pose_b": "a0",
+      "tick": 15
+    },
+    {
+      "axis_px": 29,
+      "delta_px": 0,
+      "offset_px": -3,
+      "phase": "windup",
+      "pose_a": "idle",
+      "pose_b": "a0",
+      "tick": 16
+    },
+    {
+      "axis_px": 29,
+      "delta_px": 0,
+      "offset_px": -3,
+      "phase": "windup",
+      "pose_a": "idle",
+      "pose_b": "a0",
+      "tick": 17
+    },
+    {
+      "axis_px": 29,
+      "delta_px": 0,
+      "offset_px": -3,
+      "phase": "windup",
+      "pose_a": "idle",
+      "pose_b": "a0",
+      "tick": 18
+    },
+    {
+      "axis_px": 29,
+      "delta_px": 0,
+      "offset_px": -3,
+      "phase": "windup",
+      "pose_a": "idle",
+      "pose_b": "a0",
+      "tick": 19
+    },
+    {
+      "axis_px": 38,
+      "delta_px": 9,
+      "offset_px": 6,
+      "phase": "active",
+      "pose_a": "k0",
+      "pose_b": "k0",
+      "tick": 20
+    },
+    {
+      "axis_px": 38,
+      "delta_px": 0,
+      "offset_px": 6,
+      "phase": "active",
+      "pose_a": "k0",
+      "pose_b": "k0",
+      "tick": 21
+    },
+    {
+      "axis_px": 38,
+      "delta_px": 0,
+      "offset_px": 6,
+      "phase": "active",
+      "pose_a": "k0",
+      "pose_b": "k0",
+      "tick": 22
+    },
+    {
+      "axis_px": 38,
+      "delta_px": 0,
+      "offset_px": 6,
+      "phase": "active",
+      "pose_a": "k0",
+      "pose_b": "k0",
+      "tick": 23
+    },
+    {
+      "axis_px": 32,
+      "delta_px": -6,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 24
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 25
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 26
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 27
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 28
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 29
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 30
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "recovery",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 31
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "idle_post",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 32
+    },
+    {
+      "axis_px": 32,
+      "delta_px": 0,
+      "offset_px": 0,
+      "phase": "idle_post",
+      "pose_a": "idle",
+      "pose_b": "idle",
+      "tick": 33
+    }
+  ],
+  "durations_ms": {
+    "active_ms": 66.7,
+    "exp_windup_ms": 166.7,
+    "kb_anticipation_band_ms": [
+      100,
+      200
+    ],
+    "note": "derived at the unoverridden Gosu default 16.666666 ms/tick; ticks are the contract numbers",
+    "recovery_ms": 133.3,
+    "step_ms": 216.7,
+    "windup_ms": 83.3
+  },
+  "export_pins": {
+    "failures": [],
+    "verified": 14
+  },
+  "flicker": {
+    "idle_surviving_accent_px": {
+      "down": 14,
+      "right": 10
+    },
+    "on_pattern": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+    ],
+    "on_ticks": 6,
+    "period_frames": 3
+  },
+  "generated_by": "tools/timeline_metrics.py",
+  "jumps": {
+    "max_walk_delta_px": 4,
+    "recovery_return_px": -6,
+    "release_px": 9,
+    "release_vs_max_walk_ratio": 2.25,
+    "windup_entry_px": -3
+  },
+  "purity": {
+    "cells_checked": 314,
+    "failures": []
+  },
+  "sheet": {
+    "cells": 314,
+    "committed_matches": true,
+    "deterministic": true,
+    "sha256": "ec8b62ab63b7568d00a9ace2d58694e7b78d3b42b74185322469d899f9f0f123"
+  },
+  "tick_math_failures": []
+}
