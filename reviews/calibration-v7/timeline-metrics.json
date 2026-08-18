@@ -1,0 +1,578 @@
+{
+  "apng": {
+    "down": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "d353809d6ec96ff3d4c4a794c1f9b361be9b5ed03906f5c7da2b6d365345189e"
+    },
+    "right": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "9e48a6f9eed55ee46bc1beda4c3467550ad7105073b7dd8f06e6b224b60029f5"
+    }
+  },
+  "banked_bridge_preservation": {
+    "recovery_tick_1": {
+      "identical_and_banked": true,
+      "poses": {
+        "A": "s0",
+        "B": "s0"
+      },
+      "tick": 24
+    },
+    "windup_tick_1": {
+      "identical_and_banked": true,
+      "poses": {
+        "A": "w0",
+        "B": "w0"
+      },
+      "tick": 15
+    }
+  },
+  "boundaries": {
+    "down": {
+      "A": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 16.48,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 30,
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 31
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 37.09,
+            "pose_from": "r0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          },
+          {
+            "from_tick": 32,
+            "pose_delta_pct": 0.0,
+            "pose_from": "idle",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 33
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 31,
+          "pose_delta_pct": 37.09,
+          "pose_from": "r0",
+          "pose_to": "idle",
+          "position_delta_px": 0,
+          "to_tick": 32
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 27.18,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      },
+      "B": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 16.48,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 30,
+            "pose_delta_pct": 21.45,
+            "pose_from": "r0",
+            "pose_to": "x0",
+            "position_delta_px": 0,
+            "to_tick": 31
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 20.43,
+            "pose_from": "x0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          },
+          {
+            "from_tick": 32,
+            "pose_delta_pct": 0.0,
+            "pose_from": "idle",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 33
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 27.18,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 27.18,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      }
+    },
+    "right": {
+      "A": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 19.69,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 30,
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 31
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 37.64,
+            "pose_from": "r0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          },
+          {
+            "from_tick": 32,
+            "pose_delta_pct": 0.0,
+            "pose_from": "idle",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 33
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 31,
+          "pose_delta_pct": 37.64,
+          "pose_from": "r0",
+          "pose_to": "idle",
+          "position_delta_px": 0,
+          "to_tick": 32
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 31.97,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      },
+      "B": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 19.69,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 30,
+            "pose_delta_pct": 19.67,
+            "pose_from": "r0",
+            "pose_to": "x0",
+            "position_delta_px": 0,
+            "to_tick": 31
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 23.62,
+            "pose_from": "x0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          },
+          {
+            "from_tick": 32,
+            "pose_delta_pct": 0.0,
+            "pose_from": "idle",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 33
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 31.97,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 31.97,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      }
+    }
+  },
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "idle_post_ticks": 2,
+    "idle_pre_ticks": 2,
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "durations_ms": {
+    "active_ms": 66.7,
+    "note": "derived at the unoverridden Gosu default 16.666666 ms/tick; ticks are the contract numbers; timeline B consumes the last pinned recovery tick for the rise in-between (never adds ticks)",
+    "r0_hold_series_ms": {
+      "kb_follow_through_reference_ms": 150,
+      "v5_incumbent_8_ticks": 133.3,
+      "v6_winner_7_ticks": 116.7,
+      "v7_candidate_6_ticks": 100.0
+    },
+    "recovery_ms": 133.3,
+    "step_ms": 216.7,
+    "timeline_b_holds": {
+      "r0_hold_ms": 100.0,
+      "r0_hold_ticks": 6,
+      "s0_ticks": 1,
+      "x0_ticks": 1
+    },
+    "windup_ms": 83.3
+  },
+  "export_pins": {
+    "failures": [],
+    "verified": 22
+  },
+  "generated_by": "tools/rise_metrics.py",
+  "purity": {
+    "cells_checked": 298,
+    "failures": []
+  },
+  "reference": {
+    "idle_cross_facing": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  },
+  "release_preservation": {
+    "from_tick": 19,
+    "note": "the release stays deliberately unsmoothed: no in-between, no offset change - the banked v4 salience (KB: the strike is the instant beat; anticipation eases in, follow-through cushions)",
+    "per_facing": {
+      "down": {
+        "delta_pct_per_timeline": {
+          "A": 27.18,
+          "B": 27.18
+        },
+        "identical_across_timelines": true
+      },
+      "right": {
+        "delta_pct_per_timeline": {
+          "A": 31.97,
+          "B": 31.97
+        },
+        "identical_across_timelines": true
+      }
+    },
+    "pose_pair_pinned": true,
+    "position_delta_px": 9,
+    "to_tick": 20
+  },
+  "sheet": {
+    "cells": 298,
+    "committed_matches": true,
+    "deterministic": true,
+    "sha256": "ef1abca1dc4caed481ec0551a1a776a4fd41356d5a84bb656e71393e71cdd1cd"
+  },
+  "static": {
+    "down": {
+      "x0": {
+        "bridge_deltas": {
+          "s0": 16.25,
+          "w0": 20.88
+        },
+        "bridging": {
+          "d_m_y_pct": 20.43,
+          "d_x_m_pct": 21.45,
+          "d_x_y_pct": 37.09,
+          "max_leg_pct": 21.45,
+          "passes": true
+        },
+        "endpoints": [
+          "r0",
+          "idle"
+        ],
+        "head_region_share_vs_idle_pct": 52.63,
+        "mass_chain_r0_x0_idle": [
+          241,
+          250,
+          251
+        ],
+        "mass_monotone": true,
+        "max_delta_pct": 31.76,
+        "nearest_neighbor": {
+          "grammar_deltas": {
+            "a0": 30.85,
+            "idle": 20.43,
+            "k0": 26.42,
+            "r0": 21.45
+          },
+          "passes": true,
+          "two_smallest": [
+            "idle",
+            "r0"
+          ]
+        },
+        "pose": {
+          "bbox": [
+            10,
+            5,
+            23,
+            27
+          ],
+          "centroid": [
+            16.38,
+            15.0
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "mass": 250,
+          "mass_drift_vs_idle_pct": -0.4
+        },
+        "walk_deltas": {
+          "f0": 31.76,
+          "f1": 26.37,
+          "f2": 18.25,
+          "f3": 20.43
+        }
+      }
+    },
+    "right": {
+      "x0": {
+        "bridge_deltas": {
+          "s0": 22.04,
+          "w0": 19.87
+        },
+        "bridging": {
+          "d_m_y_pct": 23.62,
+          "d_x_m_pct": 19.67,
+          "d_x_y_pct": 37.64,
+          "max_leg_pct": 23.62,
+          "passes": true
+        },
+        "endpoints": [
+          "r0",
+          "idle"
+        ],
+        "head_region_share_vs_idle_pct": 54.55,
+        "mass_chain_r0_x0_idle": [
+          270,
+          280,
+          295
+        ],
+        "mass_monotone": true,
+        "max_delta_pct": 30.12,
+        "nearest_neighbor": {
+          "grammar_deltas": {
+            "a0": 29.66,
+            "idle": 23.62,
+            "k0": 28.89,
+            "r0": 19.67
+          },
+          "passes": true,
+          "two_smallest": [
+            "idle",
+            "r0"
+          ]
+        },
+        "pose": {
+          "bbox": [
+            7,
+            6,
+            29,
+            27
+          ],
+          "centroid": [
+            17.76,
+            15.85
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "mass": 280,
+          "mass_drift_vs_idle_pct": -5.08
+        },
+        "walk_deltas": {
+          "f0": 27.84,
+          "f1": 30.12,
+          "f2": 27.84,
+          "f3": 23.62
+        }
+      }
+    }
+  },
+  "tick_math_failures": []
+}
