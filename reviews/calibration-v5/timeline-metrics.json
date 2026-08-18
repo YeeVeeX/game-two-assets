@@ -1,0 +1,250 @@
+{
+  "apng": {
+    "down": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "85737ac4a07da67087b00bbf92ad7fd113370a9ba12b40e763d63e602d3fb2aa"
+    },
+    "right": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "ed02df7286aa5446fe3d59012b931c7327500451260d52057e7349ae7b54f239"
+    }
+  },
+  "boundaries": {
+    "note": "release->settle carries a -6px return in every timeline; the ready-again beat is pose-only (position constant) and exists only where the recovery pose differs from idle (R and C)",
+    "recovery_end_to_idle": {
+      "from_tick": 31,
+      "pose_change": {
+        "A": [
+          "idle",
+          "idle"
+        ],
+        "C": [
+          "a0",
+          "idle"
+        ],
+        "R": [
+          "r0",
+          "idle"
+        ]
+      },
+      "position_delta_px": 0,
+      "to_tick": 32
+    },
+    "release_to_settle": {
+      "from_tick": 23,
+      "pose_change": {
+        "A": [
+          "k0",
+          "idle"
+        ],
+        "C": [
+          "k0",
+          "a0"
+        ],
+        "R": [
+          "k0",
+          "r0"
+        ]
+      },
+      "position_delta_px": -6,
+      "to_tick": 24
+    }
+  },
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "idle_post_ticks": 2,
+    "idle_pre_ticks": 2,
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "durations_ms": {
+    "active_ms": 66.7,
+    "kb_followthrough_hold_ms": 150.0,
+    "note": "derived at the unoverridden Gosu default 16.666666 ms/tick; ticks are the contract numbers",
+    "recovery_ms": 133.3,
+    "recovery_vs_kb_band_ms": -16.7,
+    "step_ms": 216.7,
+    "windup_ms": 83.3
+  },
+  "export_pins": {
+    "failures": [],
+    "verified": 16
+  },
+  "generated_by": "tools/recovery_metrics.py",
+  "purity": {
+    "cells_checked": 354,
+    "failures": []
+  },
+  "reference": {
+    "idle_cross_facing": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  },
+  "sheet": {
+    "cells": 354,
+    "committed_matches": true,
+    "deterministic": true,
+    "sha256": "8f7223a0980c89bb33875f8cdc1a681067e339060b07df6dd0a53b1f92924987"
+  },
+  "static": {
+    "down": {
+      "coil_distinctness_pct": 27.94,
+      "deltas": [
+        {
+          "popping_pct": 37.09,
+          "recolored_px": 79,
+          "silhouette_changed_px": 112,
+          "union_px": 302,
+          "vs": "idle"
+        },
+        {
+          "popping_pct": 42.77,
+          "recolored_px": 73,
+          "silhouette_changed_px": 133,
+          "union_px": 311,
+          "vs": "f0"
+        },
+        {
+          "popping_pct": 41.4,
+          "recolored_px": 92,
+          "silhouette_changed_px": 130,
+          "union_px": 314,
+          "vs": "f1"
+        },
+        {
+          "popping_pct": 34.24,
+          "recolored_px": 87,
+          "silhouette_changed_px": 101,
+          "union_px": 295,
+          "vs": "f2"
+        },
+        {
+          "popping_pct": 37.09,
+          "recolored_px": 79,
+          "silhouette_changed_px": 112,
+          "union_px": 302,
+          "vs": "f3"
+        },
+        {
+          "popping_pct": 27.94,
+          "recolored_px": 79,
+          "silhouette_changed_px": 76,
+          "union_px": 272,
+          "vs": "a0"
+        },
+        {
+          "popping_pct": 27.12,
+          "recolored_px": 82,
+          "silhouette_changed_px": 80,
+          "union_px": 295,
+          "vs": "k0"
+        }
+      ],
+      "head_region_share_vs_idle_pct": 60.71,
+      "max_delta_pct": 42.77,
+      "pose": {
+        "bbox": [
+          10,
+          7,
+          24,
+          27
+        ],
+        "centroid": [
+          17.0,
+          16.23
+        ],
+        "feet_row": 27,
+        "feet_row_delta_vs_idle": 0,
+        "mass": 241,
+        "mass_drift_vs_idle_pct": -3.98
+      },
+      "strike_distinctness_pct": 27.12,
+      "walk_confusability_floor_pct": 34.24
+    },
+    "right": {
+      "coil_distinctness_pct": 29.6,
+      "deltas": [
+        {
+          "popping_pct": 37.64,
+          "recolored_px": 82,
+          "silhouette_changed_px": 131,
+          "union_px": 348,
+          "vs": "idle"
+        },
+        {
+          "popping_pct": 41.29,
+          "recolored_px": 82,
+          "silhouette_changed_px": 147,
+          "union_px": 356,
+          "vs": "f0"
+        },
+        {
+          "popping_pct": 41.39,
+          "recolored_px": 95,
+          "silhouette_changed_px": 149,
+          "union_px": 360,
+          "vs": "f1"
+        },
+        {
+          "popping_pct": 41.29,
+          "recolored_px": 82,
+          "silhouette_changed_px": 147,
+          "union_px": 356,
+          "vs": "f2"
+        },
+        {
+          "popping_pct": 37.64,
+          "recolored_px": 82,
+          "silhouette_changed_px": 131,
+          "union_px": 348,
+          "vs": "f3"
+        },
+        {
+          "popping_pct": 29.6,
+          "recolored_px": 81,
+          "silhouette_changed_px": 95,
+          "union_px": 321,
+          "vs": "a0"
+        },
+        {
+          "popping_pct": 29.9,
+          "recolored_px": 60,
+          "silhouette_changed_px": 93,
+          "union_px": 311,
+          "vs": "k0"
+        }
+      ],
+      "head_region_share_vs_idle_pct": 63.36,
+      "max_delta_pct": 41.39,
+      "pose": {
+        "bbox": [
+          7,
+          8,
+          29,
+          27
+        ],
+        "centroid": [
+          17.69,
+          16.76
+        ],
+        "feet_row": 27,
+        "feet_row_delta_vs_idle": 0,
+        "mass": 270,
+        "mass_drift_vs_idle_pct": -8.47
+      },
+      "strike_distinctness_pct": 29.9,
+      "walk_confusability_floor_pct": 37.64
+    }
+  },
+  "tick_math_failures": []
+}
