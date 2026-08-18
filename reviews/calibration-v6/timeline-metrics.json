@@ -1,0 +1,574 @@
+{
+  "apng": {
+    "down": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "b18facf7b5e437878631f3b6fc446c1d8d21b3bf6c7a64c5c2bf7a76ba932aec"
+    },
+    "right": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "99e60f77a493332041b3ab7fac169457a5583e5cb52e77db5aca06dbd2e637c7"
+    }
+  },
+  "boundaries": {
+    "down": {
+      "A": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 31.1,
+            "pose_from": "f3",
+            "pose_to": "a0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 27.12,
+            "pose_from": "k0",
+            "pose_to": "r0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 37.09,
+            "pose_from": "r0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 31,
+          "pose_delta_pct": 37.09,
+          "pose_from": "r0",
+          "pose_to": "idle",
+          "position_delta_px": 0,
+          "to_tick": 32
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 27.18,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      },
+      "B": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 16.48,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 37.09,
+            "pose_from": "r0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 31,
+          "pose_delta_pct": 37.09,
+          "pose_from": "r0",
+          "pose_to": "idle",
+          "position_delta_px": 0,
+          "to_tick": 32
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 27.18,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      }
+    },
+    "right": {
+      "A": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 36.57,
+            "pose_from": "f3",
+            "pose_to": "a0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 29.9,
+            "pose_from": "k0",
+            "pose_to": "r0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 37.64,
+            "pose_from": "r0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 31,
+          "pose_delta_pct": 37.64,
+          "pose_from": "r0",
+          "pose_to": "idle",
+          "position_delta_px": 0,
+          "to_tick": 32
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 31.97,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      },
+      "B": {
+        "boundary_rows": [
+          {
+            "from_tick": 14,
+            "pose_delta_pct": 19.69,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 19,
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 23,
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          },
+          {
+            "from_tick": 31,
+            "pose_delta_pct": 37.64,
+            "pose_from": "r0",
+            "pose_to": "idle",
+            "position_delta_px": 0,
+            "to_tick": 32
+          }
+        ],
+        "sharpest_pose_jump": {
+          "from_tick": 31,
+          "pose_delta_pct": 37.64,
+          "pose_from": "r0",
+          "pose_to": "idle",
+          "position_delta_px": 0,
+          "to_tick": 32
+        },
+        "sharpest_position_jump": {
+          "from_tick": 19,
+          "pose_delta_pct": 31.97,
+          "pose_from": "a0",
+          "pose_to": "k0",
+          "position_delta_px": 9,
+          "to_tick": 20
+        }
+      }
+    }
+  },
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "idle_post_ticks": 2,
+    "idle_pre_ticks": 2,
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "durations_ms": {
+    "active_ms": 66.7,
+    "note": "derived at the unoverridden Gosu default 16.666666 ms/tick; ticks are the contract numbers; timeline B consumes one pinned tick per boundary for the in-between (never adds ticks)",
+    "recovery_ms": 133.3,
+    "step_ms": 216.7,
+    "timeline_b_holds": {
+      "a0_hold_ms": 66.7,
+      "a0_hold_ticks": 4,
+      "r0_hold_ms": 116.7,
+      "r0_hold_ticks": 7,
+      "s0_ticks": 1,
+      "w0_ticks": 1
+    },
+    "windup_ms": 83.3
+  },
+  "export_pins": {
+    "failures": [],
+    "verified": 20
+  },
+  "generated_by": "tools/transition_metrics.py",
+  "purity": {
+    "cells_checked": 302,
+    "failures": []
+  },
+  "reference": {
+    "idle_cross_facing": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  },
+  "release_preservation": {
+    "from_tick": 19,
+    "note": "the release stays deliberately unsmoothed: no in-between, no offset change - the banked v4 salience (KB: the strike is the instant beat; anticipation eases in, follow-through cushions)",
+    "per_facing": {
+      "down": {
+        "delta_pct_per_timeline": {
+          "A": 27.18,
+          "B": 27.18
+        },
+        "identical_across_timelines": true
+      },
+      "right": {
+        "delta_pct_per_timeline": {
+          "A": 31.97,
+          "B": 31.97
+        },
+        "identical_across_timelines": true
+      }
+    },
+    "pose_pair_pinned": true,
+    "position_delta_px": 9,
+    "to_tick": 20
+  },
+  "sheet": {
+    "cells": 302,
+    "committed_matches": true,
+    "deterministic": true,
+    "sha256": "fb5a1860e9c765ea71ced49e87dd72b7d294d6ad084abab4a7ff38487b942a29"
+  },
+  "static": {
+    "down": {
+      "cross_delta_w0_s0_pct": 23.4,
+      "s0": {
+        "bridging": {
+          "d_m_y_pct": 16.18,
+          "d_x_m_pct": 15.38,
+          "d_x_y_pct": 27.12,
+          "max_leg_pct": 16.18,
+          "passes": true
+        },
+        "endpoints": [
+          "k0",
+          "r0"
+        ],
+        "head_region_share_vs_idle_pct": 44.9,
+        "max_delta_pct": 37.22,
+        "nearest_neighbor": {
+          "grammar_deltas": {
+            "a0": 28.87,
+            "idle": 32.24,
+            "k0": 15.38,
+            "r0": 16.18
+          },
+          "passes": true,
+          "two_smallest": [
+            "k0",
+            "r0"
+          ]
+        },
+        "pose": {
+          "bbox": [
+            9,
+            6,
+            23,
+            27
+          ],
+          "centroid": [
+            16.27,
+            15.77
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "mass": 259,
+          "mass_drift_vs_idle_pct": 3.19
+        },
+        "walk_deltas": {
+          "f0": 36.45,
+          "f1": 37.22,
+          "f2": 29.87,
+          "f3": 32.24
+        }
+      },
+      "w0": {
+        "bridging": {
+          "d_m_y_pct": 17.25,
+          "d_x_m_pct": 16.48,
+          "d_x_y_pct": 31.1,
+          "max_leg_pct": 17.25,
+          "passes": true
+        },
+        "endpoints": [
+          "idle",
+          "a0"
+        ],
+        "head_region_share_vs_idle_pct": 81.82,
+        "max_delta_pct": 28.57,
+        "nearest_neighbor": {
+          "grammar_deltas": {
+            "a0": 17.25,
+            "idle": 16.48,
+            "k0": 21.75,
+            "r0": 28.57
+          },
+          "passes": true,
+          "two_smallest": [
+            "a0",
+            "idle"
+          ]
+        },
+        "pose": {
+          "bbox": [
+            9,
+            6,
+            22,
+            27
+          ],
+          "centroid": [
+            15.48,
+            15.53
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "mass": 239,
+          "mass_drift_vs_idle_pct": -4.78
+        },
+        "walk_deltas": {
+          "f0": 22.91,
+          "f1": 23.49,
+          "f2": 22.91,
+          "f3": 16.48
+        }
+      }
+    },
+    "right": {
+      "cross_delta_w0_s0_pct": 22.55,
+      "s0": {
+        "bridging": {
+          "d_m_y_pct": 14.98,
+          "d_x_m_pct": 21.31,
+          "d_x_y_pct": 29.9,
+          "max_leg_pct": 21.31,
+          "passes": true
+        },
+        "endpoints": [
+          "k0",
+          "r0"
+        ],
+        "head_region_share_vs_idle_pct": 66.38,
+        "max_delta_pct": 40.79,
+        "nearest_neighbor": {
+          "grammar_deltas": {
+            "a0": 28.66,
+            "idle": 34.52,
+            "k0": 21.31,
+            "r0": 14.98
+          },
+          "passes": true,
+          "two_smallest": [
+            "k0",
+            "r0"
+          ]
+        },
+        "pose": {
+          "bbox": [
+            7,
+            8,
+            28,
+            27
+          ],
+          "centroid": [
+            17.32,
+            16.8
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "mass": 261,
+          "mass_drift_vs_idle_pct": -11.53
+        },
+        "walk_deltas": {
+          "f0": 34.52,
+          "f1": 40.79,
+          "f2": 40.23,
+          "f3": 34.52
+        }
+      },
+      "w0": {
+        "bridging": {
+          "d_m_y_pct": 20.83,
+          "d_x_m_pct": 19.69,
+          "d_x_y_pct": 36.57,
+          "max_leg_pct": 20.83,
+          "passes": true
+        },
+        "endpoints": [
+          "idle",
+          "a0"
+        ],
+        "head_region_share_vs_idle_pct": 77.78,
+        "max_delta_pct": 28.27,
+        "nearest_neighbor": {
+          "grammar_deltas": {
+            "a0": 20.83,
+            "idle": 19.69,
+            "k0": 25.48,
+            "r0": 26.42
+          },
+          "passes": true,
+          "two_smallest": [
+            "a0",
+            "idle"
+          ]
+        },
+        "pose": {
+          "bbox": [
+            7,
+            6,
+            27,
+            27
+          ],
+          "centroid": [
+            16.81,
+            15.83
+          ],
+          "feet_row": 27,
+          "feet_row_delta_vs_idle": 0,
+          "mass": 282,
+          "mass_drift_vs_idle_pct": -4.41
+        },
+        "walk_deltas": {
+          "f0": 28.27,
+          "f1": 27.51,
+          "f2": 28.27,
+          "f3": 19.69
+        }
+      }
+    }
+  },
+  "tick_math_failures": []
+}
