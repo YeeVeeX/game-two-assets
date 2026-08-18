@@ -183,6 +183,82 @@ RELEASES: dict[str, dict] = {
             ),
         },
     },
+    "calibration-v6": {
+        "provenance": {
+            "origin": "procedural",
+            "author": "dev agent (pi session, sprint 6)",
+            "created": "2026-08-18",
+            "rights": "private-project",
+            "method": (
+                "authored as reviewable pixel-grid specs derived from the frozen "
+                "calibration-v0 lane-B idle poses and measured against the frozen "
+                "calibration-v1 walk frames, calibration-v2 attack keys, "
+                "calibration-v3 anticipation coils, and calibration-v5 "
+                "follow-through settles (sources/calibration-v6/specs), built "
+                "into native Aseprite sources via tools/aseprite_build.lua, "
+                "exported deterministically via tools/export_assets.py and "
+                "verified pixel-for-pixel against the specs"
+            ),
+        },
+        "asset_notes": {
+            "player_1_lane_b_attack_down_w0": (
+                "onset breakdown (in-between) bridging the frozen idle_down and "
+                "the frozen calibration-v3 down coil a0 - one transition tick, "
+                "never a held state and never a smear: head block (dome, eyes, "
+                "and taper rows) copied byte-exact from the frozen "
+                "calibration-v0 idle_down spec and rigidly translated (0,+2), "
+                "half of a0's (0,+4) drop; lower torso begins the coil's "
+                "12-column haunch bulge while the upper torso keeps idle width; "
+                "legs planted at the idle columns (the fold completes in a0 - "
+                "head leads, legs trail); jaw closed (the gape is the strike "
+                "marker); occupies windup tick 1 at the pinned -3px draw-only "
+                "renderer offset, consuming a pinned tick, never adding one"
+            ),
+            "player_1_lane_b_attack_right_w0": (
+                "onset breakdown (in-between) bridging the frozen idle_right and "
+                "the frozen calibration-v3 right coil a0 - one transition tick, "
+                "never a held state and never a smear: dome and eye rows copied "
+                "byte-exact from the frozen calibration-v0 idle_right spec and "
+                "rigidly translated (-1,+2), half of a0's (-2,+3) retraction; "
+                "the neck compresses to one slab row and the snout staircase "
+                "descends toward the coil's low slab; oss tail marker kept at "
+                "the idle rows (shared identity anchor of both endpoints); legs "
+                "at the idle columns (a0 gathers and folds them - legs trail); "
+                "snout closed; occupies windup tick 1 at the pinned -3px "
+                "draw-only renderer offset, consuming a pinned tick"
+            ),
+            "player_1_lane_b_attack_down_s0": (
+                "settle breakdown (in-between) bridging the frozen "
+                "calibration-v2 down strike key k0 and the frozen calibration-v5 "
+                "down settle r0 - one transition tick, never a held state and "
+                "never a smear: head block copied byte-exact from the frozen "
+                "calibration-v0 idle_down spec and rigidly translated (+1,+2), "
+                "between k0's (0,+2) and r0's (+2,+3) - the off-axis slump "
+                "beginning; jaw gape CLOSED on the first settle tick (the gape "
+                "is k0-exclusive and binary); body at 15 columns between k0's "
+                "16-wide brace and r0's sagged slab; left leg mid-return at "
+                "cols 11-13 (k0 splay 10-12 toward r0 home 12-14), right leg "
+                "planted at 19-21 (identical in both endpoints); occupies "
+                "recovery tick 1 at the pinned offset 0 (renderer lunge_offset "
+                "else-branch) - the -6px position return remains engine-owned"
+            ),
+            "player_1_lane_b_attack_right_s0": (
+                "settle breakdown (in-between) bridging the frozen "
+                "calibration-v2 right strike key k0 and the frozen "
+                "calibration-v5 right settle r0 - one transition tick, never a "
+                "held state and never a smear: dome and eye rows copied "
+                "byte-exact from the frozen calibration-v0 idle_right spec and "
+                "rigidly translated (0,+4), between k0's (0,+3) and r0's "
+                "(+1,+4) - the drop completes first, the forward drift "
+                "completes in r0; kkkk gape CLOSED to plain body on the first "
+                "settle tick; oss tail block at rows 15-19 between k0's low "
+                "block (17-20) and r0's raised block (14-18) - the weight-tip "
+                "beginning; front leg at cols 20-22 between k0's 21-23 reach "
+                "and r0's 19-21; occupies recovery tick 1 at the pinned offset "
+                "0 - the -6px position return remains engine-owned"
+            ),
+        },
+    },
 }
 
 
