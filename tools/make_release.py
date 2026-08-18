@@ -259,6 +259,64 @@ RELEASES: dict[str, dict] = {
             ),
         },
     },
+    "calibration-v7": {
+        "provenance": {
+            "origin": "procedural",
+            "author": "dev agent (pi session, sprint 7)",
+            "created": "2026-08-18",
+            "rights": "private-project",
+            "method": (
+                "authored as reviewable pixel-grid specs derived from the frozen "
+                "calibration-v0 lane-B idle poses and measured against the frozen "
+                "calibration-v1 walk frames, calibration-v2 attack keys, "
+                "calibration-v3 anticipation coils, calibration-v5 follow-through "
+                "settles, and calibration-v6 transition bridges "
+                "(sources/calibration-v7/specs), built into native Aseprite "
+                "sources via tools/aseprite_build.lua, exported deterministically "
+                "via tools/export_assets.py and verified pixel-for-pixel against "
+                "the specs"
+            ),
+        },
+        "asset_notes": {
+            "player_1_lane_b_attack_down_x0": (
+                "completion-rise breakdown (in-between) bridging the frozen "
+                "calibration-v5 down settle r0 and the frozen calibration-v0 "
+                "idle_down - one transition tick, never a held state and never "
+                "a smear: head block (dome, eyes, and taper rows) copied "
+                "byte-exact from the frozen calibration-v0 idle_down spec and "
+                "rigidly translated (+1,+1) - a virgin translation halfway home "
+                "from r0's (+2,+3) slump with an idle-lean on y (the rise "
+                "direction); direction residues vs the banked w0 sink: the +1 "
+                "lateral head residue (the v5-banked virgin settle axis), the "
+                "lower-torso width residue extending RIGHT to col 22 (w0's "
+                "haunch bulge extends LEFT), and asymmetric legs (right leg "
+                "still at r0's cols 19-21, left home - legs trail their "
+                "earlier endpoint); upper torso rows 17-18 re-formed at the "
+                "idle columns (the rise reads top-down); jaw closed (the gape "
+                "is the strike marker); occupies recovery tick 8 at the pinned "
+                "offset 0 (renderer lunge_offset else-branch) - a PURE pose "
+                "boundary, no position component exists at t31->t32"
+            ),
+            "player_1_lane_b_attack_right_x0": (
+                "completion-rise breakdown (in-between) bridging the frozen "
+                "calibration-v5 right settle r0 and the frozen calibration-v0 "
+                "idle_right - one transition tick, never a held state and never "
+                "a smear: dome and eye rows copied byte-exact from the frozen "
+                "calibration-v0 idle_right spec and rigidly translated (+1,+2) "
+                "- a virgin translation rising half of r0's (+1,+4) drop while "
+                "carrying its +1 forward overshoot residue (w0-right retracts "
+                "-1: opposite axes); oss tail block at rows 15-19 exactly one "
+                "row above the idle block and one below r0's raised block (the "
+                "weight-tip unwinding; w0-right keeps the tail at the idle "
+                "rows); one re-stacked neck slab row (idle carries three; r0 "
+                "none - the pooled mass re-forming up); torso reach to col 23 "
+                "between idle's 21 and r0's 24; asymmetric legs at r0's columns "
+                "(rear 11-13, front 19-21 - legs trail); snout closed; occupies "
+                "recovery tick 8 at the pinned offset 0 - a PURE pose boundary, "
+                "no position component exists at t31->t32"
+            ),
+        },
+    },
 }
 
 
