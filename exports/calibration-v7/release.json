@@ -1,0 +1,90 @@
+{
+  "contract_version": 1,
+  "release_id": "calibration-v7",
+  "source": {
+    "commit": "26a0ca288f516449d315e325569881c6f696506f",
+    "files": [
+      {
+        "path": "sources/calibration-v7/specs/player_1_lane_b_attack_down_x0.json",
+        "sha256": "a8fb88f1e8cd5eb2f603a08b83d204011a2f4b47cfbbb7380e4848d3d1d4c64f"
+      },
+      {
+        "path": "sources/calibration-v7/player_1_lane_b_attack_down_x0.aseprite",
+        "sha256": "5c319e1534a0baf353fd31aa375623172822e9b80627e8c0b338bad8fd96f3f0"
+      },
+      {
+        "path": "sources/calibration-v7/specs/player_1_lane_b_attack_right_x0.json",
+        "sha256": "93994cef067d99f42bf2b0b0a2ae44b306e96d78e80baf69e09d9e21b98e76a4"
+      },
+      {
+        "path": "sources/calibration-v7/player_1_lane_b_attack_right_x0.aseprite",
+        "sha256": "71e1f5156471523d651b94c246a36f0b2169c2ffdf0ba860d90184e9f51e030f"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "29edda31b2de2adef9948b85c2a9ae3b3dc6c0ba",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_b_attack_down_x0",
+      "kind": "creature",
+      "path": "exports/calibration-v7/player_1_lane_b_attack_down_x0.png",
+      "sha256": "c8e77b6729e6bd02190fe3587dad9ee6dedb34941661ba558eef6c721517b465",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 7)",
+        "created": "2026-08-18",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames, calibration-v2 attack keys, calibration-v3 anticipation coils, calibration-v5 follow-through settles, and calibration-v6 transition bridges (sources/calibration-v7/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "completion-rise breakdown (in-between) bridging the frozen calibration-v5 down settle r0 and the frozen calibration-v0 idle_down - one transition tick, never a held state and never a smear: head block (dome, eyes, and taper rows) copied byte-exact from the frozen calibration-v0 idle_down spec and rigidly translated (+1,+1) - a virgin translation halfway home from r0's (+2,+3) slump with an idle-lean on y (the rise direction); direction residues vs the banked w0 sink: the +1 lateral head residue (the v5-banked virgin settle axis), the lower-torso width residue extending RIGHT to col 22 (w0's haunch bulge extends LEFT), and asymmetric legs (right leg still at r0's cols 19-21, left home - legs trail their earlier endpoint); upper torso rows 17-18 re-formed at the idle columns (the rise reads top-down); jaw closed (the gape is the strike marker); occupies recovery tick 8 at the pinned offset 0 (renderer lunge_offset else-branch) - a PURE pose boundary, no position component exists at t31->t32"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_x0",
+      "kind": "creature",
+      "path": "exports/calibration-v7/player_1_lane_b_attack_right_x0.png",
+      "sha256": "1410a27584454e962f7c42cebf5339d37e782d741b27abefcc0c939a0b469f67",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 7)",
+        "created": "2026-08-18",
+        "rights": "private-project",
+        "method": "authored as reviewable pixel-grid specs derived from the frozen calibration-v0 lane-B idle poses and measured against the frozen calibration-v1 walk frames, calibration-v2 attack keys, calibration-v3 anticipation coils, calibration-v5 follow-through settles, and calibration-v6 transition bridges (sources/calibration-v7/specs), built into native Aseprite sources via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the specs",
+        "note": "completion-rise breakdown (in-between) bridging the frozen calibration-v5 right settle r0 and the frozen calibration-v0 idle_right - one transition tick, never a held state and never a smear: dome and eye rows copied byte-exact from the frozen calibration-v0 idle_right spec and rigidly translated (+1,+2) - a virgin translation rising half of r0's (+1,+4) drop while carrying its +1 forward overshoot residue (w0-right retracts -1: opposite axes); oss tail block at rows 15-19 exactly one row above the idle block and one below r0's raised block (the weight-tip unwinding; w0-right keeps the tail at the idle rows); one re-stacked neck slab row (idle carries three; r0 none - the pooled mass re-forming up); torso reach to col 23 between idle's 21 and r0's 24; asymmetric legs at r0's columns (rear 11-13, front 19-21 - legs trail); snout closed; occupies recovery tick 8 at the pinned offset 0 - a PURE pose boundary, no position component exists at t31->t32"
+      }
+    }
+  ]
+}
