@@ -3,7 +3,7 @@
   "captured_at": "2026-08-17",
   "game_repository": "game-two",
   "game_branch": "junior-tibia",
-  "game_commit": "e5befc4816e07c64ffc62368ce58ead8a12a21ce",
+  "game_commit": "88fd36dbd8ebf1a383d94e76f106db1ad573f149",
   "view": {
     "width": 960,
     "height": 540
@@ -27,7 +27,7 @@
   "source_files": [
     {
       "path": "src/app/renderer.rb",
-      "sha256_lf": "75cd049beb0ff1192b088ce16f0710a162a94a98e5d93a5021752d04aa12110a"
+      "sha256_lf": "9349b16773836d25d04954d06edf501bfe2ac77e52efee125394c7cce8c3611c"
     },
     {
       "path": "src/game/creature.rb",
