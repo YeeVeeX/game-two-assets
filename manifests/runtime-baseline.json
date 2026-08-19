@@ -2,8 +2,8 @@
   "contract_version": 1,
   "captured_at": "2026-08-17",
   "game_repository": "game-two",
-  "game_branch": "junior-tibia",
-  "game_commit": "7e9b252f47980bb5395f63e6b0c091e4ab0811b0",
+  "game_branch": "main",
+  "game_commit": "fd006f914d5732b562dfa3480dc1c19770d8aea0",
   "view": {
     "width": 960,
     "height": 540
