@@ -12,10 +12,12 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from audio_metrics import WavError, read_wav
 from png_reader import PngError, PngInfo, inspect_png
 
 ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+MD5_RE = re.compile(r"^[0-9a-f]{32}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 RELEASE_RE = re.compile(r"^[a-z0-9]+(?:[-_][a-z0-9]+)*$")
 ASSET_ID_RE = re.compile(r"^[a-z0-9]+(?:_[a-z0-9]+)*$")
@@ -23,6 +25,15 @@ COLOR_RE = re.compile(r"^#[0-9a-f]{6}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 EXPORT_KINDS = frozenset({"creature", "tile", "fx", "ui"})
 ORIGIN_KINDS = frozenset({"human", "procedural", "ai_reconstruction"})
+AUDIO_RATE_HZ = 48000
+AUDIO_BAR_FRAMES = 96000  # one bar at 120 bpm 4/4 @ 48 kHz (handoff bar-exact law)
+AUDIO_FORMAT = {
+    "container": "wav",
+    "codec": "pcm_s16le",
+    "sample_rate_hz": AUDIO_RATE_HZ,
+    "channels": 1,
+    "bit_depth": 16,
+}
 AI_PROVENANCE_FIELDS = (
     "provider",
     "model",
@@ -319,6 +330,11 @@ def _validate_export_entry(
     export = _as_object(entry, label, errors)
     if not export:
         return
+    if export.get("kind") == "audio":
+        _validate_audio_export_entry(
+            export, label, root, release_id, seen_ids, seen_paths, errors
+        )
+        return
     asset_id = _validate_asset_id(export, label, seen_ids, errors)
     raw_path = _validate_export_path(
         export, label, release_id, asset_id, seen_paths, errors
@@ -342,6 +358,177 @@ def _validate_exports(
         _validate_export_entry(
             entry, index, root, release_id, seen_ids, seen_paths, errors
         )
+
+
+# --- audio releases (additive kind; docs/asset-contract.md "Audio contract v1") ---
+
+
+def _validate_audio_shape(entry: dict[str, Any], label: str, errors: list[str]) -> None:
+    """Format facts, frame count, duration consistency, bar-exact stems."""
+    if entry.get("format") != AUDIO_FORMAT:
+        errors.append(f"{label}.format must be exactly {json.dumps(AUDIO_FORMAT, sort_keys=True)}")
+    frames = entry.get("frames")
+    if not isinstance(frames, int) or frames <= 0:
+        errors.append(f"{label}.frames must be a positive integer")
+        return
+    dur_s = entry.get("dur_s")
+    if not isinstance(dur_s, (int, float)) or abs(dur_s * AUDIO_RATE_HZ - frames) > 1e-6:
+        errors.append(f"{label}.dur_s must equal frames/{AUDIO_RATE_HZ}")
+    asset_id = entry.get("asset_id")
+    if isinstance(asset_id, str) and asset_id.startswith("mstem_"):
+        if frames % AUDIO_BAR_FRAMES:
+            errors.append(
+                f"{label} music stem must be bar-exact (frames % {AUDIO_BAR_FRAMES} == 0)"
+            )
+
+
+def _validate_audio_loudness(entry: dict[str, Any], label: str, errors: list[str]) -> None:
+    """Report-only loudness fields must exist and be typed; no gain law here."""
+    loudness = entry.get("loudness")
+    if not isinstance(loudness, dict):
+        errors.append(f"{label}.loudness must be an object")
+        return
+    peak = loudness.get("sample_peak_dbfs")
+    if not isinstance(peak, (int, float)) or peak > 0:
+        errors.append(f"{label}.loudness.sample_peak_dbfs must be a number <= 0")
+    lufs = loudness.get("lufs_integrated")
+    if lufs is not None and not isinstance(lufs, (int, float)):
+        errors.append(f"{label}.loudness.lufs_integrated must be a number or null")
+
+
+def _validate_audio_conversion(
+    entry: dict[str, Any], label: str, errors: list[str]
+) -> None:
+    """The twin-hash law: export bytes ARE the pinned PCM16 evaluation twin."""
+    conversion = entry.get("conversion")
+    if not isinstance(conversion, dict):
+        errors.append(f"{label}.conversion must be an object")
+        return
+    law = conversion.get("law")
+    if not isinstance(law, str) or not law.strip():
+        errors.append(f"{label}.conversion.law must be a non-empty string")
+    twin = conversion.get("evaluation_twin_sha256")
+    if not _valid_sha256(twin):
+        errors.append(f"{label}.conversion.evaluation_twin_sha256 must be lowercase SHA-256")
+    elif twin != entry.get("sha256"):
+        errors.append(
+            f"{label}.conversion export sha256 must equal the evaluation-twin sha256 "
+            "(conversion law)"
+        )
+    if conversion.get("reproduces_evaluation_twin") is not True:
+        errors.append(f"{label}.conversion.reproduces_evaluation_twin must be true")
+
+
+def _validate_audio_source(
+    entry: dict[str, Any], label: str, root: Path, errors: list[str]
+) -> None:
+    source = entry.get("source")
+    if not isinstance(source, dict):
+        errors.append(f"{label}.source must be an object")
+        return
+    digest = source.get("sha256")
+    if not _valid_sha256(digest):
+        errors.append(f"{label}.source.sha256 must be lowercase SHA-256")
+    for key in ("source_revision", "twin_pinned_commit"):
+        value = source.get(key)
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{label}.source.{key} must be a non-empty string")
+    try:
+        path = _safe_path(root, source.get("path"), "sources")
+    except AssetGateError as exc:
+        errors.append(f"{label}.source.path: {exc}")
+        return
+    if not path.is_file():
+        errors.append(f"{label}.source.path does not exist")
+    elif digest != sha256_file(path):
+        errors.append(f"{label}.source.sha256 does not match the source file")
+
+
+def _validate_audio_provenance(entry: dict[str, Any], label: str, errors: list[str]) -> None:
+    errors.extend(f"{label}.{error}" for error in _validate_provenance(entry.get("provenance")))
+    provenance = entry.get("provenance")
+    if not isinstance(provenance, dict):
+        return
+    method = provenance.get("method")
+    if not isinstance(method, str) or not method.strip():
+        errors.append(f"{label}.provenance.method must be a non-empty string")
+    upstream = provenance.get("upstream")
+    if not isinstance(upstream, dict):
+        errors.append(f"{label}.provenance.upstream must be an object")
+        return
+    repository = upstream.get("repository")
+    if not isinstance(repository, str) or not repository.strip():
+        errors.append(f"{label}.provenance.upstream.repository must be a non-empty string")
+    if not _valid_commit(upstream.get("handoff_commit")):
+        errors.append(
+            f"{label}.provenance.upstream.handoff_commit must be a full lowercase "
+            "40-hex Git commit"
+        )
+    md5_digest = upstream.get("handoff_manifest_md5")
+    if not isinstance(md5_digest, str) or MD5_RE.fullmatch(md5_digest) is None:
+        errors.append(
+            f"{label}.provenance.upstream.handoff_manifest_md5 must be lowercase MD5"
+        )
+
+
+def _validate_audio_file(
+    entry: dict[str, Any], label: str, root: Path, raw_path: Any, errors: list[str]
+) -> None:
+    digest = entry.get("sha256")
+    if not _valid_sha256(digest):
+        errors.append(f"{label}.sha256 must be lowercase SHA-256")
+    try:
+        path = _safe_path(root, raw_path, "exports")
+    except AssetGateError as exc:
+        errors.append(f"{label}.path: {exc}")
+        return
+    if not path.is_file():
+        errors.append(f"{label}.path does not exist")
+        return
+    if digest != sha256_file(path):
+        errors.append(f"{label}.sha256 does not match the export")
+    try:
+        info = read_wav(path)
+    except (WavError, OSError) as exc:
+        errors.append(f"{label}.path: {exc}")
+        return
+    if (info.sample_rate_hz, info.channels, info.bit_depth) != (AUDIO_RATE_HZ, 1, 16):
+        errors.append(f"{label} WAV must be PCM16 mono {AUDIO_RATE_HZ} Hz")
+    if info.frames != entry.get("frames"):
+        errors.append(
+            f"{label} WAV has {info.frames} frames; manifest declares {entry.get('frames')}"
+        )
+
+
+def _validate_audio_export_entry(
+    export: dict[str, Any],
+    label: str,
+    root: Path,
+    release_id: str,
+    seen_ids: set[str],
+    seen_paths: set[str],
+    errors: list[str],
+) -> None:
+    """Additive audio-kind law; visual entries never reach this path."""
+    asset_id = _validate_asset_id(export, label, seen_ids, errors)
+    raw_path = export.get("path")
+    expected = f"exports/{release_id}/{asset_id}.wav"
+    if raw_path != expected:
+        errors.append(f"{label}.path must be {expected}")
+    if isinstance(raw_path, str):
+        if raw_path in seen_paths:
+            errors.append(f"{label}.path is duplicated")
+        seen_paths.add(raw_path)
+    for key in ("role", "level_band"):
+        value = export.get(key)
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{label}.{key} must be a non-empty string")
+    _validate_audio_shape(export, label, errors)
+    _validate_audio_loudness(export, label, errors)
+    _validate_audio_conversion(export, label, errors)
+    _validate_audio_source(export, label, root, errors)
+    _validate_audio_provenance(export, label, errors)
+    _validate_audio_file(export, label, root, raw_path, errors)
 
 
 def validate_release(manifest_path: Path, root: Path = ROOT) -> list[str]:

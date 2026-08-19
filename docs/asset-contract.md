@@ -113,3 +113,84 @@ Do not integrate until all are true:
 - provenance and rights are complete;
 - visual critique passes at native scale;
 - an integration design proves loading, draw order, and deterministic capture without changing simulation identity.
+
+## Audio contract v1 (audio-v1 lane)
+
+Audio is an additive asset kind (`kind: "audio"`). Every visual law above is
+unchanged; audio entries never touch the PNG, palette, or bounds laws, and the
+visual builder chain (`tools/export_assets.py`, `tools/make_release.py`) stays
+byte-frozen — audio releases are built by their own pinned exporter
+(`tools/ingest_audio.py`).
+
+### Export format law
+
+Every audio release WAV must:
+
+- be WAV PCM16 (`pcm_s16le`) mono 48 000 Hz with the canonical 44-byte
+  RIFF/WAVE/fmt/data header (Python `wave`-module layout, little-endian, no
+  ancillary chunks, no timestamps);
+- preserve the source frame count exactly (duration is never altered);
+- satisfy `|dur_s · 48000 − frames| < 1e-6` in its manifest entry;
+- for `mstem_*` ids, stay bar-exact: frames ≡ 0 (mod 96 000) — one bar at
+  120 bpm 4/4 @ 48 kHz.
+
+### Conversion law (twin-hash)
+
+Exports are conversions of owner-rendered originals, never edits. The pinned
+24→16 law is `s16 = clamp(round(s24 / 2^23 · 32767), −32768, 32767)`
+(IEEE-754 float64, round-half-even; ties exist only at s24 = ±2^22 where
+half-even and half-away coincide). The export's whole-file SHA-256 must equal
+the upstream handoff manifest's PCM16 evaluation-twin sha256 for that asset:
+the gate enforces `sha256 == conversion.evaluation_twin_sha256`, which makes
+gain, trim, fade, resample, dither, or synthesis mechanically impossible. If a
+conversion cannot reproduce its twin hash, the lane STOPS (bank sources + the
+stop finding; ask upstream for the exact spec) — a divergent conversion never
+ships.
+
+### Loudness report law
+
+This repository owns loudness measurement (upstream deliberately measures only
+sample peak). Per export, the release records integrated LUFS (ITU-R
+BS.1770-4: 48 kHz K-weighting, 400 ms blocks, 75% overlap, −70 LKFS absolute
++ −10 LU relative gating; null for files shorter than one 400 ms block) and
+sample peak dBFS. Measurement is REPORT-ONLY: KB targets
+(`music-production/game-audio-pipeline.md` §7) are conformance advisories;
+out-of-band files are routed findings (owner mix decisions), never
+gain-rescued. The meter must pass its pre-registered synthetic validation
+vectors (reviews/audio-v1/rationale.md §4) before any measurement is trusted.
+Sample peak ≠ true peak (dBTP); the KB peak column is advisory only.
+
+### Audio release manifest
+
+Audio releases use the standard header/source/target/toolchain law above
+(exporter pin = the audio builder). Each `kind: "audio"` export additionally
+requires: exact format object (wav / pcm_s16le / 48000 / 1 / 16); `frames` and
+`dur_s` (consistency-checked); verbatim upstream `role` and `level_band`;
+`loudness` (typed, report-only); `conversion` (law text +
+`evaluation_twin_sha256` == export sha256 + `reproduces_evaluation_twin`);
+`source` (path under `sources/` with matching sha256, `source_revision`,
+`twin_pinned_commit`); provenance = the standard origin/author/created/rights
+law plus non-empty `method` and an `upstream` block ({repository, 40-hex
+handoff_commit, 32-hex handoff_manifest_md5}). The gate re-parses every WAV
+header (PCM16 mono 48 kHz, frame count equals the manifest) and re-verifies
+every hash.
+
+### Naming and provenance
+
+Mechanical snake_case ids from the upstream handoff manifest, unchanged — no
+fiction names (standing lore ban). Origin for owner performances is `human`.
+Generated or synthesized audio is not a valid audio export origin in v1.
+
+### Audio gate
+
+Technical validity is necessary but not sufficient. A banked audio release needs:
+
+1. a deterministic per-file analysis sheet (waveform envelope at full scale,
+   duration/frames, LUFS vs target, peak vs declared) rendered from the
+   metrics artifact verbatim;
+2. a metrics validator run (`tools/audio_metrics.py --check`) with failures
+   grouped INTEGRITY (stops the lane) vs MEASUREMENT (banked evidence);
+3. a vision critique of the sheet against the pre-registered rubric;
+4. separate verdicts for technical accuracy and presentation;
+5. determinism proof: conversion, release manifest, metrics, and sheet
+   byte-identical across two builds.

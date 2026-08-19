@@ -6,5 +6,7 @@
 /concepts/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 /concepts/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
 /sources/**/*.png filter=lfs diff=lfs merge=lfs -text
+/sources/**/*.wav filter=lfs diff=lfs merge=lfs -text
+/exports/**/*.wav filter=lfs diff=lfs merge=lfs -text
 /exports/**/*.png -text
 /reviews/**/*.png -text
