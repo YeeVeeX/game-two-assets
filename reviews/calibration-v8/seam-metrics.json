@@ -1,0 +1,1159 @@
+{
+  "apng": {
+    "down": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "059be50eaf157869a13948cc5277b5b96e43ab0abd62d23268e5899dc1eaa991"
+    },
+    "right": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "0688c11234f648329824e9f1daf827eca2ecbb26cfb86008b123f631e88b6c1f"
+    }
+  },
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "arrival_tick": 14,
+    "onset_ticks": {
+      "CONTROL": 15,
+      "EARLY": 3,
+      "LATE": 10,
+      "MID": 6
+    },
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "control_regression_failures": [],
+  "drawing_model": "attack_state != :idle draws the banked v7-winner grammar pose at tween+offset; recovery-overlap ticks draw s0/r0 on the moving base under this declared model (recovery-walk priority stays a carried integration finding)",
+  "export_pins": {
+    "failures": [],
+    "pinned_total": 26,
+    "verified": 26
+  },
+  "generated_by": "tools/seam_metrics.py",
+  "overlap": {
+    "CONTROL": {
+      "arrival_phase": "pre-onset",
+      "arrival_phase_tick": 0,
+      "arrival_tick": 14,
+      "moving_base_ticks_before_arrival": {
+        "active": 0,
+        "recovery": 0,
+        "windup": 0
+      },
+      "onset_tick": 15,
+      "rem_after_onset": 0
+    },
+    "EARLY": {
+      "arrival_phase": "recovery",
+      "arrival_phase_tick": 3,
+      "arrival_tick": 14,
+      "moving_base_ticks_before_arrival": {
+        "active": 4,
+        "recovery": 2,
+        "windup": 5
+      },
+      "onset_tick": 3,
+      "rem_after_onset": 11
+    },
+    "LATE": {
+      "arrival_phase": "windup",
+      "arrival_phase_tick": 5,
+      "arrival_tick": 14,
+      "moving_base_ticks_before_arrival": {
+        "active": 0,
+        "recovery": 0,
+        "windup": 4
+      },
+      "onset_tick": 10,
+      "rem_after_onset": 4
+    },
+    "MID": {
+      "arrival_phase": "active",
+      "arrival_phase_tick": 4,
+      "arrival_tick": 14,
+      "moving_base_ticks_before_arrival": {
+        "active": 3,
+        "recovery": 0,
+        "windup": 5
+      },
+      "onset_tick": 6,
+      "rem_after_onset": 8
+    }
+  },
+  "purity": {
+    "cells_checked": 340,
+    "failures": []
+  },
+  "seam_tables": {
+    "down": {
+      "CONTROL": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 6,
+          "max_other_pose_delta_pct": 17.25,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 13,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f3",
+            "pose_to": "f3",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "windup",
+            "pose_delta_pct": 16.48,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 16,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 17
+          },
+          {
+            "from_tick": 17,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 18
+          },
+          {
+            "from_tick": 18,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 19
+          },
+          {
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 20,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 21
+          },
+          {
+            "from_tick": 21,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 22
+          },
+          {
+            "from_tick": 22,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 23
+          },
+          {
+            "from_tick": 23,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          }
+        ]
+      },
+      "EARLY": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 4,
+          "max_other_pose_delta_pct": 22.91,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 13,
+            "to_tick": 8
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 1,
+            "phase_to": "walk",
+            "pose_delta_pct": 15.87,
+            "pose_from": "idle",
+            "pose_to": "f0",
+            "position_delta_px": 1,
+            "to_tick": 2
+          },
+          {
+            "from_tick": 2,
+            "phase_to": "windup",
+            "pose_delta_pct": 22.91,
+            "pose_from": "f0",
+            "pose_to": "w0",
+            "position_delta_px": -2,
+            "to_tick": 3
+          },
+          {
+            "from_tick": 3,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 2,
+            "to_tick": 4
+          },
+          {
+            "from_tick": 4,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 5
+          },
+          {
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 4,
+            "to_tick": 6
+          },
+          {
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 7
+          },
+          {
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 13,
+            "to_tick": 8
+          },
+          {
+            "from_tick": 8,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 3,
+            "to_tick": 9
+          },
+          {
+            "from_tick": 9,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 4,
+            "to_tick": 10
+          },
+          {
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 3,
+            "to_tick": 11
+          },
+          {
+            "from_tick": 11,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -4,
+            "to_tick": 12
+          },
+          {
+            "from_tick": 12,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 1,
+            "to_tick": 13
+          },
+          {
+            "from_tick": 13,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 15
+          }
+        ]
+      },
+      "LATE": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 6,
+          "max_other_pose_delta_pct": 22.91,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 15
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 8,
+            "phase_to": "walk",
+            "pose_delta_pct": 19.0,
+            "pose_from": "f1",
+            "pose_to": "f2",
+            "position_delta_px": 3,
+            "to_tick": 9
+          },
+          {
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 22.91,
+            "pose_from": "f2",
+            "pose_to": "w0",
+            "position_delta_px": 1,
+            "to_tick": 10
+          },
+          {
+            "from_tick": 10,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 11
+          },
+          {
+            "from_tick": 11,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 2,
+            "to_tick": 12
+          },
+          {
+            "from_tick": 12,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 1,
+            "to_tick": 13
+          },
+          {
+            "from_tick": 13,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 16,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 17
+          },
+          {
+            "from_tick": 17,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 18
+          },
+          {
+            "from_tick": 18,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 19
+          },
+          {
+            "from_tick": 19,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 20
+          }
+        ]
+      },
+      "MID": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 6,
+          "max_other_pose_delta_pct": 22.91,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 12,
+            "to_tick": 11
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 4,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f0",
+            "pose_to": "f0",
+            "position_delta_px": 3,
+            "to_tick": 5
+          },
+          {
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 22.91,
+            "pose_from": "f0",
+            "pose_to": "w0",
+            "position_delta_px": 1,
+            "to_tick": 6
+          },
+          {
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 7
+          },
+          {
+            "from_tick": 7,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 4,
+            "to_tick": 8
+          },
+          {
+            "from_tick": 8,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 9
+          },
+          {
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 4,
+            "to_tick": 10
+          },
+          {
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 12,
+            "to_tick": 11
+          },
+          {
+            "from_tick": 11,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 2,
+            "to_tick": 12
+          },
+          {
+            "from_tick": 12,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 1,
+            "to_tick": 13
+          },
+          {
+            "from_tick": 13,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          }
+        ]
+      }
+    },
+    "right": {
+      "CONTROL": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 6,
+          "max_other_pose_delta_pct": 21.31,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 13,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f3",
+            "pose_to": "f3",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "windup",
+            "pose_delta_pct": 19.69,
+            "pose_from": "f3",
+            "pose_to": "w0",
+            "position_delta_px": -3,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 16,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 17
+          },
+          {
+            "from_tick": 17,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 18
+          },
+          {
+            "from_tick": 18,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 0,
+            "to_tick": 19
+          },
+          {
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 20
+          },
+          {
+            "from_tick": 20,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 21
+          },
+          {
+            "from_tick": 21,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 22
+          },
+          {
+            "from_tick": 22,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 23
+          },
+          {
+            "from_tick": 23,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 24
+          },
+          {
+            "from_tick": 24,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 25
+          }
+        ]
+      },
+      "EARLY": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 4,
+          "max_other_pose_delta_pct": 28.27,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 13,
+            "to_tick": 8
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 1,
+            "phase_to": "walk",
+            "pose_delta_pct": 10.29,
+            "pose_from": "idle",
+            "pose_to": "f0",
+            "position_delta_px": 1,
+            "to_tick": 2
+          },
+          {
+            "from_tick": 2,
+            "phase_to": "windup",
+            "pose_delta_pct": 28.27,
+            "pose_from": "f0",
+            "pose_to": "w0",
+            "position_delta_px": -2,
+            "to_tick": 3
+          },
+          {
+            "from_tick": 3,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 2,
+            "to_tick": 4
+          },
+          {
+            "from_tick": 4,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 5
+          },
+          {
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 4,
+            "to_tick": 6
+          },
+          {
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 7
+          },
+          {
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 13,
+            "to_tick": 8
+          },
+          {
+            "from_tick": 8,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 3,
+            "to_tick": 9
+          },
+          {
+            "from_tick": 9,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 4,
+            "to_tick": 10
+          },
+          {
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 3,
+            "to_tick": 11
+          },
+          {
+            "from_tick": 11,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -4,
+            "to_tick": 12
+          },
+          {
+            "from_tick": 12,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 1,
+            "to_tick": 13
+          },
+          {
+            "from_tick": 13,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 15
+          }
+        ]
+      },
+      "LATE": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 6,
+          "max_other_pose_delta_pct": 28.27,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 15
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 8,
+            "phase_to": "walk",
+            "pose_delta_pct": 22.09,
+            "pose_from": "f1",
+            "pose_to": "f2",
+            "position_delta_px": 3,
+            "to_tick": 9
+          },
+          {
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 28.27,
+            "pose_from": "f2",
+            "pose_to": "w0",
+            "position_delta_px": 1,
+            "to_tick": 10
+          },
+          {
+            "from_tick": 10,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 11
+          },
+          {
+            "from_tick": 11,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 2,
+            "to_tick": 12
+          },
+          {
+            "from_tick": 12,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 1,
+            "to_tick": 13
+          },
+          {
+            "from_tick": 13,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 9,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          },
+          {
+            "from_tick": 16,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 17
+          },
+          {
+            "from_tick": 17,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 0,
+            "to_tick": 18
+          },
+          {
+            "from_tick": 18,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 19
+          },
+          {
+            "from_tick": 19,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 20
+          }
+        ]
+      },
+      "MID": {
+        "release_salience": {
+          "max_other_abs_position_delta_px": 6,
+          "max_other_pose_delta_pct": 28.27,
+          "pose_axis_strictly_dominant": true,
+          "position_axis_strictly_dominant": true,
+          "release_row": {
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 12,
+            "to_tick": 11
+          }
+        },
+        "rows": [
+          {
+            "from_tick": 4,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f0",
+            "pose_to": "f0",
+            "position_delta_px": 3,
+            "to_tick": 5
+          },
+          {
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 28.27,
+            "pose_from": "f0",
+            "pose_to": "w0",
+            "position_delta_px": 1,
+            "to_tick": 6
+          },
+          {
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 7
+          },
+          {
+            "from_tick": 7,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 4,
+            "to_tick": 8
+          },
+          {
+            "from_tick": 8,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 3,
+            "to_tick": 9
+          },
+          {
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_to": "a0",
+            "position_delta_px": 4,
+            "to_tick": 10
+          },
+          {
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_to": "k0",
+            "position_delta_px": 12,
+            "to_tick": 11
+          },
+          {
+            "from_tick": 11,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 2,
+            "to_tick": 12
+          },
+          {
+            "from_tick": 12,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 1,
+            "to_tick": 13
+          },
+          {
+            "from_tick": 13,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_to": "k0",
+            "position_delta_px": 1,
+            "to_tick": 14
+          },
+          {
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_to": "s0",
+            "position_delta_px": -6,
+            "to_tick": 15
+          },
+          {
+            "from_tick": 15,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_to": "r0",
+            "position_delta_px": 0,
+            "to_tick": 16
+          }
+        ]
+      }
+    }
+  },
+  "sheet": {
+    "cells": 340,
+    "committed_matches": true,
+    "deterministic": true,
+    "sha256": "a426b602bf03653e41e5f07baab496ea6a53efe50a2db0618218951940cd3245"
+  },
+  "tick_math_failures": [],
+  "tick_ms": 16.666666
+}
