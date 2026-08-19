@@ -1,0 +1,3374 @@
+{
+  "anchoring": {
+    "DR": {
+      "CONTROL": [
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 20
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 21
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 22
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 23
+        }
+      ],
+      "DEGEN": [
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            44,
+            65
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 2,
+          "crossing_depth_px": 2,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 20
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            44,
+            65
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 2,
+          "crossing_depth_px": 2,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 21
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            44,
+            65
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 2,
+          "crossing_depth_px": 2,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 22
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            44,
+            65
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 2,
+          "crossing_depth_px": 2,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 23
+        }
+      ],
+      "EARLY": [
+        {
+          "a_px": 18,
+          "body_a_extent": [
+            25,
+            45
+          ],
+          "body_overlap_near_px": 7,
+          "body_overlap_true_px": 14,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 8,
+          "crossing_px_total": 12,
+          "crossing_px_true": 4,
+          "tick": 8
+        },
+        {
+          "a_px": 21,
+          "body_a_extent": [
+            28,
+            48
+          ],
+          "body_overlap_near_px": 4,
+          "body_overlap_true_px": 17,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 1,
+          "crossing_px_total": 12,
+          "crossing_px_true": 11,
+          "tick": 9
+        },
+        {
+          "a_px": 25,
+          "body_a_extent": [
+            32,
+            52
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 10
+        },
+        {
+          "a_px": 28,
+          "body_a_extent": [
+            35,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 11
+        }
+      ],
+      "LATE": [
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 15
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 16
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 17
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 18
+        }
+      ],
+      "MID": [
+        {
+          "a_px": 28,
+          "body_a_extent": [
+            35,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 11
+        },
+        {
+          "a_px": 30,
+          "body_a_extent": [
+            37,
+            57
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 12
+        },
+        {
+          "a_px": 31,
+          "body_a_extent": [
+            38,
+            58
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 13
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            39,
+            59
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 21,
+          "crossing_depth_px": 3,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 14
+        }
+      ]
+    },
+    "RD": {
+      "CONTROL": [
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 20
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 21
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 22
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 23
+        }
+      ],
+      "DEGEN": [
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            45,
+            66
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 3,
+          "crossing_depth_px": 3,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 20
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            45,
+            66
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 3,
+          "crossing_depth_px": 3,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 21
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            45,
+            66
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 3,
+          "crossing_depth_px": 3,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 22
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            45,
+            66
+          ],
+          "body_overlap_near_px": null,
+          "body_overlap_true_px": 3,
+          "crossing_depth_px": 3,
+          "crossing_px_near": null,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 23
+        }
+      ],
+      "EARLY": [
+        {
+          "a_px": 18,
+          "body_a_extent": [
+            26,
+            41
+          ],
+          "body_overlap_near_px": 6,
+          "body_overlap_true_px": 10,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 6,
+          "crossing_px_total": 12,
+          "crossing_px_true": 6,
+          "tick": 8
+        },
+        {
+          "a_px": 21,
+          "body_a_extent": [
+            29,
+            44
+          ],
+          "body_overlap_near_px": 3,
+          "body_overlap_true_px": 13,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 2,
+          "crossing_px_total": 12,
+          "crossing_px_true": 10,
+          "tick": 9
+        },
+        {
+          "a_px": 25,
+          "body_a_extent": [
+            33,
+            48
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 10
+        },
+        {
+          "a_px": 28,
+          "body_a_extent": [
+            36,
+            51
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 11
+        }
+      ],
+      "LATE": [
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 15
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 16
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 17
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 18
+        }
+      ],
+      "MID": [
+        {
+          "a_px": 28,
+          "body_a_extent": [
+            36,
+            51
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 11
+        },
+        {
+          "a_px": 30,
+          "body_a_extent": [
+            38,
+            53
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 12
+        },
+        {
+          "a_px": 31,
+          "body_a_extent": [
+            39,
+            54
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 13
+        },
+        {
+          "a_px": 32,
+          "body_a_extent": [
+            40,
+            55
+          ],
+          "body_overlap_near_px": 0,
+          "body_overlap_true_px": 16,
+          "crossing_depth_px": 2,
+          "crossing_px_near": 0,
+          "crossing_px_total": 12,
+          "crossing_px_true": 12,
+          "tick": 14
+        }
+      ]
+    }
+  },
+  "apng": {
+    "DR": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "609a7ff75836e2bf753dc1e408b379013b718255cbb738a7a0c022bbabd59f78"
+    },
+    "RD": {
+      "committed_matches": true,
+      "deterministic": true,
+      "frames": 34,
+      "sha256": "89038c52bfaceddd43d488c7ea97fba541047b92269fc3f0f0be4330eb9bd267"
+    }
+  },
+  "bounds_failures": [],
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "arrival_tick": 14,
+    "onset_ticks": {
+      "CONTROL": 15,
+      "DEGEN": 15,
+      "EARLY": 3,
+      "LATE": 10,
+      "MID": 6
+    },
+    "pair_axes": {
+      "DR": [
+        "down",
+        "right"
+      ],
+      "RD": [
+        "right",
+        "down"
+      ]
+    },
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "context_deltas": {
+    "f0": {
+      "popping_pct": 53.64,
+      "recolored_px": 63,
+      "silhouette_changed_px": 199,
+      "union_px": 371
+    },
+    "f1": {
+      "popping_pct": 45.0,
+      "recolored_px": 64,
+      "silhouette_changed_px": 162,
+      "union_px": 360
+    },
+    "f2": {
+      "popping_pct": 36.45,
+      "recolored_px": 55,
+      "silhouette_changed_px": 121,
+      "union_px": 332
+    },
+    "f3": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    },
+    "idle": {
+      "popping_pct": 44.44,
+      "recolored_px": 64,
+      "silhouette_changed_px": 156,
+      "union_px": 351
+    }
+  },
+  "conventions": {
+    "axes": "window coordinates: x right, y down, canvas-origin; A = walk axis positive in the walk direction; B = attack facing positive toward the arc tile; degenerate lanes carry the full along-axis delta in dA with dB-perpendicular 0 by construction",
+    "pose_delta": "100*XOR/union on canvas-aligned export bytes (position-independent); 0.0 only for identical pose AND facing",
+    "squared": "dA^2 + dB^2, exact integer - no scalarized pose+position metric",
+    "tiles": "T0 = step origin tile; T1 = committed tile (one tile along A); TRUE arc = T1+B (front1 at the committed tile); NEAR = T0+B; the arc-side grid line is the shared boundary at window-B 64",
+    "w0": "w0 IS windup tick 1 and draws at the windup offset (-3 along B)"
+  },
+  "degenerate_regression_failures": [],
+  "drawing_model": "attack_state != :idle draws the banked v7-winner grammar pose in the creature's CURRENT facing at 2D tween + offset*facing; facing is held at B from the onset tick (the modeled input); recovery-overlap ticks draw s0/r0 on the moving base under this declared model (recovery-walk priority stays a carried finding)",
+  "export_pins": {
+    "failures": [],
+    "pinned_total": 26,
+    "verified": 26
+  },
+  "generated_by": "tools/cross_seam_metrics.py",
+  "onset_cuts": {
+    "DR": {
+      "CONTROL": {
+        "delta_a_px": 0,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          -3,
+          0
+        ],
+        "from_tick": 14,
+        "phase_to": "windup",
+        "pose_delta_pct": 43.7,
+        "pose_from": "f3",
+        "pose_from_facing": "down",
+        "pose_to": "w0",
+        "pose_to_facing": "right",
+        "squared_px": 9,
+        "to_tick": 15
+      },
+      "DEGEN": {
+        "delta_a_px": -3,
+        "delta_b_px": 0,
+        "delta_window_px": [
+          0,
+          -3
+        ],
+        "from_tick": 14,
+        "phase_to": "windup",
+        "pose_delta_pct": 16.48,
+        "pose_from": "f3",
+        "pose_from_facing": "down",
+        "pose_to": "w0",
+        "pose_to_facing": "down",
+        "squared_px": 9,
+        "to_tick": 15
+      },
+      "EARLY": {
+        "delta_a_px": 1,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          -3,
+          1
+        ],
+        "from_tick": 2,
+        "phase_to": "windup",
+        "pose_delta_pct": 48.14,
+        "pose_from": "f0",
+        "pose_from_facing": "down",
+        "pose_to": "w0",
+        "pose_to_facing": "right",
+        "squared_px": 10,
+        "to_tick": 3
+      },
+      "LATE": {
+        "delta_a_px": 4,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          -3,
+          4
+        ],
+        "from_tick": 9,
+        "phase_to": "windup",
+        "pose_delta_pct": 39.88,
+        "pose_from": "f2",
+        "pose_from_facing": "down",
+        "pose_to": "w0",
+        "pose_to_facing": "right",
+        "squared_px": 25,
+        "to_tick": 10
+      },
+      "MID": {
+        "delta_a_px": 4,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          -3,
+          4
+        ],
+        "from_tick": 5,
+        "phase_to": "windup",
+        "pose_delta_pct": 48.14,
+        "pose_from": "f0",
+        "pose_from_facing": "down",
+        "pose_to": "w0",
+        "pose_to_facing": "right",
+        "squared_px": 25,
+        "to_tick": 6
+      }
+    },
+    "RD": {
+      "CONTROL": {
+        "delta_a_px": 0,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          0,
+          -3
+        ],
+        "from_tick": 14,
+        "phase_to": "windup",
+        "pose_delta_pct": 43.86,
+        "pose_from": "f3",
+        "pose_from_facing": "right",
+        "pose_to": "w0",
+        "pose_to_facing": "down",
+        "squared_px": 9,
+        "to_tick": 15
+      },
+      "DEGEN": {
+        "delta_a_px": -3,
+        "delta_b_px": 0,
+        "delta_window_px": [
+          -3,
+          0
+        ],
+        "from_tick": 14,
+        "phase_to": "windup",
+        "pose_delta_pct": 19.69,
+        "pose_from": "f3",
+        "pose_from_facing": "right",
+        "pose_to": "w0",
+        "pose_to_facing": "right",
+        "squared_px": 9,
+        "to_tick": 15
+      },
+      "EARLY": {
+        "delta_a_px": 1,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          1,
+          -3
+        ],
+        "from_tick": 2,
+        "phase_to": "windup",
+        "pose_delta_pct": 49.15,
+        "pose_from": "f0",
+        "pose_from_facing": "right",
+        "pose_to": "w0",
+        "pose_to_facing": "down",
+        "squared_px": 10,
+        "to_tick": 3
+      },
+      "LATE": {
+        "delta_a_px": 4,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          4,
+          -3
+        ],
+        "from_tick": 9,
+        "phase_to": "windup",
+        "pose_delta_pct": 40.12,
+        "pose_from": "f2",
+        "pose_from_facing": "right",
+        "pose_to": "w0",
+        "pose_to_facing": "down",
+        "squared_px": 25,
+        "to_tick": 10
+      },
+      "MID": {
+        "delta_a_px": 4,
+        "delta_b_px": -3,
+        "delta_window_px": [
+          4,
+          -3
+        ],
+        "from_tick": 5,
+        "phase_to": "windup",
+        "pose_delta_pct": 49.15,
+        "pose_from": "f0",
+        "pose_from_facing": "right",
+        "pose_to": "w0",
+        "pose_to_facing": "down",
+        "squared_px": 25,
+        "to_tick": 6
+      }
+    }
+  },
+  "overlap": {
+    "DR": {
+      "CONTROL": {
+        "arrival_phase": "pre-onset",
+        "arrival_phase_tick": 0,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 0,
+          "recovery": 0,
+          "windup": 0
+        },
+        "onset_tick": 15,
+        "rem_after_onset": 0
+      },
+      "DEGEN": {
+        "arrival_phase": "pre-onset",
+        "arrival_phase_tick": 0,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 0,
+          "recovery": 0,
+          "windup": 0
+        },
+        "onset_tick": 15,
+        "rem_after_onset": 0
+      },
+      "EARLY": {
+        "arrival_phase": "recovery",
+        "arrival_phase_tick": 3,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 4,
+          "recovery": 2,
+          "windup": 5
+        },
+        "onset_tick": 3,
+        "rem_after_onset": 11
+      },
+      "LATE": {
+        "arrival_phase": "windup",
+        "arrival_phase_tick": 5,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 0,
+          "recovery": 0,
+          "windup": 4
+        },
+        "onset_tick": 10,
+        "rem_after_onset": 4
+      },
+      "MID": {
+        "arrival_phase": "active",
+        "arrival_phase_tick": 4,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 3,
+          "recovery": 0,
+          "windup": 5
+        },
+        "onset_tick": 6,
+        "rem_after_onset": 8
+      }
+    },
+    "RD": {
+      "CONTROL": {
+        "arrival_phase": "pre-onset",
+        "arrival_phase_tick": 0,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 0,
+          "recovery": 0,
+          "windup": 0
+        },
+        "onset_tick": 15,
+        "rem_after_onset": 0
+      },
+      "DEGEN": {
+        "arrival_phase": "pre-onset",
+        "arrival_phase_tick": 0,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 0,
+          "recovery": 0,
+          "windup": 0
+        },
+        "onset_tick": 15,
+        "rem_after_onset": 0
+      },
+      "EARLY": {
+        "arrival_phase": "recovery",
+        "arrival_phase_tick": 3,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 4,
+          "recovery": 2,
+          "windup": 5
+        },
+        "onset_tick": 3,
+        "rem_after_onset": 11
+      },
+      "LATE": {
+        "arrival_phase": "windup",
+        "arrival_phase_tick": 5,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 0,
+          "recovery": 0,
+          "windup": 4
+        },
+        "onset_tick": 10,
+        "rem_after_onset": 4
+      },
+      "MID": {
+        "arrival_phase": "active",
+        "arrival_phase_tick": 4,
+        "arrival_tick": 14,
+        "moving_base_ticks_before_arrival": {
+          "active": 3,
+          "recovery": 0,
+          "windup": 5
+        },
+        "onset_tick": 6,
+        "rem_after_onset": 8
+      }
+    }
+  },
+  "purity": {
+    "cells_checked": 414,
+    "failures": []
+  },
+  "seam_tables": {
+    "DR": {
+      "CONTROL": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 43.7,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              0
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 13,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f3",
+            "pose_from_facing": "down",
+            "pose_to": "f3",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              -3,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "windup",
+            "pose_delta_pct": 43.7,
+            "pose_from": "f3",
+            "pose_from_facing": "down",
+            "pose_to": "w0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 16
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 16,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 17
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 17,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 18
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 18,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 19
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              0
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 20,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 21
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 21,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 22
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 22,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 23
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              -6,
+              0
+            ],
+            "from_tick": 23,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "s0",
+            "pose_to_facing": "right",
+            "squared_px": 36,
+            "to_tick": 24
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 24,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 25
+          }
+        ]
+      },
+      "DEGEN": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 17.25,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": true,
+          "release_row": {
+            "delta_a_px": 9,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              9
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 13,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f3",
+            "pose_from_facing": "down",
+            "pose_to": "f3",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": -3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              -3
+            ],
+            "from_tick": 14,
+            "phase_to": "windup",
+            "pose_delta_pct": 16.48,
+            "pose_from": "f3",
+            "pose_from_facing": "down",
+            "pose_to": "w0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 16
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 16,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 17
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 17,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 18
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 18,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 19
+          },
+          {
+            "delta_a_px": 9,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              9
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 20,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 21
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 21,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 22
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 22,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 23
+          },
+          {
+            "delta_a_px": -6,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              -6
+            ],
+            "from_tick": 23,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "s0",
+            "pose_to_facing": "down",
+            "squared_px": 36,
+            "to_tick": 24
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 24,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 25
+          }
+        ]
+      },
+      "EARLY": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 48.14,
+          "max_other_squared_px": 40,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 4,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              4
+            ],
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 97,
+            "to_tick": 8
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 1,
+            "phase_to": "walk",
+            "pose_delta_pct": 15.87,
+            "pose_from": "idle",
+            "pose_from_facing": "down",
+            "pose_to": "f0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 2
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              -3,
+              1
+            ],
+            "from_tick": 2,
+            "phase_to": "windup",
+            "pose_delta_pct": 48.14,
+            "pose_from": "f0",
+            "pose_from_facing": "down",
+            "pose_to": "w0",
+            "pose_to_facing": "right",
+            "squared_px": 10,
+            "to_tick": 3
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              2
+            ],
+            "from_tick": 3,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 4,
+            "to_tick": 4
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 4,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 5
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              4
+            ],
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 16,
+            "to_tick": 6
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 7
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              4
+            ],
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 97,
+            "to_tick": 8
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 8,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 9
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              4
+            ],
+            "from_tick": 9,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 16,
+            "to_tick": 10
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 11
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              -6,
+              2
+            ],
+            "from_tick": 11,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "s0",
+            "pose_to_facing": "right",
+            "squared_px": 40,
+            "to_tick": 12
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 12,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 13
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 13,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 15
+          }
+        ]
+      },
+      "LATE": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 39.88,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 81,
+            "to_tick": 15
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 8,
+            "phase_to": "walk",
+            "pose_delta_pct": 19.0,
+            "pose_from": "f1",
+            "pose_from_facing": "down",
+            "pose_to": "f2",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 9
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              -3,
+              4
+            ],
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 39.88,
+            "pose_from": "f2",
+            "pose_from_facing": "down",
+            "pose_to": "w0",
+            "pose_to_facing": "right",
+            "squared_px": 25,
+            "to_tick": 10
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 10,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 11
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              2
+            ],
+            "from_tick": 11,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 4,
+            "to_tick": 12
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 12,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 13
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 13,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 81,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 16
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 16,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 17
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 17,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 18
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              -6,
+              0
+            ],
+            "from_tick": 18,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "s0",
+            "pose_to_facing": "right",
+            "squared_px": 36,
+            "to_tick": 19
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 19,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 20
+          }
+        ]
+      },
+      "MID": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 48.14,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 3,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              3
+            ],
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 90,
+            "to_tick": 11
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 4,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f0",
+            "pose_from_facing": "down",
+            "pose_to": "f0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 5
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              -3,
+              4
+            ],
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 48.14,
+            "pose_from": "f0",
+            "pose_from_facing": "down",
+            "pose_to": "w0",
+            "pose_to_facing": "right",
+            "squared_px": 25,
+            "to_tick": 6
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 7
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              4
+            ],
+            "from_tick": 7,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 16,
+            "to_tick": 8
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              3
+            ],
+            "from_tick": 8,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 9
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              4
+            ],
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 16,
+            "to_tick": 10
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              9,
+              3
+            ],
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 90,
+            "to_tick": 11
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              2
+            ],
+            "from_tick": 11,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 4,
+            "to_tick": 12
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 12,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 13
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              1
+            ],
+            "from_tick": 13,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              -6,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "s0",
+            "pose_to_facing": "right",
+            "squared_px": 36,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 16
+          }
+        ]
+      }
+    },
+    "RD": {
+      "CONTROL": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 43.86,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              0,
+              9
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 13,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f3",
+            "pose_from_facing": "right",
+            "pose_to": "f3",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              0,
+              -3
+            ],
+            "from_tick": 14,
+            "phase_to": "windup",
+            "pose_delta_pct": 43.86,
+            "pose_from": "f3",
+            "pose_from_facing": "right",
+            "pose_to": "w0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 16
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 16,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 17
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 17,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 18
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 18,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 19
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              0,
+              9
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 20,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 21
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 21,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 22
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 22,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 23
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              0,
+              -6
+            ],
+            "from_tick": 23,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "s0",
+            "pose_to_facing": "down",
+            "squared_px": 36,
+            "to_tick": 24
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 24,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 25
+          }
+        ]
+      },
+      "DEGEN": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 21.31,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": true,
+          "release_row": {
+            "delta_a_px": 9,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              9,
+              0
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 13,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f3",
+            "pose_from_facing": "right",
+            "pose_to": "f3",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": -3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              -3,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "windup",
+            "pose_delta_pct": 19.69,
+            "pose_from": "f3",
+            "pose_from_facing": "right",
+            "pose_to": "w0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "windup",
+            "pose_delta_pct": 20.83,
+            "pose_from": "w0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 16
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 16,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 17
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 17,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 18
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 18,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "a0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 19
+          },
+          {
+            "delta_a_px": 9,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              9,
+              0
+            ],
+            "from_tick": 19,
+            "phase_to": "active",
+            "pose_delta_pct": 31.97,
+            "pose_from": "a0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 81,
+            "to_tick": 20
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 20,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 21
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 21,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 22
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 22,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "k0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 23
+          },
+          {
+            "delta_a_px": -6,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              -6,
+              0
+            ],
+            "from_tick": 23,
+            "phase_to": "recovery",
+            "pose_delta_pct": 21.31,
+            "pose_from": "k0",
+            "pose_from_facing": "right",
+            "pose_to": "s0",
+            "pose_to_facing": "right",
+            "squared_px": 36,
+            "to_tick": 24
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 24,
+            "phase_to": "recovery",
+            "pose_delta_pct": 14.98,
+            "pose_from": "s0",
+            "pose_from_facing": "right",
+            "pose_to": "r0",
+            "pose_to_facing": "right",
+            "squared_px": 0,
+            "to_tick": 25
+          }
+        ]
+      },
+      "EARLY": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 49.15,
+          "max_other_squared_px": 40,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 4,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              4,
+              9
+            ],
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 97,
+            "to_tick": 8
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 1,
+            "phase_to": "walk",
+            "pose_delta_pct": 10.29,
+            "pose_from": "idle",
+            "pose_from_facing": "right",
+            "pose_to": "f0",
+            "pose_to_facing": "right",
+            "squared_px": 1,
+            "to_tick": 2
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              1,
+              -3
+            ],
+            "from_tick": 2,
+            "phase_to": "windup",
+            "pose_delta_pct": 49.15,
+            "pose_from": "f0",
+            "pose_from_facing": "right",
+            "pose_to": "w0",
+            "pose_to_facing": "down",
+            "squared_px": 10,
+            "to_tick": 3
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              2,
+              0
+            ],
+            "from_tick": 3,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 4,
+            "to_tick": 4
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 4,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 5
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              4,
+              0
+            ],
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 16,
+            "to_tick": 6
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 7
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              4,
+              9
+            ],
+            "from_tick": 7,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 97,
+            "to_tick": 8
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 8,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 9
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              4,
+              0
+            ],
+            "from_tick": 9,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 16,
+            "to_tick": 10
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 11
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              2,
+              -6
+            ],
+            "from_tick": 11,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "s0",
+            "pose_to_facing": "down",
+            "squared_px": 40,
+            "to_tick": 12
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 12,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 13
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 13,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 0.0,
+            "pose_from": "r0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 15
+          }
+        ]
+      },
+      "LATE": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 40.12,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              0,
+              9
+            ],
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 81,
+            "to_tick": 15
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 8,
+            "phase_to": "walk",
+            "pose_delta_pct": 22.09,
+            "pose_from": "f1",
+            "pose_from_facing": "right",
+            "pose_to": "f2",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 9
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              4,
+              -3
+            ],
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 40.12,
+            "pose_from": "f2",
+            "pose_from_facing": "right",
+            "pose_to": "w0",
+            "pose_to_facing": "down",
+            "squared_px": 25,
+            "to_tick": 10
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 10,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 11
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              2,
+              0
+            ],
+            "from_tick": 11,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 4,
+            "to_tick": 12
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 12,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 13
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 13,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              0,
+              9
+            ],
+            "from_tick": 14,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 81,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 16
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 16,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 17
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 17,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 18
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              0,
+              -6
+            ],
+            "from_tick": 18,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "s0",
+            "pose_to_facing": "down",
+            "squared_px": 36,
+            "to_tick": 19
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 19,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 20
+          }
+        ]
+      },
+      "MID": {
+        "release_salience": {
+          "max_other_pose_delta_pct": 49.15,
+          "max_other_squared_px": 36,
+          "pose_axis_strictly_dominant": false,
+          "release_row": {
+            "delta_a_px": 3,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              3,
+              9
+            ],
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 90,
+            "to_tick": 11
+          },
+          "squared_axis_strictly_dominant": true
+        },
+        "rows": [
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 4,
+            "phase_to": "walk",
+            "pose_delta_pct": 0.0,
+            "pose_from": "f0",
+            "pose_from_facing": "right",
+            "pose_to": "f0",
+            "pose_to_facing": "right",
+            "squared_px": 9,
+            "to_tick": 5
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": -3,
+            "delta_window_px": [
+              4,
+              -3
+            ],
+            "from_tick": 5,
+            "phase_to": "windup",
+            "pose_delta_pct": 49.15,
+            "pose_from": "f0",
+            "pose_from_facing": "right",
+            "pose_to": "w0",
+            "pose_to_facing": "down",
+            "squared_px": 25,
+            "to_tick": 6
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 6,
+            "phase_to": "windup",
+            "pose_delta_pct": 17.25,
+            "pose_from": "w0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 7
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              4,
+              0
+            ],
+            "from_tick": 7,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 16,
+            "to_tick": 8
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              3,
+              0
+            ],
+            "from_tick": 8,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 9,
+            "to_tick": 9
+          },
+          {
+            "delta_a_px": 4,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              4,
+              0
+            ],
+            "from_tick": 9,
+            "phase_to": "windup",
+            "pose_delta_pct": 0.0,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "a0",
+            "pose_to_facing": "down",
+            "squared_px": 16,
+            "to_tick": 10
+          },
+          {
+            "delta_a_px": 3,
+            "delta_b_px": 9,
+            "delta_window_px": [
+              3,
+              9
+            ],
+            "from_tick": 10,
+            "phase_to": "active",
+            "pose_delta_pct": 27.18,
+            "pose_from": "a0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 90,
+            "to_tick": 11
+          },
+          {
+            "delta_a_px": 2,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              2,
+              0
+            ],
+            "from_tick": 11,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 4,
+            "to_tick": 12
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 12,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 13
+          },
+          {
+            "delta_a_px": 1,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              1,
+              0
+            ],
+            "from_tick": 13,
+            "phase_to": "active",
+            "pose_delta_pct": 0.0,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "k0",
+            "pose_to_facing": "down",
+            "squared_px": 1,
+            "to_tick": 14
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": -6,
+            "delta_window_px": [
+              0,
+              -6
+            ],
+            "from_tick": 14,
+            "phase_to": "recovery",
+            "pose_delta_pct": 15.38,
+            "pose_from": "k0",
+            "pose_from_facing": "down",
+            "pose_to": "s0",
+            "pose_to_facing": "down",
+            "squared_px": 36,
+            "to_tick": 15
+          },
+          {
+            "delta_a_px": 0,
+            "delta_b_px": 0,
+            "delta_window_px": [
+              0,
+              0
+            ],
+            "from_tick": 15,
+            "phase_to": "recovery",
+            "pose_delta_pct": 16.18,
+            "pose_from": "s0",
+            "pose_from_facing": "down",
+            "pose_to": "r0",
+            "pose_to_facing": "down",
+            "squared_px": 0,
+            "to_tick": 16
+          }
+        ]
+      }
+    }
+  },
+  "sheet": {
+    "cells": 414,
+    "committed_matches": true,
+    "deterministic": true,
+    "sha256": "8b41f90df03e9672efa2fa78a42889f5a2d60fa1111a2c483fd5d047b9b99006"
+  },
+  "tick_math_failures": [],
+  "tick_ms": 16.666666
+}
