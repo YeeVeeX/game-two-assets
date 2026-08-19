@@ -210,7 +210,9 @@ Per-export audio entry (`kind: "audio"` — the additive discriminator):
 ```
 
 Release-level `source.files` = the seven originals + `sources/audio-v1/handoff-manifest.json`
-(the manifest copy; pure-LF, so the repo's `eol=lf` normalization is byte-neutral).
+(the manifest copy; the upstream file is CRLF, so it is routed `-text` in
+`.gitattributes` — byte-exact under the repo's default `eol=lf` normalization, which
+would otherwise rewrite the blob and break the md5 pin on fresh checkout).
 
 Gate law for `kind: "audio"` (additive branch in `tools/asset_gate.py`; every visual
 code path untouched): asset_id snake_case + unique; path
