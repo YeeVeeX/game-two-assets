@@ -2,6 +2,30 @@
 
 Source/studio repo for `../game-two` visual assets: research, concepts, native sources, provenance, deterministic exports, and reviews. It is **never** a runtime dependency, submodule, or automatic fetch target. While game-two v17 is open, do not modify or integrate with the game repo.
 
+<!-- FAMILY-BLOCK BEGIN -->
+## Workspace family (game-two program) — synced 2026-08-19
+
+- **Peers:** Gabriel (owner-founder, es-CR) + Junior (co-creator,
+  pt-br) co-direct the whole program with equal creative standing —
+  design, code, audio/assets, ideas flow from BOTH; neither is the
+  other's worker. Owner overrides are law and get RECORDED (one line)
+  in the affected repo.
+- **Hub-and-spoke:** the game-two dev chat is the HUB; work in this
+  repo runs as bounded sessions under its own dev-of-record.
+  Cross-repo asks travel by SEAT MAIL (`~/.pi/agent/mail/<repo>/`),
+  digest-stamped (md5), answered with `RECEIPT:` lines. Deliveries
+  INTO game-two obey game-two's intake rules (owner-approved +
+  digest-grounded + docs-only banking).
+- **Seat-lease law:** no session ever writes into a sibling workspace
+  tree — read tool for reading, mail for asking, md5 as the
+  byte-identity arbiter.
+- **Sovereignty:** this block never overrides local law — this repo's
+  own invariants win inside this repo.
+- **Contract mirror:** AGENTS.md is ground truth; CLAUDE.md is a thin
+  pointer to it so Claude sessions load the same contract (AGENTS.md
+  wins on any disagreement).
+<!-- FAMILY-BLOCK END -->
+
 ## Commands
 
 - Setup: `py -3.12 -m venv .venv` then `.venv/Scripts/python.exe -m pip install -r requirements-dev.txt`
