@@ -1,0 +1,326 @@
+{
+  "register_version": 1,
+  "generated": "2026-08-20",
+  "sprint": "v12",
+  "contract": {
+    "law": "verbatim_condition (and every optional quote) must be a whitespace-normalized substring of its named source file - prose may paraphrase, this JSON may not (tests/test_temporal_register.py enforces)",
+    "scope": "the runtime items are the severity/fusion halves ONLY; statically-present conditions were adjudicated at sheet scope in their sprints and their verdicts stand (v10 adjudication law, restated in docs/replay-capture-design.md section 6)",
+    "status_semantics": {
+      "fusion-question": "whether discrete tick-level structure fuses/reads correctly at 60 tps - unanswerable on a static sheet by construction",
+      "severity-only": "the static condition is a banked verdict; runtime measures at-speed severity only and can never soften the banked red",
+      "banking-reversal-head": "consumes another item's verdict; on FAIL the pre-registered disposition is banking reversal",
+      "recorded-not-measured": "recorded classes never rendered or measured; not part of the lettered register"
+    }
+  },
+  "carry_chain": [
+    {
+      "file": "reviews/calibration-v10/verdict.md",
+      "verbatim": "items (a)–(k) carried unmodified from v9."
+    },
+    {
+      "file": "reviews/calibration-v11/verdict.md",
+      "verbatim": "items (a)–(m) carried unmodified from v10."
+    },
+    {
+      "file": "reviews/calibration-v11/verdict.md",
+      "verbatim": "x0 banking-reversal condition stays at its head)"
+    }
+  ],
+  "questions": [
+    {
+      "id": "a",
+      "origin_sprint": "v7",
+      "source_file": "reviews/calibration-v7/verdict.md",
+      "verbatim_condition": "the diminished ready-again beat still reads as the unlock cue at 60 tps (20.43/23.62 arrival vs the incumbent 37.09/37.64 snap) and the r0→x0 step does not fuse into the held r0 span, collapsing the two-step rise into a single weaker beat",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "scenario: full attack cycle to ready on the banked lane-B timeline (striker kit, stationary), scripted input",
+        "state track per tick over r0 hold -> x0 -> ready -> next-action onset (attack_state, action, per-tick input masks)",
+        "recomposition onto banked frames under the declared timeline mapping at 60 tps"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "reversal-linked: this verdict is consumed by x0 (head). Static halves banked in v7; only the 60 tps fusion read is open.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "the diminished ready-again beat reads as the unlock cue at 60 tps and r0→x0 does not fuse into the held span (v7 reversal condition)"
+    },
+    {
+      "id": "b",
+      "origin_sprint": "v7",
+      "source_file": "reviews/calibration-v7/verdict.md",
+      "verbatim_condition": "x0 at 16.7 ms is not misread as an s0-variant mid-motion (the 16.25 down proximity)",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same capture as (a); window centered on the single x0 tick",
+        "comparison clip of s0 in its banked context (same speed, same zoom) for the misread check"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "static identity/confusability floors banked in v7; only the 16.7 ms misread is open.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "x0 at 16.7 ms is not misread as an s0-variant"
+    },
+    {
+      "id": "c",
+      "origin_sprint": "v7",
+      "source_file": "reviews/calibration-v7/verdict.md",
+      "verbatim_condition": "the r0 hold reads as settle at 100.0 ms (was 133.3 → 116.7 — the cumulative trade)",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same capture as (a); window = the 6-tick r0 held span (100.0 ms) plus one tick each side"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "r0-hold floor law (v7): 6 held ticks is the FLOOR; any proposal below it requires this runtime evidence first.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "the r0 hold reads as settle at 100.0 ms"
+    },
+    {
+      "id": "d",
+      "origin_sprint": "v6",
+      "source_file": "reviews/calibration-v6/verdict.md",
+      "verbatim_condition": "the one-tick w0/s0 bridges fuse as motion rather than strobe/double at 16.7 ms, the w0 coil onset reads as crouch-beginning (not a k0 flash — the shared head translation), and the 66.7 ms a0 hold still telegraphs after the w0 trade",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same capture as (a); windows = w0 onset tick, the one-tick w0/s0 bridges, and the 4-tick a0 hold (66.7 ms)"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "lettered (d) at v7 as the carried v6 checks; underlying conditions coined v6.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "the carried v6 checks — w0/s0 strobe/fusion, w0 coil-onset binding, 66.7 ms a0 hold"
+    },
+    {
+      "id": "e",
+      "origin_sprint": "v6",
+      "source_file": "reviews/calibration-v6/verdict.md",
+      "verbatim_condition": "the k0→s0 −6px return reads as recoil, not teleport",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same capture as (a); window = the k0->s0 boundary tick (the -6px return) plus two ticks each side"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "lettered (e) at v7; coined v6 when s0 entered the banked timeline.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "k0→s0 −6px reads as recoil"
+    },
+    {
+      "id": "f",
+      "origin_sprint": "v4",
+      "source_file": "reviews/calibration-v4/verdict.md",
+      "verbatim_condition": "adoption condition met at sheet level under the pinned cadence; confirm once in the same replay capture",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "scenario: post-hit iframes window with the ACC accent set, scripted (take one hit, hold position)",
+        "state track must carry the frame counter driving the flicker cadence (pinned 3-on/3-off) so recomposition reproduces the LIVE cadence, not a declared one"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v4 adoption condition met at sheet level; live-flicker confirmation is the recorded final step (temporal integration unprovable on a sheet).",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "the ACC flash-accent under live flicker (v4)"
+    },
+    {
+      "id": "g",
+      "origin_sprint": "v8",
+      "source_file": "reviews/calibration-v8/verdict.md",
+      "verbatim_condition": "the mid-walk onset cuts (22.91/28.27 — the v6 bridge-magnitude band) fuse rather than strobe at 16.7 ms, and the MID/LATE retreat-cue inversion (+1px forward under the gather pose) does not misread under motion",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "scenario: mid-walk attack onsets at the v8 REM classes (EARLY/MID/LATE), scripted press at exact tween ticks",
+        "state track per tick (tween_left/tween_total, attack_state, masks); windows = onset cut ticks"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v8 sheet-scope verdicts stand; fusion at 16.7 ms + the inversion misread are the open halves.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "mid-walk onset cuts fuse rather than strobe at 16.7 ms + the MID/LATE retreat-cue inversion (v8)"
+    },
+    {
+      "id": "h",
+      "origin_sprint": "v8",
+      "source_file": "reviews/calibration-v8/verdict.md",
+      "verbatim_condition": "the enlarged mid-walk release displacements (+13/+12, up to 3.25× max walk speed) read as attack rather than teleport, including the sample-hold display smear check (council Q6: pursuit/high-speed capture of native 1x playback)",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same scenario as (g); windows = release ticks (+13/+12 px displacements)",
+        "smear half: high-frame-rate (>=120 fps) pursuit/tripod capture of a REAL display playing the recomposed clip at native 1x - a display-chain artifact, not recomposable"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition; PLUS high-frame-rate video of the live display for the sample-hold smear half",
+      "routing": "the smear half needs a physical display capture; the adjudication display is declared in the capture manifest.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "enlarged mid-walk release displacements read as attack, incl. the sample-hold smear check (v8)"
+    },
+    {
+      "id": "i",
+      "origin_sprint": "v8",
+      "source_file": "reviews/calibration-v8/verdict.md",
+      "verbatim_condition": "MID's last-tick shallow arc-line crossing binds the hit to its tile at speed",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same scenario as (g), MID class; window = last active tick (the 0-3px shallow crossing) with tile grid visible at native scale"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v8 banked the crossing as marginal (REM 8, last-tick 0-3px); at-speed binding is the open half.",
+      "current_register_file": "reviews/calibration-v9/verdict.md",
+      "current_register_verbatim": "MID's along-facing last-tick shallow crossing binds at speed (v8)"
+    },
+    {
+      "id": "j",
+      "origin_sprint": "v9",
+      "source_file": "reviews/calibration-v9/verdict.md",
+      "verbatim_condition": "the cross-facing turn+coil compound (~40–49% one-tick pose change, the largest cuts measured in the series) fuses into one perceived event rather than double-strobing, and the release keeps ATTENTION dominance at speed despite the larger preceding pose delta — the sheet-unprovable half of this sprint's L3",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "scenario: cross-facing attack onset (facing change + attack in the same/adjacent controller tick, mid-tween), scripted at the v9 REM classes",
+        "windows = the turn+coil cut tick and the release tick"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v9 L3 static half banked; fusion + attention dominance at speed are the open halves."
+    },
+    {
+      "id": "k",
+      "origin_sprint": "v9",
+      "source_file": "reviews/calibration-v9/verdict.md",
+      "verbatim_condition": "EARLY's migrating bind (wrong tile → true tile across 3 active ticks) does not bind the eye to the wrong tile at speed",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "same scenario as (j), EARLY class; window = the 3 active ticks of the migrating bind with tile grid visible"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v9 banked the migration (wrong tile -> true tile across 3 active ticks); eye binding at speed is the open half."
+    },
+    {
+      "id": "l",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "whether MID's turn+frame-advance compound cut (50.00/51.61 — inside the free-turn band) fuses into one turn event at 60 tps or reads as a distinct pivot-stride/stutter category (council Q4's unmeasured half)",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "scenario: pure turn mid-walk at REM 8 (perpendicular direction press mid-tween, no attack), scripted",
+        "window = the compound cut tick plus two ticks each side"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v10 banked the magnitude (50.00/51.61, inside the free-turn band); the category read at 60 tps is open."
+    },
+    {
+      "id": "m",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "the at-speed severity of the strafe-gait moonwalk (the sheet-scope L2 FAIL for EARLY/MID) and of EARLY's 5-tick body mis-bind — replay capture should measure both against the same pre-registered conditions",
+      "status": "severity-only",
+      "capture_requirements": [
+        "scenario: pure turns at REM 11 (EARLY) and REM 8 (MID), scripted; windows = the full strafe segments",
+        "severity ladder: the same window recomposed at 60 tps, judged against the v10 pre-registered FAIL wording"
+      ],
+      "adjudication_artifact": "severity verdict at speed relative to the banked v10 sheet-scope L2 FAILs (which stand; re-adjudication out of scope) - adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v10 L2 FAILs (EARLY/MID) and EARLY's 5-tick mis-bind are banked reds; runtime measures severity ONLY."
+    },
+    {
+      "id": "n",
+      "origin_sprint": "v11",
+      "source_file": "reviews/calibration-v11/verdict.md",
+      "verbatim_condition": "whether CORNER's single-tick facing exposure at t14 fuses into one turn event at 60 tps or reads as a flicker before the wrap confirms it (council Q3 — the one sheet-unanswerable question this sprint raised)",
+      "status": "fusion-question",
+      "capture_requirements": [
+        "scenario: boundary corner turn - direction B pressed exactly at the arrival tick (REM 0), scripted; window = t13..t16",
+        "the one-tick exposure must be adjudicated at true 60 fps playback (a dropped display frame erases the phenomenon); adjudication display declared in the manifest"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v11 B-group PASSes stand at sheet scope; single-tick fusion vs flicker is the one sheet-unanswerable question v11 raised."
+    },
+    {
+      "id": "o",
+      "origin_sprint": "v11",
+      "source_file": "reviews/calibration-v11/verdict.md",
+      "verbatim_condition": "the at-speed severity gradient of dead drag — whether a frozen frame at 3–4 px/tick reads materially worse than at 1–2 px/tick (the R2 mechanism hypothesis, deliberately NOT used as the FAIL's grounds)",
+      "status": "severity-only",
+      "capture_requirements": [
+        "scenario: settle-hold declared-model recomposition (the v11 EXP lanes) over strafe windows at cruise speed (3-4 px/tick) vs deceleration-tail ticks (1-2 px/tick)",
+        "recomposition-side variant only - no engine change; both velocity regimes in one side-by-side clip pair"
+      ],
+      "adjudication_artifact": "severity-gradient verdict at speed relative to the banked v11 R2 FAIL (which stands) - adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "v11 R2 FAIL rests on the visible frozen-body span; the velocity gradient is the demoted mechanism hypothesis, runtime-only."
+    },
+    {
+      "id": "x0",
+      "origin_sprint": "v7",
+      "source_file": "reviews/calibration-v7/verdict.md",
+      "verbatim_condition": "If (a) fails, REVERSE the x0 banking (timeline A is byte-recoverable) rather than compensating elsewhere",
+      "status": "banking-reversal-head",
+      "capture_requirements": [
+        "no separate capture: consumes (a)'s runtime verdict"
+      ],
+      "adjudication_artifact": "the (a) adjudication verdict itself; on FAIL the disposition is the pre-registered reversal (timeline A is byte-recoverable), never compensation elsewhere",
+      "routing": "standing head of the consolidated item since v7; carried at the head through v8-v11."
+    }
+  ],
+  "recorded_not_measured": [
+    {
+      "id": "rnm-step-initiation-turn",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "turn on the step-initiation tick;",
+      "status": "recorded-not-measured",
+      "capture_requirements": [
+        "scenario: perpendicular press on the step-initiation tick, scripted; recorded v10, never rendered or measured"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "recorded-not-measured class; enters the register only if the hub asks for it after the lettered items."
+    },
+    {
+      "id": "rnm-arrival-tick-turn-note",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "turn ON the arrival tick t14 (the seamless wrap with the facing swap riding the wrap cut — the one no-stand boundary turn not rendered here)",
+      "status": "recorded-not-measured",
+      "capture_requirements": [
+        "superseded for sheet scope by v11's CORNER lane (2/2 PASS); the runtime half is item (n)"
+      ],
+      "adjudication_artifact": "none - pointer entry",
+      "routing": "kept so the v10 wording stays findable; adjudication belongs to (n)."
+    },
+    {
+      "id": "rnm-multi-turn-chatter",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "multi-turn chatter (A→B→A mid-tween)",
+      "status": "recorded-not-measured",
+      "capture_requirements": [
+        "scenario: A->B->A direction chatter inside one tween, scripted; never rendered"
+      ],
+      "adjudication_artifact": "adjudication clip: exact-1/60s-per-tick APNG/video recomposed at native scale from the captured state track (banked encoder), plus the per-tick contact sheet of the same window; judged at 60 fps playback against verbatim_condition",
+      "routing": "recorded-not-measured; gating-class engine handling (buffering) may delete the class before it is ever measured."
+    },
+    {
+      "id": "rnm-8-direction",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "8-direction turns; facing drift during windup (carried from v9)",
+      "status": "recorded-not-measured",
+      "capture_requirements": [
+        "blocked on an asset decision: no diagonal sprite row exists; a diagonal step tweens 18 frames (different timing class)"
+      ],
+      "adjudication_artifact": "none until an 8-direction set is an owner-approved asset decision",
+      "routing": "explicitly out of scope for this design beyond restating the banked findings."
+    },
+    {
+      "id": "rnm-live-notch-strafe",
+      "origin_sprint": "v10",
+      "source_file": "reviews/calibration-v10/verdict.md",
+      "verbatim_condition": "at the pin the engine already renders this class — `draw_facing_notch` reads live facing while the tween is facing-blind, so a mid-tween re-face shows a B-pointing notch sliding along A in the current game; the sprite set amplifies (gait) rather than introduces the class. Unmeasured at runtime (capture parked); recorded so the integration design treats strafe rendering as a PRESENT surface, not a sprite-era novelty",
+      "status": "recorded-not-measured",
+      "capture_requirements": [
+        "the one class measurable on the CURRENT renderer: per-tick framebuffer capture of a mid-tween re-face (quad + notch), no recomposition needed"
+      ],
+      "adjudication_artifact": "per-tick native-scale framebuffer clip at 60 tps of the current quad+notch draw",
+      "routing": "present in the shipped game at the pin (draw_facing_notch reads live facing; the tween is facing-blind)."
+    },
+    {
+      "id": "rnm-diagonal-facing",
+      "origin_sprint": "v11",
+      "source_file": "reviews/calibration-v11/verdict.md",
+      "verbatim_condition": "Diagonal facing is live engine behaviour (NEW, code-derived, recorded not measured):** `held_direction` can return `[1,1]`, `face` accepts it, the notch has a diagonal branch (L554–555), and diagonal steps tween 18 frames. Unrenderable with banked bytes (no diagonal row); an 8-direction set is a separate, unrequested asset decision",
+      "status": "recorded-not-measured",
+      "capture_requirements": [
+        "unrenderable with banked bytes (no diagonal row); capture only meaningful on the current quad+notch renderer"
+      ],
+      "adjudication_artifact": "per-tick framebuffer clip of a diagonal-facing episode on the current renderer, if the hub ever asks",
+      "routing": "the buffered-turn implementation duty (pick an axis or queue) is carried in the design doc's gating ask."
+    }
+  ]
+}
