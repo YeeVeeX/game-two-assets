@@ -1,0 +1,302 @@
+{
+  "accent_rgb": [
+    20,
+    14,
+    12
+  ],
+  "definition": "gape = k0 accent pixels MINUS the v2-banked translated idle eye pixels MINUS the feet caps (row 27); eye translation = the v2-banked rigid head shift (down (0,+2), right (0,+3))",
+  "facings": {
+    "down": {
+      "eye_translation": [
+        0,
+        2
+      ],
+      "feet_pixels": [
+        [
+          10,
+          27
+        ],
+        [
+          11,
+          27
+        ],
+        [
+          12,
+          27
+        ],
+        [
+          19,
+          27
+        ],
+        [
+          20,
+          27
+        ],
+        [
+          21,
+          27
+        ]
+      ],
+      "gape_bbox": [
+        12,
+        13,
+        19,
+        14
+      ],
+      "gape_pixels": [
+        [
+          12,
+          13
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          13
+        ],
+        [
+          15,
+          14
+        ],
+        [
+          16,
+          13
+        ],
+        [
+          16,
+          14
+        ],
+        [
+          17,
+          13
+        ],
+        [
+          17,
+          14
+        ],
+        [
+          18,
+          13
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          19,
+          13
+        ],
+        [
+          19,
+          14
+        ]
+      ],
+      "gape_px": 16,
+      "idle_accent_px": 14,
+      "idle_eye_pixels": [
+        [
+          12,
+          9
+        ],
+        [
+          12,
+          10
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          13,
+          10
+        ],
+        [
+          18,
+          9
+        ],
+        [
+          18,
+          10
+        ],
+        [
+          19,
+          9
+        ],
+        [
+          19,
+          10
+        ]
+      ],
+      "k0_accent_px": 30,
+      "translated_eye_pixels": [
+        [
+          12,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          11
+        ],
+        [
+          13,
+          12
+        ],
+        [
+          18,
+          11
+        ],
+        [
+          18,
+          12
+        ],
+        [
+          19,
+          11
+        ],
+        [
+          19,
+          12
+        ]
+      ]
+    },
+    "right": {
+      "eye_translation": [
+        0,
+        3
+      ],
+      "feet_pixels": [
+        [
+          10,
+          27
+        ],
+        [
+          11,
+          27
+        ],
+        [
+          12,
+          27
+        ],
+        [
+          21,
+          27
+        ],
+        [
+          22,
+          27
+        ],
+        [
+          23,
+          27
+        ]
+      ],
+      "gape_bbox": [
+        24,
+        13,
+        27,
+        14
+      ],
+      "gape_pixels": [
+        [
+          24,
+          13
+        ],
+        [
+          24,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          26,
+          13
+        ],
+        [
+          26,
+          14
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          27,
+          14
+        ]
+      ],
+      "gape_px": 8,
+      "idle_accent_px": 10,
+      "idle_eye_pixels": [
+        [
+          22,
+          8
+        ],
+        [
+          22,
+          9
+        ],
+        [
+          23,
+          8
+        ],
+        [
+          23,
+          9
+        ]
+      ],
+      "k0_accent_px": 18,
+      "translated_eye_pixels": [
+        [
+          22,
+          11
+        ],
+        [
+          22,
+          12
+        ],
+        [
+          23,
+          11
+        ],
+        [
+          23,
+          12
+        ]
+      ]
+    }
+  },
+  "feet_row": 27,
+  "provenance": {
+    "class": "SYNTHETIC",
+    "producer": "tools/remedy_masks.py --make-masks",
+    "statement": "machine-derived measurement over banked export bytes; the pre-registered mask definition of reviews/remedy-v15/rationale.md; adjudicates nothing"
+  }
+}
