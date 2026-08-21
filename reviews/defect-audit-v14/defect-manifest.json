@@ -1,0 +1,86 @@
+{
+  "artifacts": {
+    "pose-integrity-report.json": "3489686149dc8b11dfe6055ee13d1a2fdc98d50c420bc17ceb30fd02a2cf4e08",
+    "synthetic-audit-attack-down-4x.apng": "b3252bf56698ee60a2c4adba0a9944de16ebee628de5aeee613257e131f2a9eb",
+    "synthetic-audit-attack-down-8x.apng": "fe3fac6617488115371a0b116e5740d51a2c8094151ca688907683f562bfff77",
+    "synthetic-audit-attack-right-4x.apng": "14db3db0b8430fd672d2e91dc6df13e7d6ee82e102a89acb77d2f3709f7fb0b9",
+    "synthetic-audit-attack-right-8x.apng": "da387b10f67a9e9eefb5567237d0a1e5d9caef7353aa5c951c74e26640b9f340",
+    "synthetic-audit-attack-slow6-down-4x.apng": "224a7e42c08fb0f45dd12cc5cea4ea63d3158d0d0014de4f667e585d834e77d1",
+    "synthetic-audit-attack-slow6-down-8x.apng": "9a1db486623881edca9df5978f9c8d9c43c98a5bed029f98f36e3dfd37d50467",
+    "synthetic-audit-attack-slow6-right-4x.apng": "24e65e9a74bc1e45deb399512e23eb8f016cab190964a9cd44d2543e7de35dc9",
+    "synthetic-audit-attack-slow6-right-8x.apng": "e2659956b312a87d6712c57f0fcff66f87c3ab659361386a13070b3fe9f76f6c",
+    "synthetic-audit-strip-down-z1-8x.png": "27d52c64e485a1383e28649b7398a1921ac1ce4979aae6e905593df983456532",
+    "synthetic-audit-strip-down-z2-8x.png": "213c47d21177f42cfd665472d72382120333adbe33dea5c41caac3d49bc00257",
+    "synthetic-audit-strip-right-z1-8x.png": "bb90fe13918bff181fa20e37f84d51ea7ed1a9d30b291670039b77bfa6f3afda",
+    "synthetic-audit-strip-right-z2-8x.png": "0e7fba7aa8e446728f16469a93307617cbe82d32fc7d044617fe25127a0ddf27"
+  },
+  "audit": {
+    "base_tile_index": 1,
+    "constants": {
+      "active_frames": 4,
+      "active_px": 6,
+      "recovery_frames": 8,
+      "step_frames": 13,
+      "windup_frames": 5,
+      "windup_px": -3
+    },
+    "mapping_id": "declared-integration-mapping-v1",
+    "sequence_classes": [
+      "idle",
+      "w0",
+      "a0",
+      "k0",
+      "s0",
+      "r0",
+      "x0",
+      "idle"
+    ],
+    "tick_count": 21,
+    "window_tiles": 3
+  },
+  "determinism": {
+    "artifact_count": 13,
+    "double_build_identical": true
+  },
+  "generated_by": "tools/pose_integrity_metrics.py --make-audit",
+  "module_source_sha256": {
+    "tools/anticipation_metrics.py": "49df29032c19c25cc3a30027e717f6fc23000818292cdca40f3814df47a39cf8",
+    "tools/feedback_metrics.py": "52702c19e3f061aa057ef88b4273002b108d0bd0fe9340d0f8399c0c9e7a86c8",
+    "tools/make_anticipation_sheet.py": "bd17eaf339308f5bb3aa808731b63ae667dfd81a7027667c05ccbd2d991368b5",
+    "tools/make_contact_sheet.py": "da5e558d879854f8bca911f09ab89a79fdd6dfa28d3446c1173a7334608edac8",
+    "tools/make_corner_timeline.py": "17a86e727b6bee094c984ba488021c88b2e0c0eed8ddce460b2db67f3519c37c",
+    "tools/make_cross_seam_timeline.py": "93e6984ec9e77561a0ff3e2cca7c94d69b46de74ea743db9abfa3b0e562f3fe6",
+    "tools/make_feedback_sheet.py": "5730240f04cc1f2797390829257d8133714b6da662c67a1f42506a160b7316b0",
+    "tools/make_grammar_timeline.py": "60cc967a7564648aa1ef9d75cc050f536b43c0a5b4500fa76681bb0dc2bf6181",
+    "tools/make_motion_sheet.py": "1664b73a6dd142c3d68b2a539f712b49374d2a8b4c9d79d119e2c634f49e616c",
+    "tools/make_seam_timeline.py": "2d71ad2991458bad69f6cdeed496b96cb8667dc458742369ec011d0f66b683de",
+    "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
+    "tools/motion_metrics.py": "ebc0bdbf557abbf72e302ecacde1cdd54866b6f8c5bca723c1ef605a5c48c0c1",
+    "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
+    "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
+    "tools/pose_integrity_metrics.py": "aaba7c75d7df7fdbee058a8d7c894bc3d41d6782fde49399824bddcff4f19752",
+    "tools/seam_metrics.py": "1ce9c0ac19671904f2ac57a7714bb2d70125235a7889721679ec0e82b462e4e9",
+    "tools/timeline_metrics.py": "978edf880b8355d55027a0dcb4f9ea4934604fd6306faeb9310a4a0764acb9b6",
+    "tools/track_recompose.py": "606f027b8c238107ae9b1d856869b410159bc0e740e5bce3f4c17f23358f69e2"
+  },
+  "provenance": {
+    "class": "SYNTHETIC",
+    "statement": "controlled playback + inspection artifacts composed from banked export bytes only; NOT runtime evidence; answers ZERO register items; fixes nothing"
+  },
+  "repo_commit_at_generation": "65485902dd0432cc9d506632b4e219c1f6058be2",
+  "viewing_protocol": {
+    "apng_real_delays": "exact 1/60 s per tick x 20 + 30/60 s final hold (banked apng_delays)",
+    "apng_scales": [
+      4,
+      8
+    ],
+    "apng_slow_delays": "6/60 s per tick x 20 + 30/60 s final hold (slowed 6x, integer tick multiple)",
+    "apng_zone": "zone_1",
+    "statement": "view at 100% viewer zoom with fit-to-window OFF; all scaling is pre-baked integer nearest-neighbor (4x and 8x); percepts reproducible only under resampled viewing are viewer-domain by the pre-registered taxonomy",
+    "strip_scale": 8,
+    "strip_zones": [
+      "zone_1",
+      "zone_2"
+    ]
+  }
+}
