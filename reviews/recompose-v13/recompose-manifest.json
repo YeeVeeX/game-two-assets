@@ -1,0 +1,32 @@
+{
+  "artifacts": {
+    "synthetic-demo-sheet.png": "bc28ae90c595df3a468f64fa62e5bde3c232a378aa4c69bbd7ccb8e8152fa309",
+    "synthetic-demo-track.json": "b76858075ad6e46ae8898b19e9c891202c53d8f636307c2bc3f6f4f8e4b0a8b2",
+    "synthetic-demo.apng": "3cb8361a7bd4cddc070e587da023d5f3de84c3ceaeed3b311df68e40deb1392d"
+  },
+  "determinism": {
+    "apng_delay": "exact 1/60 s per tick (banked encoder)",
+    "apng_frames": 48,
+    "double_build_identical": true
+  },
+  "generated_by": "tools/track_recompose.py --make-demo",
+  "mapping_id": "declared-integration-mapping-v1",
+  "mapping_source_sha256": {
+    "tools/make_contact_sheet.py": "da5e558d879854f8bca911f09ab89a79fdd6dfa28d3446c1173a7334608edac8",
+    "tools/make_corner_timeline.py": "17a86e727b6bee094c984ba488021c88b2e0c0eed8ddce460b2db67f3519c37c",
+    "tools/make_cross_seam_timeline.py": "93e6984ec9e77561a0ff3e2cca7c94d69b46de74ea743db9abfa3b0e562f3fe6",
+    "tools/make_grammar_timeline.py": "60cc967a7564648aa1ef9d75cc050f536b43c0a5b4500fa76681bb0dc2bf6181",
+    "tools/make_seam_timeline.py": "2d71ad2991458bad69f6cdeed496b96cb8667dc458742369ec011d0f66b683de",
+    "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
+    "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
+    "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
+    "tools/track_recompose.py": "606f027b8c238107ae9b1d856869b410159bc0e740e5bce3f4c17f23358f69e2"
+  },
+  "provenance": {
+    "class": "SYNTHETIC",
+    "statement": "synthetic declared-model demo composed from banked export bytes only; NOT runtime evidence; answers ZERO register items"
+  },
+  "repo_commit_at_generation": "fbe849b4e0a79818321eb5a05c85de1f167a0b96",
+  "schema_version": "draft-1",
+  "track_sha256": "b76858075ad6e46ae8898b19e9c891202c53d8f636307c2bc3f6f4f8e4b0a8b2"
+}

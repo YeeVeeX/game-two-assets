@@ -346,6 +346,15 @@ def select_pose(record: dict, constants: dict) -> tuple[str, str, int]:
     facing = facing_name(record["facing"])
     state = record["attack_state"]
     if state != "idle":
+        if record["current_action"] != "attack":
+            raise RecomposeError(
+                f"unmapped-action-class: current_action "
+                f"{record['current_action']!r} has no banked timeline (the "
+                "banked lane-B evidence covers the basic attack only; the "
+                "engine also suppresses the lunge for specials — "
+                "renderer.rb:633 at the pin — so mapping them would be a "
+                "silent guess twice over)"
+            )
         pinned = phase_frames(constants)[state]
         into = pinned - record["state_frames"]
         if state == "windup":
@@ -417,6 +426,14 @@ def recompose_track(
     errors = validate_track(track)
     if errors:
         raise RecomposeError("invalid track:\n" + "\n".join(errors))
+    if track["class"] == "RUNTIME":
+        raise RecomposeError(
+            "runtime-intake-not-established: the evidence intake gate (design "
+            "section 5) is not banked, so the reference consumer recomposes "
+            "SYNTHETIC tracks only — RUNTIME stays a schema proposal until "
+            "the game seat pins the contract and intake exists (council "
+            "adoption, v13)"
+        )
     names = [c["name"] for c in track["creatures"]]
     if len(names) != 1:
         raise RecomposeError(

@@ -8,7 +8,10 @@ nothing here schedules, requests, or implements anything game-side. The
 emitter is game-side conditional tooling (design section 2.3, gap 3), and
 this repo's part is the consumer: `tools/track_recompose.py` reads exactly
 this shape today, so every field below is backed by a working parser and a
-machine-proved recomposition path rather than a paper proposal.
+machine-proved recomposition path rather than a paper proposal. The parser
+is the **disposable half** of that pair: if the pinned schema differs from
+this draft in any way, this repo adapts the consumer to the pinned shape —
+never the reverse.
 
 A state track is **one member of a capture bundle** (design section 4): the
 bundle carries `game_commit`, seed, preconditions, the input log, the
@@ -18,23 +21,25 @@ A track is never a standalone evidence class — intake verifies it through
 its bundle's `capture-manifest.json` (design section 5).
 
 Engine citations below are file:line at game-two
-`3fdfae93eb78a09b78f3a1ffbd15832985cd1153` (the v13 step-0 re-pin plus the
-mid-sprint content re-pin: the T3 tile-materials wave touched `renderer.rb`
-additively, +13/−0, and `nest.json`, two added keys — every
-`render-reference.json` constant value-re-verified at the new blobs; the
-other four pinned sources plus `combat.json` blob-identical
-`746ee8b6`→`3fdfae93`), read this session, read-only.
+`c5c146d0954260743ba895295a85caec88751f13` (the v13 pin after the
+mid-sprint content re-pins: the T3/T4 waves touched `renderer.rb` —
+additive typed-tile overlay + a semantic-preserving way-lock refactor, no
+draw-path constant moved, owner-approved — and `nest.json`, two added
+keys; every `render-reference.json` constant value-re-verified at the new
+blobs; `creature.rb`, `grid_walker.rb`, `display.json`, `district.json`,
+`combat.json` blob-identical `746ee8b6`→`c5c146d0`), read this session,
+read-only.
 
 ## Sufficiency criterion (design section 4, restated)
 
 The track must carry **(1)** every input the renderer's creature draw reads
 and **(2)** every index the declared pose-selection mapping needs. At the
-pin, `draw_creature` (renderer.rb:527-575) reads: position
+pin, `draw_creature` (renderer.rb:549-597) reads: position
 (`c.x`/`c.y` = `walker.px`/`walker.py`, creature.rb:60-61, drawn at
-renderer.rb:529-530 plus `lunge_offset`), `facing` (the notch,
-renderer.rb:573, 593-605; the lunge axis, :612), `attack_state`
-(renderer.rb:554, 613-616, 620-621), `current_action` (renderer.rb:611), and
-`faction` (renderer.rb:531-574 branches). The declared mapping
+renderer.rb:551-552 plus `lunge_offset`), `facing` (the notch,
+renderer.rb:595, 615-627; the lunge axis, :634), `attack_state`
+(renderer.rb:576, 635-638, 642-643), `current_action` (renderer.rb:633), and
+`faction` (renderer.rb:553-596 branches). The declared mapping
 (`declared-integration-mapping-v1`, `tools/track_recompose.py`) needs:
 `tween_left`/`tween_total` (the walk-frame index k = total − left),
 `attack_state` + `state_frames` (the attack-timeline index), `facing`, and
@@ -92,15 +97,15 @@ input-log sha256, end digest) lives in the bundle's `capture-manifest.json`
 }
 ```
 
-| field | type | engine source (at `3fdfae93`) | consumed by |
+| field | type | engine source (at `c5c146d0`) | consumed by |
 |---|---|---|---|
-| `frame` | int | `src/game/world.rb:76` (`@frame`), incremented once per executed tick (`:264` hitstop path, `:300` normal path) | adjudication windows; (f)'s cadence counter |
+| `frame` | int | `src/game/world.rb:77` (`@frame`), incremented once per executed tick (`:270` hitstop path, `:306` normal path) | adjudication windows; (f)'s cadence counter |
 | `tile_x`, `tile_y` | int | `src/game/grid_walker.rb:13` — the committed logical tile (commits at step start, `:80-88`) | adjudication context — tile-binding reads ((i), (k)); grid rendering |
-| `px`, `py` | number | `grid_walker.rb:13`; smoothstep ease `:90-97`; read by the renderer via creature.rb:60-61 at renderer.rb:529-530 | **renderer-draw** — the draw vector (mapping rounds with the banked `round_half_up`) |
-| `facing` | `[int, int]` | creature.rb:13-14; set by `face` (:142-144); read live at every draw (renderer.rb:593-605, :612) | **both** — pose row selection and lunge axis |
+| `px`, `py` | number | `grid_walker.rb:13`; smoothstep ease `:90-97`; read by the renderer via creature.rb:60-61 at renderer.rb:551-552 | **renderer-draw** — the draw vector (mapping rounds with the banked `round_half_up`) |
+| `facing` | `[int, int]` | creature.rb:13-14; set by `face` (:142-144); read live at every draw (renderer.rb:615-627, :634) | **both** — pose row selection and lunge axis |
 | `tween_left`, `tween_total` | int | `grid_walker.rb:13` (v17 digest lane, `:11-12`); decremented in `tick` (:92) after `commit_dash` sets both to the step duration (:85-86) | **mapping-index** — walk frame k = total − left; commit tick (left == total) and completed step (left == 0) draw the standing pose |
-| `attack_state` | enum `idle\|windup\|active\|recovery` | creature.rb:13-14, advanced in `advance_attack_state` (:478-498) | **both** — timeline phase; lunge selection (renderer.rb:613-616) |
-| `current_action` | string \| null | creature.rb:13-14; read at renderer.rb:611 | **both** — action identity; specials suppress the lunge |
+| `attack_state` | enum `idle\|windup\|active\|recovery` | creature.rb:13-14, advanced in `advance_attack_state` (:478-498) | **both** — timeline phase; lunge selection (renderer.rb:635-638) |
+| `current_action` | string \| null | creature.rb:13-14; read at renderer.rb:633 | **both** — action identity; specials suppress the lunge |
 | `state_frames` | int | creature.rb `@state_frames` — set per phase (:463, :485, :493), decremented at :480; digest-visible as `action_frames` (:100) | **mapping-index** — phase index `into = pinned_phase_frames − state_frames` selects w0/a0/k0/s0/r0/x0 |
 | `hp` | int | creature.rb:13 (`:26`, digest `:95`) | adjudication context |
 | `iframes` | int | creature.rb `@iframes` (:37, :65, :130; digest :97) | adjudication context; bounds (f)'s flicker window |
@@ -122,10 +127,21 @@ refusals (`missing-field`, `bad-type`, `bad-enum`, `out-of-range`,
 `non-consecutive`, `roster-mismatch`, `state-mismatch`,
 `provenance-mismatch`) and refuses at mapping time with
 `unrenderable-facing` (no banked row exists outside down/right — mirrored
-and diagonal rows are separate, unrequested asset decisions) and
+and diagonal rows are separate, unrequested asset decisions),
 `unmapped-tween-class` (`tween_total != step_frames` while moving:
 dash/knockback classes have no banked frame-selection evidence; the mapping
-refuses rather than guesses).
+refuses rather than guesses), `unmapped-action-class` (specials have no
+banked timeline, and the engine suppresses their lunge — renderer.rb:633 —
+so the mapping refuses rather than guesses twice), and
+`runtime-intake-not-established` (the reference consumer recomposes
+SYNTHETIC tracks only until the intake gate of design section 5 is banked —
+`RUNTIME` stays a schema proposal, so no synthetic artifact can ever be
+processed as admitted runtime evidence).
+
+The mapping is **per-tick pure** — no state is carried between records — so
+spans where the engine freezes creature state while `frame` advances
+(hitstop, `world.rb:265-270`) recompose correctly as repeated frames by
+construction.
 
 ## Sufficiency vs the sixteen register items
 
@@ -142,7 +158,7 @@ design section 6.1 duty).
 | (c) | the 6-tick r0 held span ± 1 tick | `attack_state` + `state_frames` (r0 = recovery, `state_frames` 7..2) |
 | (d) | w0 onset tick, w0/s0 one-tick bridges, the 4-tick a0 hold | `attack_state` + `state_frames` (w0 = windup 5; s0 = recovery 8; a0 = windup 4..1) |
 | (e) | the k0→s0 boundary tick (−6 px return) ± 2 ticks | `attack_state` transition active→recovery; the −6 px is the mapping's lunge drop (+6 → 0), anchored by `px`/`py` |
-| (f) | post-hit iframes window; the frame counter driving the 3-on/3-off cadence | `iframes` (the window) + `frame` (the cadence counter). The accent-flicker treatment is a declared consumer extension — not in mapping-v1; lands when the hub queues the item |
+| (f) | post-hit iframes window; the frame counter driving the 3-on/3-off cadence | `iframes` (the window) + `frame` (the candidate cadence counter); a hit-anchored cadence derives from `iframes` against the kit's pinned maximum, a world-anchored one from `frame` parity — **the anchor rule is part of the consumer extension the hub pins when it queues the item**; both candidate counters already ride the track. The accent-flicker treatment is not in mapping-v1 | 
 | (g) | mid-walk onsets at EARLY/MID/LATE REM; tween_left/tween_total, attack_state, masks; onset cut windows | `tween_left`/`tween_total` + `attack_state` + `state_frames` + `masks` |
 | (h) | release ticks (+13/+12 px); PLUS ≥120 fps physical-display capture | `px`/`py` per tick carry the displacements. The smear half is a display-chain artifact **no track can carry** (design section 4 carve-out, restated here) |
 | (i) | MID last active tick, shallow arc crossing, tile grid visible | `attack_state`/`state_frames` (last active tick) + `tile_x`/`tile_y` + `px`/`py`; the grid is recomposition-side rendering |

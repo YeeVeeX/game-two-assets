@@ -158,6 +158,31 @@ class ValidateTrackFailDirections(unittest.TestCase):
             tr.select_pose(record, track["constants"])
         self.assertIn("unmapped-tween-class", str(ctx.exception))
 
+    def test_special_action_refused_at_mapping_time(self) -> None:
+        """Council adoption (v13 Q2): specials have no banked timeline and
+        the engine suppresses their lunge — the mapping refuses rather than
+        guesses."""
+        track = valid_track()
+        record = track["ticks"][31]["creatures"]["player_1"]
+        self.assertNotEqual("idle", record["attack_state"])
+        record["current_action"] = "special"
+        with self.assertRaises(tr.RecomposeError) as ctx:
+            tr.select_pose(record, track["constants"])
+        self.assertIn("unmapped-action-class", str(ctx.exception))
+
+    def test_runtime_class_refused_until_intake_exists(self) -> None:
+        """Council adoption (v13 Q3): the reference consumer recomposes
+        SYNTHETIC tracks only while the intake gate is unbanked."""
+        track = valid_track()
+        track["class"] = "RUNTIME"
+        track["provenance"]["class"] = "RUNTIME"
+        self.assertEqual([], tr.validate_track(track))  # schema-valid proposal
+        with self.assertRaises(tr.RecomposeError) as ctx:
+            tr.recompose_track(
+                track, tr.load_poses(tr.default_dirs()), reference()
+            )
+        self.assertIn("runtime-intake-not-established", str(ctx.exception))
+
 
 class MappingUnitTests(unittest.TestCase):
     """The declared mapping clause by clause, on hand-built records."""

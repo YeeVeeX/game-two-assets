@@ -61,13 +61,16 @@ no banked evidence base); facings other than down/right (typed refusal).
    (`.venv/Scripts/python.exe -m unittest discover -s tests`).
 2. **Both asset_gate runs exit 0** — step 0 (gate exit 0 at game-two HEAD
    `746ee8b6`, mechanical identity re-pin `c5cc2d8`, `attack_timing`
-   re-verified 5/4/8/13), the mid-sprint content re-pin (the T3
-   tile-materials wave moved HEAD `746ee8b6`→`3fdfae93` with committed
-   additive changes to `renderer.rb` (+13/−0) and `nest.json` (two added
-   keys, no value moved) — dev-seat standing protocol executed: every
-   `render-reference.json` constant value-re-verified at the new blobs,
-   both sha256_lf recomputed, other pins blob-identical, note owed to the
-   dev seat), and again immediately before banking.
+   re-verified 5/4/8/13), the mid-sprint content re-pins (the T3
+   tile-materials wave `746ee8b6`→`3fdfae93`: `renderer.rb` +13/−0
+   additive, `nest.json` two added keys; then the T4 wave
+   `3fdfae93`→`c5c146d0`: `renderer.rb` +25/−3 — a semantic-preserving
+   way-lock refactor plus additive drained-well state, no draw-path
+   constant moved, **owner-approved live** under the extended
+   approve-by-default class — dev-seat standing protocol executed both
+   times: every `render-reference.json` constant value-re-verified at the
+   new blobs, sha256_lf recomputed, other pins blob-identical, note sent
+   to the dev seat), and again immediately before banking.
 3. **THE EQUIVALENCE BAR (byte half).** For state tracks derived
    mechanically from the banked Model-A lane plans, track-driven
    recomposition reproduces the committed lane-row cells BYTE-FOR-BYTE:
@@ -109,9 +112,10 @@ no banked evidence base); facings other than down/right (typed refusal).
    export bytes only; no release manifest; no new export directories
    (stale-dir guard extended to this sprint's names).
 9. **Engine citations fresh.** Every engine claim in the schema doc cites
-   file:line at game-two `3fdfae93eb78a09b78f3a1ffbd15832985cd1153` (the
-   mid-sprint content re-pin; only `renderer.rb` line numbers shifted from
-   the step-0 pin, +13 additive), read this session.
+   file:line at game-two `c5c146d0954260743ba895295a85caec88751f13` (the
+   mid-sprint content re-pin; only `renderer.rb` and the unpinned
+   `world.rb` line numbers shifted from the step-0 pin), read this
+   session.
 10. **SYNTHETIC labeling.** Every demo artifact filename carries
     `synthetic-demo` (the sidecar manifest, named `recompose-manifest.json`
     per the sprint brief, carries `provenance.class = "SYNTHETIC"` instead);

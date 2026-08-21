@@ -1,0 +1,1236 @@
+{
+  "class": "SYNTHETIC",
+  "constants": {
+    "active_frames": 4,
+    "active_px": 6,
+    "recovery_frames": 8,
+    "step_frames": 13,
+    "windup_frames": 5,
+    "windup_px": -3
+  },
+  "creatures": [
+    {
+      "faction": "pack",
+      "kit": "striker",
+      "name": "player_1"
+    }
+  ],
+  "provenance": {
+    "class": "SYNTHETIC",
+    "producer": "tools/track_recompose.py --make-demo",
+    "statement": "synthetic declared-model state stream composed from pinned constants; NOT runtime evidence; answers ZERO register items"
+  },
+  "schema_version": "draft-1",
+  "tick_ms": 16.666666,
+  "ticks": [
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 0.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 0,
+          "tween_left": 0,
+          "tween_total": 0
+        }
+      },
+      "frame": 0,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 0.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 0,
+          "tween_left": 0,
+          "tween_total": 0
+        }
+      },
+      "frame": 1,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 0.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 13,
+          "tween_total": 13
+        }
+      },
+      "frame": 2,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 1.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 12,
+          "tween_total": 13
+        }
+      },
+      "frame": 3,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 2.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 11,
+          "tween_total": 13
+        }
+      },
+      "frame": 4,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 4.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 10,
+          "tween_total": 13
+        }
+      },
+      "frame": 5,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 7.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 9,
+          "tween_total": 13
+        }
+      },
+      "frame": 6,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 11.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 8,
+          "tween_total": 13
+        }
+      },
+      "frame": 7,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 14.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 7,
+          "tween_total": 13
+        }
+      },
+      "frame": 8,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 18.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 6,
+          "tween_total": 13
+        }
+      },
+      "frame": 9,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 21.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 5,
+          "tween_total": 13
+        }
+      },
+      "frame": 10,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 25.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 4,
+          "tween_total": 13
+        }
+      },
+      "frame": 11,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 28.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 3,
+          "tween_total": 13
+        }
+      },
+      "frame": 12,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 30.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 2,
+          "tween_total": 13
+        }
+      },
+      "frame": 13,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            0,
+            1
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 31.0,
+          "state_frames": 0,
+          "tile_x": 0,
+          "tile_y": 1,
+          "tween_left": 1,
+          "tween_total": 13
+        }
+      },
+      "frame": 14,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 0.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 13,
+          "tween_total": 13
+        }
+      },
+      "frame": 15,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 1.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 12,
+          "tween_total": 13
+        }
+      },
+      "frame": 16,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 2.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 11,
+          "tween_total": 13
+        }
+      },
+      "frame": 17,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 4.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 10,
+          "tween_total": 13
+        }
+      },
+      "frame": 18,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 7.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 9,
+          "tween_total": 13
+        }
+      },
+      "frame": 19,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 11.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 8,
+          "tween_total": 13
+        }
+      },
+      "frame": 20,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 14.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 7,
+          "tween_total": 13
+        }
+      },
+      "frame": 21,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 18.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 6,
+          "tween_total": 13
+        }
+      },
+      "frame": 22,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 21.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 5,
+          "tween_total": 13
+        }
+      },
+      "frame": 23,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 25.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 4,
+          "tween_total": 13
+        }
+      },
+      "frame": 24,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 28.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 3,
+          "tween_total": 13
+        }
+      },
+      "frame": 25,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 30.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 2,
+          "tween_total": 13
+        }
+      },
+      "frame": 26,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 31.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 1,
+          "tween_total": 13
+        }
+      },
+      "frame": 27,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 28,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "windup",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 5,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 29,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "windup",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 4,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 30,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "windup",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 3,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 31,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "windup",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 2,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 32,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "windup",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 1,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 33,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "active",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 4,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 34,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "active",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 3,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 35,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "active",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 2,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 36,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "active",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 1,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 37,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 8,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 38,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 7,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 39,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 6,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 40,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 5,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 41,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 4,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 42,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 3,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 43,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 2,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 44,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "recovery",
+          "current_action": "attack",
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 1,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 45,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 46,
+      "masks": {
+        "1": 0
+      }
+    },
+    {
+      "creatures": {
+        "player_1": {
+          "attack_state": "idle",
+          "current_action": null,
+          "facing": [
+            1,
+            0
+          ],
+          "hp": 80,
+          "iframes": 0,
+          "px": 32.0,
+          "py": 32.0,
+          "state_frames": 0,
+          "tile_x": 1,
+          "tile_y": 1,
+          "tween_left": 0,
+          "tween_total": 13
+        }
+      },
+      "frame": 47,
+      "masks": {
+        "1": 0
+      }
+    }
+  ],
+  "view": {
+    "height": 64,
+    "origin_px": [
+      0,
+      0
+    ],
+    "width": 96
+  },
+  "zone": "zone_1"
+}

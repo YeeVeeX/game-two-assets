@@ -241,7 +241,8 @@ Offline capture modes (strong seat, from a bundle, never live):
   criterion: the track must carry every input the renderer's creature
   draw reads plus every index the declared pose-selection mapping needs.
   Exact field list is pinned by the game seat when the tool is specced
-  (open question 1).
+  (open question 1). A DRAFT field list with a working reference consumer
+  is banked as proposal input: `docs/state-track-schema.md` (v13).
 - **Mode F — framebuffer.** Per-tick PNG of the current quad+notch draw
   via the existing capture path. Evidence about the **current** game only
   (e.g. the live notch-strafe class); never evidence about banked frames.
@@ -384,7 +385,10 @@ The answer resolves the settle-bob condition automatically. No deadline
 attaches; the decision belongs to the hub and the owner. Deferral is
 harmless and needs no option of its own: an unanswered ask leaves the
 settle-bob condition pending and this design unaffected (council finding
-Q6, adopted as an explicit consequence).
+Q6, adopted as an explicit consequence). Recorded 2026-08-20 (hub receipt,
+v12 mail thread): gating-decision DEFERRED to the v19 owners' brainstorm as
+a sim-feel class decision — the settle-bob condition stays pending exactly
+as this paragraph provides.
 
 ## 9. Non-goals and open questions
 
