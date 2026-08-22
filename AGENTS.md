@@ -1,15 +1,20 @@
 # game-two-assets
 
-Source/studio repo for `../game-two` visual assets: research, concepts, native sources, provenance, deterministic exports, and reviews. It is **never** a runtime dependency, submodule, or automatic fetch target. While game-two v17 is open, do not modify or integrate with the game repo.
+Source/studio repo for `../game-two` visual assets: research, concepts, native sources, provenance, deterministic exports, and reviews. It is **never** a runtime dependency, submodule, or automatic fetch target. Integration with the game repo stays OUT of scope until game-two's hub lifts its parking-lot gate (assets integration gated on pipeline maturity) — never modify or integrate from this side.
 
 <!-- FAMILY-BLOCK BEGIN -->
-## Workspace family (game-two program) — synced 2026-08-19
+## Workspace family (game-two program) — synced 2026-08-22
 
 - **Peers:** Gabriel (owner-founder, es-CR) + Junior (co-creator,
   pt-br) co-direct the whole program with equal creative standing —
   design, code, audio/assets, ideas flow from BOTH; neither is the
   other's worker. Owner overrides are law and get RECORDED (one line)
   in the affected repo.
+- **Never gate on peer availability (owner order 2026-08-22):** solo
+  progress is the default in every repo — peer online = good, absent =
+  keep moving, symmetric both ways; the dev of record proactively
+  surfaces REAL recorded work items (never fabricated ones). Peer
+  ratifications land async in the hub chat.
 - **Hub-and-spoke:** the game-two dev chat is the HUB; work in this
   repo runs as bounded sessions under its own dev-of-record.
   Cross-repo asks travel by SEAT MAIL (`~/.pi/agent/mail/<repo>/`),
@@ -50,7 +55,7 @@ Assets, contact sheets, review docs, and README target the owner and future cont
 
 ## Never
 
-- Touch `../game-two` during v17 asset exploration.
+- Touch `../game-two` from this repo — the hub's parking-lot gate governs integration sequencing (one-way boundary).
 - Build a full pack before one calibration lane wins.
 - Imitate a named living artist or store unlicensed references.
 - Call a Bedrock/general-model output a production sprite.
