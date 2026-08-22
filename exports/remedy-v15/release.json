@@ -1,0 +1,230 @@
+{
+  "contract_version": 1,
+  "release_id": "remedy-v15",
+  "source": {
+    "commit": "06152888137d86d9510e77afc70a48458bff2b9d",
+    "files": [
+      {
+        "path": "sources/remedy-v15/specs/player_1_lane_b_attack_down_k0_ks.json",
+        "sha256": "ff5a7cfb436793f1fa2d3ed1dc3f885bf441607a50fdaf7e482ca4a70e8fc089"
+      },
+      {
+        "path": "sources/remedy-v15/player_1_lane_b_attack_down_k0_ks.aseprite",
+        "sha256": "477cba0ac07a02baacd0a9fe41d9587c9f0f9ba57b42a1fcc8a4946c484cb7db"
+      },
+      {
+        "path": "sources/remedy-v15/specs/player_1_lane_b_attack_down_k0_ko.json",
+        "sha256": "848f5fc8aa623024bbb56ed787fa87c2af7a416d09ab003b77218e40b3f1a86d"
+      },
+      {
+        "path": "sources/remedy-v15/player_1_lane_b_attack_down_k0_ko.aseprite",
+        "sha256": "1e9f0897204e0b8fa104e6f32a68c8f085d15967289e30b9e30b8e993d3470c6"
+      },
+      {
+        "path": "sources/remedy-v15/specs/player_1_lane_b_attack_down_k0_kr.json",
+        "sha256": "6f13a33cb64bd315c0ca2d5221cda523a41f0b205896815ee9185af6bb26a237"
+      },
+      {
+        "path": "sources/remedy-v15/player_1_lane_b_attack_down_k0_kr.aseprite",
+        "sha256": "443056d65f99ae4b1718114f016e14b2743402137063c6aaa67c80df33d25e52"
+      },
+      {
+        "path": "sources/remedy-v15/specs/player_1_lane_b_attack_right_k0_ks.json",
+        "sha256": "05456863c0fad67e33367781cd442a377908626052bdff7403bbea250ab9beb8"
+      },
+      {
+        "path": "sources/remedy-v15/player_1_lane_b_attack_right_k0_ks.aseprite",
+        "sha256": "9e3db8b9cd0e424bfb93aeaa45f233c37a5457a15cd77a24649be3154ce96bd8"
+      },
+      {
+        "path": "sources/remedy-v15/specs/player_1_lane_b_attack_right_k0_ko.json",
+        "sha256": "a0a61c689a8e00532fcf3e0169e92b4b8e3a8207ea373eb119169a305b6116d5"
+      },
+      {
+        "path": "sources/remedy-v15/player_1_lane_b_attack_right_k0_ko.aseprite",
+        "sha256": "19069a205f7a279c9861fd6b7a8ca2e3560881990aa89b77feabfafedded0c31"
+      },
+      {
+        "path": "sources/remedy-v15/specs/player_1_lane_b_attack_right_k0_kr.json",
+        "sha256": "4ef37457e39b654a1cb44e055b8b7861fec034851666853e68fd145bb018a9be"
+      },
+      {
+        "path": "sources/remedy-v15/player_1_lane_b_attack_right_k0_kr.aseprite",
+        "sha256": "9cc10e62323dafdda828c11388217801c4e3f9f48f9bdd247c79791965c9895f"
+      }
+    ]
+  },
+  "target": {
+    "game_commit": "da5119c8b4ec538306e0508051e4def3104efce8",
+    "runtime_baseline": "manifests/runtime-baseline.json"
+  },
+  "toolchain": {
+    "baseline": "manifests/toolchain-baseline.json",
+    "exporter_path": "tools/export_assets.py",
+    "exporter_sha256": "a3ae60cc1894b2c3aec76d6fedca4b665bc4862f96431c44c6d32b7060b74598"
+  },
+  "exports": [
+    {
+      "asset_id": "player_1_lane_b_attack_down_k0_ks",
+      "kind": "creature",
+      "path": "exports/remedy-v15/player_1_lane_b_attack_down_k0_ks.png",
+      "sha256": "65192abbe5ff3fe469f7d8bacfeae88587dff047cd911f5804b5c24d2a51bc1b",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 15)",
+        "created": "2026-08-21",
+        "rights": "private-project",
+        "method": "derived procedurally from the frozen calibration-v2 attack-key export bytes: PNG decoded, recolored at exactly the machine-derived gape mask (tools/remedy_masks.py, reviews/remedy-v15/gape-masks.json), re-authored as a reviewable pixel-grid spec (sources/remedy-v15/specs), built into a native Aseprite source via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the spec and alpha-identical to the banked k0",
+        "note": "DEF-1 remedy candidate, lane K-S (primary candidate): gape recolored to shade #8c3818 (measured 2.26:1 / 2.12:1 WCAG vs the pinned zone_1/zone_2 floors; 2.69:1 vs the body); source bytes: the banked calibration-v2 down k0 export (sha256 5c18547410359dbf...), recolored at exactly the 16px machine-derived gape mask [12, 13, 19, 14] (reviews/remedy-v15/gape-masks.json); alpha byte-identical to the banked k0 - silhouette-invariant by construction; selection adjudicated in reviews/remedy-v15/verdict.md"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_down_k0_ko",
+      "kind": "creature",
+      "path": "exports/remedy-v15/player_1_lane_b_attack_down_k0_ko.png",
+      "sha256": "0f77289afa7bc2a3af3c8941f9624890722af213c5bee847b96cc77a48cf4a87",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 15)",
+        "created": "2026-08-21",
+        "rights": "private-project",
+        "method": "derived procedurally from the frozen calibration-v2 attack-key export bytes: PNG decoded, recolored at exactly the machine-derived gape mask (tools/remedy_masks.py, reviews/remedy-v15/gape-masks.json), re-authored as a reviewable pixel-grid spec (sources/remedy-v15/specs), built into a native Aseprite source via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the spec and alpha-identical to the banked k0",
+        "note": "DEF-1 remedy candidate, lane K-O (bracketing control, pre-registered as expected to fail the aperture line): gape recolored to outline #401c10 (measured 1.17:1 / 1.10:1 WCAG vs the pinned zone floors); source bytes: the banked calibration-v2 down k0 export (sha256 5c18547410359dbf...), recolored at exactly the 16px machine-derived gape mask [12, 13, 19, 14] (reviews/remedy-v15/gape-masks.json); alpha byte-identical to the banked k0 - silhouette-invariant by construction; selection adjudicated in reviews/remedy-v15/verdict.md"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_down_k0_kr",
+      "kind": "creature",
+      "path": "exports/remedy-v15/player_1_lane_b_attack_down_k0_kr.png",
+      "sha256": "aa3b1cfd1b07facea488eb236e96f0bc7f82579fe8dee7128254d50ac4b260bd",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 15)",
+        "created": "2026-08-21",
+        "rights": "private-project",
+        "method": "derived procedurally from the frozen calibration-v2 attack-key export bytes: PNG decoded, recolored at exactly the machine-derived gape mask (tools/remedy_masks.py, reviews/remedy-v15/gape-masks.json), re-authored as a reviewable pixel-grid spec (sources/remedy-v15/specs), built into a native Aseprite source via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the spec and alpha-identical to the banked k0",
+        "note": "DEF-1 remedy candidate, lane K-R (two-tone redesign, mouth-with-depth): gape row 13 recolored to shade #8c3818, row 14 to outline #401c10 - the lit interior kept adjacent to the eyes (accent-vs-shade 2.45:1), the jaw-line shadow at the bottom rim; source bytes: the banked calibration-v2 down k0 export (sha256 5c18547410359dbf...), recolored at exactly the 16px machine-derived gape mask [12, 13, 19, 14] (reviews/remedy-v15/gape-masks.json); alpha byte-identical to the banked k0 - silhouette-invariant by construction; selection adjudicated in reviews/remedy-v15/verdict.md"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_k0_ks",
+      "kind": "creature",
+      "path": "exports/remedy-v15/player_1_lane_b_attack_right_k0_ks.png",
+      "sha256": "7099a402979e85634bef7626c38874a705712c8cab7e5334ff97ed50952ef15d",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 15)",
+        "created": "2026-08-21",
+        "rights": "private-project",
+        "method": "derived procedurally from the frozen calibration-v2 attack-key export bytes: PNG decoded, recolored at exactly the machine-derived gape mask (tools/remedy_masks.py, reviews/remedy-v15/gape-masks.json), re-authored as a reviewable pixel-grid spec (sources/remedy-v15/specs), built into a native Aseprite source via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the spec and alpha-identical to the banked k0",
+        "note": "DEF-1 remedy candidate, lane K-S (primary candidate): gape recolored to shade #8c3818 (measured 2.26:1 / 2.12:1 WCAG vs the pinned zone_1/zone_2 floors; 2.69:1 vs the body); source bytes: the banked calibration-v2 right k0 export (sha256 ca1325d2f04d3240...), recolored at exactly the 8px machine-derived gape mask [24, 13, 27, 14] (reviews/remedy-v15/gape-masks.json); alpha byte-identical to the banked k0 - silhouette-invariant by construction; selection adjudicated in reviews/remedy-v15/verdict.md"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_k0_ko",
+      "kind": "creature",
+      "path": "exports/remedy-v15/player_1_lane_b_attack_right_k0_ko.png",
+      "sha256": "8b41d4bafc1a7eb4d42145c92a926c631bdab7d78c3901031e30f74eec53a2b6",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 15)",
+        "created": "2026-08-21",
+        "rights": "private-project",
+        "method": "derived procedurally from the frozen calibration-v2 attack-key export bytes: PNG decoded, recolored at exactly the machine-derived gape mask (tools/remedy_masks.py, reviews/remedy-v15/gape-masks.json), re-authored as a reviewable pixel-grid spec (sources/remedy-v15/specs), built into a native Aseprite source via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the spec and alpha-identical to the banked k0",
+        "note": "DEF-1 remedy candidate, lane K-O (bracketing control, pre-registered as expected to fail the aperture line): gape recolored to outline #401c10 (measured 1.17:1 / 1.10:1 WCAG vs the pinned zone floors); source bytes: the banked calibration-v2 right k0 export (sha256 ca1325d2f04d3240...), recolored at exactly the 8px machine-derived gape mask [24, 13, 27, 14] (reviews/remedy-v15/gape-masks.json); alpha byte-identical to the banked k0 - silhouette-invariant by construction; selection adjudicated in reviews/remedy-v15/verdict.md"
+      }
+    },
+    {
+      "asset_id": "player_1_lane_b_attack_right_k0_kr",
+      "kind": "creature",
+      "path": "exports/remedy-v15/player_1_lane_b_attack_right_k0_kr.png",
+      "sha256": "835f259e881090f60e1fdae37aa09b421e030913829ba1cabbb0431c2268ab12",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        16,
+        30
+      ],
+      "palette": [
+        "#140e0c",
+        "#401c10",
+        "#8c3818",
+        "#eb7828",
+        "#ffa050"
+      ],
+      "provenance": {
+        "origin": "procedural",
+        "author": "dev agent (pi session, sprint 15)",
+        "created": "2026-08-21",
+        "rights": "private-project",
+        "method": "derived procedurally from the frozen calibration-v2 attack-key export bytes: PNG decoded, recolored at exactly the machine-derived gape mask (tools/remedy_masks.py, reviews/remedy-v15/gape-masks.json), re-authored as a reviewable pixel-grid spec (sources/remedy-v15/specs), built into a native Aseprite source via tools/aseprite_build.lua, exported deterministically via tools/export_assets.py and verified pixel-for-pixel against the spec and alpha-identical to the banked k0",
+        "note": "DEF-1 remedy candidate, lane K-R (two-tone redesign, mouth-with-depth): gape row 13 recolored to shade #8c3818, row 14 to outline #401c10 - the lit interior kept adjacent to the eyes (accent-vs-shade 2.45:1), the jaw-line shadow at the bottom rim; source bytes: the banked calibration-v2 right k0 export (sha256 ca1325d2f04d3240...), recolored at exactly the 8px machine-derived gape mask [24, 13, 27, 14] (reviews/remedy-v15/gape-masks.json); alpha byte-identical to the banked k0 - silhouette-invariant by construction; selection adjudicated in reviews/remedy-v15/verdict.md"
+      }
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "artifacts": {
+    "remedy-report.json": "662a77c7d010a7d51c62aa25bea31161d85a78137ed8a6ae55c4775602551664",
+    "synthetic-remedy-ko-down-4x.apng": "6e75d99799b0f5687588a0572eceb3f3c5f75718e894276c838c1851a96158c2",
+    "synthetic-remedy-ko-down-8x.apng": "fb88405460121222be182619465a5f417a1dce33ae41e394632073459e2484c9",
+    "synthetic-remedy-ko-down-slow6-4x.apng": "446b144b5359a09c507b4ca6b1af7b3abd23208a653d12727361db48d1127d32",
+    "synthetic-remedy-ko-down-slow6-8x.apng": "076ae524906282335cdceb17ecbd2d4721f1339c23671f034311134d4367ba2e",
+    "synthetic-remedy-ko-right-4x.apng": "02da1ac62e5acc17c072268157b809b1df031fb9f81a2888899ba289cd8013fb",
+    "synthetic-remedy-ko-right-8x.apng": "eaef559bae553ba4f0d1277238472b8ff61633c332acd2604b83f5f671598e22",
+    "synthetic-remedy-ko-right-slow6-4x.apng": "8c61266bbd4eb5b0a79a3bb11014a28708132907bb57349b03412aa4f1fd1a66",
+    "synthetic-remedy-ko-right-slow6-8x.apng": "6fef220423f7e4c3b4aeeff58457be36c3dae5f0c9a89a68e09cbd1a3c20ec84",
+    "synthetic-remedy-kr-down-4x.apng": "542eeded2fae83d7e88a3aca34e2bc18aea130cdc1c7306235e8eb8ddfad2fa8",
+    "synthetic-remedy-kr-down-8x.apng": "00046e75dd7116e69d517ece8bbd29b43cd57a21dadb5ebf0106d630c26efbe2",
+    "synthetic-remedy-kr-down-slow6-4x.apng": "851ca8bd864198d7263f4445e41ea244afa44ccb957e60c6b52149d36f92e02e",
+    "synthetic-remedy-kr-down-slow6-8x.apng": "3f8a9b516296a984c46dc930ec8333f8ea2e9a0674861395265953f213801b43",
+    "synthetic-remedy-kr-right-4x.apng": "46befa43b50f58654ee2d03b4bd6884b621eb9dd85b157ff7b32eecb7238f2c8",
+    "synthetic-remedy-kr-right-8x.apng": "1d676a16222a29b1684b7ba81ef9be6ec1bdd1c2b9f64336af05c35d12313665",
+    "synthetic-remedy-kr-right-slow6-4x.apng": "4fc3d418a5a99ea7738c5039342f5bf5574da070c7f97600c0480de31a9f0d6e",
+    "synthetic-remedy-kr-right-slow6-8x.apng": "87f454defeed1c309f839e7a4fb121fc2568ff78bab40a14ffcfca50fdf3a8c3",
+    "synthetic-remedy-ks-down-4x.apng": "1bc45e34ec60b4bf76d6c60379f4e1f1b31d7c3895da34f325a194fbda62a912",
+    "synthetic-remedy-ks-down-8x.apng": "6dc69919a54f138557d935cb85e6c6ac0eda22e684f162e57e8bbf01de8d7c7b",
+    "synthetic-remedy-ks-down-slow6-4x.apng": "808be9f2efc4648aaad5169a4b69f79b9c0b8be9ce9d914c5c1687859fdb1fa1",
+    "synthetic-remedy-ks-down-slow6-8x.apng": "f0ee8148e9ea055bd6b92e989588ec27de239d3b47b76ef1910c74dbdecfd987",
+    "synthetic-remedy-ks-right-4x.apng": "0353bf429d9c2b17f9d4e4ad22719cdb0b1470c5843511e85006dcbdedb0e831",
+    "synthetic-remedy-ks-right-8x.apng": "4f024a20f8a2ef6e9587cfa993c4975710148c5858c36feca2f9f8e4d36e5ae8",
+    "synthetic-remedy-ks-right-slow6-4x.apng": "2e2eeb53f003141853a0b6b0fc2f6185359e8e3b32771528215ca2238cb4acba",
+    "synthetic-remedy-ks-right-slow6-8x.apng": "37a3fe33d3bf686e7b5c425e888287b92b457c2c089a9e945936c5885c368901",
+    "synthetic-remedy-strip-down-z1-8x.png": "e0cbd1dd148070305b993def95735eb8409ef2204bae3b68c4d6ee1ee45bfe1d",
+    "synthetic-remedy-strip-down-z2-8x.png": "adb419f677d90264b5168d04583dc1095363ff744f5471eed96be1e2c2b4d3d7",
+    "synthetic-remedy-strip-right-z1-8x.png": "8f099821555c3e6cf5cddebabaa92f4fa8c2adb55a47021f909965c7d5920414",
+    "synthetic-remedy-strip-right-z2-8x.png": "41073e3d9abee5899a7039878c704ed715a4f715e4131fdfab6700bd74dc52e7"
+  },
+  "declared_recolor": {
+    "player_1_lane_b_attack_down_k0_ko": [
+      [
+        12,
+        13,
+        "#401c10"
+      ],
+      [
+        12,
+        14,
+        "#401c10"
+      ],
+      [
+        13,
+        13,
+        "#401c10"
+      ],
+      [
+        13,
+        14,
+        "#401c10"
+      ],
+      [
+        14,
+        13,
+        "#401c10"
+      ],
+      [
+        14,
+        14,
+        "#401c10"
+      ],
+      [
+        15,
+        13,
+        "#401c10"
+      ],
+      [
+        15,
+        14,
+        "#401c10"
+      ],
+      [
+        16,
+        13,
+        "#401c10"
+      ],
+      [
+        16,
+        14,
+        "#401c10"
+      ],
+      [
+        17,
+        13,
+        "#401c10"
+      ],
+      [
+        17,
+        14,
+        "#401c10"
+      ],
+      [
+        18,
+        13,
+        "#401c10"
+      ],
+      [
+        18,
+        14,
+        "#401c10"
+      ],
+      [
+        19,
+        13,
+        "#401c10"
+      ],
+      [
+        19,
+        14,
+        "#401c10"
+      ]
+    ],
+    "player_1_lane_b_attack_down_k0_kr": [
+      [
+        12,
+        13,
+        "#8c3818"
+      ],
+      [
+        12,
+        14,
+        "#401c10"
+      ],
+      [
+        13,
+        13,
+        "#8c3818"
+      ],
+      [
+        13,
+        14,
+        "#401c10"
+      ],
+      [
+        14,
+        13,
+        "#8c3818"
+      ],
+      [
+        14,
+        14,
+        "#401c10"
+      ],
+      [
+        15,
+        13,
+        "#8c3818"
+      ],
+      [
+        15,
+        14,
+        "#401c10"
+      ],
+      [
+        16,
+        13,
+        "#8c3818"
+      ],
+      [
+        16,
+        14,
+        "#401c10"
+      ],
+      [
+        17,
+        13,
+        "#8c3818"
+      ],
+      [
+        17,
+        14,
+        "#401c10"
+      ],
+      [
+        18,
+        13,
+        "#8c3818"
+      ],
+      [
+        18,
+        14,
+        "#401c10"
+      ],
+      [
+        19,
+        13,
+        "#8c3818"
+      ],
+      [
+        19,
+        14,
+        "#401c10"
+      ]
+    ],
+    "player_1_lane_b_attack_down_k0_ks": [
+      [
+        12,
+        13,
+        "#8c3818"
+      ],
+      [
+        12,
+        14,
+        "#8c3818"
+      ],
+      [
+        13,
+        13,
+        "#8c3818"
+      ],
+      [
+        13,
+        14,
+        "#8c3818"
+      ],
+      [
+        14,
+        13,
+        "#8c3818"
+      ],
+      [
+        14,
+        14,
+        "#8c3818"
+      ],
+      [
+        15,
+        13,
+        "#8c3818"
+      ],
+      [
+        15,
+        14,
+        "#8c3818"
+      ],
+      [
+        16,
+        13,
+        "#8c3818"
+      ],
+      [
+        16,
+        14,
+        "#8c3818"
+      ],
+      [
+        17,
+        13,
+        "#8c3818"
+      ],
+      [
+        17,
+        14,
+        "#8c3818"
+      ],
+      [
+        18,
+        13,
+        "#8c3818"
+      ],
+      [
+        18,
+        14,
+        "#8c3818"
+      ],
+      [
+        19,
+        13,
+        "#8c3818"
+      ],
+      [
+        19,
+        14,
+        "#8c3818"
+      ]
+    ],
+    "player_1_lane_b_attack_right_k0_ko": [
+      [
+        24,
+        13,
+        "#401c10"
+      ],
+      [
+        24,
+        14,
+        "#401c10"
+      ],
+      [
+        25,
+        13,
+        "#401c10"
+      ],
+      [
+        25,
+        14,
+        "#401c10"
+      ],
+      [
+        26,
+        13,
+        "#401c10"
+      ],
+      [
+        26,
+        14,
+        "#401c10"
+      ],
+      [
+        27,
+        13,
+        "#401c10"
+      ],
+      [
+        27,
+        14,
+        "#401c10"
+      ]
+    ],
+    "player_1_lane_b_attack_right_k0_kr": [
+      [
+        24,
+        13,
+        "#8c3818"
+      ],
+      [
+        24,
+        14,
+        "#401c10"
+      ],
+      [
+        25,
+        13,
+        "#8c3818"
+      ],
+      [
+        25,
+        14,
+        "#401c10"
+      ],
+      [
+        26,
+        13,
+        "#8c3818"
+      ],
+      [
+        26,
+        14,
+        "#401c10"
+      ],
+      [
+        27,
+        13,
+        "#8c3818"
+      ],
+      [
+        27,
+        14,
+        "#401c10"
+      ]
+    ],
+    "player_1_lane_b_attack_right_k0_ks": [
+      [
+        24,
+        13,
+        "#8c3818"
+      ],
+      [
+        24,
+        14,
+        "#8c3818"
+      ],
+      [
+        25,
+        13,
+        "#8c3818"
+      ],
+      [
+        25,
+        14,
+        "#8c3818"
+      ],
+      [
+        26,
+        13,
+        "#8c3818"
+      ],
+      [
+        26,
+        14,
+        "#8c3818"
+      ],
+      [
+        27,
+        13,
+        "#8c3818"
+      ],
+      [
+        27,
+        14,
+        "#8c3818"
+      ]
+    ]
+  },
+  "determinism": {
+    "artifact_count": 29,
+    "double_build_identical": true
+  },
+  "generated_by": "tools/remedy_metrics.py --make-artifacts",
+  "masks_sha256": "9dd81786121fd94775f22151383cddc3a0f4424007c400fffc15c7d7786a64c7",
+  "module_source_sha256": {
+    "tools/anticipation_metrics.py": "49df29032c19c25cc3a30027e717f6fc23000818292cdca40f3814df47a39cf8",
+    "tools/asset_gate.py": "7cba0ff87246252a43e04cd0408441d6d3e18f0ca15cab8ba24d85609ba2c6df",
+    "tools/audio_metrics.py": "68dd720121bf3986ca5c1c451824bc2b19507e26e95f396336b6667d4b6a77d1",
+    "tools/feedback_metrics.py": "52702c19e3f061aa057ef88b4273002b108d0bd0fe9340d0f8399c0c9e7a86c8",
+    "tools/make_anticipation_sheet.py": "bd17eaf339308f5bb3aa808731b63ae667dfd81a7027667c05ccbd2d991368b5",
+    "tools/make_contact_sheet.py": "da5e558d879854f8bca911f09ab89a79fdd6dfa28d3446c1173a7334608edac8",
+    "tools/make_corner_timeline.py": "17a86e727b6bee094c984ba488021c88b2e0c0eed8ddce460b2db67f3519c37c",
+    "tools/make_cross_seam_timeline.py": "93e6984ec9e77561a0ff3e2cca7c94d69b46de74ea743db9abfa3b0e562f3fe6",
+    "tools/make_feedback_sheet.py": "5730240f04cc1f2797390829257d8133714b6da662c67a1f42506a160b7316b0",
+    "tools/make_grammar_timeline.py": "60cc967a7564648aa1ef9d75cc050f536b43c0a5b4500fa76681bb0dc2bf6181",
+    "tools/make_motion_sheet.py": "1664b73a6dd142c3d68b2a539f712b49374d2a8b4c9d79d119e2c634f49e616c",
+    "tools/make_seam_timeline.py": "2d71ad2991458bad69f6cdeed496b96cb8667dc458742369ec011d0f66b683de",
+    "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
+    "tools/motion_metrics.py": "ebc0bdbf557abbf72e302ecacde1cdd54866b6f8c5bca723c1ef605a5c48c0c1",
+    "tools/pixel_spec.py": "0d52425db2907f83a59b39d4302ddc93af8a80a6ee5f1269fa39abd33bb447f4",
+    "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
+    "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
+    "tools/pose_integrity_metrics.py": "aaba7c75d7df7fdbee058a8d7c894bc3d41d6782fde49399824bddcff4f19752",
+    "tools/remedy_masks.py": "49e1b5c9e375344a0d66f3afad7abb00a3b76d2285516f59effaaddc73e21c3b",
+    "tools/remedy_metrics.py": "32ebec4e5a857ca17d3068493a89474f951750a11ec6071c2e8e924fdf1b7615",
+    "tools/seam_metrics.py": "1ce9c0ac19671904f2ac57a7714bb2d70125235a7889721679ec0e82b462e4e9",
+    "tools/timeline_metrics.py": "978edf880b8355d55027a0dcb4f9ea4934604fd6306faeb9310a4a0764acb9b6",
+    "tools/track_recompose.py": "606f027b8c238107ae9b1d856869b410159bc0e740e5bce3f4c17f23358f69e2"
+  },
+  "provenance": {
+    "class": "SYNTHETIC",
+    "statement": "verification tables + controlled selection artifacts for the six additive DEF-1 remedy candidates, composed from banked export bytes and the candidate exports only; NOT runtime evidence; the banked k0 stays the pinned history"
+  },
+  "release": {
+    "release_id": "remedy-v15",
+    "release_json_sha256": "37ea4a8a8925eb4b70154ad6dbd4455314afc788336880ef4aa615db481dad34"
+  },
+  "repo_commit_at_generation": "06152888137d86d9510e77afc70a48458bff2b9d",
+  "viewing_protocol": {
+    "apng_layout": "side-by-side incumbent + variant panes per frame (down horizontal, right vertical), full 21-tick stream, zone_1",
+    "apng_real_delays": "exact 1/60 s per tick x 20 + 30/60 s final hold (banked apng_delays)",
+    "apng_scales": [
+      4,
+      8
+    ],
+    "apng_slow_delays": "6/60 s per tick x 20 + 30/60 s final hold (slowed 6x, integer tick multiple)",
+    "apng_zone": "zone_1",
+    "statement": "view at 100% viewer zoom with fit-to-window OFF; all scaling is pre-baked integer nearest-neighbor (4x and 8x); percepts reproducible only under resampled viewing are viewer-domain by the pre-registered taxonomy",
+    "strip_scale": 8,
+    "strip_window": "pre-registered comparison window T05..T12 (a0 context, a0->k0 cut, 4-tick k0 hold, k0->s0 cut, r0 context); the banked v14 strips carry the full-sequence incumbent context",
+    "strip_zones": [
+      "zone_1",
+      "zone_2"
+    ]
+  }
+}
