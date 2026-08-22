@@ -1,0 +1,85 @@
+{
+  "apng_delays": {
+    "real": "exact 1/60 s per tick x 47 + 30/60 s final hold (banked apng_delays)",
+    "slow6": "6/60 s per tick x 47 + 30/60 s final hold (banked slow_delays)"
+  },
+  "apng_ticks": 48,
+  "artifacts": {
+    "adoption-report.json": "026308793d40e57d6be9cdc488e6f06d7c87cb83af4ee87db7ab3c559a35ff7a",
+    "synthetic-adoption-ks-demo-4x.apng": "92da2ed16bd86c92b80fd618d1de2fb167b4dfe90fdfe37bb108b5468650415f",
+    "synthetic-adoption-ks-demo-8x.apng": "08a82a9f90f6696a390a3b50ede25dbbc5514e658bb80e10ee1aa2a69b7ee2fc",
+    "synthetic-adoption-ks-demo-slow6-4x.apng": "6ef9169c02d584230cc5826e0297e6384331dc5f298c987a0c10b290e45e7f0f",
+    "synthetic-adoption-ks-demo-slow6-8x.apng": "fd0103893f3797e4b2b5c0651d957299019ac3e023607dfc1e512f3047654bd5",
+    "synthetic-adoption-sbs-demo-4x.apng": "53ebd01c0c2c74a7c5be7b4e0a3b2d53dbbb3bc64c675f63bfa07ec7db4ef21d",
+    "synthetic-adoption-sbs-demo-8x.apng": "00efdd95e0326e413becc30f98582efb4f43a58f18c2f7e83ba38579b9d55617",
+    "synthetic-adoption-sbs-demo-slow6-4x.apng": "5e522c2ce5449321aacba9999d2422ee9426d4f42857660e019dd3fa98cdb130",
+    "synthetic-adoption-sbs-demo-slow6-8x.apng": "609a3d1e890a7e59b1f8cd53a1936b5bb9e2bf768757e3b356e627dbe09b802c",
+    "synthetic-adoption-strip-attack-8x.png": "fd7fbb485310b033d73e5b47842a6916d5921195b435c1c782ee8c044dcac3a1"
+  },
+  "determinism": {
+    "artifact_count": 10,
+    "double_build_identical": true
+  },
+  "generated_by": "tools/adoption_demo.py --make-artifacts",
+  "module_source_sha256": {
+    "tools/adoption_demo.py": "d4c5dee2506ffffc383c198e14cc1a23e179ecb9fc84b9a28c1287bc950d5f5d",
+    "tools/anticipation_metrics.py": "49df29032c19c25cc3a30027e717f6fc23000818292cdca40f3814df47a39cf8",
+    "tools/asset_gate.py": "7cba0ff87246252a43e04cd0408441d6d3e18f0ca15cab8ba24d85609ba2c6df",
+    "tools/audio_metrics.py": "68dd720121bf3986ca5c1c451824bc2b19507e26e95f396336b6667d4b6a77d1",
+    "tools/feedback_metrics.py": "52702c19e3f061aa057ef88b4273002b108d0bd0fe9340d0f8399c0c9e7a86c8",
+    "tools/make_anticipation_sheet.py": "bd17eaf339308f5bb3aa808731b63ae667dfd81a7027667c05ccbd2d991368b5",
+    "tools/make_contact_sheet.py": "da5e558d879854f8bca911f09ab89a79fdd6dfa28d3446c1173a7334608edac8",
+    "tools/make_corner_timeline.py": "17a86e727b6bee094c984ba488021c88b2e0c0eed8ddce460b2db67f3519c37c",
+    "tools/make_cross_seam_timeline.py": "93e6984ec9e77561a0ff3e2cca7c94d69b46de74ea743db9abfa3b0e562f3fe6",
+    "tools/make_feedback_sheet.py": "5730240f04cc1f2797390829257d8133714b6da662c67a1f42506a160b7316b0",
+    "tools/make_grammar_timeline.py": "60cc967a7564648aa1ef9d75cc050f536b43c0a5b4500fa76681bb0dc2bf6181",
+    "tools/make_motion_sheet.py": "1664b73a6dd142c3d68b2a539f712b49374d2a8b4c9d79d119e2c634f49e616c",
+    "tools/make_seam_timeline.py": "2d71ad2991458bad69f6cdeed496b96cb8667dc458742369ec011d0f66b683de",
+    "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
+    "tools/motion_metrics.py": "ebc0bdbf557abbf72e302ecacde1cdd54866b6f8c5bca723c1ef605a5c48c0c1",
+    "tools/pixel_spec.py": "0d52425db2907f83a59b39d4302ddc93af8a80a6ee5f1269fa39abd33bb447f4",
+    "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
+    "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
+    "tools/pose_integrity_metrics.py": "aaba7c75d7df7fdbee058a8d7c894bc3d41d6782fde49399824bddcff4f19752",
+    "tools/remedy_masks.py": "49e1b5c9e375344a0d66f3afad7abb00a3b76d2285516f59effaaddc73e21c3b",
+    "tools/remedy_metrics.py": "32ebec4e5a857ca17d3068493a89474f951750a11ec6071c2e8e924fdf1b7615",
+    "tools/seam_metrics.py": "1ce9c0ac19671904f2ac57a7714bb2d70125235a7889721679ec0e82b462e4e9",
+    "tools/timeline_metrics.py": "978edf880b8355d55027a0dcb4f9ea4934604fd6306faeb9310a4a0764acb9b6",
+    "tools/track_recompose.py": "606f027b8c238107ae9b1d856869b410159bc0e740e5bce3f4c17f23358f69e2"
+  },
+  "provenance": {
+    "class": "SYNTHETIC",
+    "statement": "adoption-record demo proof composed from banked export bytes and the release-pinned remedy-v15 K-S exports only; NOT runtime evidence; the selection register entry (docs/selection-register.md) is the recorded owner decision this proof accompanies"
+  },
+  "repo_commit_at_generation": "2c024b97771d97108e700f4c93553465e9970f10",
+  "swap_source": {
+    "assets": {
+      "down": {
+        "asset_id": "player_1_lane_b_attack_down_k0_ks",
+        "sha256": "65192abbe5ff3fe469f7d8bacfeae88587dff047cd911f5804b5c24d2a51bc1b"
+      },
+      "right": {
+        "asset_id": "player_1_lane_b_attack_right_k0_ks",
+        "sha256": "7099a402979e85634bef7626c38874a705712c8cab7e5334ff97ed50952ef15d"
+      }
+    },
+    "release_id": "remedy-v15"
+  },
+  "viewing_protocol": {
+    "apng_real_delays": "exact 1/60 s per tick x 20 + 30/60 s final hold (banked apng_delays)",
+    "apng_scales": [
+      4,
+      8
+    ],
+    "apng_slow_delays": "6/60 s per tick x 20 + 30/60 s final hold (slowed 6x, integer tick multiple)",
+    "apng_zone": "zone_1",
+    "demo_context": "the v13 demo view (96x64 window, zone_1, 48 ticks at exact 1/60 s, 4x panes with the drawn label band) is the artifact class the owner sighted DEF-1 in; the K-S demo differs from the committed v13 demo ONLY at the k0 ticks per the swap-purity bar",
+    "statement": "view at 100% viewer zoom with fit-to-window OFF; all scaling is pre-baked integer nearest-neighbor (4x and 8x); percepts reproducible only under resampled viewing are viewer-domain by the pre-registered taxonomy",
+    "strip_scale": 8,
+    "strip_window": "demo attack window T27..T47 (approach tail, full attack envelope, idle return), fixed viewport crop x in [24, 96) of the identically composed demo window, two aligned streams (INCUMBENT, KS SELECTED)",
+    "strip_zones": [
+      "zone_1",
+      "zone_2"
+    ]
+  }
+}

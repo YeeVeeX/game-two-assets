@@ -1,0 +1,90 @@
+{
+  "incumbent_reproduction": {
+    "apng_byte_identical": true,
+    "committed_apng_sha256": "3cb8361a7bd4cddc070e587da023d5f3de84c3ceaeed3b311df68e40deb1392d",
+    "committed_track_sha256": "b76858075ad6e46ae8898b19e9c891202c53d8f636307c2bc3f6f4f8e4b0a8b2",
+    "rebuilt_apng_sha256": "3cb8361a7bd4cddc070e587da023d5f3de84c3ceaeed3b311df68e40deb1392d",
+    "rebuilt_track_sha256": "b76858075ad6e46ae8898b19e9c891202c53d8f636307c2bc3f6f4f8e4b0a8b2",
+    "track_byte_identical": true
+  },
+  "machine_bars": {
+    "incumbent_reproduction_apng": true,
+    "incumbent_reproduction_track": true,
+    "staged_source_release_pinned": true,
+    "swap_purity": true
+  },
+  "provenance": {
+    "class": "SYNTHETIC",
+    "producer": "tools/adoption_demo.py --make-artifacts",
+    "statement": "sighting-context demo proof for the owner-ratified K-S selection: the banked v13 demo pipeline re-run with only the k0 sprite substituted, gated by the incumbent-reproduction and swap-purity bars; composed from banked export bytes and the release-pinned remedy-v15 K-S exports only; NOT runtime evidence; answers ZERO register items; the banked k0 stays the pinned history"
+  },
+  "selected_assets": [
+    "player_1_lane_b_attack_down_k0_ks",
+    "player_1_lane_b_attack_right_k0_ks"
+  ],
+  "swap_purity": {
+    "frames_compared": 48,
+    "k0_stream_consistent_with_v14_window": true,
+    "k0_ticks": [
+      34,
+      35,
+      36,
+      37
+    ],
+    "pass": true,
+    "per_tick": [
+      {
+        "changed_px": 128,
+        "draw": [
+          38,
+          32
+        ],
+        "expected_px": 128,
+        "pose": "k0",
+        "sets_equal": true,
+        "substituted_all_shade_and_incumbent_all_accent": true,
+        "tick": 34
+      },
+      {
+        "changed_px": 128,
+        "draw": [
+          38,
+          32
+        ],
+        "expected_px": 128,
+        "pose": "k0",
+        "sets_equal": true,
+        "substituted_all_shade_and_incumbent_all_accent": true,
+        "tick": 35
+      },
+      {
+        "changed_px": 128,
+        "draw": [
+          38,
+          32
+        ],
+        "expected_px": 128,
+        "pose": "k0",
+        "sets_equal": true,
+        "substituted_all_shade_and_incumbent_all_accent": true,
+        "tick": 36
+      },
+      {
+        "changed_px": 128,
+        "draw": [
+          38,
+          32
+        ],
+        "expected_px": 128,
+        "pose": "k0",
+        "sets_equal": true,
+        "substituted_all_shade_and_incumbent_all_accent": true,
+        "tick": 37
+      }
+    ]
+  },
+  "swap_source_sha256": {
+    "down": "65192abbe5ff3fe469f7d8bacfeae88587dff047cd911f5804b5c24d2a51bc1b",
+    "right": "7099a402979e85634bef7626c38874a705712c8cab7e5334ff97ed50952ef15d"
+  }
+}
