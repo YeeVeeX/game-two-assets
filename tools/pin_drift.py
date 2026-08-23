@@ -34,10 +34,15 @@ byte-hash fixture test):
 
    - all pinned blobs identical + attack_timing green
      -> ``mechanical re-pin`` (game_commit line only);
-   - every drifted file additive-only (numstat deletions == 0) + all
+   - every drifted file additive-only (numstat deletions == 0: git's
+     line-diff model counts an in-place mutation as +1/-1, so zero
+     deletions mechanically guarantees pure appends/insertions) + all
      constants green + attack_timing green
      -> ``approve-by-default candidate`` — the session applies the
-     protocol; the tool decides nothing;
+     protocol; the tool decides nothing, and the route line carries the
+     session's REMAINING duties (read the diff, apply the pairs, commit
+     the re-pin alone, mail the note) so the candidate class never
+     reads as pre-vetted (council adoption, v18 gate);
    - ANY deletion, ANY constant/attack_timing failure, or any other
      surprise -> ``SESSION JUDGMENT REQUIRED`` + the quoted clause.
 
@@ -91,7 +96,9 @@ ROUTE_MECHANICAL = (
 ROUTE_CANDIDATE = (
     "ROUTE: approve-by-default candidate (additive-only + constants green + "
     "attack_timing green) - the session applies the protocol; this tool "
-    "decides nothing"
+    "decides nothing. Session duties remain: read the diff, apply the "
+    "manifest pairs via the edit tool, commit the re-pin ALONE, mail the "
+    "dev-seat note"
 )
 ROUTE_JUDGMENT = "ROUTE: SESSION JUDGMENT REQUIRED: "
 

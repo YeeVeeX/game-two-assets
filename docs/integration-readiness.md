@@ -1,7 +1,7 @@
 # Integration readiness — pipeline-maturity status register
 
 **Current answer: NOT integration-ready — C6 (integration design) is
-OPEN; C1, C2, C4 and C5 are MET; C3 is MET-AT-CHECKPOINT.** This
+OPEN; C1, C2, C3, C4 and C5 are MET.** This
 register is a mechanical STATUS record: advisory input to
 the hub's parking-lot gate ("assets integration — gated on
 game-two-assets pipeline maturity"); the hub decides, and nothing here
@@ -19,7 +19,7 @@ before this file existed).
 |---|---|
 | C1 fun verdict closed | MET |
 | C2 one lane wins, not least bad | MET |
-| C3 asset gate clean | MET-AT-CHECKPOINT |
+| C3 asset gate clean | MET |
 | C4 provenance and rights | MET |
 | C5 native-scale critique | MET |
 | C6 integration design | OPEN |
@@ -68,14 +68,24 @@ proceed"), adoption-proven in the sighting artifact class at v16.
 
 ### C3 — asset gate passes from a clean checkout
 
-**Status:** MET-AT-CHECKPOINT. Exit 0 at this sprint's step-0 run
-(after the mechanical re-pin `ccbd460`, baseline `97964ed8`) and at the
-pre-banking run. Scope, stated honestly: banked gate runs execute on
-the maintained working tree; no banked artifact records a
-from-scratch-clone run, so the literal clean-checkout variant is
-unrecorded. Re-judged at every sprint's own gate runs.
-**Carrier:** `reviews/readiness-v17/verdict.md` (machine table, both
-runs) + `manifests/runtime-baseline.json` (the pin the gate verifies).
+**Status:** MET. Proven in both directions on a from-scratch local
+clone of this repo's committed HEAD (`tools/checkout_gate.py`, v18):
+the clone's own gate run exits 0, and the negative control — a
+tampered `sha256_lf` in the CLONE's baseline — exits nonzero naming
+the violation. The contract wording names no checkout variant; this
+row records the variant proven — a from-scratch clone of committed
+HEAD — and a hermetic reading is structurally impossible for this
+gate, which contracts against live externals by design. Externals
+named, not hidden: the live sibling game-two checkout (read-only), the
+pinned Aseprite binary, an invoking Python interpreter; LFS bytes come
+from the local origin's object store (zero network in the primary run;
+the fresh-venv secondary also passed). Working-tree gate runs stay the
+per-sprint checkpoint (exit 0 at this sprint's step-0 and pre-banking
+runs); the clean-checkout variant is re-provable on demand by the tool
+against the then-current pin.
+**Carrier:** `reviews/maturity-v18/checkout-report.json` (both
+directions, externals, exit codes) + `tools/checkout_gate.py` +
+`reviews/maturity-v18/verdict.md`.
 
 ### C4 — provenance and rights are complete
 

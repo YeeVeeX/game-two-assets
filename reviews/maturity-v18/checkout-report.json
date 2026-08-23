@@ -1,0 +1,78 @@
+{
+  "contract_version": 1,
+  "tool": "tools/checkout_gate.py",
+  "protocol": "reviews/maturity-v18/rationale.md (protocol A)",
+  "generated_at": "2026-08-23T12:44:56.638794+00:00",
+  "source_repo": "C:\\Users\\gabri\\workspace\\game-two-assets",
+  "source_head": "393e195448e7de35f50edf2f323edea966d5d283",
+  "clone": {
+    "head": "393e195448e7de35f50edf2f323edea966d5d283",
+    "head_matches_source": true,
+    "lfs": {
+      "skip_smudge_clone": true,
+      "lfs_pull_exit_code": 0,
+      "pointers_remaining": []
+    }
+  },
+  "externals": {
+    "statement": "The gate contracts against live externals by design: the sibling game-two checkout (read-only), the pinned Aseprite binary, and an invoking Python interpreter. Clean checkout means a from-scratch clone of committed HEAD, never a hermetic environment.",
+    "game_root": "C:\\Users\\gabri\\workspace\\game-two",
+    "game_head_at_run": "4ffc5f192a2f99b872458449a8677eda8e92c6d5",
+    "aseprite": "C:\\tools\\aseprite\\build\\bin\\aseprite.exe",
+    "primary_python": "C:\\Users\\gabri\\workspace\\game-two-assets\\.venv\\Scripts\\python.exe"
+  },
+  "primary": {
+    "command": [
+      "C:\\Users\\gabri\\workspace\\game-two-assets\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\tools\\asset_gate.py",
+      "--root",
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone",
+      "--game-root",
+      "C:\\Users\\gabri\\workspace\\game-two",
+      "--aseprite",
+      "C:\\tools\\aseprite\\build\\bin\\aseprite.exe"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "WARNING: C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\manifests\\runtime-baseline.json: game HEAD is 4ffc5f192a2f99b872458449a8677eda8e92c6d5; baseline pins 139d812b9f93a6dfcc4c4d33b5ba76b6372f0c86 (commit-identity drift; content below decides - re-pin at the next sprint checkpoint)\n",
+    "verdict": "PASS"
+  },
+  "negative_control": {
+    "command": [
+      "C:\\Users\\gabri\\workspace\\game-two-assets\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\tools\\asset_gate.py",
+      "--root",
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone",
+      "--game-root",
+      "C:\\Users\\gabri\\workspace\\game-two",
+      "--aseprite",
+      "C:\\tools\\aseprite\\build\\bin\\aseprite.exe"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "WARNING: C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\manifests\\runtime-baseline.json: game HEAD is 4ffc5f192a2f99b872458449a8677eda8e92c6d5; baseline pins 139d812b9f93a6dfcc4c4d33b5ba76b6372f0c86 (commit-identity drift; content below decides - re-pin at the next sprint checkpoint)\nAsset gate failed with 1 violation(s):\n- C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\manifests\\runtime-baseline.json: source_files[0].sha256_lf does not match game-two\n",
+    "tampered_field": "source_files[0].sha256_lf",
+    "replaced_sha256_lf": "4b214ed70ba8f179e2b262d2584fd50f6465a30f9ad6729a949fdf5fb68306ef",
+    "violation_named": true,
+    "verdict": "PASS"
+  },
+  "secondary": {
+    "status": "PASS",
+    "reason": null,
+    "pip_exit_code": 0,
+    "command": [
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\fresh-venv\\Scripts\\python.exe",
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\tools\\asset_gate.py",
+      "--root",
+      "C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone",
+      "--game-root",
+      "C:\\Users\\gabri\\workspace\\game-two",
+      "--aseprite",
+      "C:\\tools\\aseprite\\build\\bin\\aseprite.exe"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "WARNING: C:\\Users\\gabri\\AppData\\Local\\Temp\\checkout-gate-2vr57hvb\\clone\\manifests\\runtime-baseline.json: game HEAD is 4ffc5f192a2f99b872458449a8677eda8e92c6d5; baseline pins 139d812b9f93a6dfcc4c4d33b5ba76b6372f0c86 (commit-identity drift; content below decides - re-pin at the next sprint checkpoint)\n"
+  },
+  "overall": "PASS"
+}
