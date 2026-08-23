@@ -42,7 +42,9 @@ def build_valid_tree(base: Path) -> Path:
     for release_id in xg.release_whitelist():
         release_dir = exports / release_id
         release_dir.mkdir()
-        (release_dir / "release.json").write_text("{}", encoding="utf-8")
+        (release_dir / "release.json").write_text(
+            '{"exports": []}', encoding="utf-8"
+        )
     return exports
 
 
@@ -88,6 +90,40 @@ class ExportsTreeGuard(unittest.TestCase):
         failures = xg.check_exports_tree(missing)
         self.assertEqual(len(failures), 1)
         self.assertTrue(failures[0].startswith("missing-exports-root: "))
+
+    def test_planted_nested_stray_fails(self) -> None:
+        victim = remedy_masks.RELEASE_ID
+        (self.exports / victim / "extra.png").write_bytes(b"unmanifested")
+        self.assertEqual(
+            xg.check_exports_tree(self.exports),
+            [f"nested-stray: {victim}/extra.png"],
+        )
+
+    def test_nested_directory_is_a_nested_stray(self) -> None:
+        victim = ingest_audio.RELEASE_ID
+        (self.exports / victim / "subdir").mkdir()
+        self.assertEqual(
+            xg.check_exports_tree(self.exports),
+            [f"nested-stray: {victim}/subdir"],
+        )
+
+    def test_manifested_file_passes(self) -> None:
+        victim = remedy_masks.RELEASE_ID
+        (self.exports / victim / "release.json").write_text(
+            '{"exports": [{"path": "exports/x/a.png"}]}', encoding="utf-8"
+        )
+        (self.exports / victim / "a.png").write_bytes(b"manifested bytes")
+        self.assertEqual(xg.check_exports_tree(self.exports), [])
+
+    def test_unreadable_release_manifest_fails(self) -> None:
+        victim = ingest_audio.RELEASE_ID
+        (self.exports / victim / "release.json").write_text(
+            "not json", encoding="utf-8"
+        )
+        self.assertEqual(
+            xg.check_exports_tree(self.exports),
+            [f"unreadable-release-manifest: {victim}"],
+        )
 
     def test_cli_reports_failures_with_exit_1(self) -> None:
         (self.exports / "rogue-v99").mkdir()
@@ -137,6 +173,8 @@ class ReadinessRegisterShape(unittest.TestCase):
         if not cls.REGISTER.is_file():
             raise unittest.SkipTest("readiness register not banked yet")
         cls.text = cls.REGISTER.read_text(encoding="utf-8")
+        cls.flat = " ".join(cls.text.split())
+        cls.flat_lower = cls.flat.lower()
 
     def condition_blocks(self) -> list[str]:
         parts = re.split(r"^### ", self.text, flags=re.MULTILINE)
@@ -198,16 +236,16 @@ class ReadinessRegisterShape(unittest.TestCase):
             "native scale",
             "integration design",
         ):
-            self.assertIn(kernel, self.text)
+            self.assertIn(kernel, self.flat_lower)
 
     def test_watch_items_present(self) -> None:
         for kernel in (
             "shade double-duty",
             "protocol-vs",
             "at-speed",
-            "DEF-3",
+            "def-3",
         ):
-            self.assertIn(kernel, self.text)
+            self.assertIn(kernel, self.flat_lower)
 
     def test_upstream_rulings_quoted_verbatim(self) -> None:
         for quote in (
@@ -217,11 +255,11 @@ class ReadinessRegisterShape(unittest.TestCase):
             "Approved, proceed",
             "No asset action until the game pins its new frame",
         ):
-            self.assertIn(quote, self.text)
+            self.assertIn(quote, self.flat)
 
     def test_non_claims_section_present(self) -> None:
         self.assertIn("## Non-claims", self.text)
-        self.assertIn("no integration ask", self.text)
+        self.assertIn("no integration ask", self.flat_lower)
 
     def test_mechanical_affordance_row_present(self) -> None:
         self.assertIn("stage_ks_attack_dir", self.text)

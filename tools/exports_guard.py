@@ -17,11 +17,16 @@ Tree law (``check_exports_tree``):
   (``ALLOWED_TOP_FILES`` — the tracked hygiene file that keeps the tree
   present in a fresh clone), else ``stray-file: <name>``;
 - (c) every whitelisted directory PRESENT on disk must carry a
-  ``release.json``, else ``missing-release-manifest: <id>``. Existence
-  only, by design: content pinning stays the job of
-  ``seam_metrics.check_export_pins`` and the asset gate. A whitelisted id
-  absent from disk is not a tree failure (the pins check owns
-  calibration completeness).
+  ``release.json``, else ``missing-release-manifest: <id>`` (an
+  unparseable one is ``unreadable-release-manifest: <id>``);
+- (d) every entry inside a whitelisted release directory must be the
+  manifest itself or a file the manifest's ``exports`` list names, else
+  ``nested-stray: <id>/<name>``. Rule (d) was adopted at the v17
+  council gate (cross-vendor review named the nested-stray hole);
+  rules (a)-(c) are the pre-registered set. Content pinning stays the
+  job of ``seam_metrics.check_export_pins`` and the asset gate: this
+  guard checks shape, never bytes. A whitelisted id absent from disk is
+  not a tree failure (the pins check owns calibration completeness).
 
 Whitelist derivation law: the whitelist is DERIVED at call time from the
 banked exporter release-id constants — ``seam_metrics.RELEASE_IDS``,
@@ -34,6 +39,10 @@ pre-registration commit-1, by adding its exporter module's release-id
 constant to ``release_whitelist()`` — never by hardcoding an id here,
 never retroactively. Until that commit exists, this guard going red on a
 new ``exports/`` entry is the designed behavior, not a defect.
+Enforcement split, stated plainly: the mechanical half is the
+no-literal-duplication test plus the suite going red on any unwhitelisted
+``exports/`` entry; the temporal half (commit-1 ordering) is process law,
+carried by each sprint's own pre-registration review, not by code.
 
 CLI: no arguments runs the tree guard alone; ``--check`` additionally
 verifies the banked export pins (``seam_metrics.check_export_pins``).
@@ -43,6 +52,7 @@ Exit 0 clean / 1 with one line per typed failure.
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -72,8 +82,9 @@ def check_exports_tree(exports_root: Path) -> list[str]:
     """Typed shape failures for the exports tree; ``[]`` means clean.
 
     Failure classes: ``missing-exports-root``, ``stray-dir``,
-    ``stray-file``, ``missing-release-manifest`` (tree law in the module
-    docstring).
+    ``stray-file``, ``missing-release-manifest``,
+    ``unreadable-release-manifest``, ``nested-stray`` (tree law in the
+    module docstring).
     """
     if not exports_root.is_dir():
         return [f"missing-exports-root: {exports_root}"]
@@ -87,9 +98,27 @@ def check_exports_tree(exports_root: Path) -> list[str]:
             failures.append(f"stray-file: {entry.name}")
     for release_id in sorted(whitelist):
         release_dir = exports_root / release_id
-        if release_dir.is_dir():
-            if not (release_dir / RELEASE_MANIFEST_NAME).is_file():
-                failures.append(f"missing-release-manifest: {release_id}")
+        if not release_dir.is_dir():
+            continue
+        manifest_path = release_dir / RELEASE_MANIFEST_NAME
+        if not manifest_path.is_file():
+            failures.append(f"missing-release-manifest: {release_id}")
+            continue
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            failures.append(f"unreadable-release-manifest: {release_id}")
+            continue
+        manifested = {
+            Path(export.get("path", "")).name
+            for export in manifest.get("exports", [])
+        }
+        for entry in sorted(release_dir.iterdir(), key=lambda p: p.name):
+            if entry.name == RELEASE_MANIFEST_NAME:
+                continue
+            if entry.name in manifested and entry.is_file():
+                continue
+            failures.append(f"nested-stray: {release_id}/{entry.name}")
     return failures
 
 
