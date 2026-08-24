@@ -1,0 +1,149 @@
+{
+  "schema": "game-two-assets/cadence-v19/measurements/1",
+  "protocol": "reviews/cadence-v19/rationale.md (commit 9bafded)",
+  "run_conditions": {
+    "box": "shared (game-two seat + other pi sessions possible)",
+    "block_start_utc": "2026-08-24T04:27:48Z",
+    "block_end_utc": "2026-08-24T08:02:43Z",
+    "block_wallclock_h": 3.58,
+    "budget_h": 3.5,
+    "budget_note": "overran by ~5 min; all protocol phases completed, nothing cut",
+    "repo_head": "9bafded",
+    "game_two_head_at_start": "65936ea",
+    "game_two_head_at_end": "65936ea",
+    "pin_route_at_start": "mechanical re-pin (identity drift only)",
+    "pin_route_at_end": "mechanical re-pin (identity drift only)",
+    "competing_python_processes": 0,
+    "competing_ruby_processes": 0,
+    "upstream_commits_during_block": 0,
+    "hooks_running_during_block": 0,
+    "runner": "C:/Users/gabri/AppData/Local/Temp/g2a_v19_module_timer.py (throwaway, deleted after block)",
+    "verbosity_note": "hooks run discover with -v; timing runs without -v; treated timing-equivalent per protocol"
+  },
+  "banked_anchors": {
+    "raw_discover": [
+      {"sprint": "v17", "tests": 645, "seconds": 3060},
+      {"sprint": "v18", "tests": 668, "seconds": 3456}
+    ],
+    "gauntlet_suite_stage_coverage_on": [
+      {"sprint": "v17", "tests": 645, "seconds": 10733},
+      {"sprint": "v18", "tests": 668, "seconds": 12311}
+    ],
+    "full_suite_multiplier_anchor": 3.562,
+    "test_counts_by_sprint": [618, 645, 668]
+  },
+  "reference_run": {
+    "command": "python -m unittest discover -s tests",
+    "seconds": 3369.01,
+    "tests": 668,
+    "rc": 0,
+    "vs_v18_anchor_pct": -2.5,
+    "note": "doubles as the sprint verification discover run per protocol"
+  },
+  "modules_run1": [
+    {"module": "test_corner_tools", "seconds": 926.82, "tests": 60, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_turn_tools", "seconds": 687.53, "tests": 57, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_cross_seam_tools", "seconds": 629.62, "tests": 49, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_seam_tools", "seconds": 244.15, "tests": 42, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_timeline_tools", "seconds": 114.89, "tests": 31, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_adoption_tools", "seconds": 113.02, "tests": 25, "rc": 0, "class": "mixed: determinism-reproof + live-pin"},
+    {"module": "test_transition_tools", "seconds": 102.65, "tests": 38, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_rise_tools", "seconds": 98.93, "tests": 41, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_recovery_tools", "seconds": 97.15, "tests": 35, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_track_recompose", "seconds": 61.62, "tests": 33, "rc": 0, "class": "determinism-reproof"},
+    {"module": "test_audio_tools", "seconds": 20.23, "tests": 30, "rc": 0, "class": "mixed: logic + live-pin"},
+    {"module": "test_remedy_tools", "seconds": 10.99, "tests": 32, "rc": 0, "class": "logic"},
+    {"module": "test_pose_integrity", "seconds": 10.09, "tests": 30, "rc": 0, "class": "logic"},
+    {"module": "test_feedback_tools", "seconds": 7.68, "tests": 19, "rc": 0, "class": "logic"},
+    {"module": "test_anticipation_tools", "seconds": 5.96, "tests": 18, "rc": 0, "class": "logic"},
+    {"module": "test_pixel_tools", "seconds": 5.13, "tests": 34, "rc": 0, "class": "logic"},
+    {"module": "test_maturity_tools", "seconds": 4.13, "tests": 23, "rc": 0, "class": "logic (fixture-only; includes pin_drift/checkout_gate fixtures)"},
+    {"module": "test_motion_tools", "seconds": 3.97, "tests": 11, "rc": 0, "class": "logic"},
+    {"module": "test_asset_gate", "seconds": 3.71, "tests": 21, "rc": 0, "class": "mixed: logic + live-pin (the mid-hook drift red surface)"},
+    {"module": "test_temporal_register", "seconds": 0.5, "tests": 12, "rc": 0, "class": "logic"},
+    {"module": "test_exports_guard", "seconds": 0.44, "tests": 27, "rc": 0, "class": "mixed: logic + live-tree assertion"}
+  ],
+  "module_sum_vs_reference": {
+    "sum_seconds": 3149.21,
+    "reference_seconds": 3369.01,
+    "delta_pct": -6.52,
+    "validation_window_pct": 15,
+    "startup_runs_s": [0.042, 0.039, 0.041],
+    "startup_correction_21x_s": 0.85,
+    "note": "sum is BELOW reference despite 21 extra interpreter startups; sign attributed to ambient-load decline across the block (same systematic decline visible in every top-5 run-2); within validation window"
+  },
+  "concentration": {
+    "top3_seconds": 2243.97, "top3_pct_of_sum": 71.3,
+    "top5_seconds": 2603.01, "top5_pct_of_sum": 82.7,
+    "top10_seconds": 3076.38, "top10_pct_of_sum": 97.7,
+    "bottom11_seconds": 72.83, "bottom11_pct_of_sum": 2.3,
+    "per_test_cost_determinism_reproof_s": "12-15",
+    "per_test_cost_logic_s": "0.02-0.5"
+  },
+  "stability_top5": [
+    {"module": "test_corner_tools", "runs_s": [926.82, 857.9], "rel_delta_pct": 7.4, "within_10pct": true, "adopted_s": 892.36, "adopted_rule": "mean of 2"},
+    {"module": "test_turn_tools", "runs_s": [687.53, 617.1, 618.07], "rel_delta_run12_pct": 10.2, "within_10pct": false, "adopted_s": 618.07, "adopted_rule": "median of 3 per protocol"},
+    {"module": "test_cross_seam_tools", "runs_s": [629.62, 588.9], "rel_delta_pct": 6.5, "within_10pct": true, "adopted_s": 609.26, "adopted_rule": "mean of 2"},
+    {"module": "test_seam_tools", "runs_s": [244.15, 221.4], "rel_delta_pct": 9.3, "within_10pct": true, "adopted_s": 232.78, "adopted_rule": "mean of 2"},
+    {"module": "test_timeline_tools", "runs_s": [114.89, 102.8, 103.42], "rel_delta_run12_pct": 10.5, "within_10pct": false, "adopted_s": 103.42, "adopted_rule": "median of 3 per protocol"}
+  ],
+  "stability_noise_finding": "all five run-2 times are LOWER than run-1 (systematic ambient decline during the modules phase, not per-run jitter); the two tolerance exceedances are that same drift crossing 10%; runs 2-3 of both exceeders agree within 0.6%",
+  "coverage_multiplier_sample": {
+    "module": "test_corner_tools",
+    "coverage_run_s": 3154.92,
+    "raw_mean_s": 892.36,
+    "multiplier": 3.536,
+    "acceptance_band": [2.5, 4.5],
+    "within_band": true,
+    "full_suite_anchor": 3.562,
+    "coveragerc": "branch=True, source=tools, fail_under=80",
+    "note": "repo .coverage backed up before and restored after; git status clean of residue"
+  },
+  "growth_fit": {
+    "naive_linear_raw_s_per_test": 17.22,
+    "naive_linear_coverage_on_s_per_test": 68.6,
+    "naive_projection_note": "two-point fits; ILLUSTRATIVE ONLY and confounded (see composition_confound)",
+    "composition_confound": "v18 added 23 tests whose module runs in 4.13s raw; the +396s raw growth v17->v18 cannot be new-test cost - it is dominated by between-session variance (this session measured 3369s at the same 668 tests, BELOW the v18 anchor 3456s). Between-session noise band ~ +/-3-6%.",
+    "honest_model": "suite_coverage_on ~= 3.54 x suite_raw (multiplier stable across v17/v18/v19 samples: 3.508/3.562/3.536); suite_raw grows by the CLASS of tests added, not a constant per test: determinism-reproof ~12-15 s/test raw (~45-53 s/test coverage-on), logic ~0.02-0.5 s/test raw",
+    "scenario_projections": {
+      "logic_only_sprint_+23_tests": {"raw_delta_s": "≈5-15", "push_suite_delta_s": "≈20-50"},
+      "determinism_suite_sprint_+40_tests": {"raw_delta_s": "≈500-600", "push_suite_delta_s": "≈1800-2100"},
+      "push_timeout_21600s_crossed": "after ~4-5 more determinism-suite sprints (push suite stage 12311s + ~1800-2100s each); never crossed by logic-only sprints at current scale"
+    }
+  },
+  "drift_hop_model": {
+    "window_observed": "fc19b70e (2026-08-23 13:11 -0600) -> 65936ea (2026-08-23 21:50 -0600)",
+    "upstream_commits": 27,
+    "active_hours": 8.66,
+    "commits_per_active_hour": 3.12,
+    "pinned_file_commits": 2,
+    "p_content_hop_per_commit": 0.074,
+    "burstiness": "rate holds only during active seat hours; 0 commits during the 4.2h overnight gap and the whole 3.58h timing block",
+    "expected_content_hops_per_window_active_hours": {
+      "pre_commit_1.09h": 0.25,
+      "pre_push_3.4h": 0.79
+    },
+    "cost_per_mid_hook_content_hop": "one full window retry + one solo re-pin commit (itself a full pre-commit window): observed live this session ~+2.2h on a 1.1h commit",
+    "identity_only_drift": "gate WARNING, never a hook failure; re-pinned at checkpoints (zero retry cost)"
+  },
+  "observed_hook_events_this_session": [
+    {"event": "commit-1 attempt 1 pre-commit hook", "suite_s": 3917.13, "result": "FAILED (failures=2)", "cause": "content hop 7aec5170->473c3d2f landed before/during the hook window; live-pin surface red", "resolution": "pin_drift routed approve-by-default re-pin 33c480d (solo commit, own full hook), then plain retry green (9bafded)"},
+    {"event": "re-pin 40e7814 pre-commit hook", "suite_s": null, "result": "pass"},
+    {"event": "re-pin 33c480d pre-commit hook", "suite_s": null, "result": "pass"},
+    {"event": "commit-1 retry pre-commit hook (9bafded)", "suite_s": null, "result": "pass"}
+  ],
+  "hard_gate_map_verified": {
+    "pre_commit": {
+      "tests_stage": {"command": "test_command: unittest discover -s tests -v (FULL raw suite)", "gates": "HARD (exit 2 on fail)"},
+      "complexity_changed_files": "warn-only (fail_on_cc unset)",
+      "crap_changed_files": "warn-only (fail_on_crap unset); reads stale .coverage from last --full by design"
+    },
+    "pre_push": {
+      "lfs": "HARD (exit propagates)",
+      "tests_stage": {"command": "full_command: bin/full_gate.py = coverage erase + coverage run discover -v + coverage report", "gates": "HARD including fail_under=80 on tools/ branch coverage"},
+      "complexity_repo": "warn-only",
+      "crap_repo": "warn-only (fresh .coverage)"
+    },
+    "sources": [".git/hooks/pre-commit", ".git/hooks/pre-push", "swarmforge.toml", "bin/full_gate.py", ".coveragerc", "swarm-forge src/swarmforge/{gauntlet,crap,complexity,report,config}.py"]
+  }
+}
