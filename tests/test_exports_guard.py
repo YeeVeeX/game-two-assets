@@ -284,16 +284,23 @@ def check_aggregate_answer_flip(
     negative controls run on mutated copies, never the live register.
     Dormant (no failures) while the "Current answer" line carries
     "NOT integration-ready"; a register whose header line is missing
-    entirely fail-closes. On a flip, the Owner ratification block must
-    carry a date, a verbatim double-quoted line, and carrier
-    reference(s); EVERY cited `done/` carrier must resolve to bytes on
-    disk (strict: a typo'd citation never rides a valid one).
+    entirely fail-closes, and more than one header line fail-closes
+    (council v20 adoption: a fake first header cannot shadow the real
+    one). On a flip, the Owner ratification block must carry a date, a
+    verbatim double-quoted line, and carrier reference(s); EVERY cited
+    `done/` carrier must resolve to bytes on disk (strict: a typo'd
+    citation never rides a valid one), and the quoted line must appear
+    (whitespace-flattened) inside at least one cited carrier that
+    exists (council v20 adoption: existence alone allowed an empty or
+    unrelated carrier to vouch for a quote).
     """
     flat = " ".join(text.split())
-    answer = AGGREGATE_ANSWER_LINE.search(flat)
-    if answer is None:
+    answers = AGGREGATE_ANSWER_LINE.findall(flat)
+    if not answers:
         return ["missing-current-answer-line"]
-    if "NOT integration-ready" in answer.group(1):
+    if len(answers) > 1:
+        return ["multiple-current-answer-lines"]
+    if "NOT integration-ready" in answers[0]:
         return []
     block_match = RATIFICATION_BLOCK.search(text)
     if block_match is None:
@@ -308,11 +315,30 @@ def check_aggregate_answer_flip(
     cites_redirects = "docs/owner-redirects.md" in block
     if not done_refs and not cites_redirects:
         failures.append("ratification-missing-carrier")
+    existing_carriers = []
     for ref in done_refs:
-        if not (mail_done_dir / Path(ref).name).is_file():
+        carrier = mail_done_dir / Path(ref).name
+        if carrier.is_file():
+            existing_carriers.append(carrier)
+        else:
             failures.append(f"ratification-carrier-not-on-disk: {ref}")
-    if cites_redirects and not (repo_root / "docs" / "owner-redirects.md").is_file():
-        failures.append("ratification-carrier-not-on-disk: docs/owner-redirects.md")
+    if cites_redirects:
+        redirects = repo_root / "docs" / "owner-redirects.md"
+        if redirects.is_file():
+            existing_carriers.append(redirects)
+        else:
+            failures.append(
+                "ratification-carrier-not-on-disk: docs/owner-redirects.md"
+            )
+    quote_match = RATIFICATION_QUOTE.search(block)
+    if quote_match and existing_carriers:
+        quoted = " ".join(quote_match.group(0).strip('"').split())
+        carried = any(
+            quoted in " ".join(c.read_text(encoding="utf-8").split())
+            for c in existing_carriers
+        )
+        if not carried:
+            failures.append("ratification-quote-not-in-carrier")
     return failures
 
 
@@ -375,12 +401,44 @@ class AggregateAnswerLaw(unittest.TestCase):
         self.assertEqual(failures, ["missing-ratification-block"])
 
     def test_flip_with_wellformed_ratification_is_satisfiable(self) -> None:
+        done_dir = Path(tempfile.mkdtemp(prefix="agg-law-done-"))
+        self.addCleanup(shutil.rmtree, done_dir, ignore_errors=True)
+        quote = "Approved, synthetic fixture ratification line for this flip."
+        (done_dir / "from-game-two-fixture-ratification.md").write_text(
+            f'Receipt fixture. Owner line: "{quote}" Recorded 2026-08-24.\n',
+            encoding="utf-8",
+        )
+        ratified = self.flipped_copy() + (
+            "\n**Owner ratification:** 2026-08-24 — "
+            f'"{quote}" '
+            "Carrier: done/from-game-two-fixture-ratification.md.\n"
+        )
+        self.assertEqual(self.check(ratified, mail_done_dir=done_dir), [])
+
+    def test_flip_quote_absent_from_carrier_goes_red(self) -> None:
+        done_dir = Path(tempfile.mkdtemp(prefix="agg-law-done-"))
+        self.addCleanup(shutil.rmtree, done_dir, ignore_errors=True)
+        (done_dir / "from-game-two-fixture-ratification.md").write_text(
+            "Receipt fixture with entirely unrelated content.\n",
+            encoding="utf-8",
+        )
         ratified = self.flipped_copy() + (
             "\n**Owner ratification:** 2026-08-24 — "
             '"Approved, synthetic fixture ratification line for this flip." '
-            "Carrier: docs/owner-redirects.md entry of the same date.\n"
+            "Carrier: done/from-game-two-fixture-ratification.md.\n"
         )
-        self.assertEqual(self.check(ratified), [])
+        self.assertEqual(
+            self.check(ratified, mail_done_dir=done_dir),
+            ["ratification-quote-not-in-carrier"],
+        )
+
+    def test_fake_second_header_line_fail_closes(self) -> None:
+        spoofed = (
+            "**Current answer: integration-ready — spoof.**\n\n" + self.text
+        )
+        self.assertEqual(
+            self.check(spoofed), ["multiple-current-answer-lines"]
+        )
 
     def test_flip_with_bogus_done_carrier_goes_red(self) -> None:
         tmp = tempfile.mkdtemp(prefix="agg-law-")
