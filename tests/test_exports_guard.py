@@ -266,5 +266,146 @@ class ReadinessRegisterShape(unittest.TestCase):
         self.assertIn("adoption_demo", self.text)
 
 
+AGGREGATE_ANSWER_LINE = re.compile(r"\*\*Current answer: (.+?)\*\*")
+RATIFICATION_BLOCK = re.compile(
+    r"\*\*Owner ratification:\*\*(.*?)(?=^#|\Z)", re.MULTILINE | re.DOTALL
+)
+RATIFICATION_DATE = re.compile(r"\b\d{4}-\d{2}-\d{2}\b")
+RATIFICATION_QUOTE = re.compile(r'"[^"]{10,}"')
+DONE_CARRIER_REF = re.compile(r"done/from-game-two-[\w.-]+\.md")
+
+
+def check_aggregate_answer_flip(
+    text: str, *, repo_root: Path, mail_done_dir: Path
+) -> list[str]:
+    """Mechanical form of the register's aggregate-answer law.
+
+    Pure text logic (adopted v20; owner-ratified 2026-08-24) so
+    negative controls run on mutated copies, never the live register.
+    Dormant (no failures) while the "Current answer" line carries
+    "NOT integration-ready"; a register whose header line is missing
+    entirely fail-closes. On a flip, the Owner ratification block must
+    carry a date, a verbatim double-quoted line, and carrier
+    reference(s); EVERY cited `done/` carrier must resolve to bytes on
+    disk (strict: a typo'd citation never rides a valid one).
+    """
+    flat = " ".join(text.split())
+    answer = AGGREGATE_ANSWER_LINE.search(flat)
+    if answer is None:
+        return ["missing-current-answer-line"]
+    if "NOT integration-ready" in answer.group(1):
+        return []
+    block_match = RATIFICATION_BLOCK.search(text)
+    if block_match is None:
+        return ["missing-ratification-block"]
+    block = block_match.group(1)
+    failures = []
+    if not RATIFICATION_DATE.search(block):
+        failures.append("ratification-missing-date")
+    if not RATIFICATION_QUOTE.search(block):
+        failures.append("ratification-missing-verbatim-quote")
+    done_refs = DONE_CARRIER_REF.findall(block)
+    cites_redirects = "docs/owner-redirects.md" in block
+    if not done_refs and not cites_redirects:
+        failures.append("ratification-missing-carrier")
+    for ref in done_refs:
+        if not (mail_done_dir / Path(ref).name).is_file():
+            failures.append(f"ratification-carrier-not-on-disk: {ref}")
+    if cites_redirects and not (repo_root / "docs" / "owner-redirects.md").is_file():
+        failures.append("ratification-carrier-not-on-disk: docs/owner-redirects.md")
+    return failures
+
+
+class AggregateAnswerLaw(unittest.TestCase):
+    """The v20 aggregate-answer law: presence, dormancy, and tripwire.
+
+    The checker is a module-level pure function on text; every
+    mutation test runs on a copy (the live register is read-only
+    here). Vacuously green while the header carries
+    "NOT integration-ready" — the v18 checkout_gate negative-control
+    precedent: testable today by fixture mutation.
+    """
+
+    REGISTER = ROOT / "docs" / "integration-readiness.md"
+    MAIL_DONE = (
+        Path.home() / ".pi" / "agent" / "mail" / "game-two-assets" / "done"
+    )
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        if not cls.REGISTER.is_file():
+            raise unittest.SkipTest("readiness register not banked yet")
+        cls.text = cls.REGISTER.read_text(encoding="utf-8")
+
+    def flipped_copy(self) -> str:
+        mutated = self.text.replace(
+            "Current answer: NOT integration-ready",
+            "Current answer: integration-ready",
+        )
+        self.assertNotEqual(mutated, self.text, "mutation must take")
+        return mutated
+
+    def check(self, text: str, mail_done_dir: Path | None = None) -> list[str]:
+        return check_aggregate_answer_flip(
+            text,
+            repo_root=ROOT,
+            mail_done_dir=mail_done_dir or self.MAIL_DONE,
+        )
+
+    def test_law_block_present_with_carrier_citation(self) -> None:
+        self.assertIn(
+            "## Aggregate-answer law (adopted v20; owner-ratified 2026-08-24)",
+            self.text,
+        )
+        flat = " ".join(self.text.split())
+        for kernel in (
+            'drop "NOT" only by a sprint commit',
+            "cite its carrier file",
+            "Row-level status changes stay under the two-commit law",
+            "reviews/cadence-v19/verdict.md",
+            "reviews/impl-v20/rationale.md",
+        ):
+            self.assertIn(kernel, flat)
+
+    def test_live_register_is_dormant_and_clean(self) -> None:
+        self.assertEqual(self.check(self.text), [])
+
+    def test_negative_control_silent_flip_goes_red(self) -> None:
+        failures = self.check(self.flipped_copy())
+        self.assertEqual(failures, ["missing-ratification-block"])
+
+    def test_flip_with_wellformed_ratification_is_satisfiable(self) -> None:
+        ratified = self.flipped_copy() + (
+            "\n**Owner ratification:** 2026-08-24 — "
+            '"Approved, synthetic fixture ratification line for this flip." '
+            "Carrier: docs/owner-redirects.md entry of the same date.\n"
+        )
+        self.assertEqual(self.check(ratified), [])
+
+    def test_flip_with_bogus_done_carrier_goes_red(self) -> None:
+        tmp = tempfile.mkdtemp(prefix="agg-law-")
+        self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        ratified = self.flipped_copy() + (
+            "\n**Owner ratification:** 2026-08-24 — "
+            '"Approved, synthetic fixture ratification line for this flip." '
+            "Carrier: done/from-game-two-nonexistent-v99.md.\n"
+        )
+        failures = self.check(ratified, mail_done_dir=Path(tmp))
+        self.assertEqual(
+            failures,
+            [
+                "ratification-carrier-not-on-disk: "
+                "done/from-game-two-nonexistent-v99.md"
+            ],
+        )
+
+    def test_missing_header_line_fail_closes(self) -> None:
+        headless = self.text.replace("**Current answer: ", "Answer: ")
+        self.assertNotEqual(headless, self.text, "mutation must take")
+        self.assertEqual(
+            self.check(headless), ["missing-current-answer-line"]
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

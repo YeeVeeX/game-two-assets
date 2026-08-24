@@ -24,6 +24,24 @@ before this file existed).
 | C5 native-scale critique | MET |
 | C6 integration design | OPEN |
 
+## Aggregate-answer law (adopted v20; owner-ratified 2026-08-24)
+
+**Aggregate-answer law.** The header's "Current answer" line may
+drop "NOT" only by a sprint commit whose register edit quotes,
+verbatim and dated, a recorded owner ratification line for that
+specific flip — the quote must cite its carrier file (a `done/`
+mail receipt or `docs/owner-redirects.md` entry) so the line is
+re-checkable against bytes on disk. Row-level status changes stay
+under the two-commit law and require no ratification line.
+
+**Carrier:** `reviews/cadence-v19/verdict.md` (decision brief 2 —
+the law text above is copied verbatim from its recommendation) +
+`reviews/impl-v20/rationale.md` (the owner ratification line of
+2026-08-24, recorded verbatim there). Mechanical enforcement:
+`tests/test_exports_guard.py` (`AggregateAnswerLaw`) — dormant while
+the header carries "NOT integration-ready"; the negative control runs
+by fixture mutation, never against this file.
+
 ## Upstream rulings on record (quoted verbatim from their carriers)
 
 - **Boundary + gate** (`done/from-game-two-family-block-sync-20260822.md`):
