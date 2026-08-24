@@ -1,5 +1,5 @@
 [gauntlet]
-test_command = [".venv/Scripts/python.exe", "-m", "unittest", "discover", "-s", "tests", "-v"]
+test_command = [".venv/Scripts/python.exe", "bin/fast_gate.py"]
 full_command = [".venv/Scripts/python.exe", "bin/full_gate.py"]
 
 [tdd]
