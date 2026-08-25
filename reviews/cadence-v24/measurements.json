@@ -1,0 +1,136 @@
+{
+  "schema": "game-two-assets/cadence-v24/measurements/1",
+  "protocol": "reviews/cadence-v24/rationale.md (commit a290066)",
+  "scope_note": "the ARMED post-adoption cadence corpus (>= 3 clean windows bar MET); mechanical mining only (git primaries, brief-carried chain numbers, banked corpora, this session's time outputs); zero new instrumentation; zero pixels",
+  "run_conditions": {
+    "box": "shared (game-two seat active in the sprint window: pinned-file content hop a30837d->3b85b55 absorbed at step 0; identity hops ->cc51d84 pre-observed at v23 close and ->e4e6474 absorbed at the pre-banking checkpoint)",
+    "session_date_utc": "2026-08-25",
+    "repo_head_at_mining": "a290066 (pre-registration commit); pre-banking checkpoint 5d827a9",
+    "game_two_head_at_step0": "3b85b559639363c07ed7434a3ca007dfb4d822ec (after step-0 content re-pin 205fe6b)",
+    "game_two_head_at_prebank": "e4e6474a627a44be55b8e54ad47ea3e7ed0c689e (identity-only, mechanical re-pin 5d827a9)",
+    "concurrency_note": "this session's own full verification discover ran in the background from 15:24:42Z; every session timing point carries a per-point condition label (the 5d827a9 hook real ran CONCURRENT with that discover; the 205fe6b and a290066 hook reals pre-date it)"
+  },
+  "push_record_source": {
+    "primary": "git reflog show origin/main --date=iso - 23 entries, ALL 'update by push' (single-writer remote), genesis 2026-08-17 17:14 -0600 through v23 close 2026-08-25 07:39 -0600",
+    "surprise_windows": "none - the three post-adoption push tips (3ae94a2, 8e4f7ee, 9f2797a) are exactly the v21/v22/v23 sprint closes; no owner sync or other unexpected push exists after b4765ba",
+    "window_size_method": "git rev-list --count <prev-tip>..<tip> per adjacent reflog pair, re-derived this session"
+  },
+  "chain_numbers_banked_verbatim": {
+    "termination_note": "the six numbers below are copied VERBATIM from the v24 spark brief (the brief chain was their only carrier; v21's pair rode v22's brief, v22's pair rode v23's, all six rode v24's). Banking here TERMINATES the six-number chain. The inheritance-lag mechanism continues with NEW numbers only: v24's own bank-commit hook real and push total-hook real land AFTER this file freezes and ride the v24 close log/receipt for v25 (structural - banked as v21 council item 8).",
+    "numbers": [
+      "v21 push: total-hook real 178m42.718s = 10722.7s at 693 tests",
+      "v21 bank-commit hook real: 3m4.454s = 184.5s",
+      "v22 push: total-hook real 174m8.285s = 10448.3s at 693 tests (window label: \"pins-only - maximally scope-confounded\"; window = exactly 1 commit)",
+      "v22 re-pin hook real: 2m53.048s = 173.0s green",
+      "v23 re-pin hook real: 2m59.794s = 179.8s green",
+      "v23 push: total-hook real 214m33.513s = 12873.5s at 693 tests (window label: \"pins-only - maximally scope-confounded\"; window = exactly 1 commit; the game-two seat ran LIVE in parallel the whole ~3.6h window, ~11 upstream commits landed - machine-load confound NAMED, not measured; observed timeout headroom 40.4% vs 21600s, prior worst 48%)"
+    ]
+  },
+  "push_windows_post_adoption": {
+    "completed_clean": [
+      {"window": "b4765ba..3ae94a2", "commits": 4, "pushed": "2026-08-25 00:05 -0600", "sprint": "v21", "scope_label": "small-by-design (banked v21 verdict)", "composition": "re-pin + pre-registration + mechanical re-pin + bank"},
+      {"window": "3ae94a2..8e4f7ee", "commits": 1, "pushed": "2026-08-25 03:21 -0600", "sprint": "v22", "scope_label": "pins-only - maximally scope-confounded (chain label)", "composition": "one mechanical identity re-pin = the whole sprint"},
+      {"window": "8e4f7ee..9f2797a", "commits": 1, "pushed": "2026-08-25 07:39 -0600", "sprint": "v23", "scope_label": "pins-only - maximally scope-confounded (chain label)", "composition": "one content re-pin (3fa895b->a30837d additive) = the whole sprint"}
+    ],
+    "n_completed": 3,
+    "raw_band_completed": "1-4",
+    "one_commit_window_share": "2 of 3 (dominance stated per the banked outlier law: 1-commit windows count in the raw band, labeled, never silently excluded)",
+    "v24_own_window_at_bank": {"window": "9f2797a..v24-close", "commits_at_bank": 4, "composition": "205fe6b content re-pin + a290066 pre-registration + 5d827a9 mechanical re-pin + bank commit", "n_label": "provisional until its push lands (in-session, post-freeze); sensitivity view only - including it leaves the raw band 1-4 (n=4)"},
+    "pre_adoption_reference": {"windows_raw": [1, 6, 5, 5], "n": 4, "band_raw": "1-6", "band_sprint_bearing": "5-6 (n=3; the 1-commit window was an owner-ordered family-block sync push, NOT a sprint close)", "source": "reviews/cadence-v21/measurements.json question_a (banked)"},
+    "transitional_v20": {"commits": 9, "pooled": false, "sensitivity": "pooling would read 1-9 post-activation; barred by pre-registration and moot - the population non-comparability finding governs every treatment"}
+  },
+  "question_a_commits_per_push": {
+    "headline": "POPULATION NON-COMPARABILITY governs (council-sharpened): the post-adoption windows sample a different work-mix population than the pre-adoption windows - v22/v23 are pins-only sprint closes, a window class that DID NOT EXIST pre-adoption (the only pre-adoption 1-commit window was an owner sync push, not a sprint), and all three completed windows are scope-set (post-treatment selection). The bands are therefore reported as descriptive program facts side by side, NOT as a before/after cadence-behavior comparison - no such comparison is licensed at any n from these populations.",
+    "descriptive_facts": {
+      "post_adoption_raw_band": "1-4 (n=3 completed; 2 of 3 are 1-commit windows)",
+      "pre_adoption_raw_band": "1-6 (n=4, banked)",
+      "containment": "every post-adoption window sits inside the historical raw band and at or below the pre-adoption sprint-bearing minimum (5)",
+      "sprint_bearing_class_instability": "the 'sprint-bearing' label is NOT stable across the adoption boundary: post-adoption pins-only sprints close in 1 commit (no pre-adoption analogue), so the sprint-bearing sensitivity view (pre 5-6 vs post 1-4) compares unlike classes and is labeled descriptive-only"
+    },
+    "sensitivity_treatments": {
+      "raw_band_all_windows": "post 1-4 (n=3) vs pre 1-6 (n=4) - headline view per the outlier law",
+      "including_v24_at_bank": "band unchanged 1-4 (n=4 provisional)",
+      "v20_pooled": "1-9; barred (TRANSITIONAL) and moot - every treatment yields the same non-comparability verdict"
+    },
+    "answer_as_labeled": "BOUNDED-DESCRIPTIVE: post-adoption commits-per-push observed at 1-4 across n=3 completed clean windows (2 of 3 = 1-commit pins-only closes), inside the pre-adoption raw band 1-6 and at/below the pre-adoption sprint-bearing minimum. The pre-registered before/after BEHAVIORAL comparison is NOT LICENSED - not for lack of windows (the >= 3 bar was met) but because scope-setting made the populations non-comparable (post-treatment selection dominant, named in pre-registration rule 8 and sharpened by council Q1). Alternative cause named, not adjudicated: the program simultaneously entered an upstream-gated phase (new art gated on the game's frame pin, owner redirect 2026-08-21), which shrinks sprint scope for reasons unrelated to hook cost."
+  },
+  "question_b_fast_hook_headroom": {
+    "budget_s": 600.0,
+    "span_note": "all distribution points are hook-real ('time git commit' wall = tier + changed-file warn metrics + hook overhead), blocking-serial in BOTH eras (the hook execs swarmforge synchronously - council Q5's units objection refuted on hook mechanics). The two v20 tier-elapsed points (185.85, 190.4) stay outside per the span law.",
+    "inherited_points": [
+      {"value_s": 181.0, "session": "v20", "event": "ac40ce0 activation", "source": "reviews/impl-v20/verdict.md"},
+      {"value_s": 176.0, "session": "v20", "event": "daed539", "source": "reviews/impl-v20/verdict.md"},
+      {"value_s": 186.0, "session": "v20", "event": "7b0a6d8", "source": "reviews/impl-v20/verdict.md"},
+      {"value_s": 172.0, "session": "v20", "event": "e03b8d0", "source": "reviews/impl-v20/verdict.md"},
+      {"value_s": 173.0, "session": "v20", "event": "f150428", "source": "reviews/impl-v20/verdict.md"},
+      {"value_s": 174.0, "session": "v20", "event": "b4765ba bank", "source": "v21 brief carrier, banked in reviews/cadence-v21/measurements.json"},
+      {"value_s": 160.0, "session": "v21", "event": "53f08c1 re-pin", "source": "reviews/cadence-v21/measurements.json"},
+      {"value_s": 184.0, "session": "v21", "event": "d488257 pre-registration", "source": "reviews/cadence-v21/measurements.json"},
+      {"value_s": 197.6, "session": "v21", "event": "067645e re-pin", "source": "reviews/cadence-v21/measurements.json"},
+      {"value_s": 184.5, "session": "v21", "event": "3ae94a2 bank", "source": "chain number 2 (banked verbatim above)"},
+      {"value_s": 173.0, "session": "v22", "event": "8e4f7ee re-pin = sprint close", "source": "chain number 4"},
+      {"value_s": 179.8, "session": "v23", "event": "9f2797a re-pin = sprint close", "source": "chain number 5"}
+    ],
+    "v24_points_at_freeze": [
+      {"value_s": 209.1, "session": "v24", "event": "205fe6b step-0 content re-pin (manifest-only diff)", "condition": "no concurrent discover", "source": "this session, time git commit real 3m29.102s"},
+      {"value_s": 196.4, "session": "v24", "event": "a290066 pre-registration", "condition": "no concurrent discover", "source": "this session, real 3m16.354s"},
+      {"value_s": 268.3, "session": "v24", "event": "5d827a9 mechanical re-pin (manifest-only diff)", "condition": "CONCURRENT full-suite discover running on the same box (self-inflicted load, labeled per point)", "source": "this session, real 4m28.340s"}
+    ],
+    "post_freeze_carrier": "the v24 bank commit's own hook real lands after this file freezes; printed in the close log and carried by the receipt for v25 (standing mechanism)",
+    "green_distribution_hook_real": {"n": 15, "min_s": 160.0, "max_s": 268.3, "sessions": 5, "construction": "green-only BY CONSTRUCTION, named; no red hook real occurred in v22/v23/v24 (this sprint's upstream drift was caught by pin_drift BEFORE any commit was attempted, so no red fired); the one historical red (v20 drift catch, 173s) is banked in impl-v20"},
+    "worst_point_pct_of_budget": 44.7,
+    "answer_as_labeled": "every observed green hook real (n=15 across 5 sessions, 160-268.3s) sits at <= 44.7% of the 600s budget - OBSERVED POINTS ONLY, no forward stability claim. The two new maxima this session are condition-labeled: 209.1s on a clean box (+5.8% over the prior 197.6s max), 268.3s under concurrent full-discover load (+35.7% over prior max; the load is this session's own verification run - the parallel-load confound made visible and labeled per point rather than left ambient). With n=1-3 points in three of five sessions, intra- vs inter-session variance is NOT decomposable and no session-effect or cause claim is made (council Q2 adoption). Even the loaded worst case leaves 55.3% budget headroom; the budget assertion has never fired."
+  },
+  "question_c_push_cost_at_693": {
+    "points_total_hook": [
+      {"value_s": 11205.0, "tests": 693, "sprint": "v20", "source": "banked reviews/cadence-v21/measurements.json (carrier: v21 brief)", "condition": "unlabeled ambient"},
+      {"value_s": 10722.7, "tests": 693, "sprint": "v21", "source": "chain number 1 (banked verbatim above)", "condition": "unlabeled ambient"},
+      {"value_s": 10448.3, "tests": 693, "sprint": "v22", "source": "chain number 3", "condition": "unlabeled ambient"},
+      {"value_s": 12873.5, "tests": 693, "sprint": "v23", "source": "chain number 6", "condition": "game-two seat LIVE in parallel the whole ~3.6h window, ~11 upstream commits (confound NAMED in the chain label, not measured)"}
+    ],
+    "raw_band": "10448.3-12873.5 (n=4, span: total-hook, test count CONSTANT at 693)",
+    "spread": "max/min = 1.232 (+23.2%); time ordering v20 11205 -> v21 10722.7 -> v22 10448.3 -> v23 12873.5 is NON-MONOTONE",
+    "outlier_treatment": "the v23 high point folds into the raw band per the banked outlier law - labeled (parallel-seat load named, unmeasured), never excluded; no cause claim",
+    "signal_statement_symmetric": "no growth signal detected AND no decrease signal detected (council Q3 adoption: symmetric wording). Detection power is LOW and stated: with +/-23.2% ambient spread at n=4 and one confounded point, a real drift smaller than the spread would be invisible; 'no signal detected' is a signal-detection negative under the composition model (zero tests added -> zero predicted composition growth), NOT a claim that cost is constant",
+    "suite_stage_bounds_one_sided": "every carrier is total-hook, so only suite-stage <= total-hook bounds are licensed. Tightest: v22 gives suite-stage at 693 <= 10448.3s, which sits >= 9.9% below the banked composition-model band floor ([11591, 13103]s expected suite-stage at 693, from the v18 suite-stage anchor + per-class cost of the 25 added tests). One-sided: the true miss magnitude is unknowable from total-hook carriers (warn-metric/LFS/overhead shares unmeasured; no suite-stage carrier exists at 693 - council Q5's 'model band untested at 693' point is TRUE and inherent to the carriers, named)",
+    "separate_span_anchors": {"v17": "10733s @ 645 suite-stage coverage-on", "v18": "12311s @ 668 suite-stage coverage-on", "rule": "never pooled with total-hook points (span law); context only",
+      "note": "cross-span claims bounded/directional only"},
+    "timeout_headroom": {"timeout_s": 21600, "worst_observed_total_hook_s": 12873.5, "headroom_s": 8726.5, "headroom_pct": 40.4, "label": "observed worst point (v23, load-confounded); prior worst 48.1% (v20); observed points only, no forward claim"},
+    "v24_push_point": "lands AFTER this file freezes (bank precedes push, structural); time real + ref-update line go to the close log/receipt for v25",
+    "answer_as_labeled": "at CONSTANT 693 tests, four total-hook points span 10448.3-12873.5s (+23.2%, non-monotone in time; v23 high point load-confounded and labeled) - the movement is attributed-not-proven to ambient/machine load since composition is unchanged. Licensed claims only: (i) symmetric signal-detection negative with low detection power stated; (ii) one-sided suite-stage bounds (tightest: <= 10448.3s at 693, >= 9.9% below the model floor); (iii) worst observed timeout headroom 40.4% vs 21600s. No trend, no cause, no forward claim."
+  },
+  "question_d_bisect_and_behavioral": {
+    "model": "module-scoped bisect over the push batch, ~15 min/step, steps = ceil(log2(N)), never a full suite (banked v19)",
+    "exposure_table": [
+      {"window_class": "post-adoption N=1 (v22, v23 observed)", "steps": 0, "approx_cost_min": 15, "note": "single-commit window: the culprit commit is KNOWN without bisection; cost = one targeted module repro"},
+      {"window_class": "post-adoption N=4 (v21 observed; v24 at-bank)", "steps": 2, "approx_cost_min": 30},
+      {"window_class": "TRANSITIONAL N=9 (v20, context)", "steps": 4, "approx_cost_min": 60}
+    ],
+    "arithmetic_answer": "benign at every observed post-adoption window size (0-2 steps, 15-30 min worst case; the 1-commit windows that dominate the observed data have the BEST bisect property - zero steps)",
+    "behavioral_question_split": {
+      "risk_monitoring_readout": "the v19 pre-registered exposure risk ('cheaper commits may RAISE commits-per-push, widening the push-time exposure window') has NOT MATERIALIZED in any observed window: all completed windows (4/1/1) and the v24 at-bank window (4) sit inside/below the historical band. DESCRIPTIVE and bankable - the risk monitor reads green at n=3",
+      "causal_question": "INSUFFICIENT - UNTESTED, not 'answered no' (council Q4 adoption): scope is ENDOGENOUS to both the treatment and the program phase - (i) the pins-only 1-commit close is a window class that adoption itself may have enabled (cheaper commits -> viable tiny closes -> FEWER commits/push, the opposite mechanism to the pre-registered one), and (ii) the program entered an upstream-gated phase in the same period (new art gated on the game's frame pin), shrinking sprint scope for hook-independent reasons. No ceteris-paribus data exists; the causal question stays open and re-arms whenever a post-adoption window with pre-adoption-like scope (a multi-commit feature sprint) exists in the record"
+    },
+    "answer_as_labeled": "bisect arithmetic banked and benign (0-2 steps at observed N; 1-commit windows need none). Behavioral: risk-monitor readout GREEN at n=3 (no exposure widening observed, descriptive); the causal claim is INSUFFICIENT/untested - scope endogeneity + program-phase alternative cause named; direction observed (fewer commits/push) is reported as a program fact, not a treatment effect"
+  },
+  "suite_reference": {
+    "command": "python -m unittest discover -s tests (no -v, matching the v19/v21 reference-run convention)",
+    "seconds": 4232.7,
+    "tests": 693,
+    "rc": "judged by verdict line (grep law): 'Ran 693 tests in 4232.691s' + 'OK', zero FAILED lines",
+    "verdict_line": "OK",
+    "capture": "file-captured (C:/Users/gabri/AppData/Local/Temp/g2a_v24_discover.log), judged by grep '^Ran |^OK|^FAILED'; cells were null until the run completed and are filled from the captured log only (wrapper real 70m32.970s; suite-internal 4232.691s)",
+    "ambient_caveat": "ran in the background concurrent with this session's mining, council call, pre-banking checkpoint (incl. the 5d827a9 hook), and corpus writing on a shared box; NOT a timing-protocol number"
+  },
+  "non_measured_confounds": {
+    "parallel_seat_machine_load": "named on the v23 push point (chain label) and now made visible at hook-real scale by this session's own labeled 268.3s point (concurrent-discover condition); never measured, no cause claim",
+    "local_full_suite_substitution": "banked v21 (council item 7), dormant, re-named here per pre-registration: developers running the full suite manually before committing would make cadence a selected sample; instrumenting it stays OUT of scope. Extension (v24 council Q5 kernel): all cadence data is additionally selected INTO measurement - only landed commits produce points (abandoned/split work is invisible); named, unmeasurable without instrumentation",
+    "scope_endogeneity": "new this corpus (council Q4/Q5 kernel, folded into (a)/(d)): sprint scope is set by owner briefs under an upstream-gated program phase AND potentially by adoption itself (tiny closes became viable); it is the dominant confound for every behavioral reading"
+  },
+  "n_honesty_summary": {
+    "a": "bounded-descriptive (n=3 completed windows; population non-comparability governs - the before/after behavioral comparison is not licensed despite the window bar being met)",
+    "b": "distribution bankable (n=15 green hook reals over 5 sessions, condition-labeled per point); no trend, no session-effect decomposition",
+    "c": "raw band + symmetric signal-detection negative with low power stated + one-sided bounds (n=4 total-hook points, one confounded); no trend/cause/forward claim",
+    "d": "arithmetic banked (benign); risk-monitor green at n=3 (descriptive); causal question INSUFFICIENT/untested (endogeneity named)"
+  }
+}
