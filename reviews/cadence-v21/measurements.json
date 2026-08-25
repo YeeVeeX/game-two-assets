@@ -1,0 +1,131 @@
+{
+  "schema": "game-two-assets/cadence-v21/measurements/1",
+  "protocol": "reviews/cadence-v21/rationale.md (commit d488257)",
+  "scope_note": "post-adoption cadence re-measurement; mechanical mining only (git primaries, banked verdicts, this session's time outputs); zero new instrumentation",
+  "run_conditions": {
+    "box": "shared (game-two seat LIVE during sprint: dc0d700 landed 2026-08-24 19:41 -0600 mid-session)",
+    "session_date_utc": "2026-08-25",
+    "repo_head_at_mining": "d488257",
+    "game_two_head_at_step0": "17b0ae881b8472a988157e4457fdd0c06f039f1e",
+    "game_two_head_at_mining": "dc0d700 (identity-only drift vs pin; zero pinned paths touched 17b0ae8..dc0d700)",
+    "competing_python_processes_at_mining": "7 (includes the session's own background discover run and its children)",
+    "competing_ruby_processes_at_mining": 0,
+    "concurrency_note": "the verification discover ran concurrently with light git mining only; its wall-clock is quoted with an ambient caveat and is NOT a timing-protocol number (v19 ran a dedicated block; this sprint pre-registered no timing block)"
+  },
+  "push_record_source": {
+    "primary": "git reflog show origin/main --date=iso — 20 entries, ALL 'update by push' (no fetch entries; single-writer remote), spanning repo genesis 2026-08-17 17:14 -0600 to v20 close 2026-08-24 18:18 -0600",
+    "finding": "push points are directly recoverable; the sprint-close model pre-registered as fallback was NOT needed. The reflog shows pushes did not always land at verdict-close commits: 51851f4 (family-block sync), cff7618 and b4ed023 (mid-sprint content re-pins) were push tips carrying sprint closes ec0e534/bc6e603 INSIDE their windows",
+    "brief_band_discrepancy": "the spark brief quoted 'prior band 3-6 observed v17-v19' (sprint-close model); re-derivation from reflog primaries gives 5-6 for the three sprint-bearing v17-v19-era windows plus one 1-commit sync-push outlier — the reflog numbers are banked as the stronger source, discrepancy named rather than absorbed"
+  },
+  "push_windows": {
+    "genesis_push": {"tip": "c540038", "pushed": "2026-08-17 17:14 -0600", "commits": 18, "era": "genesis"},
+    "series": [
+      {"window": "c540038..cc6e63e", "commits": 5, "pushed": "2026-08-17 19:34 -0600", "era": "growing-suite"},
+      {"window": "cc6e63e..4232202", "commits": 5, "pushed": "2026-08-17 21:57 -0600", "era": "growing-suite"},
+      {"window": "4232202..73ceadc", "commits": 6, "pushed": "2026-08-18 03:49 -0600", "era": "growing-suite"},
+      {"window": "73ceadc..9913d92", "commits": 4, "pushed": "2026-08-18 21:01 -0600", "era": "growing-suite"},
+      {"window": "9913d92..bad2f62", "commits": 4, "pushed": "2026-08-19 02:11 -0600", "era": "growing-suite"},
+      {"window": "bad2f62..633243b", "commits": 6, "pushed": "2026-08-19 10:04 -0600", "era": "growing-suite"},
+      {"window": "633243b..4823701", "commits": 5, "pushed": "2026-08-19 18:43 -0600", "era": "growing-suite"},
+      {"window": "4823701..258a62a", "commits": 1, "pushed": "2026-08-19 22:16 -0600", "era": "growing-suite"},
+      {"window": "258a62a..8a5487b", "commits": 3, "pushed": "2026-08-20 06:41 -0600", "era": "growing-suite"},
+      {"window": "8a5487b..4c3bc35", "commits": 3, "pushed": "2026-08-20 17:12 -0600", "era": "growing-suite"},
+      {"window": "4c3bc35..bb6bb1e", "commits": 4, "pushed": "2026-08-21 06:10 -0600", "era": "growing-suite"},
+      {"window": "bb6bb1e..7b58ee1", "commits": 4, "pushed": "2026-08-21 15:29 -0600", "era": "growing-suite"},
+      {"window": "7b58ee1..ae97255", "commits": 4, "pushed": "2026-08-22 00:10 -0600", "era": "growing-suite"},
+      {"window": "ae97255..bb52ff7", "commits": 3, "pushed": "2026-08-22 08:49 -0600", "era": "growing-suite", "note": "tip = v16 close"},
+      {"window": "bb52ff7..51851f4", "commits": 1, "pushed": "2026-08-22 13:42 -0600", "era": "pre-adoption-full-hook", "note": "family-block sync push; 1-commit outlier"},
+      {"window": "51851f4..cff7618", "commits": 6, "pushed": "2026-08-23 03:59 -0600", "era": "pre-adoption-full-hook", "note": "carries v17 close ec0e534"},
+      {"window": "cff7618..b4ed023", "commits": 5, "pushed": "2026-08-23 17:41 -0600", "era": "pre-adoption-full-hook", "note": "carries v18 close bc6e603"},
+      {"window": "b4ed023..54bd639", "commits": 5, "pushed": "2026-08-24 07:57 -0600", "era": "pre-adoption-full-hook", "note": "tip = v19 close"},
+      {"window": "54bd639..b4765ba", "commits": 9, "pushed": "2026-08-24 18:18 -0600", "era": "TRANSITIONAL", "note": "the activation sprint itself: 3 commits under old config (be0d0bc, 6641a2c, a41c17b incl. two ~50 min hooks) + 6 under new (ac40ce0..b4765ba); never pooled per rule 1"}
+    ],
+    "v21_window": {
+      "window": "b4765ba..v21-close",
+      "commits_at_bank": 4,
+      "composition": "53f08c1 re-pin (17b0ae8) + d488257 pre-registration + pre-banking mechanical re-pin + bank commit",
+      "era": "post-adoption",
+      "n_label": "FIRST clean post-adoption window; n=1; also confounded by design (the sprint was declared SMALL BY DESIGN ~half a session, so window size reflects sprint scope, not commit-cost behavior)"
+    },
+    "era_definitions": {
+      "growing-suite": "genesis..v16 close; same full-discover test_command (pinned 8903eb9 2026-08-17) but suite growing 0->618, hook cost minutes-scale — not cost-comparable to the v17-v19 band",
+      "pre-adoption-full-hook": "v16 close..v19 close; suite 645-668, pre-commit full raw suite ~50-65 min (v19 hard-gate map)",
+      "TRANSITIONAL": "the v20 window (activation mid-window); labeled per pre-registered rule 1, never pooled",
+      "post-adoption": "ac40ce0 onward; pre-commit = bin/fast_gate.py (~3 min), pre-push byte-identical full gauntlet"
+    }
+  },
+  "question_a_commits_per_push": {
+    "pre_adoption_band_v17_v19": {"windows_raw": [1, 6, 5, 5], "n": 4, "band_raw": "1-6 (headline; every reflog window counted)", "band_sprint_bearing": "5-6 (n=3, excluding the 1-commit family-block sync push - exclusion rationale: commit message records an owner order, and the push predates adoption by 2 days so it cannot preview post-adoption behavior; council-prompted sensitivity: the answer below is IDENTICAL under either band)"},
+    "transitional_v20": {"commits": 9, "pooled": false},
+    "post_adoption": {"windows": [4], "n": 1, "value_at_bank": 4},
+    "growing_suite_context_band": {"windows": [5, 5, 6, 4, 4, 6, 5, 1, 3, 3, 4, 4, 4, 3], "n": 14, "median": 4, "note": "context only; hook cost not comparable"},
+    "answer_as_labeled": "at n=1 clean post-adoption window (4 commits, itself scope-confounded by a deliberately small sprint), no before/after claim is licensed; the v20 9-commit window is transitional and never pooled; INSUFFICIENT WINDOWS - re-ask at v23+ when >=3 clean post-adoption windows exist. Council-prompted sensitivity: pooling v20 as post-adoption would read 4-9 (n=2); counting only its 6 new-config commits would read 4-6 (n=2, synthetic - no push event exists inside the window to cut at); EVERY treatment yields the same INSUFFICIENT verdict. Unit caveat: commits are heterogeneous (re-pins, docs, features) - the count is the right unit for hook/bisect COST (each commit triggers one hook) but a weak unit for behavioral comparison across eras"
+  },
+  "question_b_fast_hook_headroom": {
+    "budget_s": 600.0,
+    "budget_span": "tier-elapsed inside bin/fast_gate.py (subprocess sum), asserted by check_budget()",
+    "hook_real_span_note": "hook reals ('time git commit') include the tier + changed-file warn-metric stages + hook overhead; tier-elapsed <= hook real does NOT hold across runs (ambient variance between sessions: the 190.4s manual tier exceeds several 172-186s full-hook reals from different clock hours) — spans are labeled per point and never mixed in one distribution",
+    "points": [
+      {"value_s": 181.0, "span": "hook-real", "session": "v20", "event": "ac40ce0 activation", "source": "reviews/impl-v20/verdict.md commit table (3m01s)"},
+      {"value_s": 176.0, "span": "hook-real", "session": "v20", "event": "daed539", "source": "reviews/impl-v20/verdict.md (2m56s)"},
+      {"value_s": 186.0, "span": "hook-real", "session": "v20", "event": "7b0a6d8", "source": "reviews/impl-v20/verdict.md (3m06s)"},
+      {"value_s": 172.0, "span": "hook-real", "session": "v20", "event": "e03b8d0", "source": "reviews/impl-v20/verdict.md (2m52s)"},
+      {"value_s": 173.0, "span": "hook-real", "session": "v20", "event": "f150428", "source": "reviews/impl-v20/verdict.md (2m53s)"},
+      {"value_s": 174.0, "span": "hook-real", "session": "v20", "event": "b4765ba bank commit", "source": "v21 spark brief (v20 session close record; the verdict was banked before its own commit's hook, so the brief is the only carrier)"},
+      {"value_s": 185.85, "span": "tier-elapsed", "session": "v20", "event": "pre-registration measurement", "source": "bin/fast_gate.py budget docstring (pinned by fixture tests)"},
+      {"value_s": 190.4, "span": "tier-elapsed", "session": "v20", "event": "manual green run post-re-pin (13 modules, 299 tests)", "source": "reviews/impl-v20/verdict.md bar 3"},
+      {"value_s": 173.0, "span": "hook-real-red", "session": "v20", "event": "manual pre-activation run, drift red (test-failure: test_asset_gate rc=1, 2m53s)", "source": "reviews/impl-v20/verdict.md bar 3; excluded from the green distribution, kept as the drift-detection worked example"},
+      {"value_s": 160.0, "span": "hook-real", "session": "v21", "event": "53f08c1 re-pin", "source": "this session, time git commit real 2m39.952s"},
+      {"value_s": 184.0, "span": "hook-real", "session": "v21", "event": "d488257 pre-registration", "source": "this session, time git commit real 3m3.992s"},
+      {"value_s": 197.6, "span": "hook-real", "session": "v21", "event": "067645e pre-banking mechanical re-pin", "source": "this session, time git commit real 3m17.565s"},
+      {"value_s": null, "span": "hook-real", "session": "v21", "event": "bank commit", "source": "lands after this file freezes; printed in the close log and inherited by v22 (the v20 precedent for post-bank reals)"}
+    ],
+    "green_distribution_hook_real": {"n": 9, "min_s": 160.0, "max_s": 197.6, "sessions": 2},
+    "worst_observed_any_span_s": 197.6,
+    "headroom_at_worst_pct_of_budget": 32.9,
+    "answer_as_labeled": "distribution n=9 green hook reals across 2 sessions (v20 n=6: 172-186; v21 n=3 at freeze: 160-197.6) + 2 tier-span points (185.85, 190.4): every observed point sits at <=32.9% of the 600s budget - a statement about OBSERVED POINTS ONLY, no forward stability implied (council-prompted precision). The v21 max (197.6, a re-pin commit while the game seat ran live) exceeds every v20 point by ~6%: ambient/session variance visible at n=2 sessions, another reason no trend is licensed. Selection note: the distribution is green-only by construction; the one red is reported above and cost the same ~3 min wall (a drift red is now cheap to hit - contrast the v19-era 3917s drift red). TREND claim: none licensed (2 sessions, logic-growth model predicts +5-15s/sprint raw; re-check the distribution each sprint as hook reals accrue for free)"
+  },
+  "question_c_push_cost_at_693": {
+    "anchors": [
+      {"value_s": 10733, "tests": 645, "span": "suite-stage coverage-on", "source": "banked v17 (reviews/cadence-v19/measurements.json banked_anchors)"},
+      {"value_s": 12311, "tests": 668, "span": "suite-stage coverage-on", "source": "banked v18 (same)"},
+      {"value_s": 11205, "tests": 693, "span": "TOTAL pre-push hook (lfs + suite-stage + repo-wide warn metrics + overhead)", "source": "v21 spark brief: '186m45s pre-push coverage gauntlet passed at push' (v20 session close record; the v20 verdict banked before its own push, so the brief is the only carrier)"}
+    ],
+    "span_law": "total-hook = lfs check + suite-stage (coverage-on) + repo-wide warn-metric stages + hook overhead, every term non-negative, so total-hook >= suite-stage unconditionally (composition per the banked v19 hard_gate_map_verified block; the council's reversal scenario - LFS dominating - would only shrink the suite-stage bound further, strengthening the claim). v20 was a zero-new-exports sprint, so LFS had nothing new to transfer (negligible term), but the bound needs no such assumption. Cross-span comparisons stay bounded/directional only (pre-registered rule 4)",
+    "derived_bound": "v20 suite-stage at 693 tests <= 11205s",
+    "expected_band_from_composition_model": "v18 anchor 12311s + 25 logic-class tests added v18->v20 (~20-50s coverage-on per the banked class model) = ~12331-12361s; +/-3-6% noise band -> [11591, 13103]s",
+    "observed_vs_expected": "the v20 bound (<=11205s) sits ~3.3% BELOW the expected band's floor. The bound is ONE-SIDED: the true suite-stage miss is >=3.3% and its magnitude is unknowable from this carrier (the warn-metric stages' share is unmeasured). At n=1 the causes - band too narrow, ambient variance (the v19 precedent: -2.5% raw at identical count, same direction, inside band), or model midpoint too high - are indistinguishable and none is claimed. What the bound DOES license: the cost did not RISE (no growth-alarm signal at 693)",
+    "timeout_headroom": {"timeout_s": 21600, "worst_observed_total_hook_s": 11205, "headroom_s": 10395, "headroom_pct": 48.1},
+    "v21_push_point": "lands AFTER this file freezes by construction (the bank commit precedes the push); the push's time real + any hook-printed stage lines go to the close log and are inherited by v22 — the exact mechanism that carried v20's 186m45s",
+    "answer_as_labeled": "n=1 point per era with a span mismatch: only the bounded claim is licensed - v20's suite stage at 693 ran no slower than 11205s (below the composition-model band floor; one-sided, magnitude of the miss unknown), i.e. NO cost-growth signal v18->v20; push-timeout headroom >=48% on the total-hook span (observed point, no forward claim). The v17/v18 suite-stage growth (+1578s at +23 tests) remains explained by the banked composition model, not extrapolated"
+  },
+  "question_d_bisect_exposure": {
+    "model": "module-scoped bisect over the push batch, ~15 min/step, never a full suite (banked v19 brief 1 risk (b)); steps ~= ceil(log2(N))",
+    "exposure_table": [
+      {"window_class": "pre-adoption band N=5-6", "steps": 3, "approx_cost_min": 45},
+      {"window_class": "v20 transitional N=9", "steps": 4, "approx_cost_min": 60},
+      {"window_class": "v21 observed N=4", "steps": 2, "approx_cost_min": 30}
+    ],
+    "behavioral_claim_status": "the v19 risk-(a) hypothesis (cheaper commits raise commits-per-push) is NEITHER confirmed nor refuted: the single clean window (N=4) is inside the historical 1-6 range and its size is set by sprint scope (SMALL BY DESIGN), not by commit cost; sprint-scope confound named as the dominant driver of N at current program cadence",
+    "answer_as_labeled": "INSUFFICIENT WINDOWS for the behavioral question - re-ask at v23+ with >=3 clean windows; the exposure ARITHMETIC is banked now and is benign across every observed N (30-60 min worst-case bisect, bounded, module-scoped)"
+  },
+  "suite_reference": {
+    "command": "python -m unittest discover -s tests (no -v, matching the v19 reference-run convention)",
+    "seconds": 3436.9,
+    "tests": 693,
+    "rc": 0,
+    "verdict_line": "OK",
+    "capture": "file-captured, judged by grep '^Ran |^OK|^FAILED'",
+    "ambient_caveat": "ran concurrently with light git mining on a shared box while the game-two seat was live (block 2026-08-25T01:39:00Z - 02:36:18Z); NOT a timing-protocol number; vs the v19 reference (3369.01s at 668) it is +2.0% wall at +25 logic-class tests - inside noise + composition expectations, no claim rests on it"
+  },
+  "non_measured_confounds": {
+    "local_full_suite_substitution": "council-named (Q5): developers might run the full suite manually before committing when confidence is low, making commit cadence a selected sample; invisible to every span measured here; measuring it would need new instrumentation - out of scope by pre-registration, banked as a named confound",
+    "inheritance_lag": "structural: the bank commit precedes the push, so no sprint's corpus contains its own push point; each push's numbers are observed live at push time (the hook runs for real - nothing simulated) and carried by the NEXT sprint's brief/verdict (v20's 186m45s arrived exactly this way; v21's push goes to the close log). One-sprint lag, permanent, named"
+  },
+  "n_honesty_summary": {
+    "a": "insufficient (n=1 clean window, scope-confounded)",
+    "b": "distribution bankable (n=8 green hook reals over 2 sessions); trend not licensed",
+    "c": "bounded directional claim only (n=1 per era, span mismatch); no growth signal",
+    "d": "arithmetic banked; behavioral question insufficient (n=1)"
+  }
+}
