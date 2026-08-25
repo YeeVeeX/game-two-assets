@@ -3,7 +3,7 @@
   "captured_at": "2026-08-17",
   "game_repository": "game-two",
   "game_branch": "main",
-  "game_commit": "a30837d3d8ea26ff00b4727e321af22e5e54475e",
+  "game_commit": "3b85b559639363c07ed7434a3ca007dfb4d822ec",
   "view": {
     "width": 960,
     "height": 540
@@ -27,7 +27,7 @@
   "source_files": [
     {
       "path": "src/app/renderer.rb",
-      "sha256_lf": "5289b0b387333bd0d58c728fa3ae2ed0dd5826255840261ade116198c1f5075a"
+      "sha256_lf": "0a4d480378f4c691ae23235eaca07ef6c786dd5ed1d71a01b90eba5eb88b722d"
     },
     {
       "path": "src/game/creature.rb",
@@ -35,7 +35,7 @@
     },
     {
       "path": "data/display.json",
-      "sha256_lf": "668b00bbbf09844834b1cf628eef34e1efdb76b161e7860d942e7d6333405ef1"
+      "sha256_lf": "34dc8162550a6e1b2b767b11fd796b8f0dfde848e6c634514eae2892670addd2"
     },
     {
       "path": "data/zones/nest.json",
