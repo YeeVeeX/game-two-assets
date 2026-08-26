@@ -3,7 +3,7 @@
 Source/studio repo for `../game-two` visual assets: research, concepts, native sources, provenance, deterministic exports, and reviews. It is **never** a runtime dependency, submodule, or automatic fetch target. Integration with the game repo stays OUT of scope until game-two's hub lifts its parking-lot gate (assets integration gated on pipeline maturity) — never modify or integrate from this side.
 
 <!-- FAMILY-BLOCK BEGIN -->
-## Workspace family (game-two program) — synced 2026-08-22
+## Workspace family (game-two program) — synced 2026-08-24
 
 - **Peers:** Gabriel (owner-founder, es-CR) + Junior (co-creator,
   pt-br) co-direct the whole program with equal creative standing —
@@ -24,6 +24,13 @@ Source/studio repo for `../game-two` visual assets: research, concepts, native s
 - **Seat-lease law:** no session ever writes into a sibling workspace
   tree — read tool for reading, mail for asking, md5 as the
   byte-identity arbiter.
+- **Service seats:** game-two-audio (audio increments on owner word) ·
+  game-two-uiux (UI/UX spec/prototype/critique service + research
+  lanes; owner-ordered genesis 2026-08-24, charter = its AGENTS.md,
+  git-blob md5 `6ddeb63023b3884961f241a2091ed366`). Service seats
+  never fork this repo's lanes — integration lands only through this
+  seat, under this repo's gates; critique passes arrive by mail as
+  take-or-leave evidence.
 - **Sovereignty:** this block never overrides local law — this repo's
   own invariants win inside this repo.
 - **Contract mirror:** AGENTS.md is ground truth; CLAUDE.md is a thin
