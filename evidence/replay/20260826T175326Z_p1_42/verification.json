@@ -1,0 +1,10 @@
+{
+  "bundle_id": "20260826T175326Z_p1_42",
+  "runs": 2,
+  "verdict": "PASS",
+  "reason": null,
+  "first_divergent_window": null,
+  "fingerprint_at_verification": "d8abc55a547161da23a105ca02695fd4",
+  "date": "2026-08-26T20:36:39Z",
+  "tool": "harness/bundle_replay.rb"
+}

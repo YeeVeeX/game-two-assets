@@ -1,0 +1,20 @@
+{
+  "bundle_id": "20260826T175326Z_p1_42",
+  "mode": "p1",
+  "produced_at": "2026-08-26T17:53:26Z",
+  "producer": "harness/replay_runner.rb: harness/replay_runner.rb tmp/world_loop_bundle.json tmp/wlb_captures",
+  "fingerprint_md5": "d8abc55a547161da23a105ca02695fd4",
+  "game_commit": "c6ceb8c0268cfc1056ec824bfbef3ee1875c7d4c",
+  "digest_version": 3,
+  "digest_every": 60,
+  "seed": 42,
+  "seats": 1,
+  "ticks_executed": 1249,
+  "end_reason": "run_until",
+  "machine": "GABO_DESKTOP",
+  "members": {
+    "input_log.json": "ed0286c8f907f6eff756e0725221df2fb2cce4183712f06c614f248367382da4",
+    "digest_chain.json": "f3811906c0890df0d02575002b15f33313875117cc050f30139d6f4889a3750c",
+    "preconditions.json": "0a84f754db07644ec06dc77e1d7f4800f89546f8c54376183955362d8ab2b8fd"
+  }
+}
