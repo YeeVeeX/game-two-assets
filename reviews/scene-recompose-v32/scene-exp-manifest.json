@@ -1,0 +1,118 @@
+{
+  "apng": {
+    "delay": "exact 1/60 s per tick; the banked encoder holds the last frame 0.5 s before the loop restarts (v13 convention)",
+    "frames": 64,
+    "zoom_scales": [
+      1,
+      4
+    ]
+  },
+  "artifact_class": "SCENE-EXP",
+  "artifacts": {
+    "scene-exp-attack-native.apng": "2f99663447bb373b31662332025f65985efdff503b25bdfbb50db2f1681da6d4",
+    "scene-exp-attack-sheet.png": "497cd406b234536dbec585fe5d60cebefebcb94751237dbe7162965350e82a3f",
+    "scene-exp-attack-zoom4.apng": "064251d5bf6fe025dd5471bdae2fa9816b5739cc18098ea8aa6707c36c28dea1",
+    "scene-exp-participants.json": "6b379b7bacba95fde6b3f0d345e25d34e6a18d4395800d513eb8ce54cdbe2033"
+  },
+  "determinism": {
+    "double_build_identical": true
+  },
+  "disclosure": "SCENE-EXP: captured state is real; frame selection is the proposal's (declared-integration-mapping-v1); scene composition is the proposal's (declared-scene-composition-v1); subject sprite is the proposal; neighbors are the engine's primitive bodies value-anchored at the pin; tile layer from the pinned district map; possession ring from pinned constants; feedback states beyond the ring not modeled; stations decor motif ambient not modeled; temporal window is a selected span (see decisions capture); not the live camera; answers ZERO register items.",
+  "draw_order": "map under everything (renderer.rb:96-99); ALL humans then ALL pack (renderer.rb:108-109, derived); within a faction ascending drawn y then name (DECLARED, the proposal's own - engine collection order is runtime state the track does not carry); ring before body (renderer.rb:801-802), notch on top (renderer.rb:843)",
+  "findings": [],
+  "generated_by": "tools/track_recompose.py --make-scene-artifacts",
+  "intake": {
+    "bundle_id": "20260826T175326Z_p1_42",
+    "fingerprint_md5": "d8abc55a547161da23a105ca02695fd4",
+    "verification_runs": 2,
+    "verification_verdict": "PASS"
+  },
+  "layers": {
+    "feedback_states": "NOT modeled beyond the ring: hurt flash, iframes flicker, telegraph swell/core, ally dim, seized weight/underlines, taunt underline, pressure outline, retarget cues, god marks, nameplates, attack action tiles, enemy strike tiles, corpses, drops, projectiles, chant rings (disclosed in pixels)",
+    "neighbors": "the engine's own primitive bodies: 28px body rect + 6px facing notch (renderer.rb:833, :863-877; values via manifests/scene-reference.json = render-reference primitive_body) at round_half_up(px/py) + the engine lunge law (renderer.rb:879-888); body color per kit from pinned KIT_BODY (renderer.rb:16-21; unlisted kits = HUMAN_BODY via the Hash.new default, a cited value); all integer facings legal",
+    "ring": "possession ring from pinned constants (render-reference possession_ring = renderer.rb:23) at the subject's drawn canvas position; RIDES THE LUNGE (renderer.rb:798-802) and draws BEFORE the body; geometry = the banked draw_ring convention around the render-reference primitive_body box",
+    "subject": "the banked striker sprite under declared-integration-mapping-v1 (select_pose untouched; per-tick decisions asserted equal to the banked reviews/runtime-recompose-v31/decisions-subject.json over the span); sprite canvas anchored at round_half_up(px) + lunge (the banked v13 position law: its opaque body pixels land 2px right+down of the engine's own body rect - a property of the declared mapping, disclosed)",
+    "tile": "manifests/zone-map-district.json (tiles/transitions verbatim from pinned data/zones/district.json; '#' wall renderer.rb:432 + :259; '.' floor renderer.rb:279+; transition gold inset 3 renderer.rb:349) drawn with the banked draw_floor_tile/draw_wall_tile/draw_gold_tile conventions over manifests/zone-palette-district.json; stations decor motif ambient grid-over-walls seal states NOT modeled; window tiles outside the map = background void (counted)"
+  },
+  "mapping_id": "declared-integration-mapping-v1",
+  "mapping_source_sha256": {
+    "tools/make_contact_sheet.py": "da5e558d879854f8bca911f09ab89a79fdd6dfa28d3446c1173a7334608edac8",
+    "tools/make_corner_timeline.py": "17a86e727b6bee094c984ba488021c88b2e0c0eed8ddce460b2db67f3519c37c",
+    "tools/make_cross_seam_timeline.py": "93e6984ec9e77561a0ff3e2cca7c94d69b46de74ea743db9abfa3b0e562f3fe6",
+    "tools/make_grammar_timeline.py": "60cc967a7564648aa1ef9d75cc050f536b43c0a5b4500fa76681bb0dc2bf6181",
+    "tools/make_seam_timeline.py": "2d71ad2991458bad69f6cdeed496b96cb8667dc458742369ec011d0f66b683de",
+    "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
+    "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
+    "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
+    "tools/track_recompose.py": "8b1c79f902cc33481c696bc5737b255ba3a2fa8e4e85c5660f5022454099bedb"
+  },
+  "participants_summary": {
+    "creatures": 18,
+    "cross_faction_overlap_events": 0,
+    "neighbor_draw_events": 242,
+    "neighbor_omission_events": 846,
+    "neighbors": 17,
+    "neighbors_drawn_at_least_once": 4,
+    "same_faction_overlap_events": 56,
+    "void_tiles": 0
+  },
+  "position_law": "track px/py = creature body top-left (creature.rb:60-61; docs/state-track-schema.md); the +2px tile inset is already inside px (grid_walker.rb:102-103); neighbor body rects draw at round_half_up(px) + lunge with NO added tile_offset (the double-offset trap named in the registration)",
+  "repo_commit_at_generation": "2f138c5104b1f45ffa422cb0e706853ff240a7da",
+  "scene_composition_id": "declared-scene-composition-v1",
+  "scene_reference": {
+    "file": "manifests/scene-reference.json",
+    "sha256": "a013899f81edf22a26b58b2347f41e6bf103356e999f95dc98f06b0f57df8245"
+  },
+  "schema_version": "1",
+  "sheet_cells_per_row": 8,
+  "sheet_dims": [
+    2874,
+    2718
+  ],
+  "source_track": {
+    "path": "evidence/replay/20260826T175326Z_p1_42/tracks/reference-attack-window.json",
+    "sha256": "dd68c8cbb324dd7faf19197df05922e32d20a65b8c3b08928f775da76f44545d"
+  },
+  "span_equality": {
+    "asserted_against": "reviews/runtime-recompose-v31/runtime-exp-manifest.json span_frames",
+    "equal": true
+  },
+  "span_frames": [
+    420,
+    483
+  ],
+  "span_policy": "re-derived by the banked v31 policy (longest contiguous refusal-free span of the subject containing a complete attack cycle, tie -> earliest) and asserted EQUAL to the banked v31 span (pre-registered)",
+  "subject": {
+    "kit": "striker",
+    "name": "striker"
+  },
+  "subject_decisions_equality": {
+    "asserted_against": "reviews/runtime-recompose-v31/decisions-subject.json",
+    "entries_compared": 64
+  },
+  "ticks": 64,
+  "tile_census": {
+    "floor": 62,
+    "transition": 0,
+    "void": 0,
+    "wall": 48
+  },
+  "window": {
+    "height": 320,
+    "origin_px": [
+      96,
+      256
+    ],
+    "width": 352
+  },
+  "window_formula": "the banked v31 window formula at margin M=4 TILEs: bounding box of the subject's world draw vectors (round_half_up(px/py) + lunge offset along facing), each sprite spanning TILE=32; rounded outward to the whole-TILE world grid; plus four full TILE margins per side (reviews/scene-recompose-v32/rationale.md, span + window policy)",
+  "zone_map": {
+    "file": "manifests/zone-map-district.json",
+    "sha256": "b9843cbd32993cecf94b3ee1be4cad0d88d8949ede4ae345cdcae1c3d168b082"
+  },
+  "zone_palette": {
+    "file": "manifests/zone-palette-district.json",
+    "sha256": "ee2d185a2b8b5c120001751951fc787e9d863065e01eef413ea93a5017734622",
+    "zone": "district"
+  }
+}

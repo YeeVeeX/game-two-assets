@@ -1,0 +1,692 @@
+{
+  "class": "RUNTIME",
+  "disclosure": "SCENE-EXP: captured state is real; frame selection is the proposal's (declared-integration-mapping-v1); scene composition is the proposal's (declared-scene-composition-v1); subject sprite is the proposal; neighbors are the engine's primitive bodies value-anchored at the pin; tile layer from the pinned district map; possession ring from pinned constants; feedback states beyond the ring not modeled; stations decor motif ambient not modeled; temporal window is a selected span (see decisions capture); not the live camera; answers ZERO register items.",
+  "draw_order": "humans before pack (renderer.rb:108-109, derived); within a faction ascending drawn y then name (DECLARED, the proposal's own tiebreak - engine collection order is runtime state the track does not carry)",
+  "findings": [],
+  "intake": {
+    "bundle_id": "20260826T175326Z_p1_42",
+    "track_sha256": "dd68c8cbb324dd7faf19197df05922e32d20a65b8c3b08928f775da76f44545d",
+    "verification_runs": 2,
+    "verification_verdict": "PASS"
+  },
+  "kit": "striker",
+  "mapping_id": "declared-integration-mapping-v1",
+  "per_creature": {
+    "blocker": {
+      "faction": "pack",
+      "kit": "blocker",
+      "ticks_drawn": 64,
+      "ticks_in_span": 64,
+      "ticks_omitted": 0
+    },
+    "lobber": {
+      "faction": "pack",
+      "kit": "lobber",
+      "ticks_drawn": 64,
+      "ticks_in_span": 64,
+      "ticks_omitted": 0
+    },
+    "rusher0": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 64,
+      "ticks_in_span": 64,
+      "ticks_omitted": 0
+    },
+    "rusher1": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 50,
+      "ticks_in_span": 64,
+      "ticks_omitted": 14
+    },
+    "rusher10": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher11": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher2": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher3": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher4": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher5": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher6": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher7": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher8": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher9": {
+      "faction": "human",
+      "kit": "rusher",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher_hater12": {
+      "faction": "human",
+      "kit": "rusher_hater",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher_hater13": {
+      "faction": "human",
+      "kit": "rusher_hater",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "rusher_hater14": {
+      "faction": "human",
+      "kit": "rusher_hater",
+      "ticks_drawn": 0,
+      "ticks_in_span": 64,
+      "ticks_omitted": 64
+    },
+    "striker": {
+      "faction": "pack",
+      "kit": "striker",
+      "ticks_drawn": 64,
+      "ticks_in_span": 64,
+      "ticks_omitted": 0
+    }
+  },
+  "per_tick": [
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 420,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 421,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 422,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 423,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 424,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 425,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 426,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 427,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 428,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 429,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 430,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 431,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 432,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 4,
+      "frame": 433,
+      "neighbors_drawn": 3,
+      "omitted": 14,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 434,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 435,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 436,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 437,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 438,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 439,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 440,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 441,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 442,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 443,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 444,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 445,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 446,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 447,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 448,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 449,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 450,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 451,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 452,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 453,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 454,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 455,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 456,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 457,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 458,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 459,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 460,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 461,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 462,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 463,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 464,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 465,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 466,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 467,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 468,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 469,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 470,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 471,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 472,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 473,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 474,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 475,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 476,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 477,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 478,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 479,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 480,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 1
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 481,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 482,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    },
+    {
+      "cross_faction_overlaps": 0,
+      "drawn": 5,
+      "frame": 483,
+      "neighbors_drawn": 4,
+      "omitted": 13,
+      "same_faction_overlaps": 0
+    }
+  ],
+  "scene_composition_id": "declared-scene-composition-v1",
+  "schema_version": "1",
+  "span_frames": [
+    420,
+    483
+  ],
+  "subject": "striker",
+  "tile_census": {
+    "floor": 62,
+    "transition": 0,
+    "void": 0,
+    "wall": 48
+  },
+  "totals": {
+    "creatures": 18,
+    "cross_faction_overlap_events": 0,
+    "neighbor_draw_events": 242,
+    "neighbor_omission_events": 846,
+    "neighbors": 17,
+    "neighbors_drawn_at_least_once": 4,
+    "same_faction_overlap_events": 56,
+    "void_tiles": 0
+  },
+  "window": {
+    "height": 320,
+    "origin_px": [
+      96,
+      256
+    ],
+    "width": 352
+  },
+  "window_frames": [
+    420,
+    560
+  ],
+  "zone": "district"
+}
