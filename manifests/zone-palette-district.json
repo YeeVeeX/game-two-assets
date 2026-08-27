@@ -1,0 +1,30 @@
+{
+  "contract_version": 1,
+  "purpose": "Additive zone palette for RUNTIME recomposition: exact runtime colors for zone 'district', derived from pinned game bytes. Merged OPT-IN via track_recompose.load_zone_palette - the plain render reference keeps the banked-zones-only refusal law (the banked v30 unmapped-zone test is the guard). Never a runtime fetch; existing render-reference.json entries never move.",
+  "derived_at": "2026-08-27",
+  "anchoring": {
+    "game_commit": "a2f6644697094eb76876d265035094eb6b858e6b",
+    "pinned_by": "manifests/runtime-baseline.json",
+    "source_file": "data/zones/district.json",
+    "source_sha256_lf": "9774cdd04ebaf6e1a429a1aceb26ca8b7ddd13f97f3086ff862d22ee305cd5f4",
+    "value_citations": {
+      "floor": "data/zones/district.json palette.floor",
+      "grid": "data/zones/district.json palette.grid",
+      "wall": "data/zones/district.json palette.wall",
+      "motif": "data/zones/district.json palette.motif_rgb (the zone_1/zone_2 convention maps motif_rgb to motif)",
+      "transition": "data/zones/district.json palette.transition"
+    },
+    "shape_convention": "five-key zone entry {floor, grid, wall, motif, transition} copied from the render-reference zone_1/zone_2 convention; compose_cell consumes floor + grid; the other three keys ride for shape parity and are equally anchored",
+    "corroboration": "values are byte-equal to render-reference.json zones.zone_2, which was itself captured from data/zones/district.json (display_name 'ZONE 2'); anchoring is to blob CONTENT (sha256_lf), so identity-only re-pins never invalidate it",
+    "registration": "reviews/runtime-recompose-v31/rationale.md (palette route, pre-registered)"
+  },
+  "zones": {
+    "district": {
+      "floor": [36, 30, 20],
+      "grid": [46, 38, 26],
+      "wall": [176, 140, 88],
+      "motif": [62, 50, 30],
+      "transition": [235, 190, 90]
+    }
+  }
+}

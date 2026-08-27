@@ -397,5 +397,64 @@ class ExportGuard(unittest.TestCase):
             self.assertFalse((REPO / "exports" / stale).exists())
 
 
+class RuntimeArtifactGuards(unittest.TestCase):
+    """v31 committed RUNTIME-EXP artifact guards; each skips until the
+    runtime bundle is banked (the pre-bank guard pattern). Heavy
+    regeneration - SLOW tier by module placement."""
+
+    def setUp(self) -> None:
+        if not tr.RUNTIME_MANIFEST.is_file():
+            self.skipTest("runtime artifact bundle not banked yet")
+        self.manifest = json.loads(
+            tr.RUNTIME_MANIFEST.read_text(encoding="utf-8")
+        )
+
+    def test_committed_runtime_artifacts_regenerate_byte_identically(self) -> None:
+        failures = tr.check_runtime_artifacts(reference(), tr.default_dirs())
+        self.assertEqual([], failures)
+
+    def test_manifest_completeness_and_exp_labels(self) -> None:
+        manifest = self.manifest
+        self.assertEqual("RUNTIME-EXP", manifest["artifact_class"])
+        self.assertEqual(tr.RUNTIME_EXP_DISCLOSURE, manifest["disclosure"])
+        self.assertIn("answers ZERO register items", manifest["disclosure"])
+        self.assertEqual(tr.MAPPING_ID, manifest["mapping_id"])
+        self.assertTrue(manifest["repo_commit_at_generation"])
+        self.assertTrue(manifest["determinism"]["double_build_identical"])
+        for name in manifest["artifacts"]:
+            self.assertTrue(
+                name.startswith("runtime-exp-")
+                or name == "decisions-subject.json",
+                name,
+            )
+
+    def test_mapping_source_modules_unmodified(self) -> None:
+        live = tr.mapping_source_hashes()
+        pinned = self.manifest["mapping_source_sha256"]
+        self.assertEqual(sorted(tr.MAPPING_SOURCE_FILES), sorted(pinned))
+        for rel, digest in pinned.items():
+            self.assertEqual(
+                digest, live[rel],
+                f"{rel} differs from the runtime manifest pin",
+            )
+
+    def test_intake_context_and_source_track_pinned(self) -> None:
+        manifest = self.manifest
+        self.assertEqual(
+            "20260826T175326Z_p1_42", manifest["intake"]["bundle_id"]
+        )
+        self.assertEqual(
+            "PASS", manifest["intake"]["verification_verdict"]
+        )
+        self.assertGreaterEqual(manifest["intake"]["verification_runs"], 2)
+        self.assertEqual(
+            "dd68c8cbb324dd7faf19197df05922e32d20a65b8c3b08928f775da76f44545d",
+            manifest["source_track"]["sha256"],
+        )
+        self.assertEqual(
+            "striker", manifest["subject"]["kit"]
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

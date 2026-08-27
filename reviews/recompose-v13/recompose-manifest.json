@@ -20,13 +20,13 @@
     "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
     "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
     "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
-    "tools/track_recompose.py": "c1a114b981a0223408fd6db18906c08e0483c1a5a92134ec278f51f60379c765"
+    "tools/track_recompose.py": "19c63562a3b89b2141707c2121c0e24fbff500a489337234d45caa8d464009be"
   },
   "provenance": {
     "class": "SYNTHETIC",
     "statement": "synthetic declared-model demo composed from banked export bytes only; NOT runtime evidence; answers ZERO register items"
   },
-  "repo_commit_at_generation": "474c7d1377d4229e9aa010e8c6695705777de2b2",
+  "repo_commit_at_generation": "1026dcccfd820e65150884a9901852d9c441ed69",
   "schema_version": "draft-1",
   "track_sha256": "b76858075ad6e46ae8898b19e9c891202c53d8f636307c2bc3f6f4f8e4b0a8b2"
 }

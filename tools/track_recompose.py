@@ -60,11 +60,25 @@ PASS verification receipt with runs >= 2 + sidecar-matched track bytes);
 synthetic/fixture tracks are never runtime evidence (v13 law carried).
 ``--decisions`` emits the TEXT decision stream (validation verdict + pose /
 typed-refusal statistics); it composes zero pixels.
+
+v31 RUNTIME-EXP extraction (pre-registered in
+``reviews/runtime-recompose-v31/rationale.md``): ``--make-runtime-artifacts``
+renders ONE intaken RUNTIME track's possessed creature over a declared
+sub-window as EXP-class instrument-readiness artifacts - subject law
+(exactly one stable possessed holder), striker kit gate, longest
+refusal-free span containing a complete attack cycle, whole-TILE padded
+bounding-box window, additive district palette merged OPT-IN from
+``manifests/zone-palette-district.json`` (``load_zone_palette``; the plain
+reference keeps the banked-zones-only refusal), double-build determinism,
+and the RUNTIME-EXP disclosure in pixels, filenames, and manifest. Every
+artifact answers ZERO register items. ``--decisions --creature`` emits the
+per-creature TEXT decision stream (the subject filter).
 """
 
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import subprocess
@@ -130,6 +144,35 @@ APNG_SCALE = 4
 V11_MODEL_A_LANES = ("CORNER", "CONTROL", "DEGEN")
 # f3 is the idle byte-copy (banked law): pose labels compare at byte-class.
 BYTE_CLASS = {"f3": "idle"}
+
+# -- v31 RUNTIME-EXP single-creature instrument constants ----------------------
+# Pre-registered in reviews/runtime-recompose-v31/rationale.md: extraction,
+# span, window, palette route, disclosure strings. EXP-class: every artifact
+# answers ZERO register items and says so in pixels, filename, and manifest.
+RUNTIME_DIR = ROOT / "reviews" / "runtime-recompose-v31"
+RUNTIME_MANIFEST = RUNTIME_DIR / "runtime-exp-manifest.json"
+RUNTIME_SHEET = RUNTIME_DIR / "runtime-exp-attack-sheet.png"
+RUNTIME_APNG_NATIVE = RUNTIME_DIR / "runtime-exp-attack-native.apng"
+RUNTIME_APNG_ZOOM = RUNTIME_DIR / "runtime-exp-attack-zoom4.apng"
+RUNTIME_DECISIONS = RUNTIME_DIR / "decisions-subject.json"
+DISTRICT_PALETTE = ROOT / "manifests" / "zone-palette-district.json"
+ZONE_ENTRY_KEYS = ("floor", "grid", "wall", "motif", "transition")
+RUNTIME_EXP_DISCLOSURE = (
+    "RUNTIME-EXP: captured state is real; frame selection is the "
+    "proposal's (declared-integration-mapping-v1); single-creature window, "
+    "neighbors omitted; not the live camera; answers ZERO register items."
+)
+SHEET_BANNER_1 = (
+    "RUNTIME EXP  CAPTURED STATE IS REAL  FRAME SELECTION IS THE PROPOSAL"
+)
+SHEET_BANNER_2 = (
+    "DECLARED INTEGRATION MAPPING 1  SINGLE CREATURE WINDOW  "
+    "NEIGHBORS OMITTED  NOT THE GAME CAMERA"
+)
+SHEET_FOOTER = "ANSWERS ZERO REGISTER ITEMS"
+APNG_HEADER_1 = "RUNTIME EXP  MAPPING 1"
+APNG_HEADER_2 = "ANSWERS ZERO REGISTER ITEMS"
+SHEET_CELLS_PER_ROW = 10
 
 REQUIRED_TOP = (
     "schema_version", "class", "tick_ms", "zone", "view", "constants",
@@ -826,6 +869,579 @@ def recompose_track(
     return frames, decisions
 
 
+# -- v31 RUNTIME-EXP single-creature extraction (pre-registered protocol) -------
+
+
+def _repo_relative(path: Path) -> str:
+    """Repo-relative posix path when inside ROOT (the committed bundle);
+    absolute posix otherwise (tmpdir fixtures)."""
+    resolved = Path(path).resolve()
+    try:
+        return resolved.relative_to(ROOT).as_posix()
+    except ValueError:
+        return resolved.as_posix()
+
+
+def load_zone_palette(reference: dict, palette_path: Path) -> dict:
+    """A DEEP-COPIED reference with an additive zone palette merged in.
+    OPT-IN per call site: the plain reference keeps the banked-zones-only
+    refusal law (the banked v30 ``unmapped-zone`` fixture test is the
+    guard); the additive palette is admitted only where explicitly loaded.
+    Existing banked zone keys never move - a collision is a typed refusal.
+    Every palette value is byte-anchored in the palette file itself
+    (manifests/zone-palette-district.json anchoring block)."""
+    payload = json.loads(Path(palette_path).read_text(encoding="utf-8"))
+    zones = payload.get("zones")
+    if not isinstance(zones, dict) or not zones:
+        raise RecomposeError(
+            f"zone-palette-invalid: {Path(palette_path).name} carries no "
+            "zones object"
+        )
+    merged = copy.deepcopy(reference)
+    for zone_name, entry in sorted(zones.items()):
+        if zone_name in merged["zones"]:
+            raise RecomposeError(
+                f"zone-palette-collision: zone {zone_name!r} is already "
+                "banked in the render reference (the palette file is "
+                "additive-only; existing entries never move)"
+            )
+        if not isinstance(entry, dict):
+            raise RecomposeError(
+                f"zone-palette-invalid: zone {zone_name!r} must be an object"
+            )
+        for key in ZONE_ENTRY_KEYS:
+            value = entry.get(key)
+            if (
+                not isinstance(value, list)
+                or len(value) != 3
+                or not all(_is_int(v) and 0 <= v <= 255 for v in value)
+            ):
+                raise RecomposeError(
+                    f"zone-palette-invalid: zone {zone_name!r}.{key} must be "
+                    "an RGB triple (the five-key zone_1/zone_2 convention "
+                    "shape)"
+                )
+        merged["zones"][zone_name] = {
+            key: list(entry[key]) for key in ZONE_ENTRY_KEYS
+        }
+    return merged
+
+
+def subject_of(track: dict) -> tuple[str, str]:
+    """(name, kit) of the single possessed creature - the pre-registered
+    subject law: exactly one ``possessed`` record per tick and ONE stable
+    holder across the window; anything else is a typed refusal (no owner
+    ruling exists for possession handoffs under single-subject
+    extraction)."""
+    kit_by_name = {c["name"]: c["kit"] for c in track["creatures"]}
+    holders: set[str] = set()
+    for tick in track["ticks"]:
+        here = [
+            name for name, record in sorted(tick["creatures"].items())
+            if record.get("possessed") is True
+        ]
+        if len(here) != 1:
+            raise RecomposeError(
+                f"unsupported-subject: frame {tick['frame']} carries "
+                f"{len(here)} possessed records (single-subject extraction "
+                "needs exactly one per tick)"
+            )
+        holders.add(here[0])
+    if len(holders) != 1:
+        raise RecomposeError(
+            f"unsupported-subject: possession moves between {sorted(holders)} "
+            "inside the window (no owner ruling for possession handoffs "
+            "under single-subject extraction)"
+        )
+    name = holders.pop()
+    return name, kit_by_name[name]
+
+
+def subject_decision_entries(
+    track: dict, reference: dict, name: str
+) -> list[dict]:
+    """Per-tick decision stream for ONE creature - TEXT, zero pixels; the
+    span-derivation input. Every present tick yields either the mapped
+    decision or the TYPED refusal (same select_pose path as
+    decision_stream; mapping semantics untouched)."""
+    kit_by_name = {c["name"]: c["kit"] for c in track["creatures"]}
+    if name not in kit_by_name:
+        raise RecomposeError(
+            f"unsupported-subject: {name!r} is not in the declared roster"
+        )
+    entries: list[dict] = []
+    for tick in track["ticks"]:
+        record = tick["creatures"].get(name)
+        if record is None:
+            continue
+        entry: dict = {
+            "frame": tick["frame"],
+            "attack_state": record["attack_state"],
+            "tween": [record["tween_left"], record["tween_total"]],
+        }
+        try:
+            constants = mapping_constants(track, kit_by_name[name], reference)
+            pose, facing, offset = select_pose(record, constants)
+            entry["decision"] = {
+                "pose": pose,
+                "pose_facing": facing,
+                "offset_px": offset,
+                "draw": list(draw_vector(record, track["view"], offset)),
+            }
+        except RecomposeError as exc:
+            entry["refusal"] = {
+                "class": str(exc).split(":", 1)[0],
+                "message": str(exc)[:200],
+            }
+        entries.append(entry)
+    return entries
+
+
+def attack_cycle_poses(constants: dict) -> list[str]:
+    """The complete-cycle pose subsequence under ONE kit's constants
+    (pre-registered): w0 | a0 x (wf-1) | k0 x af | s0 | r0 x (rf-2) | x0."""
+    return (
+        ["w0"]
+        + ["a0"] * (constants["windup_frames"] - 1)
+        + ["k0"] * constants["active_frames"]
+        + ["s0"]
+        + ["r0"] * (constants["recovery_frames"] - 2)
+        + ["x0"]
+    )
+
+
+def span_contains_cycle(entries: list[dict], constants: dict) -> bool:
+    """True iff the run's pose stream contains the complete cycle followed
+    by at least one later attack_state == idle tick INSIDE the run."""
+    poses = [entry["decision"]["pose"] for entry in entries]
+    states = [entry["attack_state"] for entry in entries]
+    target = attack_cycle_poses(constants)
+    size = len(target)
+    for start in range(len(poses) - size + 1):
+        if poses[start:start + size] == target and any(
+            state == "idle" for state in states[start + size:]
+        ):
+            return True
+    return False
+
+
+def derive_span(
+    entries: list[dict], constants: dict
+) -> tuple[int, int] | None:
+    """The pre-registered span policy: candidate spans are maximal runs of
+    consecutive frames where the subject is present AND maps refusal-free;
+    a candidate qualifies iff it contains a complete attack cycle
+    returning to idle; pick the LONGEST, tie -> EARLIEST. None if no
+    candidate qualifies (the STOP branch)."""
+    runs: list[list[dict]] = []
+    current: list[dict] = []
+    for entry in entries:
+        if "decision" in entry and (
+            not current or entry["frame"] == current[-1]["frame"] + 1
+        ):
+            current.append(entry)
+        else:
+            if current:
+                runs.append(current)
+            current = [entry] if "decision" in entry else []
+    if current:
+        runs.append(current)
+    best: list[dict] | None = None
+    for run in runs:
+        if not span_contains_cycle(run, constants):
+            continue
+        if best is None or len(run) > len(best):
+            best = run
+    if best is None:
+        return None
+    return best[0]["frame"], best[-1]["frame"]
+
+
+def derive_window(
+    track: dict, name: str, first: int, last: int, reference: dict
+) -> dict:
+    """The pre-registered FIXED declared sub-window: bounding box of the
+    subject's world draw vectors across the span (round_half_up(px/py) +
+    lunge offset along facing, each sprite spanning TILE), rounded outward
+    to the whole-TILE world grid, plus one full TILE margin per side."""
+    kit_by_name = {c["name"]: c["kit"] for c in track["creatures"]}
+    constants = mapping_constants(track, kit_by_name[name], reference)
+    xs: list[int] = []
+    ys: list[int] = []
+    for tick in track["ticks"]:
+        if not (first <= tick["frame"] <= last):
+            continue
+        record = tick["creatures"][name]
+        _, _, offset = select_pose(record, constants)
+        fx, fy = record["facing"]
+        xs.append(round_half_up(record["px"]) + offset * fx)
+        ys.append(round_half_up(record["py"]) + offset * fy)
+    x0 = (min(xs) // TILE) * TILE - TILE
+    y0 = (min(ys) // TILE) * TILE - TILE
+    x1 = -((-(max(xs) + TILE)) // TILE) * TILE + TILE
+    y1 = -((-(max(ys) + TILE)) // TILE) * TILE + TILE
+    return {"origin_px": [x0, y0], "width": x1 - x0, "height": y1 - y0}
+
+
+def extract_subject_track(
+    track: dict, name: str, first: int, last: int, view: dict,
+    source_sha256: str,
+) -> dict:
+    """The single-creature sub-track over the declared window: subject
+    records, masks, tick_ms, zone, and roster entry copied VERBATIM;
+    constants = the subject's kit entry only; provenance carries the
+    source bundle_id (require_runtime_admission still binds it to the
+    verified intake context) + the extraction parameters. Extraction
+    changes WHAT is composed, never HOW."""
+    creature = next(c for c in track["creatures"] if c["name"] == name)
+    kit = creature["kit"]
+    ticks = []
+    for tick in track["ticks"]:
+        if first <= tick["frame"] <= last:
+            ticks.append(
+                {
+                    "frame": tick["frame"],
+                    "creatures": {
+                        name: copy.deepcopy(tick["creatures"][name])
+                    },
+                    "masks": copy.deepcopy(tick["masks"]),
+                }
+            )
+    return {
+        "schema_version": SCHEMA_V1,
+        "class": "RUNTIME",
+        "tick_ms": track["tick_ms"],
+        "zone": track["zone"],
+        "view": dict(view),
+        "constants": {kit: copy.deepcopy(track["constants"][kit])},
+        "creatures": [copy.deepcopy(creature)],
+        "ticks": ticks,
+        "provenance": {
+            "class": "RUNTIME",
+            "bundle_id": track["provenance"]["bundle_id"],
+            "producer": "tools/track_recompose.py --make-runtime-artifacts",
+            "source_track_sha256": source_sha256,
+            "extraction": {
+                "subject": name,
+                "kit": kit,
+                "span_frames": [first, last],
+                "window": dict(view),
+                "protocol": "reviews/runtime-recompose-v31/rationale.md",
+            },
+            "statement": RUNTIME_EXP_DISCLOSURE,
+        },
+    }
+
+
+def build_runtime_sheet(
+    frames: list[Rgba8Canvas], frame_numbers: list[int], view: dict
+) -> Rgba8Canvas:
+    """Native 1x per-tick contact sheet of the span under the RUNTIME-EXP
+    disclosure banner (layout convention: 10 cells per row, banked
+    GUTTER/BG/LABEL presentation constants)."""
+    margin_left = 4
+    header_h = 20
+    label_h = 8
+    per_row = SHEET_CELLS_PER_ROW
+    rows = (len(frames) + per_row - 1) // per_row
+    step_w = view["width"] + GUTTER
+    step_h = view["height"] + label_h + GUTTER
+    banner_w = 4 * max(len(SHEET_BANNER_1), len(SHEET_BANNER_2)) + 4
+    width = max(
+        margin_left + min(per_row, len(frames)) * step_w + GUTTER, banner_w
+    )
+    height = header_h + rows * step_h + 10
+    cv = Rgba8Canvas(width, height, v10.BG)
+    draw_text(cv, 2, 2, SHEET_BANNER_1)
+    draw_text(cv, 2, 10, SHEET_BANNER_2)
+    for index, frame in enumerate(frames):
+        row, col = divmod(index, per_row)
+        x = margin_left + col * step_w
+        y = header_h + row * step_h + label_h
+        draw_text(cv, x, y - 8, f"T{frame_numbers[index]}")
+        for px, py, rgb in canvas_pixels(frame):
+            cv.put(x + px, y + py, (*rgb, 255))
+    draw_text(cv, 2, height - 8, SHEET_FOOTER)
+    return cv
+
+
+def build_runtime_apng_frames(
+    frames: list[Rgba8Canvas], scale: int
+) -> list[Rgba8Canvas]:
+    """Disclosure-headed panes at native 1x or ONE integer zoom."""
+    header_h = 18
+    text_w = 4 * max(len(APNG_HEADER_1), len(APNG_HEADER_2)) + 4
+    out = []
+    for frame in frames:
+        pane = Rgba8Canvas(
+            max(frame.width * scale, text_w),
+            frame.height * scale + header_h,
+            v10.BG,
+        )
+        pane.blit_scaled(canvas_pixels(frame), 0, header_h, scale)
+        draw_text(pane, 2, 2, APNG_HEADER_1)
+        draw_text(pane, 2, 10, APNG_HEADER_2)
+        out.append(pane)
+    return out
+
+
+def _runtime_bundle_bytes(
+    track_path: Path, reference: dict, dirs: dict[str, Path],
+    palette_path: Path, evidence_root: Path | None = None,
+) -> dict:
+    """The whole pre-registered pipeline to BYTES (no writes): intake gate
+    LIVE, subject law, kit gate, decision capture, span policy, window
+    formula, extraction, double-build composition. Typed refusals
+    throughout; refuse-not-guess."""
+    intake = verify_runtime_intake(Path(track_path), evidence_root)
+    track = json.loads(Path(track_path).read_text(encoding="utf-8"))
+    errors = validate_track(track)
+    if errors:
+        raise RecomposeError("invalid track:\n" + "\n".join(errors))
+    require_runtime_admission(track, intake)
+    name, kit = subject_of(track)
+    if kit != "striker":
+        raise RecomposeError(
+            f"unsupported-subject-kit: subject {name!r} kit {kit!r} != "
+            "'striker' (the banked pose set is striker art; substituting it "
+            "for another kit in a RUNTIME-labeled artifact needs an owner "
+            "call)"
+        )
+    merged = load_zone_palette(reference, palette_path)
+    entries = subject_decision_entries(track, merged, name)
+    constants = mapping_constants(track, kit, merged)
+    span = derive_span(entries, constants)
+    decisions_payload = {
+        "mapping_id": MAPPING_ID,
+        "schema_version": track["schema_version"],
+        "class": track["class"],
+        "zone": track["zone"],
+        "subject": name,
+        "kit": kit,
+        "window_frames": [
+            track["ticks"][0]["frame"], track["ticks"][-1]["frame"]
+        ],
+        "entries": entries,
+        "mapped": sum(1 for e in entries if "decision" in e),
+        "refused": sum(1 for e in entries if "refusal" in e),
+        "span": None if span is None else list(span),
+        "span_policy": (
+            "longest contiguous refusal-free span of the subject containing "
+            "a complete attack cycle (w0 through x0, returning to idle); "
+            "tie -> earliest (pre-registered, "
+            "reviews/runtime-recompose-v31/rationale.md)"
+        ),
+        "intake": {
+            "bundle_id": intake["bundle_id"],
+            "track_sha256": intake["track_sha256"],
+            "verification_verdict": intake["verification"]["verdict"],
+            "verification_runs": intake["verification"]["runs"],
+        },
+        "disclosure": RUNTIME_EXP_DISCLOSURE,
+    }
+    decisions_bytes = (
+        json.dumps(decisions_payload, indent=2, sort_keys=True) + "\n"
+    ).encode("ascii")
+    result = {
+        "decisions": decisions_bytes,
+        "span": span,
+        "subject": (name, kit),
+        "intake": intake,
+        "track": track,
+    }
+    if span is None:
+        return result
+    first, last = span
+    view = derive_window(track, name, first, last, merged)
+    sub = extract_subject_track(
+        track, name, first, last, view, intake["track_sha256"]
+    )
+    poses = load_poses(dirs)
+
+    def build_once() -> tuple[bytes, bytes, bytes]:
+        frames, _ = recompose_track(sub, poses, merged, intake=intake)
+        sheet = build_runtime_sheet(
+            frames, [t["frame"] for t in sub["ticks"]], view
+        ).encode()
+        native = encode_apng(
+            build_runtime_apng_frames(frames, 1), apng_delays(len(frames))
+        )
+        zoom = encode_apng(
+            build_runtime_apng_frames(frames, APNG_SCALE),
+            apng_delays(len(frames)),
+        )
+        return sheet, native, zoom
+
+    first_build = build_once()
+    second_build = build_once()
+    sheet, native, zoom = first_build
+    result.update(
+        {
+            "view": view,
+            "sheet": sheet,
+            "native": native,
+            "zoom": zoom,
+            "deterministic": first_build == second_build,
+            "sub_ticks": len(sub["ticks"]),
+        }
+    )
+    return result
+
+
+def make_runtime_artifacts(
+    track_path: Path, reference: dict, dirs: dict[str, Path],
+    out_dir: Path | None = None, palette_path: Path | None = None,
+    evidence_root: Path | None = None,
+) -> dict:
+    """Generate the v31 RUNTIME-EXP artifact bundle. The decision capture
+    is written BEFORE the span gate so the STOP branch banks the TEXT
+    analysis with zero composed artifacts (pre-registered)."""
+    out = RUNTIME_DIR if out_dir is None else Path(out_dir)
+    palette = DISTRICT_PALETTE if palette_path is None else Path(palette_path)
+    bundle = _runtime_bundle_bytes(
+        track_path, reference, dirs, palette, evidence_root
+    )
+    out.mkdir(parents=True, exist_ok=True)
+    (out / RUNTIME_DECISIONS.name).write_bytes(bundle["decisions"])
+    if bundle["span"] is None:
+        raise RecomposeError(
+            "no-clean-attack-cycle: no refusal-free contiguous span of the "
+            "subject contains a complete attack cycle (w0 through x0, "
+            "returning to idle) - STOP branch: the banked decision capture "
+            "is the sprint's TEXT finding; zero artifacts composed"
+        )
+    (out / RUNTIME_SHEET.name).write_bytes(bundle["sheet"])
+    (out / RUNTIME_APNG_NATIVE.name).write_bytes(bundle["native"])
+    (out / RUNTIME_APNG_ZOOM.name).write_bytes(bundle["zoom"])
+    name, kit = bundle["subject"]
+    intake = bundle["intake"]
+    first, last = bundle["span"]
+    track_rel = _repo_relative(Path(track_path))
+    palette_rel = _repo_relative(palette)
+    artifacts = {
+        RUNTIME_DECISIONS.name: hashlib.sha256(
+            bundle["decisions"]
+        ).hexdigest(),
+        RUNTIME_SHEET.name: hashlib.sha256(bundle["sheet"]).hexdigest(),
+        RUNTIME_APNG_NATIVE.name: hashlib.sha256(
+            bundle["native"]
+        ).hexdigest(),
+        RUNTIME_APNG_ZOOM.name: hashlib.sha256(bundle["zoom"]).hexdigest(),
+    }
+    manifest = {
+        "generated_by": "tools/track_recompose.py --make-runtime-artifacts",
+        "artifact_class": "RUNTIME-EXP",
+        "disclosure": RUNTIME_EXP_DISCLOSURE,
+        "mapping_id": MAPPING_ID,
+        "schema_version": SCHEMA_V1,
+        "repo_commit_at_generation": repo_commit(),
+        "mapping_source_sha256": mapping_source_hashes(),
+        "zone_palette": {
+            "file": palette_rel,
+            "sha256": file_sha256(palette),
+            "zone": bundle["track"]["zone"],
+        },
+        "source_track": {
+            "path": track_rel,
+            "sha256": intake["track_sha256"],
+        },
+        "intake": {
+            "bundle_id": intake["bundle_id"],
+            "verification_verdict": intake["verification"]["verdict"],
+            "verification_runs": intake["verification"]["runs"],
+            "fingerprint_md5": intake["manifest"].get("fingerprint_md5"),
+        },
+        "subject": {"name": name, "kit": kit},
+        "span_frames": [first, last],
+        "ticks": bundle["sub_ticks"],
+        "window": bundle["view"],
+        "window_formula": (
+            "bounding box of the subject's world draw vectors "
+            "(round_half_up(px/py) + lunge offset along facing), each "
+            "sprite spanning TILE=32; rounded outward to the whole-TILE "
+            "world grid; plus one full TILE margin per side "
+            "(reviews/runtime-recompose-v31/rationale.md, window policy)"
+        ),
+        "span_policy": (
+            "longest contiguous refusal-free span of the subject containing "
+            "a complete attack cycle (w0 through x0, returning to idle); "
+            "tie -> earliest (pre-registered)"
+        ),
+        "apng": {
+            "frames": bundle["sub_ticks"],
+            "delay": (
+                "exact 1/60 s per tick; the banked encoder holds the last "
+                "frame 0.5 s before the loop restarts (v13 convention)"
+            ),
+            "zoom_scales": [1, APNG_SCALE],
+        },
+        "determinism": {
+            "double_build_identical": bundle["deterministic"],
+        },
+        "artifacts": artifacts,
+    }
+    (out / RUNTIME_MANIFEST.name).write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8", newline="\n",
+    )
+    return manifest
+
+
+def check_runtime_artifacts(
+    reference: dict, dirs: dict[str, Path]
+) -> list[str]:
+    """Committed v31 RUNTIME-EXP bundle guard: regenerate from the
+    committed evidence and compare bytes; verify pins and the disclosure.
+    Pre-bank (no committed manifest): nothing to guard - returns []."""
+    if not RUNTIME_MANIFEST.is_file():
+        return []
+    failures: list[str] = []
+    manifest = json.loads(RUNTIME_MANIFEST.read_text(encoding="utf-8"))
+    if manifest.get("artifact_class") != "RUNTIME-EXP":
+        failures.append("runtime manifest artifact_class must be RUNTIME-EXP")
+    if manifest.get("disclosure") != RUNTIME_EXP_DISCLOSURE:
+        failures.append(
+            "runtime manifest disclosure differs from the pre-registered text"
+        )
+    live = mapping_source_hashes()
+    pinned = manifest.get("mapping_source_sha256", {})
+    for rel in MAPPING_SOURCE_FILES:
+        if rel not in pinned:
+            failures.append(f"runtime manifest is missing the {rel} pin")
+    for rel, digest in pinned.items():
+        if live.get(rel) != digest:
+            failures.append(f"runtime manifest mapping-source drift: {rel}")
+    try:
+        bundle = _runtime_bundle_bytes(
+            ROOT / manifest["source_track"]["path"], reference, dirs,
+            ROOT / manifest["zone_palette"]["file"],
+        )
+    except RecomposeError as exc:
+        failures.append(f"runtime artifact regeneration refused: {exc}")
+        return failures
+    if bundle["span"] is None:
+        failures.append("runtime artifact regeneration found no qualifying span")
+        return failures
+    if not bundle["deterministic"]:
+        failures.append("runtime artifact double build not byte-identical")
+    for name, blob in (
+        (RUNTIME_DECISIONS.name, bundle["decisions"]),
+        (RUNTIME_SHEET.name, bundle["sheet"]),
+        (RUNTIME_APNG_NATIVE.name, bundle["native"]),
+        (RUNTIME_APNG_ZOOM.name, bundle["zoom"]),
+    ):
+        path = RUNTIME_DIR / name
+        if not path.is_file() or path.read_bytes() != blob:
+            failures.append(
+                f"committed {name} differs from a fresh recomposition"
+            )
+        if manifest.get("artifacts", {}).get(name) != hashlib.sha256(
+            blob
+        ).hexdigest():
+            failures.append(f"runtime manifest artifact pin mismatch: {name}")
+    return failures
+
+
 # -- synthetic demo -------------------------------------------------------------
 
 
@@ -1309,6 +1925,9 @@ def run_check(reference: dict, dirs: dict[str, Path]) -> int:
         if (ROOT / "exports" / stale).exists():
             failures.append(f"exports/{stale} exists - this sprint banks no exports")
 
+    runtime_failures = check_runtime_artifacts(reference, dirs)
+    failures.extend(runtime_failures)
+
     for failure in failures:
         print(f"CHECK FAIL: {failure}", file=sys.stderr)
     if failures:
@@ -1319,7 +1938,8 @@ def run_check(reference: dict, dirs: dict[str, Path]) -> int:
         f"{v10_cells} v10 + {v11_cells} v11 lane cells == committed sheets; "
         f"attack plan equivalence {attack['records_checked']} records == "
         "banked v9; banked module hash pins; zero-new-exports + banked "
-        "export pins"
+        "export pins; runtime-exp artifact guard "
+        + ("(banked)" if RUNTIME_MANIFEST.is_file() else "(pre-bank skip)")
     )
     return 0
 
@@ -1341,6 +1961,14 @@ def main(argv: list[str] | None = None) -> int:
                              "only; RUNTIME goes through the intake gate)")
     parser.add_argument("--out", type=Path, default=None,
                         help="write --decisions JSON here instead of stdout")
+    parser.add_argument("--creature", type=str, default=None,
+                        help="with --decisions: per-creature decision "
+                             "entries for ONE named creature (TEXT; the "
+                             "v31 subject filter)")
+    parser.add_argument("--make-runtime-artifacts", type=Path, default=None,
+                        help="generate the v31 RUNTIME-EXP single-creature "
+                             "artifact bundle from an intaken evidence "
+                             "track (pre-registered protocol)")
     parser.add_argument("--make-demo", action="store_true",
                         help="generate the SYNTHETIC demo bundle")
     parser.add_argument("--check", action="store_true",
@@ -1372,7 +2000,46 @@ def main(argv: list[str] | None = None) -> int:
             intake = None
             if isinstance(track, dict) and track.get("class") == "RUNTIME":
                 intake = verify_runtime_intake(args.decisions)
-            stats = decision_stream(track, reference, intake)
+            if args.creature is not None:
+                errors = validate_track(track)
+                if errors:
+                    raise RecomposeError(
+                        "invalid track:\n" + "\n".join(errors)
+                    )
+                require_runtime_admission(track, intake)
+                entries = subject_decision_entries(
+                    track, reference, args.creature
+                )
+                kit_by_name = {
+                    c["name"]: c["kit"] for c in track["creatures"]
+                }
+                stats = {
+                    "mapping_id": MAPPING_ID,
+                    "schema_version": track["schema_version"],
+                    "class": track["class"],
+                    "zone": track["zone"],
+                    "subject": args.creature,
+                    "kit": kit_by_name[args.creature],
+                    "window_frames": [
+                        track["ticks"][0]["frame"],
+                        track["ticks"][-1]["frame"],
+                    ],
+                    "entries": entries,
+                    "mapped": sum(1 for e in entries if "decision" in e),
+                    "refused": sum(1 for e in entries if "refusal" in e),
+                    "intake": None if intake is None else {
+                        "bundle_id": intake["bundle_id"],
+                        "track_sha256": intake["track_sha256"],
+                        "verification_verdict": (
+                            intake["verification"]["verdict"]
+                        ),
+                        "verification_runs": (
+                            intake["verification"]["runs"]
+                        ),
+                    },
+                }
+            else:
+                stats = decision_stream(track, reference, intake)
             payload = json.dumps(stats, indent=2, sort_keys=True) + "\n"
             if args.out is not None:
                 args.out.write_text(payload, encoding="utf-8", newline="\n")
@@ -1389,6 +2056,20 @@ def main(argv: list[str] | None = None) -> int:
             print(f"wrote {DEMO_SHEET}")
             print(f"wrote {DEMO_APNG}")
             print(f"wrote {DEMO_MANIFEST}")
+            return 0
+        if args.make_runtime_artifacts is not None:
+            manifest = make_runtime_artifacts(
+                args.make_runtime_artifacts, reference, dirs
+            )
+            if not manifest["determinism"]["double_build_identical"]:
+                print(
+                    "runtime artifact builds are not byte-identical",
+                    file=sys.stderr,
+                )
+                return 1
+            for name in sorted(manifest["artifacts"]):
+                print(f"wrote {RUNTIME_DIR / name}")
+            print(f"wrote {RUNTIME_MANIFEST}")
             return 0
         if args.check:
             return run_check(reference, dirs)

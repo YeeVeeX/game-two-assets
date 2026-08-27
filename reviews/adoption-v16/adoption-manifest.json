@@ -45,13 +45,13 @@
     "tools/remedy_metrics.py": "32ebec4e5a857ca17d3068493a89474f951750a11ec6071c2e8e924fdf1b7615",
     "tools/seam_metrics.py": "1ce9c0ac19671904f2ac57a7714bb2d70125235a7889721679ec0e82b462e4e9",
     "tools/timeline_metrics.py": "978edf880b8355d55027a0dcb4f9ea4934604fd6306faeb9310a4a0764acb9b6",
-    "tools/track_recompose.py": "c1a114b981a0223408fd6db18906c08e0483c1a5a92134ec278f51f60379c765"
+    "tools/track_recompose.py": "19c63562a3b89b2141707c2121c0e24fbff500a489337234d45caa8d464009be"
   },
   "provenance": {
     "class": "SYNTHETIC",
     "statement": "adoption-record demo proof composed from banked export bytes and the release-pinned remedy-v15 K-S exports only; NOT runtime evidence; the selection register entry (docs/selection-register.md) is the recorded owner decision this proof accompanies"
   },
-  "repo_commit_at_generation": "474c7d1377d4229e9aa010e8c6695705777de2b2",
+  "repo_commit_at_generation": "1026dcccfd820e65150884a9901852d9c441ed69",
   "swap_source": {
     "assets": {
       "down": {
