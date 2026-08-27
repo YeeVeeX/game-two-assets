@@ -1,0 +1,206 @@
+{
+  "class": "RUNTIME",
+  "decisions": 9120,
+  "declared_creatures": 20,
+  "intake": {
+    "bundle_id": "20260826T175326Z_p1_42",
+    "track_sha256": "3d05a1f81cacf4dfde4f375154cb188cbc9edb83afdf461bad8772ea576f1836",
+    "verification_runs": 2,
+    "verification_verdict": "PASS"
+  },
+  "mapped": 7691,
+  "mapping_id": "declared-integration-mapping-v1",
+  "masks_nonzero_ticks": 169,
+  "pose_counts": {
+    "a0/down": 26,
+    "a0/right": 16,
+    "f0/down": 8,
+    "f1/down": 11,
+    "f2/down": 12,
+    "f2/right": 3,
+    "f3/down": 12,
+    "f3/right": 3,
+    "idle/down": 121,
+    "idle/right": 7400,
+    "k0/down": 5,
+    "k0/right": 22,
+    "r0/down": 22,
+    "r0/right": 14,
+    "s0/down": 3,
+    "s0/right": 2,
+    "w0/down": 2,
+    "w0/right": 4,
+    "x0/down": 3,
+    "x0/right": 2
+  },
+  "possessed_ticks_histogram": {
+    "1": 540
+  },
+  "presence": {
+    "blocker": {
+      "first_frame": 561,
+      "kit": "blocker",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "lobber": {
+      "first_frame": 561,
+      "kit": "lobber",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher0": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 688,
+      "possessed_ticks": 0,
+      "ticks_present": 128
+    },
+    "rusher1": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 615,
+      "possessed_ticks": 0,
+      "ticks_present": 55
+    },
+    "rusher10": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher11": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher15": {
+      "first_frame": 916,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 185
+    },
+    "rusher16": {
+      "first_frame": 989,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 112
+    },
+    "rusher2": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher3": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher4": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher5": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher6": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher7": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher8": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher9": {
+      "first_frame": 561,
+      "kit": "rusher",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher_hater12": {
+      "first_frame": 561,
+      "kit": "rusher_hater",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher_hater13": {
+      "first_frame": 561,
+      "kit": "rusher_hater",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "rusher_hater14": {
+      "first_frame": 561,
+      "kit": "rusher_hater",
+      "last_frame": 1100,
+      "possessed_ticks": 0,
+      "ticks_present": 540
+    },
+    "striker": {
+      "first_frame": 561,
+      "kit": "striker",
+      "last_frame": 1100,
+      "possessed_ticks": 540,
+      "ticks_present": 540
+    }
+  },
+  "presence_gaps": [
+    "rusher0",
+    "rusher1",
+    "rusher15",
+    "rusher16"
+  ],
+  "record_semantics": "post-tick: a record at frame F carries world state AFTER the tick that produced F; its masks are the consumed input_log.masks[F-1] (s84 pin, item 4)",
+  "refusal_counts": {
+    "unmapped-tween-class": {
+      "count": 4,
+      "first_example": "frame 583 striker: unmapped-tween-class: tween_total 5 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+    },
+    "unrenderable-facing": {
+      "count": 1425,
+      "first_example": "frame 561 rusher0: unrenderable-facing: [-1, 1] has no banked row (banked set is down/right; mirrored and diagonal rows are separate, unrequested asset decisions)"
+    }
+  },
+  "refused": 1429,
+  "schema_version": "1",
+  "ticks": 540,
+  "window_frames": [
+    561,
+    1100
+  ],
+  "zone": "district"
+}

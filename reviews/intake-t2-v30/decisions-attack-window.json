@@ -1,0 +1,180 @@
+{
+  "class": "RUNTIME",
+  "decisions": 2538,
+  "declared_creatures": 18,
+  "intake": {
+    "bundle_id": "20260826T175326Z_p1_42",
+    "track_sha256": "dd68c8cbb324dd7faf19197df05922e32d20a65b8c3b08928f775da76f44545d",
+    "verification_runs": 2,
+    "verification_verdict": "PASS"
+  },
+  "mapped": 2022,
+  "mapping_id": "declared-integration-mapping-v1",
+  "masks_nonzero_ticks": 128,
+  "pose_counts": {
+    "a0/down": 2,
+    "a0/right": 30,
+    "f0/right": 8,
+    "f1/right": 7,
+    "f2/right": 12,
+    "f3/right": 8,
+    "idle/right": 1906,
+    "k0/down": 3,
+    "k0/right": 18,
+    "r0/right": 16,
+    "s0/right": 5,
+    "w0/right": 6,
+    "x0/right": 1
+  },
+  "possessed_ticks_histogram": {
+    "1": 141
+  },
+  "presence": {
+    "blocker": {
+      "first_frame": 420,
+      "kit": "blocker",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "lobber": {
+      "first_frame": 420,
+      "kit": "lobber",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher0": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher1": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher10": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher11": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher2": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher3": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher4": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher5": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher6": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher7": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher8": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher9": {
+      "first_frame": 420,
+      "kit": "rusher",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher_hater12": {
+      "first_frame": 420,
+      "kit": "rusher_hater",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher_hater13": {
+      "first_frame": 420,
+      "kit": "rusher_hater",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "rusher_hater14": {
+      "first_frame": 420,
+      "kit": "rusher_hater",
+      "last_frame": 560,
+      "possessed_ticks": 0,
+      "ticks_present": 141
+    },
+    "striker": {
+      "first_frame": 420,
+      "kit": "striker",
+      "last_frame": 560,
+      "possessed_ticks": 141,
+      "ticks_present": 141
+    }
+  },
+  "presence_gaps": [],
+  "record_semantics": "post-tick: a record at frame F carries world state AFTER the tick that produced F; its masks are the consumed input_log.masks[F-1] (s84 pin, item 4)",
+  "refusal_counts": {
+    "unmapped-tween-class": {
+      "count": 12,
+      "first_example": "frame 484 striker: unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+    },
+    "unrenderable-facing": {
+      "count": 504,
+      "first_example": "frame 420 lobber: unrenderable-facing: [1, 1] has no banked row (banked set is down/right; mirrored and diagonal rows are separate, unrequested asset decisions)"
+    }
+  },
+  "refused": 516,
+  "schema_version": "1",
+  "ticks": 141,
+  "window_frames": [
+    420,
+    560
+  ],
+  "zone": "district"
+}
