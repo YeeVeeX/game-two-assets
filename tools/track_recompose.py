@@ -42,6 +42,24 @@ mechanically derived tracks — 672 cells; plan half: the mapping's decision
 stream equals the banked v9 lane_tick outputs — 340 records), double-build
 determinism against the committed demo bytes, banked-module hash pins, and
 the standing zero-new-exports guard.
+
+Schema v1 (v30 adaptation): the game seat pinned the schema at tool-spec
+time (s84 T2 delivery; spec section 5 at game-two ``2627ed0``) and this
+consumer adapted to the pin per draft-1's own resolution rule — draft-1
+validation law is UNCHANGED, dispatched by ``schema_version``. v1 deltas:
+per-kit ``constants`` map covering exactly the roster's kits (selection
+rule: ``constants[creature.kit]``; the lunge px pair dropped from tracks —
+draw offsets stay mapping-side via render-reference); UNION roster (per-tick
+presence maps; absence = death/despawn/not-yet-spawned — information, not
+noise); ``possessed`` boolean per record; per-tick ``masks`` required;
+windowed frame domain 1..ticks_executed (frame 0 is constructor state);
+``provenance.bundle_id`` required (a track never self-certifies). RUNTIME
+tracks are admitted ONLY through ``verify_runtime_intake`` — the design
+section 5 evidence gate over ``evidence/replay/<bundle-id>/`` (manifest +
+PASS verification receipt with runs >= 2 + sidecar-matched track bytes);
+synthetic/fixture tracks are never runtime evidence (v13 law carried).
+``--decisions`` emits the TEXT decision stream (validation verdict + pose /
+typed-refusal statistics); it composes zero pixels.
 """
 
 from __future__ import annotations
@@ -82,7 +100,9 @@ from seam_metrics import check_export_pins  # noqa: E402
 from timeline_metrics import TICK_MS  # noqa: E402
 
 MAPPING_ID = "declared-integration-mapping-v1"
-SCHEMA_VERSION = "draft-1"  # game-seat-owned; unpinned until tool-spec time
+SCHEMA_VERSION = "draft-1"  # this repo's proposal; the demo bundle stays draft-1
+SCHEMA_V1 = "1"  # pinned by the game seat at tool-spec time (s84, spec section 5)
+SUPPORTED_SCHEMA_VERSIONS = (SCHEMA_VERSION, SCHEMA_V1)
 TRACK_CLASSES = ("SYNTHETIC", "RUNTIME")
 ATTACK_STATES = ("idle", "windup", "active", "recovery")
 FACING_NAMES = {(0, 1): "down", (1, 0): "right"}
@@ -123,6 +143,11 @@ REQUIRED_RECORD = (
     "tile_x", "tile_y", "px", "py", "facing", "tween_left", "tween_total",
     "attack_state", "current_action", "state_frames", "hp", "iframes",
 )
+REQUIRED_RECORD_V1 = REQUIRED_RECORD + ("possessed",)
+REQUIRED_KIT_CONSTANTS = (
+    "step_frames", "windup_frames", "active_frames", "recovery_frames",
+)
+EVIDENCE_REPLAY = ROOT / "evidence" / "replay"
 
 
 class RecomposeError(ValueError):
@@ -142,7 +167,10 @@ def _is_number(value) -> bool:
 
 def validate_track(track: dict) -> list[str]:
     """Typed violations (empty == valid). Every message is prefixed with its
-    refusal class so downstream tooling can sort refusals mechanically."""
+    refusal class so downstream tooling can sort refusals mechanically.
+    Dispatches on schema_version: draft-1 law unchanged; v1 = the s84 pin
+    (per-kit constants, union roster, possessed, masks, 1-based frames,
+    provenance.bundle_id)."""
     errors: list[str] = []
     if not isinstance(track, dict):
         return ["bad-type: track root must be an object"]
@@ -151,12 +179,19 @@ def validate_track(track: dict) -> list[str]:
             errors.append(f"missing-field: track.{field}")
     if errors:
         return errors
+    if not isinstance(track["schema_version"], str) or not track["schema_version"]:
+        return ["bad-type: track.schema_version must be a non-empty string"]
+    if track["schema_version"] not in SUPPORTED_SCHEMA_VERSIONS:
+        return [
+            f"bad-enum: track.schema_version {track['schema_version']!r} not "
+            f"in {SUPPORTED_SCHEMA_VERSIONS} (validation law dispatches on "
+            "the version; an unknown version has no law to validate under)"
+        ]
+    v1 = track["schema_version"] == SCHEMA_V1
     if track["class"] not in TRACK_CLASSES:
         errors.append(
             f"bad-enum: track.class {track['class']!r} not in {TRACK_CLASSES}"
         )
-    if not isinstance(track["schema_version"], str) or not track["schema_version"]:
-        errors.append("bad-type: track.schema_version must be a non-empty string")
     if not _is_number(track["tick_ms"]) or track["tick_ms"] <= 0:
         errors.append("bad-type: track.tick_ms must be a positive number")
     view = track["view"]
@@ -178,11 +213,25 @@ def validate_track(track: dict) -> list[str]:
     if not isinstance(constants, dict):
         errors.append("bad-type: track.constants must be an object")
         constants = {}
-    for field in REQUIRED_CONSTANTS:
-        if field not in constants:
-            errors.append(f"missing-field: track.constants.{field}")
-        elif not _is_int(constants[field]):
-            errors.append(f"bad-type: track.constants.{field} must be an integer")
+    if v1:
+        for kit, kit_constants in sorted(constants.items()):
+            if not isinstance(kit_constants, dict):
+                errors.append(f"bad-type: track.constants.{kit} must be an object")
+                continue
+            for field in REQUIRED_KIT_CONSTANTS:
+                if field not in kit_constants:
+                    errors.append(f"missing-field: track.constants.{kit}.{field}")
+                elif not _is_int(kit_constants[field]):
+                    errors.append(
+                        f"bad-type: track.constants.{kit}.{field} must be "
+                        "an integer"
+                    )
+    else:
+        for field in REQUIRED_CONSTANTS:
+            if field not in constants:
+                errors.append(f"missing-field: track.constants.{field}")
+            elif not _is_int(constants[field]):
+                errors.append(f"bad-type: track.constants.{field} must be an integer")
     creatures = track["creatures"]
     if (
         not isinstance(creatures, list)
@@ -208,15 +257,41 @@ def validate_track(track: dict) -> list[str]:
                         f"missing-field: creature {creature['name']!r} "
                         f"needs a non-empty {field}"
                     )
+    kit_by_name = {
+        c["name"]: c["kit"]
+        for c in (creatures if isinstance(creatures, list) else [])
+        if isinstance(c, dict) and isinstance(c.get("name"), str)
+        and isinstance(c.get("kit"), str)
+    }
+    if v1:
+        declared_kits = set(kit_by_name.values())
+        for kit in sorted(declared_kits - set(constants)):
+            errors.append(
+                f"missing-field: track.constants.{kit} (per-kit law: "
+                "constants cover exactly the roster's kits)"
+            )
+        for kit in sorted(set(constants) - declared_kits):
+            errors.append(
+                f"roster-mismatch: track.constants covers kit {kit!r} absent "
+                "from the roster (per-kit law: exactly the roster's kits)"
+            )
     provenance = track["provenance"]
     if not isinstance(provenance, dict) or provenance.get("class") != track["class"]:
         errors.append(
             "provenance-mismatch: track.provenance.class must equal track.class"
         )
+    if v1 and isinstance(provenance, dict):
+        bundle_id = provenance.get("bundle_id")
+        if not isinstance(bundle_id, str) or not bundle_id:
+            errors.append(
+                "missing-field: track.provenance.bundle_id (a track never "
+                "self-certifies — s84 pin, item 1)"
+            )
     ticks = track["ticks"]
     if not isinstance(ticks, list) or not ticks:
         errors.append("bad-type: track.ticks must be a non-empty list")
         return errors
+    observed: set[str] = set()
     for index, tick in enumerate(ticks):
         label = f"ticks[{index}]"
         if not isinstance(tick, dict):
@@ -225,6 +300,11 @@ def validate_track(track: dict) -> list[str]:
         frame = tick.get("frame")
         if not _is_int(frame):
             errors.append(f"bad-type: {label}.frame must be an integer")
+        elif index == 0 and v1 and frame < 1:
+            errors.append(
+                f"out-of-range: {label}.frame {frame} < 1 (frame 0 is "
+                "constructor state — no tick produced it; s84 pin, item 8)"
+            )
         elif index > 0 and _is_int(ticks[index - 1].get("frame")) and (
             frame != ticks[index - 1]["frame"] + 1
         ):
@@ -232,31 +312,74 @@ def validate_track(track: dict) -> list[str]:
                 f"non-consecutive: {label}.frame {frame} does not follow "
                 f"{ticks[index - 1]['frame']}"
             )
+        if v1:
+            if "masks" not in tick:
+                errors.append(
+                    f"missing-field: {label}.masks (v1 records carry the "
+                    "consumed masks — s84 pin, item 4)"
+                )
+            elif not isinstance(tick["masks"], dict):
+                errors.append(f"bad-type: {label}.masks must be an object")
+            else:
+                for seat, value in sorted(tick["masks"].items()):
+                    if not _is_int(value):
+                        errors.append(
+                            f"bad-type: {label}.masks[{seat}] must be an integer"
+                        )
         records = tick.get("creatures")
         if not isinstance(records, dict):
             errors.append(f"missing-field: {label}.creatures")
             continue
-        if names and sorted(records) != sorted(names):
+        if v1:
+            undeclared = sorted(set(records) - set(names))
+            if names and undeclared:
+                errors.append(
+                    f"roster-mismatch: {label}.creatures names {undeclared} "
+                    "not in the declared union roster"
+                )
+            observed.update(records)
+        elif names and sorted(records) != sorted(names):
             errors.append(
                 f"roster-mismatch: {label}.creatures keys {sorted(records)} "
                 f"!= declared {sorted(names)}"
             )
         for name, record in records.items():
+            if v1:
+                record_constants = constants.get(kit_by_name.get(name), {})
+                if not isinstance(record_constants, dict):
+                    record_constants = {}
+            else:
+                record_constants = constants
             errors.extend(
-                validate_record(record, constants, f"{label}.creatures[{name}]")
+                validate_record(
+                    record, record_constants,
+                    f"{label}.creatures[{name}]", v1=v1,
+                )
+            )
+    if v1:
+        for name in sorted(set(names) - observed):
+            errors.append(
+                f"roster-mismatch: creature {name!r} declared in the union "
+                "roster but present in zero ticks (union = creatures "
+                "observed in the window; s84 pin, item 5)"
             )
     return errors
 
 
-def validate_record(record: dict, constants: dict, label: str) -> list[str]:
+def validate_record(
+    record: dict, constants: dict, label: str, v1: bool = False
+) -> list[str]:
     errors: list[str] = []
     if not isinstance(record, dict):
         return [f"bad-type: {label} must be an object"]
-    for field in REQUIRED_RECORD:
+    required = REQUIRED_RECORD_V1 if v1 else REQUIRED_RECORD
+    for field in required:
         if field not in record:
             errors.append(f"missing-field: {label}.{field}")
     if errors:
         return errors
+    if v1 and not isinstance(record["possessed"], bool):
+        errors.append(f"bad-type: {label}.possessed must be a boolean")
     for field in ("tile_x", "tile_y", "tween_left", "tween_total", "hp", "iframes"):
         if not _is_int(record[field]):
             errors.append(f"bad-type: {label}.{field} must be an integer")
@@ -324,6 +447,30 @@ def phase_frames(constants: dict) -> dict[str, int]:
         "active": constants.get("active_frames"),
         "recovery": constants.get("recovery_frames"),
     }
+
+
+def lunge_constants(reference: dict) -> dict[str, int]:
+    """The mapping-side lunge px pair. v1 dropped windup_px/active_px from
+    track constants (s84 pin, item 3): they are DRAW OFFSETS, not timing —
+    this repo's render-reference pin stays their source of law."""
+    lunge = reference["feedback_states"]["lunge_offset"]
+    return {"windup_px": lunge["windup_px"], "active_px": lunge["active_px"]}
+
+
+def mapping_constants(track: dict, kit: str, reference: dict | None = None) -> dict:
+    """Flat select_pose constants for ONE creature under either schema.
+    draft-1 tracks carry them flat (px pair included); v1 tracks carry
+    per-kit ``*_frames`` (selection rule: ``constants[creature.kit]``) and
+    the px pair rides the mapping side. The mapping SEMANTICS are untouched
+    — only the constants source dispatches."""
+    if track["schema_version"] != SCHEMA_V1:
+        return track["constants"]
+    if reference is None:
+        raise RecomposeError(
+            "missing-reference: v1 mapping constants need the render "
+            "reference for the mapping-side lunge px pair"
+        )
+    return {**track["constants"][kit], **lunge_constants(reference)}
 
 
 # -- the declared mapping -------------------------------------------------------
@@ -403,10 +550,10 @@ def load_poses(dirs: dict[str, Path]) -> dict[str, dict]:
 
 
 def recompose_tick(
-    record: dict, track: dict, poses: dict, zone: dict
+    record: dict, track: dict, poses: dict, zone: dict, constants: dict
 ) -> tuple[Rgba8Canvas, dict]:
     """One creature's window for one tick + the decision record."""
-    pose, facing, offset = select_pose(record, track["constants"])
+    pose, facing, offset = select_pose(record, constants)
     dx, dy = draw_vector(record, track["view"], offset)
     view = track["view"]
     cell = compose_cell(
@@ -419,33 +566,260 @@ def recompose_tick(
     return cell, decision
 
 
+def verify_runtime_intake(
+    track_path: Path, evidence_root: Path | None = None
+) -> dict:
+    """The design-section-5 evidence gate for one RUNTIME track file: the
+    track must live inside an intaken ``evidence/replay/<bundle-id>/``
+    bundle whose manifest + verification receipt are present, the receipt
+    must attest PASS over >= 2 re-execution runs at the manifest's
+    fingerprint, and the track bytes must match their sidecar sha256.
+    Returns the intake context; raises RecomposeError
+    (``runtime-intake-not-established``) on any failure. Re-execution
+    itself is the game seat's attestation — this repo does not run game
+    code; member hashes and receipt consistency are what verify here."""
+    root = (evidence_root if evidence_root is not None else EVIDENCE_REPLAY)
+    root = root.resolve()
+    path = Path(track_path).resolve()
+    try:
+        rel = path.relative_to(root)
+    except ValueError:
+        raise RecomposeError(
+            f"runtime-intake-not-established: {path.name} lives outside the "
+            f"evidence intake root {root} (design section 5: RUNTIME tracks "
+            "are admitted only from verified intaken bundles; synthetic and "
+            "fixture tracks are never runtime evidence)"
+        ) from None
+    bundle_dir = root / rel.parts[0]
+    manifest_path = bundle_dir / "manifest.json"
+    verification_path = bundle_dir / "verification.json"
+    for req in (manifest_path, verification_path):
+        if not req.is_file():
+            raise RecomposeError(
+                f"runtime-intake-not-established: {req.name} missing from "
+                f"bundle {bundle_dir.name}"
+            )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    verification = json.loads(verification_path.read_text(encoding="utf-8"))
+    if verification.get("verdict") != "PASS":
+        raise RecomposeError(
+            "runtime-intake-not-established: verification verdict "
+            f"{verification.get('verdict')!r} != 'PASS' for bundle "
+            f"{bundle_dir.name}"
+        )
+    runs = verification.get("runs")
+    if not _is_int(runs) or runs < 2:
+        raise RecomposeError(
+            f"runtime-intake-not-established: verification runs {runs!r} < 2 "
+            f"for bundle {bundle_dir.name} (double re-execution is the "
+            "producer's attestation)"
+        )
+    if verification.get("bundle_id") != manifest.get("bundle_id"):
+        raise RecomposeError(
+            "runtime-intake-not-established: verification bundle_id "
+            f"{verification.get('bundle_id')!r} != manifest "
+            f"{manifest.get('bundle_id')!r}"
+        )
+    fp_manifest = manifest.get("fingerprint_md5")
+    fp_verified = verification.get("fingerprint_at_verification")
+    if not fp_manifest or fp_verified != fp_manifest:
+        raise RecomposeError(
+            "runtime-intake-not-established: fingerprint mismatch (manifest "
+            f"{fp_manifest!r} vs verification {fp_verified!r})"
+        )
+    sidecar = path.with_name(path.name + ".sha256")
+    if not sidecar.is_file():
+        raise RecomposeError(
+            f"runtime-intake-not-established: sidecar {sidecar.name} missing "
+            "(track identity rides the sidecar sha256 — bundles are "
+            "gitignored game-side; no git blob exists)"
+        )
+    stated = sidecar.read_text(encoding="utf-8").split()[0]
+    computed = file_sha256(path)
+    if stated != computed:
+        raise RecomposeError(
+            f"runtime-intake-not-established: {path.name} sha256 {computed} "
+            f"!= sidecar {stated}"
+        )
+    ticks_executed = manifest.get("ticks_executed")
+    if not _is_int(ticks_executed) or ticks_executed < 1:
+        raise RecomposeError(
+            "runtime-intake-not-established: manifest ticks_executed "
+            f"{ticks_executed!r} unusable as the frame-domain bound"
+        )
+    return {
+        "bundle_id": manifest.get("bundle_id"),
+        "bundle_dir": str(bundle_dir),
+        "ticks_executed": ticks_executed,
+        "manifest": manifest,
+        "verification": verification,
+        "track_sha256": computed,
+    }
+
+
+def require_runtime_admission(track: dict, intake: dict | None) -> None:
+    """RUNTIME tracks are admitted only as v1 evidence through the verified
+    intake context; draft-1 RUNTIME stays a proposal with no emitter, and a
+    track without the context refuses with the same class the v13 law
+    pinned (lifted ONLY via verified evidence/replay/ bundles)."""
+    if track["class"] != "RUNTIME":
+        return
+    if track["schema_version"] != SCHEMA_V1 or intake is None:
+        raise RecomposeError(
+            "runtime-intake-not-established: RUNTIME tracks are admitted "
+            "only through the verified evidence/replay/ intake gate "
+            "(verify_runtime_intake: manifest + PASS receipt with runs >= 2 "
+            "+ sidecar-matched bytes; design section 5). draft-1 RUNTIME "
+            "remains a schema proposal; synthetic and fixture tracks are "
+            "never runtime evidence (v13 law)"
+        )
+    bundle_id = track["provenance"].get("bundle_id")
+    if bundle_id != intake["bundle_id"]:
+        raise RecomposeError(
+            f"provenance-mismatch: track provenance.bundle_id {bundle_id!r} "
+            f"!= intaken bundle {intake['bundle_id']!r}"
+        )
+    first = track["ticks"][0]["frame"]
+    last = track["ticks"][-1]["frame"]
+    if first < 1 or last > intake["ticks_executed"]:
+        raise RecomposeError(
+            f"out-of-range: window {first}..{last} outside 1.."
+            f"{intake['ticks_executed']} (frame 0 is constructor state; "
+            "records exist only for executed ticks — s84 pin, item 8)"
+        )
+
+
+def decision_stream(
+    track: dict, reference: dict, intake: dict | None = None
+) -> dict:
+    """Validation verdict + mapping decision statistics for one track —
+    TEXT only, zero pixels composed. Every record maps to either a pose
+    selection or a TYPED refusal; v1 union-roster presence gaps (deaths,
+    despawns, not-yet-spawned joins) are reported as per-creature
+    information, never refused. RUNTIME tracks require the verified intake
+    context (design section 5)."""
+    errors = validate_track(track)
+    if errors:
+        raise RecomposeError("invalid track:\n" + "\n".join(errors))
+    require_runtime_admission(track, intake)
+    kit_by_name = {c["name"]: c["kit"] for c in track["creatures"]}
+    ticks = track["ticks"]
+    presence: dict[str, dict] = {
+        name: {
+            "kit": kit_by_name[name], "first_frame": None, "last_frame": None,
+            "ticks_present": 0, "possessed_ticks": 0,
+        }
+        for name in kit_by_name
+    }
+    pose_counts: dict[str, int] = {}
+    refusal_counts: dict[str, dict] = {}
+    possessed_histogram: dict[int, int] = {}
+    masks_nonzero_ticks = 0
+    decisions = 0
+    for tick in ticks:
+        frame = tick["frame"]
+        masks = tick.get("masks")
+        if isinstance(masks, dict) and any(
+            _is_int(v) and v != 0 for v in masks.values()
+        ):
+            masks_nonzero_ticks += 1
+        possessed_here = 0
+        for name, record in sorted(tick["creatures"].items()):
+            stat = presence[name]
+            if stat["first_frame"] is None:
+                stat["first_frame"] = frame
+            stat["last_frame"] = frame
+            stat["ticks_present"] += 1
+            if record.get("possessed") is True:
+                stat["possessed_ticks"] += 1
+                possessed_here += 1
+            decisions += 1
+            try:
+                constants = mapping_constants(track, kit_by_name[name], reference)
+                pose, facing, _ = select_pose(record, constants)
+                key = f"{pose}/{facing}"
+                pose_counts[key] = pose_counts.get(key, 0) + 1
+            except RecomposeError as exc:
+                refusal_class = str(exc).split(":", 1)[0]
+                entry = refusal_counts.setdefault(
+                    refusal_class,
+                    {"count": 0,
+                     "first_example": f"frame {frame} {name}: {exc}"[:200]},
+                )
+                entry["count"] += 1
+        possessed_histogram[possessed_here] = (
+            possessed_histogram.get(possessed_here, 0) + 1
+        )
+    mapped = sum(pose_counts.values())
+    gaps = sorted(
+        name for name, stat in presence.items()
+        if stat["ticks_present"] != len(ticks)
+    )
+    return {
+        "mapping_id": MAPPING_ID,
+        "schema_version": track["schema_version"],
+        "class": track["class"],
+        "zone": track["zone"],
+        "window_frames": [ticks[0]["frame"], ticks[-1]["frame"]],
+        "record_semantics": (
+            "post-tick: a record at frame F carries world state AFTER the "
+            "tick that produced F; its masks are the consumed "
+            "input_log.masks[F-1] (s84 pin, item 4)"
+        ),
+        "ticks": len(ticks),
+        "declared_creatures": len(kit_by_name),
+        "decisions": decisions,
+        "mapped": mapped,
+        "refused": decisions - mapped,
+        "pose_counts": {k: pose_counts[k] for k in sorted(pose_counts)},
+        "refusal_counts": {
+            k: refusal_counts[k] for k in sorted(refusal_counts)
+        },
+        "possessed_ticks_histogram": {
+            str(k): possessed_histogram[k] for k in sorted(possessed_histogram)
+        },
+        "masks_nonzero_ticks": masks_nonzero_ticks,
+        "presence": {name: presence[name] for name in sorted(presence)},
+        "presence_gaps": gaps,
+        "intake": None if intake is None else {
+            "bundle_id": intake["bundle_id"],
+            "track_sha256": intake["track_sha256"],
+            "verification_verdict": intake["verification"]["verdict"],
+            "verification_runs": intake["verification"]["runs"],
+        },
+    }
+
+
 def recompose_track(
-    track: dict, poses: dict, reference: dict, zone_key: str | None = None
+    track: dict, poses: dict, reference: dict, zone_key: str | None = None,
+    intake: dict | None = None,
 ) -> tuple[list[Rgba8Canvas], list[dict]]:
     """All ticks of a single-creature track over one zone palette."""
     errors = validate_track(track)
     if errors:
         raise RecomposeError("invalid track:\n" + "\n".join(errors))
-    if track["class"] == "RUNTIME":
-        raise RecomposeError(
-            "runtime-intake-not-established: the evidence intake gate (design "
-            "section 5) is not banked, so the reference consumer recomposes "
-            "SYNTHETIC tracks only — RUNTIME stays a schema proposal until "
-            "the game seat pins the contract and intake exists (council "
-            "adoption, v13)"
-        )
+    require_runtime_admission(track, intake)
     names = [c["name"] for c in track["creatures"]]
     if len(names) != 1:
         raise RecomposeError(
             "unsupported-roster: the reference consumer composes one creature "
             f"per window (track declares {len(names)})"
         )
-    zone = reference["zones"][zone_key or track["zone"]]
+    zone_name = zone_key or track["zone"]
+    if zone_name not in reference["zones"]:
+        raise RecomposeError(
+            f"unmapped-zone: no banked palette exists for zone {zone_name!r} "
+            "(banked zones only; the mapping refuses rather than guesses)"
+        )
+    zone = reference["zones"][zone_name]
+    constants = mapping_constants(
+        track, track["creatures"][0]["kit"], reference
+    )
     frames: list[Rgba8Canvas] = []
     decisions: list[dict] = []
     for tick in track["ticks"]:
         record = tick["creatures"][names[0]]
-        cell, decision = recompose_tick(record, track, poses, zone)
+        cell, decision = recompose_tick(record, track, poses, zone, constants)
         decision["frame"] = tick["frame"]
         frames.append(cell)
         decisions.append(decision)
@@ -962,6 +1336,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--track", type=Path, default=None,
                         help="validate a track file and report (no artifacts)")
+    parser.add_argument("--decisions", type=Path, default=None,
+                        help="decision-stream statistics for a track (TEXT "
+                             "only; RUNTIME goes through the intake gate)")
+    parser.add_argument("--out", type=Path, default=None,
+                        help="write --decisions JSON here instead of stdout")
     parser.add_argument("--make-demo", action="store_true",
                         help="generate the SYNTHETIC demo bundle")
     parser.add_argument("--check", action="store_true",
@@ -977,11 +1356,29 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"INVALID: {error}", file=sys.stderr)
             if errors:
                 return 1
-            frames, decisions = recompose_track(track, load_poses(dirs), reference)
+            intake = None
+            if isinstance(track, dict) and track.get("class") == "RUNTIME":
+                intake = verify_runtime_intake(args.track)
+            frames, decisions = recompose_track(
+                track, load_poses(dirs), reference, intake=intake
+            )
             print(
                 f"valid {track['class']} track: {len(frames)} ticks recomposed "
                 f"under {MAPPING_ID}"
             )
+            return 0
+        if args.decisions is not None:
+            track = json.loads(args.decisions.read_text(encoding="utf-8"))
+            intake = None
+            if isinstance(track, dict) and track.get("class") == "RUNTIME":
+                intake = verify_runtime_intake(args.decisions)
+            stats = decision_stream(track, reference, intake)
+            payload = json.dumps(stats, indent=2, sort_keys=True) + "\n"
+            if args.out is not None:
+                args.out.write_text(payload, encoding="utf-8", newline="\n")
+                print(f"wrote {args.out}")
+            else:
+                print(payload, end="")
             return 0
         if args.make_demo:
             manifest = make_demo(reference, dirs)
