@@ -1,0 +1,70 @@
+{
+  "apng": {
+    "delay": "exact 1/60 s per tick; the banked encoder holds the last frame 0.5 s before the loop restarts (v13 convention)",
+    "frames": 64,
+    "zoom_scales": [
+      1,
+      4
+    ]
+  },
+  "artifact_class": "RUNTIME-EXP",
+  "artifacts": {
+    "decisions-subject.json": "f7b7d9a20e7b966bb6e60fc20cd5dfe8a1fc80b795ade4a919d9d8c8ffc49986",
+    "runtime-exp-attack-native.apng": "f3417283ef1c16470cbc1da8ad89fd7427b09dc9fa02e14ea7b51272f1310e42",
+    "runtime-exp-attack-sheet.png": "3e440ea3dafc37f96a4fa5acf7663c9ffb854684275f0688d32760e59c66d00d",
+    "runtime-exp-attack-zoom4.apng": "e25d803dae5e3df35d6ea68da9b2768ecd40f141c4c3917176e80d979d621528"
+  },
+  "determinism": {
+    "double_build_identical": true
+  },
+  "disclosure": "RUNTIME-EXP: captured state is real; frame selection is the proposal's (declared-integration-mapping-v1); single-creature window, neighbors omitted; not the live camera; answers ZERO register items.",
+  "generated_by": "tools/track_recompose.py --make-runtime-artifacts",
+  "intake": {
+    "bundle_id": "20260826T175326Z_p1_42",
+    "fingerprint_md5": "d8abc55a547161da23a105ca02695fd4",
+    "verification_runs": 2,
+    "verification_verdict": "PASS"
+  },
+  "mapping_id": "declared-integration-mapping-v1",
+  "mapping_source_sha256": {
+    "tools/make_contact_sheet.py": "da5e558d879854f8bca911f09ab89a79fdd6dfa28d3446c1173a7334608edac8",
+    "tools/make_corner_timeline.py": "17a86e727b6bee094c984ba488021c88b2e0c0eed8ddce460b2db67f3519c37c",
+    "tools/make_cross_seam_timeline.py": "93e6984ec9e77561a0ff3e2cca7c94d69b46de74ea743db9abfa3b0e562f3fe6",
+    "tools/make_grammar_timeline.py": "60cc967a7564648aa1ef9d75cc050f536b43c0a5b4500fa76681bb0dc2bf6181",
+    "tools/make_seam_timeline.py": "2d71ad2991458bad69f6cdeed496b96cb8667dc458742369ec011d0f66b683de",
+    "tools/make_turn_timeline.py": "8bbd889918885c1240088f0193698161f0b9fbb7953eaaaa3857588670febeda",
+    "tools/png_reader.py": "dd10b5759a712136c44618ebcae2889ac94c1d2a89f158770c9e8c3ddc06a58c",
+    "tools/png_writer.py": "0a00c3ac783a7781eda1fc70a8503348d223d4d60753430266cc8bef5e64b77d",
+    "tools/track_recompose.py": "19c63562a3b89b2141707c2121c0e24fbff500a489337234d45caa8d464009be"
+  },
+  "repo_commit_at_generation": "caa31f206844b3191ea8a72a97ba5d830027f21a",
+  "schema_version": "1",
+  "source_track": {
+    "path": "evidence/replay/20260826T175326Z_p1_42/tracks/reference-attack-window.json",
+    "sha256": "dd68c8cbb324dd7faf19197df05922e32d20a65b8c3b08928f775da76f44545d"
+  },
+  "span_frames": [
+    420,
+    483
+  ],
+  "span_policy": "longest contiguous refusal-free span of the subject containing a complete attack cycle (w0 through x0, returning to idle); tie -> earliest (pre-registered)",
+  "subject": {
+    "kit": "striker",
+    "name": "striker"
+  },
+  "ticks": 64,
+  "window": {
+    "height": 128,
+    "origin_px": [
+      192,
+      352
+    ],
+    "width": 160
+  },
+  "window_formula": "bounding box of the subject's world draw vectors (round_half_up(px/py) + lunge offset along facing), each sprite spanning TILE=32; rounded outward to the whole-TILE world grid; plus one full TILE margin per side (reviews/runtime-recompose-v31/rationale.md, window policy)",
+  "zone_palette": {
+    "file": "manifests/zone-palette-district.json",
+    "sha256": "ee2d185a2b8b5c120001751951fc787e9d863065e01eef413ea93a5017734622",
+    "zone": "district"
+  }
+}

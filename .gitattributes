@@ -11,4 +11,5 @@
 /exports/**/*.wav filter=lfs diff=lfs merge=lfs -text
 /exports/**/*.png -text
 /reviews/**/*.png -text
+/reviews/**/*.apng -text
 /evidence/replay/** -text

@@ -1,0 +1,2365 @@
+{
+  "class": "RUNTIME",
+  "disclosure": "RUNTIME-EXP: captured state is real; frame selection is the proposal's (declared-integration-mapping-v1); single-creature window, neighbors omitted; not the live camera; answers ZERO register items.",
+  "entries": [
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          227,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f0",
+        "pose_facing": "right"
+      },
+      "frame": 420,
+      "tween": [
+        12,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          228,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f0",
+        "pose_facing": "right"
+      },
+      "frame": 421,
+      "tween": [
+        11,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          230,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f0",
+        "pose_facing": "right"
+      },
+      "frame": 422,
+      "tween": [
+        10,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          233,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f0",
+        "pose_facing": "right"
+      },
+      "frame": 423,
+      "tween": [
+        9,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          237,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f1",
+        "pose_facing": "right"
+      },
+      "frame": 424,
+      "tween": [
+        8,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          240,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f1",
+        "pose_facing": "right"
+      },
+      "frame": 425,
+      "tween": [
+        7,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          244,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f1",
+        "pose_facing": "right"
+      },
+      "frame": 426,
+      "tween": [
+        6,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          247,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f2",
+        "pose_facing": "right"
+      },
+      "frame": 427,
+      "tween": [
+        5,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          251,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f2",
+        "pose_facing": "right"
+      },
+      "frame": 428,
+      "tween": [
+        4,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          254,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f2",
+        "pose_facing": "right"
+      },
+      "frame": 429,
+      "tween": [
+        3,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          256,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f3",
+        "pose_facing": "right"
+      },
+      "frame": 430,
+      "tween": [
+        2,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          257,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "f3",
+        "pose_facing": "right"
+      },
+      "frame": 431,
+      "tween": [
+        1,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 432,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "w0",
+        "pose_facing": "right"
+      },
+      "frame": 433,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 434,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 435,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 436,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 437,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 438,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 439,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 440,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 441,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "s0",
+        "pose_facing": "right"
+      },
+      "frame": 442,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 443,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 444,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 445,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 446,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 447,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 448,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "x0",
+        "pose_facing": "right"
+      },
+      "frame": 449,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 450,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 451,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 452,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 453,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 454,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 455,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 456,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 457,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 458,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 459,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 460,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 461,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 462,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 463,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 464,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 465,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 466,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 467,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "w0",
+        "pose_facing": "right"
+      },
+      "frame": 468,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 469,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 470,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 471,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          255,
+          386
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 472,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 473,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 474,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 475,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          264,
+          386
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 476,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "s0",
+        "pose_facing": "right"
+      },
+      "frame": 477,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 478,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 479,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 480,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 481,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 482,
+      "tween": [
+        0,
+        13
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          258,
+          386
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 483,
+      "tween": [
+        7,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 484,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        6,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 485,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        5,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 486,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        4,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 487,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        3,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 488,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        2,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 489,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        1,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 490,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 491,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 492,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 493,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 494,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 495,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 496,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 497,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 498,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 499,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 500,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 501,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 502,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "w0",
+        "pose_facing": "right"
+      },
+      "frame": 503,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 504,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 505,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 506,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 507,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 508,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 509,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 510,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 511,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "s0",
+        "pose_facing": "right"
+      },
+      "frame": 512,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 513,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 514,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 515,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 516,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 517,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 518,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 519,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 520,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 521,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 522,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 523,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 524,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 525,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 526,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 527,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 528,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 529,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 530,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 531,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 532,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 533,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 534,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 535,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 536,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 537,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "w0",
+        "pose_facing": "right"
+      },
+      "frame": 538,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 539,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 540,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 541,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "windup",
+      "decision": {
+        "draw": [
+          223,
+          418
+        ],
+        "offset_px": -3,
+        "pose": "a0",
+        "pose_facing": "right"
+      },
+      "frame": 542,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 543,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 544,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 545,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "active",
+      "decision": {
+        "draw": [
+          232,
+          418
+        ],
+        "offset_px": 6,
+        "pose": "k0",
+        "pose_facing": "right"
+      },
+      "frame": 546,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "s0",
+        "pose_facing": "right"
+      },
+      "frame": 547,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "recovery",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "r0",
+        "pose_facing": "right"
+      },
+      "frame": 548,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          226,
+          418
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 549,
+      "tween": [
+        7,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 550,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        6,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 551,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        5,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 552,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        4,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 553,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        3,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 554,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        2,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "frame": 555,
+      "refusal": {
+        "class": "unmapped-tween-class",
+        "message": "unmapped-tween-class: tween_total 7 != step_frames 13 while moving (dash/knockback classes have no banked frame-selection evidence; the mapping refuses rather than guesses)"
+      },
+      "tween": [
+        1,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          194,
+          450
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 556,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          194,
+          450
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 557,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          194,
+          450
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 558,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          194,
+          450
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 559,
+      "tween": [
+        0,
+        7
+      ]
+    },
+    {
+      "attack_state": "idle",
+      "decision": {
+        "draw": [
+          194,
+          450
+        ],
+        "offset_px": 0,
+        "pose": "idle",
+        "pose_facing": "right"
+      },
+      "frame": 560,
+      "tween": [
+        0,
+        7
+      ]
+    }
+  ],
+  "intake": {
+    "bundle_id": "20260826T175326Z_p1_42",
+    "track_sha256": "dd68c8cbb324dd7faf19197df05922e32d20a65b8c3b08928f775da76f44545d",
+    "verification_runs": 2,
+    "verification_verdict": "PASS"
+  },
+  "kit": "striker",
+  "mapped": 129,
+  "mapping_id": "declared-integration-mapping-v1",
+  "refused": 12,
+  "schema_version": "1",
+  "span": [
+    420,
+    483
+  ],
+  "span_policy": "longest contiguous refusal-free span of the subject containing a complete attack cycle (w0 through x0, returning to idle); tie -> earliest (pre-registered, reviews/runtime-recompose-v31/rationale.md)",
+  "subject": "striker",
+  "window_frames": [
+    420,
+    560
+  ],
+  "zone": "district"
+}
