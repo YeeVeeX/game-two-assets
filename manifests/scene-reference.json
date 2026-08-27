@@ -1,0 +1,46 @@
+{
+  "contract_version": 1,
+  "purpose": "Anchored neighbor-layer value source for SCENE recomposition: per-kit body colors, notch geometry, body size, and the draw-only lunge law - the engine's own primitive-body draw grammar, every value cited to pinned renderer bytes. Consumed OPT-IN by track_recompose scene builders (load_scene_reference); cross-checked against the banked render reference at generation. Never a runtime fetch.",
+  "derived_at": "2026-08-27",
+  "anchoring": {
+    "game_commit": "ad7f6a1e5700481c0ed455970790e66d89501358",
+    "pinned_by": "manifests/runtime-baseline.json",
+    "source_file": "src/app/renderer.rb",
+    "source_sha256_lf": "45827b9a2f9ef473659a8353fcb9c9aa6eb7fccd73776e572572f7f383c5ac04",
+    "value_citations": {
+      "kit_body.striker": "renderer.rb:17 KIT_BODY striker Gosu::Color.new(255, 235, 120, 40) = render-reference primitive_body.body_rgb = runtime-baseline role_colors.player_1 #eb7828",
+      "kit_body.blocker": "renderer.rb:18 KIT_BODY blocker Gosu::Color.new(255, 190, 80, 35)",
+      "kit_body.lobber": "renderer.rb:19 KIT_BODY lobber Gosu::Color.new(255, 225, 170, 90)",
+      "kit_body.rusher_hater": "renderer.rb:20 KIT_BODY rusher_hater: HUMAN_BODY (renderer.rb:15, Gosu::Color.new(255, 205, 198, 180) pale bone)",
+      "default_body_rgb": "renderer.rb:16 KIT_BODY = Hash.new(HUMAN_BODY) - any kit outside the merge (e.g. rusher) draws HUMAN_BODY (renderer.rb:15); a cited VALUE, not a guess; corroborated by render-reference telegraph.body_rgb (bone body, same triple)",
+      "body_size": "renderer.rb:76 SIZE = Game::Creature::SIZE = 28 (creature.rb:9, cited in render-reference feedback_states.source_lines; = render-reference primitive_body.size)",
+      "notch.size": "renderer.rb:865 n = 6 (= render-reference primitive_body.notch_size)",
+      "notch.rgb": "renderer.rb:43 NOTCH Gosu::Color.new(255, 20, 14, 12) (= render-reference primitive_body.notch_rgb)",
+      "notch_geometry": "renderer.rb:863-877 draw_facing_notch: fx==0 -> notch spans centered horizontally at the facing edge (y+SIZE-n if fy>0 else y); fy==0 -> centered vertically at the facing edge (x+SIZE-n if fx>0 else x); diagonal -> corner notch at the facing corner; the three-branch law is total over integer facings (all four cardinals and diagonals legal)",
+      "notch_over_body": "renderer.rb:843 draw_facing_notch called after the body rect; feedback_states.hurt_flash treatment note 'facing notch drawn on top' corroborates",
+      "lunge": "renderer.rb:879-888 lunge_offset: [0,0] unless faction pack (:880); [0,0] when current_action == :special (:881); windup -3px / active +6px along facing (:884-885), else [0,0] (= render-reference feedback_states.lunge_offset; re-verified by pin_drift lunge needles at every re-pin)",
+      "ring": "renderer.rb:798-802: x = c.x + lunge is computed BEFORE the ring rect Gosu.draw_rect(x-3, y-3, SIZE+6, SIZE+6, POSSESSED_RING) - the ring RIDES THE LUNGE and draws BEFORE the body (the body covers its center; 3px band shows); POSSESSED_RING renderer.rb:23 (255,255,255) = render-reference possession_ring {rgb, expand 3}; scene ring geometry = the banked draw_ring convention (tools/make_contact_sheet.py) around the render-reference primitive_body box at the subject's drawn canvas position + lunge",
+      "draw_order_factions": "renderer.rb:108-109: world.humans.each draw_creature THEN world.pack.living.each draw_creature - pack bodies draw over humans; the map draws under everything (renderer.rb:96-99, draw_map first)",
+      "draw_order_within_faction": "DECLARED (the proposal's own, disclosed): ascending drawn y then creature name - the engine iterates its live collection order, runtime state a state track does not carry",
+      "position": "track px/py = the creature body top-left (c.x/c.y = walker.px/walker.py, creature.rb:60-61; docs/state-track-schema.md px/py row); the +2px tile inset is already inside px (grid_walker.rb:102-103 centers the 28px body at +2px in the tile) - the neighbor body rect draws at round_half_up(px)+lunge with NO added tile_offset (the double-offset trap named in the registration)"
+    },
+    "not_modeled": "hurt flash, iframes flicker, telegraph swell and core, ally dim, seized weight and underlines, taunt underline, pressure outline, retarget cues, god marks, nameplates, attack action tiles, enemy strike tiles, corpses, drops, projectiles, chant rings - disclosed in the scene artifacts",
+    "registration": "reviews/scene-recompose-v32/rationale.md (neighbor layer law, pre-registered)"
+  },
+  "kit_body": {
+    "striker": [235, 120, 40],
+    "blocker": [190, 80, 35],
+    "lobber": [225, 170, 90],
+    "rusher_hater": [205, 198, 180]
+  },
+  "default_body_rgb": [205, 198, 180],
+  "body_size": 28,
+  "notch": {
+    "size": 6,
+    "rgb": [20, 14, 12]
+  },
+  "lunge": {
+    "windup_px": -3,
+    "active_px": 6
+  }
+}

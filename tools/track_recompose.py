@@ -73,6 +73,21 @@ reference keeps the banked-zones-only refusal), double-build determinism,
 and the RUNTIME-EXP disclosure in pixels, filenames, and manifest. Every
 artifact answers ZERO register items. ``--decisions --creature`` emits the
 per-creature TEXT decision stream (the subject filter).
+
+v32 SCENE-EXP composition (pre-registered in
+``reviews/scene-recompose-v32/rationale.md``): ``--make-scene-artifacts``
+renders the SAME banked span as a multi-creature SCENE under
+``declared-scene-composition-v1`` layered on the untouched mapping - tile
+layer from the anchored district map (``load_zone_map``; banked
+draw_floor/draw_wall/draw_gold conventions), neighbors as the ENGINE's own
+primitive bodies value-anchored to pinned renderer bytes
+(``load_scene_reference``; legal for ALL integer facings), the banked
+striker sprite as the subject (decisions asserted equal to the banked v31
+capture), the possession ring from pinned constants (lunge-riding,
+renderer-cited), humans-then-pack draw order (derived) with a DECLARED
+within-faction tiebreak (disclosed). Span re-derived and asserted equal to
+the banked [420, 483]; window = the v31 formula at margin M=4 TILEs; hard
+sheet-dimension cap 4096. Every artifact answers ZERO register items.
 """
 
 from __future__ import annotations
@@ -92,7 +107,16 @@ sys.path.insert(0, str(TOOLS))
 import make_corner_timeline as v11  # noqa: E402  (banked, imported unmodified)
 import make_cross_seam_timeline as v9  # noqa: E402  (banked, imported unmodified)
 import make_turn_timeline as v10  # noqa: E402  (banked, imported unmodified)
-from make_contact_sheet import GUTTER, TILE, load_reference  # noqa: E402
+from make_contact_sheet import (  # noqa: E402
+    GUTTER,
+    TILE,
+    blit_sprite,
+    draw_floor_tile,
+    draw_gold_tile,
+    draw_ring,
+    draw_wall_tile,
+    load_reference,
+)
 from make_cross_seam_timeline import compose_cell  # noqa: E402
 from make_grammar_timeline import (  # noqa: E402
     apng_delays,
@@ -173,6 +197,59 @@ SHEET_FOOTER = "ANSWERS ZERO REGISTER ITEMS"
 APNG_HEADER_1 = "RUNTIME EXP  MAPPING 1"
 APNG_HEADER_2 = "ANSWERS ZERO REGISTER ITEMS"
 SHEET_CELLS_PER_ROW = 10
+
+# -- v32 SCENE-EXP multi-creature scene constants -------------------------------
+# Pre-registered in reviews/scene-recompose-v32/rationale.md: scene layer
+# law, span/window policy (margin M=4 TILEs), draw order, disclosure set
+# (every pixel string glyph-checked against SEAM_FONT before registration).
+# EXP-class: every artifact answers ZERO register items and says so in
+# pixels, filename, and manifest. Layer honesty: subject = the sprite
+# proposal; neighbors = the ENGINE's own primitive bodies value-anchored to
+# pinned renderer bytes; tile layer from the pinned district map; ring from
+# pinned constants; feedback states beyond the ring NOT modeled.
+SCENE_COMPOSITION_ID = "declared-scene-composition-v1"
+SCENE_DIR = ROOT / "reviews" / "scene-recompose-v32"
+SCENE_MANIFEST = SCENE_DIR / "scene-exp-manifest.json"
+SCENE_SHEET = SCENE_DIR / "scene-exp-attack-sheet.png"
+SCENE_APNG_NATIVE = SCENE_DIR / "scene-exp-attack-native.apng"
+SCENE_APNG_ZOOM = SCENE_DIR / "scene-exp-attack-zoom4.apng"
+SCENE_PARTICIPANTS = SCENE_DIR / "scene-exp-participants.json"
+ZONE_MAP_DISTRICT = ROOT / "manifests" / "zone-map-district.json"
+SCENE_REFERENCE_FILE = ROOT / "manifests" / "scene-reference.json"
+SCENE_MARGIN_TILES = 4
+SCENE_CELLS_PER_ROW = 8
+SCENE_MAX_SHEET_DIM = 4096  # the v16 png_reader-cap precedent (hard assert)
+SCENE_TILE_GLYPHS = (".", "#")
+SCENE_FACTIONS = ("human", "pack")  # draw-pass order, renderer.rb:108-109
+SCENE_EXP_DISCLOSURE = (
+    "SCENE-EXP: captured state is real; frame selection is the proposal's "
+    "(declared-integration-mapping-v1); scene composition is the "
+    "proposal's (declared-scene-composition-v1); subject sprite is the "
+    "proposal; neighbors are the engine's primitive bodies value-anchored "
+    "at the pin; tile layer from the pinned district map; possession ring "
+    "from pinned constants; feedback states beyond the ring not modeled; "
+    "stations decor motif ambient not modeled; temporal window is a "
+    "selected span (see decisions capture); not the live camera; answers "
+    "ZERO register items."
+)
+SCENE_SHEET_BANNER_1 = (
+    "SCENE EXP  CAPTURED STATE IS REAL  FRAME SELECTION IS THE PROPOSAL"
+)
+SCENE_SHEET_BANNER_2 = (
+    "SUBJECT SPRITE IS THE PROPOSAL  NEIGHBORS ARE ENGINE RECT BODIES "
+    "AT THE PIN"
+)
+SCENE_SHEET_BANNER_3 = (
+    "FEEDBACK STATES BEYOND THE RING NOT MODELED  STATIONS DECOR NOT "
+    "MODELED  NOT THE GAME CAMERA"
+)
+SCENE_TEMPORAL_TEMPLATE = (
+    "SPAN {first} TO {last} OF WINDOW {wfirst} TO {wlast}  SELECTED SPAN  "
+    "SEE DECISIONS CAPTURE"
+)
+SCENE_SHEET_FOOTER = "ANSWERS ZERO REGISTER ITEMS"
+SCENE_APNG_HEADER_1 = "SCENE EXP  MAPPING 1  COMPOSITION 1"
+SCENE_APNG_HEADER_2 = "ANSWERS ZERO REGISTER ITEMS"
 
 REQUIRED_TOP = (
     "schema_version", "class", "tick_ms", "zone", "view", "constants",
@@ -1442,6 +1519,1006 @@ def check_runtime_artifacts(
     return failures
 
 
+# -- v32 SCENE-EXP multi-creature composition (pre-registered protocol) ---------
+
+
+def load_zone_map(path: Path) -> dict:
+    """The anchored district tile map (manifests/zone-map-district.json):
+    tiles rows + tile_size + transitions copied VERBATIM from the pinned
+    data/zones/district.json (the anchoring block binds to CONTENT via
+    source_sha256_lf; the guard test asserts it equals the runtime-baseline
+    pin). Typed refusals on any shape violation."""
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    rows = payload.get("tiles")
+    if not isinstance(rows, list) or not rows or not all(
+        isinstance(r, str) and r for r in rows
+    ):
+        raise RecomposeError(
+            f"zone-map-invalid: {Path(path).name} tiles must be a non-empty "
+            "list of row strings"
+        )
+    width = len(rows[0])
+    if any(len(r) != width for r in rows):
+        raise RecomposeError("zone-map-invalid: ragged tile rows")
+    glyphs = set("".join(rows)) - set(SCENE_TILE_GLYPHS)
+    if glyphs:
+        raise RecomposeError(
+            f"zone-map-invalid: unknown tile glyphs {sorted(glyphs)} (the "
+            "pinned district map carries '.' and '#' only)"
+        )
+    if payload.get("tile_size") != TILE:
+        raise RecomposeError(
+            f"zone-map-invalid: tile_size {payload.get('tile_size')!r} != "
+            f"{TILE}"
+        )
+    transitions = payload.get("transitions", [])
+    if not isinstance(transitions, list):
+        raise RecomposeError("zone-map-invalid: transitions must be a list")
+    tiles = []
+    for transition in transitions:
+        at = transition.get("at") if isinstance(transition, dict) else None
+        if (
+            not isinstance(at, list) or len(at) != 2
+            or not all(_is_int(v) for v in at)
+        ):
+            raise RecomposeError(
+                "zone-map-invalid: every transition needs integer at [x, y]"
+            )
+        tx, ty = at
+        if not (0 <= tx < width and 0 <= ty < len(rows)):
+            raise RecomposeError(
+                f"zone-map-invalid: transition at {at} outside the map"
+            )
+        if rows[ty][tx] == "#":
+            raise RecomposeError(
+                f"zone-map-invalid: transition at {at} sits on a wall glyph"
+            )
+        tiles.append((tx, ty))
+    return {
+        "rows": rows,
+        "cols": width,
+        "row_count": len(rows),
+        "tile_size": TILE,
+        "transition_tiles": tiles,
+    }
+
+
+def load_scene_reference(path: Path) -> dict:
+    """The anchored neighbor-layer value source
+    (manifests/scene-reference.json): per-kit body colors, notch geometry,
+    body size, and the lunge law - every value cited to pinned renderer
+    bytes in the file's own anchoring block. Shape-validated here;
+    cross-checked against the banked render reference at generation
+    (scene-reference-mismatch)."""
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+
+    def rgb(value, label: str) -> list[int]:
+        if (
+            not isinstance(value, list) or len(value) != 3
+            or not all(_is_int(v) and 0 <= v <= 255 for v in value)
+        ):
+            raise RecomposeError(
+                f"scene-reference-invalid: {label} must be an RGB triple"
+            )
+        return list(value)
+
+    kit_body = payload.get("kit_body")
+    if not isinstance(kit_body, dict) or not kit_body:
+        raise RecomposeError(
+            "scene-reference-invalid: kit_body must be a non-empty object"
+        )
+    kits = {
+        kit: rgb(value, f"kit_body.{kit}")
+        for kit, value in sorted(kit_body.items())
+    }
+    default = rgb(payload.get("default_body_rgb"), "default_body_rgb")
+    notch = payload.get("notch")
+    if (
+        not isinstance(notch, dict) or not _is_int(notch.get("size"))
+        or notch["size"] < 1
+    ):
+        raise RecomposeError(
+            "scene-reference-invalid: notch needs integer size >= 1"
+        )
+    body_size = payload.get("body_size")
+    if not _is_int(body_size) or body_size < 1:
+        raise RecomposeError(
+            "scene-reference-invalid: body_size must be a positive integer"
+        )
+    lunge = payload.get("lunge")
+    if (
+        not isinstance(lunge, dict)
+        or not _is_int(lunge.get("windup_px"))
+        or not _is_int(lunge.get("active_px"))
+    ):
+        raise RecomposeError(
+            "scene-reference-invalid: lunge needs integer windup_px/active_px"
+        )
+    return {
+        "kit_body": kits,
+        "default_body_rgb": default,
+        "notch": {"size": notch["size"], "rgb": rgb(notch.get("rgb"), "notch.rgb")},
+        "body_size": body_size,
+        "lunge": {
+            "windup_px": lunge["windup_px"], "active_px": lunge["active_px"],
+        },
+    }
+
+
+def _assert_scene_reference_consistent(scene_ref: dict, reference: dict) -> None:
+    """The scene reference must EQUAL the banked render-reference values it
+    cites (anchoring enforcement, typed)."""
+    body = reference["primitive_body"]
+    lunge = lunge_constants(reference)
+    checks = (
+        (scene_ref["body_size"], body["size"], "body_size vs primitive_body.size"),
+        (scene_ref["notch"]["rgb"], list(body["notch_rgb"]),
+         "notch.rgb vs primitive_body.notch_rgb"),
+        (scene_ref["notch"]["size"], body["notch_size"],
+         "notch.size vs primitive_body.notch_size"),
+        (scene_ref["lunge"]["windup_px"], lunge["windup_px"],
+         "lunge.windup_px vs feedback_states.lunge_offset"),
+        (scene_ref["lunge"]["active_px"], lunge["active_px"],
+         "lunge.active_px vs feedback_states.lunge_offset"),
+    )
+    for got, want, label in checks:
+        if got != want:
+            raise RecomposeError(
+                f"scene-reference-mismatch: {label}: {got!r} != {want!r} "
+                "(the scene reference must equal the banked render-reference "
+                "values it cites)"
+            )
+
+
+def scene_body_rgb(kit: str, scene_ref: dict) -> list[int]:
+    """Body color per kit from pinned KIT_BODY (renderer.rb:16-21); any kit
+    outside the pinned merge falls back to HUMAN_BODY exactly as the
+    engine's Hash.new(HUMAN_BODY) default does (a cited VALUE, not a
+    guess)."""
+    return scene_ref["kit_body"].get(kit, scene_ref["default_body_rgb"])
+
+
+def scene_lunge(record: dict, faction: str, scene_ref: dict) -> tuple[int, int]:
+    """The ENGINE's draw-only lunge law verbatim (renderer.rb:879-888,
+    value-anchored via manifests/scene-reference.json = render-reference
+    feedback_states.lunge_offset): pack faction only, suppressed for
+    specials, windup/active px along facing, else zero."""
+    if faction != "pack":
+        return 0, 0
+    if record.get("current_action") == "special":
+        return 0, 0
+    state = record["attack_state"]
+    if state == "windup":
+        px = scene_ref["lunge"]["windup_px"]
+    elif state == "active":
+        px = scene_ref["lunge"]["active_px"]
+    else:
+        return 0, 0
+    fx, fy = record["facing"]
+    return px * fx, px * fy
+
+
+def draw_primitive_creature(
+    cv: Rgba8Canvas, x: int, y: int, facing: list[int],
+    body_rgb: list[int], scene_ref: dict,
+) -> None:
+    """One neighbor as the engine draws it: body rect + facing notch
+    (renderer.rb:833 body; :863-877 notch - the three-branch law is total
+    over integer facings: vertical edge-centered, horizontal edge-centered,
+    diagonal corner). x/y = the record's rounded px/py plus lunge; px
+    already carries the +2px tile inset (grid_walker.rb:102-103) so NO
+    tile_offset is added here (the double-offset trap named in the
+    registration)."""
+    size = scene_ref["body_size"]
+    n = scene_ref["notch"]["size"]
+    notch = (*scene_ref["notch"]["rgb"], 255)
+    cv.fill_rect(x, y, size, size, (*body_rgb, 255))
+    fx, fy = facing
+    if fx == 0:
+        ny = y + size - n if fy > 0 else y
+        cv.fill_rect(x + size // 2 - n // 2, ny, n, n, notch)
+    elif fy == 0:
+        nx = x + size - n if fx > 0 else x
+        cv.fill_rect(nx, y + size // 2 - n // 2, n, n, notch)
+    else:
+        nx = x + size - n if fx > 0 else x
+        ny = y + size - n if fy > 0 else y
+        cv.fill_rect(nx, ny, n, n, notch)
+
+
+def scene_window(
+    track: dict, name: str, first: int, last: int, reference: dict,
+    margin_tiles: int = SCENE_MARGIN_TILES,
+) -> dict:
+    """The pre-registered scene window: the v31 window formula with margin
+    M tiles (v32 registers M=4), same tile-aligned outward rounding, over
+    the SUBJECT's world draw vectors across the span. margin_tiles=1
+    reproduces the banked v31 derive_window output (unit-tested)."""
+    kit_by_name = {c["name"]: c["kit"] for c in track["creatures"]}
+    constants = mapping_constants(track, kit_by_name[name], reference)
+    xs: list[int] = []
+    ys: list[int] = []
+    for tick in track["ticks"]:
+        if not (first <= tick["frame"] <= last):
+            continue
+        record = tick["creatures"][name]
+        _, _, offset = select_pose(record, constants)
+        fx, fy = record["facing"]
+        xs.append(round_half_up(record["px"]) + offset * fx)
+        ys.append(round_half_up(record["py"]) + offset * fy)
+    m = margin_tiles * TILE
+    x0 = (min(xs) // TILE) * TILE - m
+    y0 = (min(ys) // TILE) * TILE - m
+    x1 = -((-(max(xs) + TILE)) // TILE) * TILE + m
+    y1 = -((-(max(ys) + TILE)) // TILE) * TILE + m
+    return {"origin_px": [x0, y0], "width": x1 - x0, "height": y1 - y0}
+
+
+def scene_tile_base(view: dict, zone_map: dict, zone: dict) -> tuple[Rgba8Canvas, dict]:
+    """The tile layer once per build: floor/wall/transition cells drawn
+    with the banked conventions over the anchored palette; window tiles
+    outside the map = background void (the banked BG presentation
+    constant), COUNTED. The window must be whole-TILE aligned (the formula
+    guarantees it; anything else is a typed STOP, never a tweak)."""
+    ts = zone_map["tile_size"]
+    ox, oy = view["origin_px"]
+    if ox % ts or oy % ts or view["width"] % ts or view["height"] % ts:
+        raise RecomposeError(
+            "scene-window-unaligned: the scene window must be whole-TILE "
+            f"aligned (got origin {view['origin_px']} dims "
+            f"{view['width']}x{view['height']})"
+        )
+    cv = Rgba8Canvas(view["width"], view["height"], v10.BG)
+    census = {"floor": 0, "wall": 0, "transition": 0, "void": 0}
+    transitions = set(zone_map["transition_tiles"])
+    for ty in range(view["height"] // ts):
+        wty = oy // ts + ty
+        for tx in range(view["width"] // ts):
+            wtx = ox // ts + tx
+            x, y = tx * ts, ty * ts
+            if 0 <= wtx < zone_map["cols"] and 0 <= wty < zone_map["row_count"]:
+                if zone_map["rows"][wty][wtx] == "#":
+                    draw_wall_tile(cv, x, y, zone)
+                    census["wall"] += 1
+                elif (wtx, wty) in transitions:
+                    draw_gold_tile(cv, x, y, zone)
+                    census["transition"] += 1
+                else:
+                    draw_floor_tile(cv, x, y, zone)
+                    census["floor"] += 1
+            else:
+                census["void"] += 1
+    return cv, census
+
+
+def _clone_canvas(canvas: Rgba8Canvas) -> Rgba8Canvas:
+    out = Rgba8Canvas(canvas.width, canvas.height)
+    out._pixels[:] = canvas._pixels
+    return out
+
+
+def scene_tick_entries(
+    tick: dict, view: dict, scene_ref: dict, kit_by_name: dict,
+    faction_by_name: dict, subject: str, subject_constants: dict,
+) -> tuple[list[dict], list[str]]:
+    """Ordered draw list + omissions for ONE tick. Participants = creatures
+    whose 32x32 draw rect intersects the window (pre-registered).
+    Order: ALL humans then ALL pack (renderer.rb:108-109, derived); within
+    a faction ascending drawn y then name (DECLARED, the proposal's own
+    tiebreak - engine collection order is runtime state the track does not
+    carry). The subject rides the mapping's decision (select_pose); every
+    neighbor rides the engine lunge law."""
+    drawn: list[dict] = []
+    omitted: list[str] = []
+    ox, oy = view["origin_px"]
+    for name, record in sorted(tick["creatures"].items()):
+        faction = faction_by_name[name]
+        if faction not in SCENE_FACTIONS:
+            raise RecomposeError(
+                f"scene-unknown-faction: creature {name!r} faction "
+                f"{faction!r} has no draw pass in the pinned renderer "
+                "(humans then pack, renderer.rb:108-109)"
+            )
+        if name == subject:
+            pose, pose_facing, offset = select_pose(record, subject_constants)
+            fx, fy = record["facing"]
+            wx = round_half_up(record["px"]) + offset * fx
+            wy = round_half_up(record["py"]) + offset * fy
+            kind = "subject"
+            decision = {
+                "pose": pose, "pose_facing": pose_facing, "offset_px": offset,
+            }
+        else:
+            lx, ly = scene_lunge(record, faction, scene_ref)
+            wx = round_half_up(record["px"]) + lx
+            wy = round_half_up(record["py"]) + ly
+            kind = "neighbor"
+            decision = None
+        if not (
+            wx + TILE > ox and wx < ox + view["width"]
+            and wy + TILE > oy and wy < oy + view["height"]
+        ):
+            omitted.append(name)
+            continue
+        drawn.append(
+            {
+                "name": name, "kind": kind, "faction": faction,
+                "kit": kit_by_name[name], "wx": wx, "wy": wy,
+                "facing": list(record["facing"]), "decision": decision,
+            }
+        )
+    drawn.sort(
+        key=lambda e: (SCENE_FACTIONS.index(e["faction"]), e["wy"], e["name"])
+    )
+    return drawn, omitted
+
+
+def scene_cell(
+    tile_base: Rgba8Canvas, entries: list[dict], view: dict, poses: dict,
+    reference: dict, scene_ref: dict,
+) -> Rgba8Canvas:
+    """One scene tick: the tile base, then the ordered creature draws.
+    Neighbors = engine primitive bodies; the subject = possession ring
+    (banked draw_ring convention at the drawn canvas position, lunge-riding
+    per renderer.rb:798-802) under the banked sprite."""
+    cv = _clone_canvas(tile_base)
+    ox, oy = view["origin_px"]
+    for entry in entries:
+        x = entry["wx"] - ox
+        y = entry["wy"] - oy
+        if entry["kind"] == "subject":
+            draw_ring(cv, x, y, reference)
+            decision = entry["decision"]
+            blit_sprite(
+                cv, poses[decision["pose_facing"]][decision["pose"]], x, y
+            )
+        else:
+            draw_primitive_creature(
+                cv, x, y, entry["facing"],
+                scene_body_rgb(entry["kit"], scene_ref), scene_ref,
+            )
+    return cv
+
+
+def scene_sheet_dims(view: dict, count: int, temporal_line: str) -> tuple[int, int]:
+    label_h = 8
+    margin_left = 4
+    header_h = 36
+    rows = (count + SCENE_CELLS_PER_ROW - 1) // SCENE_CELLS_PER_ROW
+    step_w = view["width"] + GUTTER
+    step_h = view["height"] + label_h + GUTTER
+    banner_w = 4 * max(
+        len(SCENE_SHEET_BANNER_1), len(SCENE_SHEET_BANNER_2),
+        len(SCENE_SHEET_BANNER_3), len(temporal_line),
+    ) + 4
+    width = max(
+        margin_left + min(SCENE_CELLS_PER_ROW, count) * step_w + GUTTER,
+        banner_w,
+    )
+    height = header_h + rows * step_h + 10
+    return width, height
+
+
+def assert_scene_sheet_dims(
+    view: dict, count: int, temporal_line: str
+) -> tuple[int, int]:
+    """HARD pre-registered cap: both sheet dimensions < 4096 (the v16
+    png_reader-cap precedent) else typed STOP - the window is never
+    tweaked post-hoc."""
+    width, height = scene_sheet_dims(view, count, temporal_line)
+    if width >= SCENE_MAX_SHEET_DIM or height >= SCENE_MAX_SHEET_DIM:
+        raise RecomposeError(
+            f"scene-sheet-dims: sheet {width}x{height} reaches the "
+            f"{SCENE_MAX_SHEET_DIM} hard cap (pre-registered STOP)"
+        )
+    return width, height
+
+
+def build_scene_sheet(
+    frames: list[Rgba8Canvas], frame_numbers: list[int], view: dict,
+    temporal_line: str,
+) -> Rgba8Canvas:
+    """Native 1x per-tick scene sheet under the pre-registered 4-line
+    disclosure banner (8 cells/row; banked GUTTER/BG/LABEL presentation
+    constants; hard dimension assert). Scene frames are fully opaque by
+    construction, so cells paste row-wise (byte-identical to the per-pixel
+    path; equivalence unit-tested)."""
+    width, height = assert_scene_sheet_dims(view, len(frames), temporal_line)
+    label_h = 8
+    margin_left = 4
+    header_h = 36
+    step_w = view["width"] + GUTTER
+    step_h = view["height"] + label_h + GUTTER
+    cv = Rgba8Canvas(width, height, v10.BG)
+    draw_text(cv, 2, 2, SCENE_SHEET_BANNER_1)
+    draw_text(cv, 2, 10, SCENE_SHEET_BANNER_2)
+    draw_text(cv, 2, 18, SCENE_SHEET_BANNER_3)
+    draw_text(cv, 2, 26, temporal_line)
+    for index, frame in enumerate(frames):
+        row, col = divmod(index, SCENE_CELLS_PER_ROW)
+        x = margin_left + col * step_w
+        y = header_h + row * step_h + label_h
+        draw_text(cv, x, y - 8, f"T{frame_numbers[index]}")
+        _paste_canvas_scaled(cv, frame, x, y, 1)
+    draw_text(cv, 2, height - 8, SCENE_SHEET_FOOTER)
+    return cv
+
+
+def _paste_canvas_scaled(
+    pane: Rgba8Canvas, frame: Rgba8Canvas, x: int, y: int, scale: int
+) -> None:
+    """Row-wise nearest-neighbor paste of a FULLY-OPAQUE canvas (every
+    scene frame is opaque by construction: the tile base fills the whole
+    window). Byte-identical to the banked per-pixel
+    blit_scaled(canvas_pixels(...)) path for opaque in-bounds sources -
+    equivalence unit-tested; exists because the scene's zoom panes made
+    the per-pixel path the fast-tier bottleneck."""
+    stride = frame.width * 4
+    for row in range(frame.height):
+        src = frame._pixels[row * stride:(row + 1) * stride]
+        if scale == 1:
+            scaled = src
+        else:
+            scaled = b"".join(
+                src[i:i + 4] * scale for i in range(0, stride, 4)
+            )
+        for repeat in range(scale):
+            offset = ((y + row * scale + repeat) * pane.width + x) * 4
+            pane._pixels[offset:offset + len(scaled)] = scaled
+
+
+def build_scene_apng_frames(
+    frames: list[Rgba8Canvas], scale: int
+) -> list[Rgba8Canvas]:
+    """Disclosure-headed scene panes at native 1x or ONE integer zoom."""
+    header_h = 18
+    text_w = 4 * max(len(SCENE_APNG_HEADER_1), len(SCENE_APNG_HEADER_2)) + 4
+    out = []
+    for frame in frames:
+        pane = Rgba8Canvas(
+            max(frame.width * scale, text_w),
+            frame.height * scale + header_h,
+            v10.BG,
+        )
+        _paste_canvas_scaled(pane, frame, 0, header_h, scale)
+        draw_text(pane, 2, 2, SCENE_APNG_HEADER_1)
+        draw_text(pane, 2, 10, SCENE_APNG_HEADER_2)
+        out.append(pane)
+    return out
+
+
+def _scene_rects_overlap(a: dict, b: dict) -> bool:
+    return abs(a["wx"] - b["wx"]) < TILE and abs(a["wy"] - b["wy"]) < TILE
+
+
+def _assert_subject_decisions_banked(
+    entries: list[dict], first: int, last: int, banked_path: Path
+) -> int:
+    """The scene's subject decision stream over the span must EQUAL the
+    banked v31 capture's (pose, facing, offset) stream - mapping-v1
+    semantics proven untouched IN the artifact path. Typed STOP on any
+    difference."""
+    banked = json.loads(Path(banked_path).read_text(encoding="utf-8"))
+
+    def stream(items: list[dict]) -> list[tuple]:
+        return [
+            (
+                e["decision"]["pose"], e["decision"]["pose_facing"],
+                e["decision"]["offset_px"],
+            )
+            for e in items
+            if first <= e["frame"] <= last and "decision" in e
+        ]
+
+    want = stream(banked["entries"])
+    got = stream(entries)
+    if want != got or len(got) != last - first + 1:
+        raise RecomposeError(
+            "scene-subject-decision-drift: the subject's (pose, facing, "
+            f"offset) stream over span {first}..{last} differs from the "
+            f"banked capture {Path(banked_path).name} (code regression - "
+            "fix the edit, never re-bank)"
+        )
+    return len(got)
+
+
+def _scene_bundle_bytes(
+    track_path: Path, reference: dict, dirs: dict[str, Path],
+    zone_map_path: Path, scene_ref_path: Path, palette_path: Path,
+    evidence_root: Path | None = None,
+    expected_span: tuple[int, int] | None = None,
+    banked_decisions: Path | None = None,
+) -> dict:
+    """The whole pre-registered scene pipeline to BYTES (no writes): intake
+    gate LIVE, subject law, kit gate, span re-derivation + equality assert,
+    M=4 window, participants capture, dims assert, subject-decision
+    equality, double-build composition. Pre-capture STOPs raise; the
+    post-capture STOPs (dims, decision drift) ride result['stop'] so the
+    TEXT capture still banks."""
+    intake = verify_runtime_intake(Path(track_path), evidence_root)
+    track = json.loads(Path(track_path).read_text(encoding="utf-8"))
+    errors = validate_track(track)
+    if errors:
+        raise RecomposeError("invalid track:\n" + "\n".join(errors))
+    require_runtime_admission(track, intake)
+    name, kit = subject_of(track)
+    if kit != "striker":
+        raise RecomposeError(
+            f"unsupported-subject-kit: subject {name!r} kit {kit!r} != "
+            "'striker' (the banked pose set is striker art; substituting it "
+            "for another kit in a RUNTIME-labeled artifact needs an owner "
+            "call)"
+        )
+    merged = load_zone_palette(reference, palette_path)
+    zone_map = load_zone_map(zone_map_path)
+    scene_ref = load_scene_reference(scene_ref_path)
+    _assert_scene_reference_consistent(scene_ref, merged)
+    zone_name = track["zone"]
+    if zone_name not in merged["zones"]:
+        raise RecomposeError(
+            f"unmapped-zone: no banked palette exists for zone {zone_name!r} "
+            "(banked zones only; the mapping refuses rather than guesses)"
+        )
+    zone = merged["zones"][zone_name]
+    entries = subject_decision_entries(track, merged, name)
+    constants = mapping_constants(track, kit, merged)
+    span = derive_span(entries, constants)
+    if span is None:
+        raise RecomposeError(
+            "no-clean-attack-cycle: no refusal-free contiguous span of the "
+            "subject contains a complete attack cycle - the v31 lane "
+            "already banks this class; the scene composes nothing"
+        )
+    if expected_span is not None and tuple(span) != tuple(expected_span):
+        raise RecomposeError(
+            f"scene-span-regression: re-derived span {list(span)} != banked "
+            f"{list(expected_span)} (code regression - pre-registered STOP)"
+        )
+    first, last = span
+    view = scene_window(track, name, first, last, merged, SCENE_MARGIN_TILES)
+    window_frames = [track["ticks"][0]["frame"], track["ticks"][-1]["frame"]]
+    temporal_line = SCENE_TEMPORAL_TEMPLATE.format(
+        first=first, last=last,
+        wfirst=window_frames[0], wlast=window_frames[1],
+    )
+    kit_by_name = {c["name"]: c["kit"] for c in track["creatures"]}
+    faction_by_name = {c["name"]: c["faction"] for c in track["creatures"]}
+    span_ticks = [t for t in track["ticks"] if first <= t["frame"] <= last]
+    _, census = scene_tile_base(view, zone_map, zone)
+    entries_by_frame: dict[int, list[dict]] = {}
+    per_creature = {
+        creature["name"]: {
+            "kit": creature["kit"], "faction": creature["faction"],
+            "ticks_in_span": 0, "ticks_drawn": 0, "ticks_omitted": 0,
+        }
+        for creature in track["creatures"]
+    }
+    per_tick = []
+    for tick in span_ticks:
+        drawn, omitted = scene_tick_entries(
+            tick, view, scene_ref, kit_by_name, faction_by_name, name,
+            constants,
+        )
+        entries_by_frame[tick["frame"]] = drawn
+        same_faction = 0
+        cross_faction = 0
+        for i, a in enumerate(drawn):
+            for b in drawn[i + 1:]:
+                if not _scene_rects_overlap(a, b):
+                    continue
+                if a["faction"] == b["faction"]:
+                    same_faction += 1
+                else:
+                    cross_faction += 1
+        for creature_name in tick["creatures"]:
+            per_creature[creature_name]["ticks_in_span"] += 1
+        for entry in drawn:
+            per_creature[entry["name"]]["ticks_drawn"] += 1
+        for creature_name in omitted:
+            per_creature[creature_name]["ticks_omitted"] += 1
+        per_tick.append(
+            {
+                "frame": tick["frame"],
+                "drawn": len(drawn),
+                "neighbors_drawn": sum(
+                    1 for e in drawn if e["kind"] == "neighbor"
+                ),
+                "omitted": len(omitted),
+                "same_faction_overlaps": same_faction,
+                "cross_faction_overlaps": cross_faction,
+            }
+        )
+    totals = {
+        "creatures": len(per_creature),
+        "neighbors": len(per_creature) - 1,
+        "neighbors_drawn_at_least_once": sum(
+            1 for creature_name, stat in per_creature.items()
+            if creature_name != name and stat["ticks_drawn"] > 0
+        ),
+        "neighbor_draw_events": sum(t["neighbors_drawn"] for t in per_tick),
+        "neighbor_omission_events": sum(t["omitted"] for t in per_tick),
+        "same_faction_overlap_events": sum(
+            t["same_faction_overlaps"] for t in per_tick
+        ),
+        "cross_faction_overlap_events": sum(
+            t["cross_faction_overlaps"] for t in per_tick
+        ),
+        "void_tiles": census["void"],
+    }
+    findings = (
+        ["scene-zero-participants"]
+        if totals["neighbor_draw_events"] == 0 else []
+    )
+    participants_payload = {
+        "mapping_id": MAPPING_ID,
+        "scene_composition_id": SCENE_COMPOSITION_ID,
+        "schema_version": track["schema_version"],
+        "class": track["class"],
+        "zone": zone_name,
+        "subject": name,
+        "kit": kit,
+        "window_frames": window_frames,
+        "span_frames": [first, last],
+        "window": view,
+        "tile_census": census,
+        "per_creature": {
+            key: per_creature[key] for key in sorted(per_creature)
+        },
+        "per_tick": per_tick,
+        "totals": totals,
+        "findings": findings,
+        "draw_order": (
+            "humans before pack (renderer.rb:108-109, derived); within a "
+            "faction ascending drawn y then name (DECLARED, the proposal's "
+            "own tiebreak - engine collection order is runtime state the "
+            "track does not carry)"
+        ),
+        "intake": {
+            "bundle_id": intake["bundle_id"],
+            "track_sha256": intake["track_sha256"],
+            "verification_verdict": intake["verification"]["verdict"],
+            "verification_runs": intake["verification"]["runs"],
+        },
+        "disclosure": SCENE_EXP_DISCLOSURE,
+    }
+    participants_bytes = (
+        json.dumps(participants_payload, indent=2, sort_keys=True) + "\n"
+    ).encode("ascii")
+    result = {
+        "participants": participants_bytes,
+        "span": span,
+        "view": view,
+        "census": census,
+        "totals": totals,
+        "findings": findings,
+        "temporal_line": temporal_line,
+        "subject": (name, kit),
+        "intake": intake,
+        "track": track,
+        "stop": None,
+    }
+    try:
+        sheet_dims = assert_scene_sheet_dims(
+            view, len(span_ticks), temporal_line
+        )
+        decisions_compared = 0
+        if banked_decisions is not None:
+            decisions_compared = _assert_subject_decisions_banked(
+                entries, first, last, banked_decisions
+            )
+    except RecomposeError as exc:
+        result["stop"] = str(exc)
+        return result
+    result["sheet_dims"] = list(sheet_dims)
+    result["decisions_compared"] = decisions_compared
+    poses = load_poses(dirs)
+
+    def build_once() -> tuple[bytes, bytes, bytes]:
+        tile_base, _ = scene_tile_base(view, zone_map, zone)
+        frames = [
+            scene_cell(
+                tile_base, entries_by_frame[t["frame"]], view, poses,
+                merged, scene_ref,
+            )
+            for t in span_ticks
+        ]
+        sheet = build_scene_sheet(
+            frames, [t["frame"] for t in span_ticks], view, temporal_line
+        ).encode()
+        native = encode_apng(
+            build_scene_apng_frames(frames, 1), apng_delays(len(frames))
+        )
+        zoom = encode_apng(
+            build_scene_apng_frames(frames, APNG_SCALE),
+            apng_delays(len(frames)),
+        )
+        return sheet, native, zoom
+
+    first_build = build_once()
+    second_build = build_once()
+    sheet, native, zoom = first_build
+    result.update(
+        {
+            "sheet": sheet,
+            "native": native,
+            "zoom": zoom,
+            "deterministic": first_build == second_build,
+            "sub_ticks": len(span_ticks),
+        }
+    )
+    return result
+
+
+def make_scene_artifacts(
+    track_path: Path, reference: dict, dirs: dict[str, Path],
+    out_dir: Path | None = None, zone_map_path: Path | None = None,
+    scene_ref_path: Path | None = None, palette_path: Path | None = None,
+    evidence_root: Path | None = None,
+    expected_span: tuple[int, int] | None = None,
+    banked_decisions: Path | None = None,
+) -> dict:
+    """Generate the v32 SCENE-EXP artifact bundle. The participants capture
+    is written BEFORE the composed artifacts so a post-capture STOP still
+    banks the TEXT analysis (pre-registered)."""
+    out = SCENE_DIR if out_dir is None else Path(out_dir)
+    zone_map = ZONE_MAP_DISTRICT if zone_map_path is None else Path(zone_map_path)
+    scene_ref = (
+        SCENE_REFERENCE_FILE if scene_ref_path is None else Path(scene_ref_path)
+    )
+    palette = DISTRICT_PALETTE if palette_path is None else Path(palette_path)
+    bundle = _scene_bundle_bytes(
+        track_path, reference, dirs, zone_map, scene_ref, palette,
+        evidence_root, expected_span, banked_decisions,
+    )
+    out.mkdir(parents=True, exist_ok=True)
+    (out / SCENE_PARTICIPANTS.name).write_bytes(bundle["participants"])
+    if bundle["stop"] is not None:
+        raise RecomposeError(bundle["stop"])
+    (out / SCENE_SHEET.name).write_bytes(bundle["sheet"])
+    (out / SCENE_APNG_NATIVE.name).write_bytes(bundle["native"])
+    (out / SCENE_APNG_ZOOM.name).write_bytes(bundle["zoom"])
+    name, kit = bundle["subject"]
+    intake = bundle["intake"]
+    first, last = bundle["span"]
+    artifacts = {
+        SCENE_PARTICIPANTS.name: hashlib.sha256(
+            bundle["participants"]
+        ).hexdigest(),
+        SCENE_SHEET.name: hashlib.sha256(bundle["sheet"]).hexdigest(),
+        SCENE_APNG_NATIVE.name: hashlib.sha256(bundle["native"]).hexdigest(),
+        SCENE_APNG_ZOOM.name: hashlib.sha256(bundle["zoom"]).hexdigest(),
+    }
+    manifest = {
+        "generated_by": "tools/track_recompose.py --make-scene-artifacts",
+        "artifact_class": "SCENE-EXP",
+        "disclosure": SCENE_EXP_DISCLOSURE,
+        "mapping_id": MAPPING_ID,
+        "scene_composition_id": SCENE_COMPOSITION_ID,
+        "schema_version": SCHEMA_V1,
+        "repo_commit_at_generation": repo_commit(),
+        "mapping_source_sha256": mapping_source_hashes(),
+        "zone_palette": {
+            "file": _repo_relative(palette),
+            "sha256": file_sha256(palette),
+            "zone": bundle["track"]["zone"],
+        },
+        "zone_map": {
+            "file": _repo_relative(zone_map),
+            "sha256": file_sha256(zone_map),
+        },
+        "scene_reference": {
+            "file": _repo_relative(scene_ref),
+            "sha256": file_sha256(scene_ref),
+        },
+        "source_track": {
+            "path": _repo_relative(Path(track_path)),
+            "sha256": intake["track_sha256"],
+        },
+        "intake": {
+            "bundle_id": intake["bundle_id"],
+            "verification_verdict": intake["verification"]["verdict"],
+            "verification_runs": intake["verification"]["runs"],
+            "fingerprint_md5": intake["manifest"].get("fingerprint_md5"),
+        },
+        "subject": {"name": name, "kit": kit},
+        "span_frames": [first, last],
+        "span_equality": {
+            "asserted_against": (
+                None if expected_span is None else
+                "reviews/runtime-recompose-v31/runtime-exp-manifest.json "
+                "span_frames"
+            ),
+            "equal": expected_span is None or tuple(expected_span) == (first, last),
+        },
+        "subject_decisions_equality": {
+            "asserted_against": (
+                None if banked_decisions is None else
+                _repo_relative(Path(banked_decisions))
+            ),
+            "entries_compared": bundle.get("decisions_compared", 0),
+        },
+        "ticks": bundle["sub_ticks"],
+        "window": bundle["view"],
+        "window_formula": (
+            "the banked v31 window formula at margin M=4 TILEs: bounding "
+            "box of the subject's world draw vectors (round_half_up(px/py) "
+            "+ lunge offset along facing), each sprite spanning TILE=32; "
+            "rounded outward to the whole-TILE world grid; plus four full "
+            "TILE margins per side (reviews/scene-recompose-v32/"
+            "rationale.md, span + window policy)"
+        ),
+        "span_policy": (
+            "re-derived by the banked v31 policy (longest contiguous "
+            "refusal-free span of the subject containing a complete attack "
+            "cycle, tie -> earliest) and asserted EQUAL to the banked v31 "
+            "span (pre-registered)"
+        ),
+        "sheet_dims": bundle["sheet_dims"],
+        "sheet_cells_per_row": SCENE_CELLS_PER_ROW,
+        "layers": {
+            "tile": (
+                "manifests/zone-map-district.json (tiles/transitions "
+                "verbatim from pinned data/zones/district.json; '#' wall "
+                "renderer.rb:432 + :259; '.' floor renderer.rb:279+; "
+                "transition gold inset 3 renderer.rb:349) drawn with the "
+                "banked draw_floor_tile/draw_wall_tile/draw_gold_tile "
+                "conventions over manifests/zone-palette-district.json; "
+                "stations decor motif ambient grid-over-walls seal states "
+                "NOT modeled; window tiles outside the map = background "
+                "void (counted)"
+            ),
+            "neighbors": (
+                "the engine's own primitive bodies: 28px body rect + 6px "
+                "facing notch (renderer.rb:833, :863-877; values via "
+                "manifests/scene-reference.json = render-reference "
+                "primitive_body) at round_half_up(px/py) + the engine lunge "
+                "law (renderer.rb:879-888); body color per kit from pinned "
+                "KIT_BODY (renderer.rb:16-21; unlisted kits = HUMAN_BODY "
+                "via the Hash.new default, a cited value); all integer "
+                "facings legal"
+            ),
+            "subject": (
+                "the banked striker sprite under "
+                "declared-integration-mapping-v1 (select_pose untouched; "
+                "per-tick decisions asserted equal to the banked "
+                "reviews/runtime-recompose-v31/decisions-subject.json over "
+                "the span); sprite canvas anchored at round_half_up(px) + "
+                "lunge (the banked v13 position law: its opaque body pixels "
+                "land 2px right+down of the engine's own body rect - a "
+                "property of the declared mapping, disclosed)"
+            ),
+            "ring": (
+                "possession ring from pinned constants (render-reference "
+                "possession_ring = renderer.rb:23) at the subject's drawn "
+                "canvas position; RIDES THE LUNGE (renderer.rb:798-802) and "
+                "draws BEFORE the body; geometry = the banked draw_ring "
+                "convention around the render-reference primitive_body box"
+            ),
+            "feedback_states": (
+                "NOT modeled beyond the ring: hurt flash, iframes flicker, "
+                "telegraph swell/core, ally dim, seized weight/underlines, "
+                "taunt underline, pressure outline, retarget cues, god "
+                "marks, nameplates, attack action tiles, enemy strike "
+                "tiles, corpses, drops, projectiles, chant rings "
+                "(disclosed in pixels)"
+            ),
+        },
+        "draw_order": (
+            "map under everything (renderer.rb:96-99); ALL humans then ALL "
+            "pack (renderer.rb:108-109, derived); within a faction "
+            "ascending drawn y then name (DECLARED, the proposal's own - "
+            "engine collection order is runtime state the track does not "
+            "carry); ring before body (renderer.rb:801-802), notch on top "
+            "(renderer.rb:843)"
+        ),
+        "position_law": (
+            "track px/py = creature body top-left (creature.rb:60-61; "
+            "docs/state-track-schema.md); the +2px tile inset is already "
+            "inside px (grid_walker.rb:102-103); neighbor body rects draw "
+            "at round_half_up(px) + lunge with NO added tile_offset (the "
+            "double-offset trap named in the registration)"
+        ),
+        "participants_summary": bundle["totals"],
+        "tile_census": bundle["census"],
+        "findings": bundle["findings"],
+        "apng": {
+            "frames": bundle["sub_ticks"],
+            "delay": (
+                "exact 1/60 s per tick; the banked encoder holds the last "
+                "frame 0.5 s before the loop restarts (v13 convention)"
+            ),
+            "zoom_scales": [1, APNG_SCALE],
+        },
+        "determinism": {
+            "double_build_identical": bundle["deterministic"],
+        },
+        "artifacts": artifacts,
+    }
+    (out / SCENE_MANIFEST.name).write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8", newline="\n",
+    )
+    return manifest
+
+
+def check_scene_artifacts(
+    reference: dict, dirs: dict[str, Path]
+) -> list[str]:
+    """Committed v32 SCENE-EXP bundle guard: regenerate from the committed
+    evidence and compare bytes; verify pins, ids, and the disclosure.
+    Pre-bank (no committed manifest): nothing to guard - returns []."""
+    if not SCENE_MANIFEST.is_file():
+        return []
+    failures: list[str] = []
+    manifest = json.loads(SCENE_MANIFEST.read_text(encoding="utf-8"))
+    if manifest.get("artifact_class") != "SCENE-EXP":
+        failures.append("scene manifest artifact_class must be SCENE-EXP")
+    if manifest.get("disclosure") != SCENE_EXP_DISCLOSURE:
+        failures.append(
+            "scene manifest disclosure differs from the pre-registered text"
+        )
+    if manifest.get("scene_composition_id") != SCENE_COMPOSITION_ID:
+        failures.append(
+            f"scene manifest scene_composition_id must be "
+            f"{SCENE_COMPOSITION_ID}"
+        )
+    if manifest.get("mapping_id") != MAPPING_ID:
+        failures.append(f"scene manifest mapping_id must be {MAPPING_ID}")
+    live = mapping_source_hashes()
+    pinned = manifest.get("mapping_source_sha256", {})
+    for rel in MAPPING_SOURCE_FILES:
+        if rel not in pinned:
+            failures.append(f"scene manifest is missing the {rel} pin")
+    for rel, digest in pinned.items():
+        if live.get(rel) != digest:
+            failures.append(f"scene manifest mapping-source drift: {rel}")
+    for key in ("zone_palette", "zone_map", "scene_reference"):
+        entry = manifest.get(key, {})
+        path = ROOT / entry.get("file", "")
+        if not path.is_file() or file_sha256(path) != entry.get("sha256"):
+            failures.append(f"scene manifest {key} pin mismatch")
+    if failures:
+        return failures
+    try:
+        bundle = _scene_bundle_bytes(
+            ROOT / manifest["source_track"]["path"], reference, dirs,
+            ROOT / manifest["zone_map"]["file"],
+            ROOT / manifest["scene_reference"]["file"],
+            ROOT / manifest["zone_palette"]["file"],
+            expected_span=tuple(manifest["span_frames"]),
+            banked_decisions=RUNTIME_DECISIONS,
+        )
+    except RecomposeError as exc:
+        failures.append(f"scene artifact regeneration refused: {exc}")
+        return failures
+    if bundle["stop"] is not None:
+        failures.append(
+            f"scene artifact regeneration stopped: {bundle['stop']}"
+        )
+        return failures
+    if not bundle["deterministic"]:
+        failures.append("scene artifact double build not byte-identical")
+    for artifact_name, blob in (
+        (SCENE_PARTICIPANTS.name, bundle["participants"]),
+        (SCENE_SHEET.name, bundle["sheet"]),
+        (SCENE_APNG_NATIVE.name, bundle["native"]),
+        (SCENE_APNG_ZOOM.name, bundle["zoom"]),
+    ):
+        path = SCENE_DIR / artifact_name
+        if not path.is_file() or path.read_bytes() != blob:
+            failures.append(
+                f"committed {artifact_name} differs from a fresh "
+                "recomposition"
+            )
+        if manifest.get("artifacts", {}).get(artifact_name) != hashlib.sha256(
+            blob
+        ).hexdigest():
+            failures.append(
+                f"scene manifest artifact pin mismatch: {artifact_name}"
+            )
+    return failures
+
+
 # -- synthetic demo -------------------------------------------------------------
 
 
@@ -1928,6 +3005,8 @@ def run_check(reference: dict, dirs: dict[str, Path]) -> int:
     runtime_failures = check_runtime_artifacts(reference, dirs)
     failures.extend(runtime_failures)
 
+    failures.extend(check_scene_artifacts(reference, dirs))
+
     for failure in failures:
         print(f"CHECK FAIL: {failure}", file=sys.stderr)
     if failures:
@@ -1940,6 +3019,8 @@ def run_check(reference: dict, dirs: dict[str, Path]) -> int:
         "banked v9; banked module hash pins; zero-new-exports + banked "
         "export pins; runtime-exp artifact guard "
         + ("(banked)" if RUNTIME_MANIFEST.is_file() else "(pre-bank skip)")
+        + "; scene-exp artifact guard "
+        + ("(banked)" if SCENE_MANIFEST.is_file() else "(pre-bank skip)")
     )
     return 0
 
@@ -1969,6 +3050,11 @@ def main(argv: list[str] | None = None) -> int:
                         help="generate the v31 RUNTIME-EXP single-creature "
                              "artifact bundle from an intaken evidence "
                              "track (pre-registered protocol)")
+    parser.add_argument("--make-scene-artifacts", type=Path, default=None,
+                        help="generate the v32 SCENE-EXP multi-creature "
+                             "artifact bundle from an intaken evidence "
+                             "track (pre-registered protocol; asserts the "
+                             "re-derived span equals the banked v31 span)")
     parser.add_argument("--make-demo", action="store_true",
                         help="generate the SYNTHETIC demo bundle")
     parser.add_argument("--check", action="store_true",
@@ -2070,6 +3156,31 @@ def main(argv: list[str] | None = None) -> int:
             for name in sorted(manifest["artifacts"]):
                 print(f"wrote {RUNTIME_DIR / name}")
             print(f"wrote {RUNTIME_MANIFEST}")
+            return 0
+        if args.make_scene_artifacts is not None:
+            if not RUNTIME_MANIFEST.is_file():
+                raise RecomposeError(
+                    "scene-span-regression: no banked v31 runtime manifest "
+                    "to assert the re-derived span against (the production "
+                    "scene path requires the banked span)"
+                )
+            banked = json.loads(
+                RUNTIME_MANIFEST.read_text(encoding="utf-8")
+            )
+            manifest = make_scene_artifacts(
+                args.make_scene_artifacts, reference, dirs,
+                expected_span=tuple(banked["span_frames"]),
+                banked_decisions=RUNTIME_DECISIONS,
+            )
+            if not manifest["determinism"]["double_build_identical"]:
+                print(
+                    "scene artifact builds are not byte-identical",
+                    file=sys.stderr,
+                )
+                return 1
+            for name in sorted(manifest["artifacts"]):
+                print(f"wrote {SCENE_DIR / name}")
+            print(f"wrote {SCENE_MANIFEST}")
             return 0
         if args.check:
             return run_check(reference, dirs)

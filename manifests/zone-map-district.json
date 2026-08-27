@@ -1,0 +1,54 @@
+{
+  "contract_version": 1,
+  "purpose": "Anchored district tile map for SCENE recomposition: tiles, tile_size, and transitions copied VERBATIM from pinned data/zones/district.json. Consumed OPT-IN by track_recompose scene builders (load_zone_map) - the tile layer draws floor/wall/transition cells with the banked draw_floor_tile/draw_wall_tile/draw_gold_tile conventions over the anchored district palette. Never a runtime fetch.",
+  "derived_at": "2026-08-27",
+  "anchoring": {
+    "game_commit": "ad7f6a1e5700481c0ed455970790e66d89501358",
+    "pinned_by": "manifests/runtime-baseline.json",
+    "source_file": "data/zones/district.json",
+    "source_sha256_lf": "9774cdd04ebaf6e1a429a1aceb26ca8b7ddd13f97f3086ff862d22ee305cd5f4",
+    "value_citations": {
+      "tiles": "data/zones/district.json tiles - 26 row strings copied verbatim; glyph census '.' and '#' only",
+      "tile_size": "data/zones/district.json tile_size",
+      "transitions": "data/zones/district.json transitions - copied verbatim; the scene consumes 'at' only and draws every transition cell with the unsealed gold convention (seal/lock state is runtime state a track does not carry; disclosed)",
+      "glyph_wall": "'#' = wall: renderer.rb:432 collects wall runs via map.wall?; the '#' law comment renderer.rb:259",
+      "glyph_floor": "'.' = plain floor: renderer.rb draw_map (279+) paints the whole map floor-first; plain cells carry no typed overlay",
+      "transition_draw": "gold rect inset 3 over floor: renderer.rb:349 (unsealed branch) = the banked draw_gold_tile convention (tools/make_contact_sheet.py)"
+    },
+    "not_modeled": "stations, decor, motif rects, ambient tint, seal/lock slab states, the engine's full-map grid lines over walls (the banked draw_floor_tile draws grid on each floor tile's top/left edge only), drop-gradient markers - disclosed in the scene artifacts",
+    "registration": "reviews/scene-recompose-v32/rationale.md (tile layer law, pre-registered)"
+  },
+  "tile_size": 32,
+  "tiles": [
+    "############################################",
+    "#..........................................#",
+    "#..####...######...####...######...####....#",
+    "#..####...######...####...######...####....#",
+    "#..####...######...####...######...####....#",
+    "#..........................................#",
+    "#..........................................#",
+    "#..######...####...######...####...####....#",
+    "#..######...####...######...####...####....#",
+    "#..######...####...######...####...####....#",
+    "#..######...####...######...####...####....#",
+    "#..........................................#",
+    "#..........................................#",
+    "...........................................#",
+    "#..........................................#",
+    "#..####...######...####...######...####....#",
+    "#..####...######...####...######...####....#",
+    "#..####...######...####...######...####....#",
+    "#..........................................#",
+    "#..........................................#",
+    "#..######...####...######...####...######..#",
+    "#..######...####...######...####...######..#",
+    "#..######...####...######...####...######..#",
+    "#..........................................#",
+    "#..........................................#",
+    "############################################"
+  ],
+  "transitions": [
+    { "at": [0, 13], "to": "nest", "spawn": [28, 8] },
+    { "at": [42, 13], "to": "camp", "spawn": [1, 5], "sealed": true }
+  ]
+}

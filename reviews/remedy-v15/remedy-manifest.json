@@ -433,7 +433,7 @@
     "tools/remedy_metrics.py": "32ebec4e5a857ca17d3068493a89474f951750a11ec6071c2e8e924fdf1b7615",
     "tools/seam_metrics.py": "1ce9c0ac19671904f2ac57a7714bb2d70125235a7889721679ec0e82b462e4e9",
     "tools/timeline_metrics.py": "978edf880b8355d55027a0dcb4f9ea4934604fd6306faeb9310a4a0764acb9b6",
-    "tools/track_recompose.py": "19c63562a3b89b2141707c2121c0e24fbff500a489337234d45caa8d464009be"
+    "tools/track_recompose.py": "8b1c79f902cc33481c696bc5737b255ba3a2fa8e4e85c5660f5022454099bedb"
   },
   "provenance": {
     "class": "SYNTHETIC",
@@ -443,7 +443,7 @@
     "release_id": "remedy-v15",
     "release_json_sha256": "37ea4a8a8925eb4b70154ad6dbd4455314afc788336880ef4aa615db481dad34"
   },
-  "repo_commit_at_generation": "1026dcccfd820e65150884a9901852d9c441ed69",
+  "repo_commit_at_generation": "4b193aea627198417f771082698a28dbf7d7aecc",
   "viewing_protocol": {
     "apng_layout": "side-by-side incumbent + variant panes per frame (down horizontal, right vertical), full 21-tick stream, zone_1",
     "apng_real_delays": "exact 1/60 s per tick x 20 + 30/60 s final hold (banked apng_delays)",

@@ -456,5 +456,73 @@ class RuntimeArtifactGuards(unittest.TestCase):
         )
 
 
+class SceneArtifactGuards(unittest.TestCase):
+    """v32 committed SCENE-EXP artifact guards; each skips until the scene
+    bundle is banked (the pre-bank guard pattern). Heavy regeneration -
+    SLOW tier by module placement."""
+
+    def setUp(self) -> None:
+        if not tr.SCENE_MANIFEST.is_file():
+            self.skipTest("scene artifact bundle not banked yet")
+        self.manifest = json.loads(
+            tr.SCENE_MANIFEST.read_text(encoding="utf-8")
+        )
+
+    def test_committed_scene_artifacts_regenerate_byte_identically(self) -> None:
+        failures = tr.check_scene_artifacts(reference(), tr.default_dirs())
+        self.assertEqual([], failures)
+
+    def test_manifest_completeness_and_scene_labels(self) -> None:
+        manifest = self.manifest
+        self.assertEqual("SCENE-EXP", manifest["artifact_class"])
+        self.assertEqual(tr.SCENE_EXP_DISCLOSURE, manifest["disclosure"])
+        self.assertIn("answers ZERO register items", manifest["disclosure"])
+        self.assertEqual(tr.MAPPING_ID, manifest["mapping_id"])
+        self.assertEqual(
+            tr.SCENE_COMPOSITION_ID, manifest["scene_composition_id"]
+        )
+        self.assertTrue(manifest["repo_commit_at_generation"])
+        self.assertTrue(manifest["determinism"]["double_build_identical"])
+        self.assertLess(
+            manifest["sheet_dims"][0], tr.SCENE_MAX_SHEET_DIM
+        )
+        self.assertLess(
+            manifest["sheet_dims"][1], tr.SCENE_MAX_SHEET_DIM
+        )
+        for name in manifest["artifacts"]:
+            self.assertTrue(name.startswith("scene-exp-"), name)
+
+    def test_mapping_source_modules_unmodified(self) -> None:
+        live = tr.mapping_source_hashes()
+        pinned = self.manifest["mapping_source_sha256"]
+        self.assertEqual(sorted(tr.MAPPING_SOURCE_FILES), sorted(pinned))
+        for rel, digest in pinned.items():
+            self.assertEqual(
+                digest, live[rel],
+                f"{rel} differs from the scene manifest pin",
+            )
+
+    def test_span_equals_the_banked_v31_span_and_pins_hold(self) -> None:
+        manifest = self.manifest
+        banked = json.loads(
+            tr.RUNTIME_MANIFEST.read_text(encoding="utf-8")
+        )
+        self.assertEqual(banked["span_frames"], manifest["span_frames"])
+        self.assertTrue(manifest["span_equality"]["equal"])
+        self.assertEqual(
+            banked["source_track"]["sha256"],
+            manifest["source_track"]["sha256"],
+        )
+        self.assertEqual(
+            "20260826T175326Z_p1_42", manifest["intake"]["bundle_id"]
+        )
+        self.assertEqual("striker", manifest["subject"]["kit"])
+        view = manifest["window"]
+        self.assertEqual(0, view["origin_px"][0] % 32)
+        self.assertEqual(0, view["origin_px"][1] % 32)
+        self.assertEqual(0, view["width"] % 32)
+        self.assertEqual(0, view["height"] % 32)
+
+
 if __name__ == "__main__":
     unittest.main()
