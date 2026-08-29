@@ -13,6 +13,7 @@ pipeline on a tmpdir bundle including its typed STOP branches.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import sys
 import tempfile
@@ -263,22 +264,41 @@ class SceneReferenceLoader(unittest.TestCase):
         self.assertEqual([205, 198, 180], loaded["kit_body"]["rusher_hater"])
         self.assertEqual([205, 198, 180], loaded["default_body_rgb"])
 
-    def test_anchoring_bound_to_runtime_baseline_content_pin(self) -> None:
+    def test_anchoring_bound_to_the_frozen_v32_era_content_pin(self) -> None:
+        """The scene-reference manifest is a FROZEN v32-era banked input:
+        the v32 scene-exp manifest byte-pins this file and the standing
+        scene check recomposes the banked artifacts from it. Its anchoring
+        therefore binds to the renderer.rb content it was derived from
+        (sha below, at game ad7f6a1e5700481c0ed455970790e66d89501358) -
+        NOT to the live runtime-baseline pin, which moves with upstream
+        development (project MEMORY 2026-08-29; retarget precedent
+        d7294e9). Re-exposed live 2026-08-29 by game 81cf358, the FIRST
+        renderer content drift since v32 (a text-fallback noun rename;
+        20/20 render-reference constants intact, cited line spans
+        unshifted). Values stay cross-checked against the banked render
+        reference (test_production_reference_matches_render_reference +
+        _assert_scene_reference_consistent at every artifact check); the
+        file-level sha pin below is the v32 artifact manifest's own,
+        making this guard strictly stronger than the live coupling it
+        replaces."""
         manifest = json.loads(
             tr.SCENE_REFERENCE_FILE.read_text(encoding="utf-8")
         )
-        baseline = json.loads(
-            (REPO / "manifests" / "runtime-baseline.json").read_text(
-                encoding="utf-8"
-            )
+        self.assertEqual(
+            "45827b9a2f9ef473659a8353fcb9c9aa6eb7fccd73776e572572f7f383c5ac04",
+            manifest["anchoring"]["source_sha256_lf"],
         )
-        pin = next(
-            f["sha256_lf"] for f in baseline["source_files"]
-            if f["path"] == "src/app/renderer.rb"
-        )
-        self.assertEqual(pin, manifest["anchoring"]["source_sha256_lf"])
         self.assertEqual(
             "src/app/renderer.rb", manifest["anchoring"]["source_file"]
+        )
+        self.assertEqual(
+            "a013899f81edf22a26b58b2347f41e6bf103356e999f95dc98f06b0f57df8245",
+            hashlib.sha256(
+                tr.SCENE_REFERENCE_FILE.read_bytes()
+            ).hexdigest(),
+            "manifests/scene-reference.json: frozen v32-era banked input "
+            "no longer matches the v32 artifact-manifest pin "
+            "(banked-artifact integrity event - STOP, never self-repair)",
         )
 
     def test_missing_kit_body_refuses(self) -> None:
