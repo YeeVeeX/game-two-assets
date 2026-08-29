@@ -1,0 +1,99 @@
+{
+  "contract_version": 1,
+  "purpose": "Anchored zone palette for the RETHEMED district (descent floor -1, game 005eab3 line): all 14 palette keys copied VERBATIM from pinned data/zones/district.json. UNCONSUMED until a lane pins it (docs/zone-era-manifests.md L5): no banked artifact cites this file yet; the expected consumer class is the first runtime/scene recomposition lane over the rethemed district. Its standing consumer until then is tests/test_zone_eras.py, which re-derives these values from the pinned game bytes on every fast-gate run. Never a runtime fetch.",
+  "derived_at": "2026-08-29",
+  "anchoring": {
+    "game_commit": "d749458d4636a3352a1fbda3896d2f8dee28f5f1",
+    "source_file": "data/zones/district.json",
+    "source_sha256_lf": "2eb1723d48bfa2a40431dcd9ec6315486d96fd479447e721d09a5e1b6c61785a",
+    "binding": "content, never the live baseline pin: this anchoring stays valid under identity-only upstream re-pins and is guarded against the frozen shas above, not against runtime-baseline.json (docs/zone-era-manifests.md L3; project MEMORY 2026-08-29)",
+    "value_citations": {
+      "floor": "data/zones/district.json palette.floor",
+      "grid": "data/zones/district.json palette.grid",
+      "wall": "data/zones/district.json palette.wall",
+      "transition": "data/zones/district.json palette.transition",
+      "station_seal": "data/zones/district.json palette.station_seal",
+      "dirt": "data/zones/district.json palette.dirt",
+      "grass": "data/zones/district.json palette.grass",
+      "grass_b": "data/zones/district.json palette.grass_b",
+      "grass_c": "data/zones/district.json palette.grass_c",
+      "wood": "data/zones/district.json palette.wood",
+      "water": "data/zones/district.json palette.water",
+      "motif": "data/zones/district.json palette.motif",
+      "motif_rgb": "data/zones/district.json palette.motif_rgb",
+      "ambient_rgba": "data/zones/district.json palette.ambient_rgba"
+    },
+    "registration": "reviews/zone-era-v33/rationale.md"
+  },
+  "zones": {
+    "district": {
+      "floor": [
+        38,
+        30,
+        20
+      ],
+      "grid": [
+        48,
+        40,
+        28
+      ],
+      "wall": [
+        126,
+        96,
+        58
+      ],
+      "transition": [
+        235,
+        190,
+        90
+      ],
+      "station_seal": [
+        190,
+        140,
+        60
+      ],
+      "dirt": [
+        66,
+        52,
+        33
+      ],
+      "grass": [
+        52,
+        76,
+        40
+      ],
+      "grass_b": [
+        46,
+        68,
+        35
+      ],
+      "grass_c": [
+        58,
+        84,
+        46
+      ],
+      "wood": [
+        168,
+        126,
+        70
+      ],
+      "water": [
+        13,
+        17,
+        30
+      ],
+      "motif": "chip",
+      "motif_rgb": [
+        46,
+        38,
+        26
+      ],
+      "ambient_rgba": [
+        100,
+        120,
+        180,
+        8
+      ]
+    }
+  }
+}
