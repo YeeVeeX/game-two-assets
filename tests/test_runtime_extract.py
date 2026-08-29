@@ -241,19 +241,19 @@ class DistrictPaletteFile(unittest.TestCase):
             self.payload["zones"]["district"],
         )
 
-    def test_anchoring_is_bound_to_the_runtime_baseline_content_pin(self) -> None:
-        baseline = json.loads(
-            (REPO / "manifests" / "runtime-baseline.json").read_text(
-                encoding="utf-8"
-            )
-        )
-        pinned = {
-            entry["path"]: entry["sha256_lf"]
-            for entry in baseline["source_files"]
-        }
+    def test_anchoring_is_bound_to_the_frozen_v32_era_content_pin(self) -> None:
+        """The zone-palette manifest is a FROZEN v32-era banked input: the
+        v31/v32 artifact manifests byte-pin this file and the standing
+        checks recompose the banked artifacts from it. Its anchoring binds
+        to the district.json content it was derived from (sha below, at
+        game a2f6644697094eb76876d265035094eb6b858e6b) - NOT to the live
+        runtime-baseline pin, which moves with upstream zone development
+        (owner-ratified retarget, 2026-08-29: game 005eab3 rethemed ZONE 2
+        to descent floor -1, invalidating live-equality)."""
         anchoring = self.payload["anchoring"]
         self.assertEqual(
-            pinned["data/zones/district.json"], anchoring["source_sha256_lf"]
+            "9774cdd04ebaf6e1a429a1aceb26ca8b7ddd13f97f3086ff862d22ee305cd5f4",
+            anchoring["source_sha256_lf"],
         )
         self.assertEqual("data/zones/district.json", anchoring["source_file"])
         for key in tr.ZONE_ENTRY_KEYS:

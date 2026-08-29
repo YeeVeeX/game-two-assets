@@ -16,3 +16,14 @@ entry names its carrier (where the verbatim owner wording lives).
   banked evidence base (v0–v13) is measurement over banked bytes
   (readability, identity, grammar, timing) and is unaffected by the
   role reassignment; no banked verdict is re-opened by the redirect.
+- **2026-08-29** — upstream rethemed ZONE 2 to descent floor -1 (game
+  `005eab3`, Junior's v2b): pinned `data/zones/district.json` took
+  draw-value moves (floor/grid/wall/motif/ambient) plus geometry
+  replacement (26→88 rows) — the owner-review drift class. Owner
+  greenlit: re-pin the baseline; retarget the two anchoring guards
+  (zone-map, zone-palette) from live-baseline equality to the frozen
+  v32-era content pin; both district manifests stay FROZEN as v32-era
+  banked inputs (the v31/v32 artifact manifests byte-pin them). Era
+  design for new-zone scene manifests is parked as a v33 inheritance
+  note. No banked verdict re-opened. Carrier: the re-pin commit
+  message (this change-set).

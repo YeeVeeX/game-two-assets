@@ -193,20 +193,22 @@ class ZoneMapLoader(unittest.TestCase):
         self.assertEqual(32, zone_map["tile_size"])
         self.assertEqual([(0, 13), (42, 13)], zone_map["transition_tiles"])
 
-    def test_anchoring_bound_to_runtime_baseline_content_pin(self) -> None:
+    def test_anchoring_bound_to_the_frozen_v32_era_content_pin(self) -> None:
+        """The zone-map manifest is a FROZEN v32-era banked input: the v32
+        scene-exp manifest byte-pins this file and the standing scene check
+        recomposes the banked artifacts from it. Its anchoring therefore
+        binds to the district.json content it was derived from (sha below,
+        at game ad7f6a1e5700481c0ed455970790e66d89501358) - NOT to the live
+        runtime-baseline pin, which moves with upstream zone development
+        (owner-ratified retarget, 2026-08-29: game 005eab3 rethemed ZONE 2
+        to descent floor -1, invalidating live-equality)."""
         manifest = json.loads(
             tr.ZONE_MAP_DISTRICT.read_text(encoding="utf-8")
         )
-        baseline = json.loads(
-            (REPO / "manifests" / "runtime-baseline.json").read_text(
-                encoding="utf-8"
-            )
+        self.assertEqual(
+            "9774cdd04ebaf6e1a429a1aceb26ca8b7ddd13f97f3086ff862d22ee305cd5f4",
+            manifest["anchoring"]["source_sha256_lf"],
         )
-        pin = next(
-            f["sha256_lf"] for f in baseline["source_files"]
-            if f["path"] == "data/zones/district.json"
-        )
-        self.assertEqual(pin, manifest["anchoring"]["source_sha256_lf"])
         self.assertEqual(
             "data/zones/district.json", manifest["anchoring"]["source_file"]
         )

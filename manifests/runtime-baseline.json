@@ -3,7 +3,7 @@
   "captured_at": "2026-08-17",
   "game_repository": "game-two",
   "game_branch": "main",
-  "game_commit": "54b634cfbc006319b67a9ce58dc4a77c89f3ddef",
+  "game_commit": "2808a44d4f4acba47ac0f07371ed429853a62230",
   "view": {
     "width": 960,
     "height": 540
@@ -43,7 +43,7 @@
     },
     {
       "path": "data/zones/district.json",
-      "sha256_lf": "9774cdd04ebaf6e1a429a1aceb26ca8b7ddd13f97f3086ff862d22ee305cd5f4"
+      "sha256_lf": "2eb1723d48bfa2a40431dcd9ec6315486d96fd479447e721d09a5e1b6c61785a"
     }
   ]
 }
